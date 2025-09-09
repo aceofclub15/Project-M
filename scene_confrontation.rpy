@@ -3,15 +3,15 @@ label sc_confrontation:
     Morgan "I'm hotel security."
     Morgan "Just why were you trying to break into that room?!"
 
-    Agent Graham "Hotel security, huh?"
-    Agent Graham "Awfully stupid of you to confront me alone, don't you think?"
+    Graham "Hotel security, huh?"
+    Graham "Awfully stupid of you to confront me alone, don't you think?"
 
     Morgan "Don't push your luck, old man."
     Morgan "Just answer my question!"
 
-    Agent Graham "You have no idea what you've gotten yourself into, kid."
-    Agent Graham "But I'm afraid your interference ends here."
-    Agent Graham "{i}A pity, I never liked hurting women.{/i}"
+    Graham "You have no idea what you've gotten yourself into, kid."
+    Graham "But I'm afraid your interference ends here."
+    Graham "{i}A pity, I never liked hurting women.{/i}"
 
     Morgan "{i}What... what's going on...?"
     Morgan "{i}I can't feel my legs...{/i}"
