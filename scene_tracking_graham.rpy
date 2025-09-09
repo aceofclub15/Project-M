@@ -195,10 +195,30 @@ label sc_having_sex:
 
     Morgan "Of course I am."
 
-    jump Assassin_route_R5
+    jump sc_drink_potion
 
     return
+label sc_drink_potion:
+    Morgan "{i}I feel my senses leave me.{/i}"
+    Morgan "{i}It feels no different from being poisoned.{/i}"
+    Morgan "{i}The void is coming for me, dragging me down into the abyss...{/i}"
 
+    Grandmaster "Well, well, well. You really should've known better than to fall in love with someone crazy, Morgan."
+    Grandmaster "Getting together with an unrepentant murderer was only going to end one way, so..."
+    Grandmaster "Oh wait, you're actually recovering, never mind."
+
+    Sarah "(tearfully) Oh, thank God! Thank God you're okay!"
+
+    Morgan "I told you, didn't I? My life belongs to you, now."
+    Morgan "We'll be together, no matter what."
+
+    Sarah "Yeah. Yeah, we will be."
+
+    Morgan "Fall asleep in Sarah's arms."
+
+    jump sc_warehouse_trap
+
+    return
 
 
 label sc_remember_past:
@@ -228,12 +248,13 @@ label sc_morgan_past:
     Grandmaster "Humiliate them?"
     Grandmaster "You don't need the failures around you to drag you down any longer, child."
     Grandmaster "Together, you and I will build a wonderful life those losers will forever envy!"
-
+    "..."
     Morgan "{i}Those words were all I needed to hear to accept her offer.{/i}"
     Morgan "{i}And the Grandmaster proved true to her word.{/i}"
     Morgan "{i}She's given me a place to belong, a place where I no longer need to hide or sulk in shame.{/i}"
     Morgan "{i}And I will spend my whole life serving her, even if her only ask is that I follow my heart.{/i}"
 
-    Morgan "Time to fall asleep remembering the Grandmaster."
+    Morgan "{i} Time to fall asleep remembering the Grandmaster.{/i}"
+    jump sc_warehouse_trap
 
     return

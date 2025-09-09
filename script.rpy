@@ -3,15 +3,19 @@ default romance = False
 
 define Grandmaster = Character("Grandmaster", color="#e5ff00")
 define Morgan = Character("Morgan", color="#00ffb7")
+define Young_Morgan = Character("Young Morgan", color="#6ec1a9")
+
+
 define Sarah = Character("Sarah", color="#e94417")
 define Graham = Character("Graham", color="#e0991c")
-define June = Character("June", color="#9d00ff")
+define June = Character("June Davidson", color="#9d00ff")
 
 
 define Head_chef = Character("Head Chef",color="#fff")
 define Crew_member = Character("Crew member", color="#0044ff")
 define Agent = Character("Agent X", color = "#868686ff")
 define Adam = Character("Adam (Target)", color="#ff2f00")
+define Cop = Character("Police Officer", color ="#0044ff")
 
 
 label start:
