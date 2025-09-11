@@ -6,22 +6,34 @@ label sc_romance_climax:
     Morgan "{i}There's no move of his I can't foresee. No tactic of his I can't outmatch.{/i}"
 
     Morgan "Time to die, Graham! This is for Sarah!"
-
     Sarah "Goodbye, you sanctimonious old man. You won't be missed."
+
+    "Montage of Morgan fighting and defeating Graham."
+    show Morgan_default at right with moveinleft
+    hide Graham with dissolve
+
 
     Morgan "We did it... oh my God we did it, Sarah! We won!"
 
     Sarah "That's right! We won, my love! The world is ours!"
+    "They heard a voice from behind"
+    "{color=#9d00ff} You two did win. A shame I can't say that for myself. {/color}"
 
-    "{color=#9d00ff"} You two did win. A shame I can't say that for myself. {/color}"
-
-    Sarah "Huh? What are you talking about, June? Graham's dead, we're in the clear."
+    Sarah "Huh? What are you talking about, June?"
+    show Sarah at right with dissolve
+    show June at left with moveinleft
+    Sarah " Graham's dead, we're in the clear."
 
     June "It's the burdens of leadership, Sarah."
     June "I tried a gamble to get Graham out of hiding, and it let him straight to my headquarters."
     June "You were just a pawn in my plans, so nobody will care what happens to you."
     June "But as for me? You'll find that my clients are rather... unforgiving."
-
+    "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
+    "June collapsed"
+    show June:
+        rotate 270
+    with dissolve
+    show Sarah at center with moveinright
     Sarah "What? No, June, NO!"
 
     June "Let this be a lesson to you both. If you play with fire... you're going to get burned."
@@ -45,7 +57,6 @@ label sc_romance_climax:
     Morgan "{i}She won't meet the same end as her master.{/i}"
     Morgan "{i}We're both going to get our happy endings, whatever it takes.{/i}"
 
-    Morgan "{i}And so, I start my new life with Sarah. {/i}"
 
     jump sc_romance_ending
 
@@ -53,7 +64,11 @@ label sc_romance_climax:
 
 
 label sc_romance_ending:
-
+    scene Beach 
+    "transition, our couple is at the beach"
+    show Morgan_default at center
+    show Sarah at center
+    Morgan "{i}And so, I start my new life with Sarah. {/i}"
     Morgan "I must say, you have excellent taste in beachfront property."
 
     Sarah "(snuggles up to Morgan) Why thank you! I'm glad you finally listened to my infinite wisdom and stopped insisting on renting stuff all the time."

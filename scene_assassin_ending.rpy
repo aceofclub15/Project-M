@@ -11,23 +11,31 @@ label sc_assassin_climax:
     Graham "You really think you can take me alive? You think those two ladies will let you?!"
 
     Morgan "You're not a threat anymore. Time to meet the Grandmaster, asshole."
+    "Montage of Graham get jumped by Morgan"
+    show Morgan_default at right with moveinleft
 
-    "{color=#9d00ff"} No, you can't! {/color}"
+    "There is a loud voice from behind"
+    "{color=#9d00ff} No, you can't! {/color}"
 
 
     Morgan "What are you doing, June? I'm on your side!"
-
+    show June at left with moveinleft
     June "If you're on my side, you'll hand over Graham, right now!"
 
     Morgan "Huh? But why? I need to deliver her to my master!"
 
     Sarah "Do what June says, Morgan."
-
+    "Sarah points the gun at Morgan"
     Morgan "What the hell?! I can't just betray the—"
 
     June "Screw the Grandmaster! You already know she doesn't care what you do! Taking Graham to her's a waste of time, but if you hand him over to me, I can still fix—"
 
     # Sniper shot kills June
+    "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
+    "June collapsed"
+    show June:
+        rotate 270
+    with dissolve
     Sarah "June?!"
     Sarah "No! NOOO!"
 
@@ -47,21 +55,26 @@ label sc_assassin_climax:
     Graham "Clearly, she was mistaken."
 
     Sarah "And that means I have no reason to keep you alive."
+    "Sarah glares at Graham and shot him"
+    with Pause(0.3)
+    hide Graham with dissolve
 
     # Sarah shoots Graham
-    Morgan "{i}Killing Graham did nothing to soften Sarah's pain.{/i}"
+    "A few moments later... Sarah still wears a sorrow look on her face"
+    Morgan "{i}Seems like Graham did nothing to soften Sarah's pain.{/i}"
     Morgan "{i}I could see she was still broken, that perhaps she always would be.{/i}"
     Morgan "{i}But still, we'd been through so much together. I didn't want things to end like this.{/i}"
 
     Morgan "Sarah..."
 
-    Sarah "You need to leave, Morgan. Now."
+    Sarah "(looking hurt) You need to leave, Morgan. Now."
 
     Morgan "But..."
 
     Sarah "I know this wasn't your fault. I know that. But I'm still angry, and I need to take it out on someone."
     Sarah "Please don't let it be you, Morgan. Go away, for your own sake."
-
+    scene running
+    "transition to morgan pov running"
     Morgan "{i}And so I listen to her, and run.{/i}"
     Morgan "{i}My mission is over, and so is my partnership with Sarah.{/i}"
     Morgan "{i}It's time to go back to being an Enforcer, and wait for the Grandmaster's next orders.{/i}"
@@ -74,10 +87,11 @@ label sc_assassin_climax:
 label sc_assassin_ending:
 
     "Time skips forward by six months."
-
+    scene somewhere
     Morgan "{i}Life has a way of surprising you.{/i}"
     Morgan "{i}I never thought I'd see Sarah again after our messy journey together, but I guess it must be a small world after all.{/i}"
-
+    show Morgan_default at left
+    show Sarah at right
     Sarah "Morgan? What are you doing here?"
 
     Morgan "Just another heist for the Grandmaster, stealing some intel on a planned merger between LambdaCorp and HelixTech. What about you?"

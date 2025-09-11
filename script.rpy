@@ -26,14 +26,19 @@ label start:
 
 label sc_computer:
     scene black
+    #Remember to add NVL mode to this part or something
+    "Accessing personal info..."
     "Please choose your character's gender (choice won't affect gameplay)"
     menu:
         "Male":
             $ gender = "Male"
-            jump sc_mission_archive
+            "Male status confirmed."
+
         "Female":
             $ gender = "Female"
-            jump sc_mission_archive
+            "Female status confirmed."
+
+    jump sc_mission_archive
     return
 
 
@@ -73,12 +78,14 @@ label sc_hotel_entrance:
             jump sc_guest_list
 
     return
+
 label sc_emergency:
     show bg emergency_room
     hide Morgan_default
     Morgan "Attention everyone! This is Officer Morgan of the FBI! I\'m declaring a terroristic threat at the Charleston!" 
     Morgan "I need everyone to please-No wait, wait, don\'t escort me out, NOOOO!"
 
+    scene black
     "..."
     Grandmaster "You made a terrible judgment call, Morgan." 
     Grandmaster "By attracting undue attention to yourself, you\'ve ensured that
@@ -96,14 +103,20 @@ label sc_guest_list:
     Morgan "{i}That's right, I need to do this discreetly. If I get too many eyes on me, this mission's already a failure.{/i}"
 
     Morgan "Hi, excuse me! I'm Hendricks, from logistics. I just need to cross-check the guest list and make sure there are no empty tables at the 2nd Conference Hall. You know how the bosses are about wasted money."
-
+    show Morgan_default at left with moveinright
+    show Crew_member at right with moveinright
     Crew_member "Oh, I do, believe me. Here, take this flash drive. It should have everything you need to know about the Extranet conference."
 
     Morgan "Oh thank you, you're a lifesaver!"
 
     Morgan "{i}Now, time to plug in the drive and see.{/i}"
+    hide Crew_member with fade
+    show Morgan_default at center with moveinleft
 
-    Morgan "{i}It's as I suspected. This list has been tampered with. There's at least one person who isn't supposed to be here, but I'll need to do a bit of recon to pinpoint who they are. Oh, and it seems as though a lot of the guests are getting warmed up at the lounges before the conference begins. Best head over there.{/i}"
+    Morgan "{i}It's as I suspected. This list has been tampered with. {/i}"
+    Morgan "{i} There's at least one person who isn't supposed to be here, but I'll need to do a bit of recon to pinpoint who they are. {/i}" 
+    Morgan "{i} Oh, and it seems as though a lot of the guests are getting warmed up at the lounges before the conference begins. {/i}"
+    Morgan "{i} Best head over there.{/i}"
 
     Morgan "{i}Yes, I recognize a bunch of people on the guest list here, but nothing out of the ordinary so far. If I just...wait a minute!{/i}"
 
@@ -121,21 +134,37 @@ label sc_guest_list:
     return
 
 
-
-
 label sc_observation:
     Morgan "Right, I have to be discreet. Can't go picking fights the first chance I get."
     Morgan "I'll just activate my thermoptic implant and set the DataReader to record. Now, Graham, time for you to spill the beans."
+    hide Morgan_default with fade
+    show Graham at left
+    show Agent X:
+        xalign 0.7
+        yalign 0.9
+        zoom 0.7
     Agent "Hey, who the hell are you? This room's closed!"
     Graham "Not anymore."
-    "{color=#ff0000} I've infiltrated the conference room. Looking for a disguise now. {/color}"
+    "some cool montage of Graham fight and defeat Agent X"
+    hide Agent X with fade
+    show Graham at center with moveinleft
+
+    Graham "Hmph. Finally done. Now, let see what we have here..."
+    "{color=#ff0000} ~Calling Agent X. Agent S reporting...~{/color}"
+    "{color=#ff0000} ~I've infiltrated the conference room. Looking for a disguise now.~{/color}"
+    show Graham:
+        zoom 0.6
+        xalign 0.8
+        yalign 0.8
+    with dissolve
+    show Morgan_default at left with moveinleft
     Morgan "{i} Looks like the assassin's a woman, and she's pretty close to getting ready for the job. I need to make my way to the location ASAP! {/i}"
     Morgan "{i} But first, let me just hack Graham's phone. {/i}"
     Morgan "{i} The encryption on his phone's real strong, so I doubt I could trace it, but I can still call him if I decide to side with him. {/i}"
     Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here, but I WILL make"
     Graham "Sarah will pay for what she's done!"
-    Morgan "Those are some juicy details, but I really need to go now. I'm running out of time, and the moment of truth will soon be upon me."
-    Morgan "If the killer is a woman, how can I narrow things down? How would an assassin infiltrate this place?"
+    Morgan "{i}Those are some juicy details, but I really need to go now. I'm running out of time, and the moment of truth will soon be upon me. {/i}"
+    Morgan "{i}If the killer is a woman, how can I narrow things down? How would an assassin infiltrate this place? {/i}"
     menu:
         "She might kill and replace someone":
             jump sc_sarah_kill
@@ -144,11 +173,18 @@ label sc_observation:
     return
 
 
+
+
+
 label sc_sarah_kill:
+    scene black
+    show bg hotel_entrance
+    show Morgan_default at center
     Morgan "{i}She'll probably kill someone for the sake of a disguise.{/i}"
     Morgan "{i}But who?{/i}"
     Morgan "{i}Can I catch her in the act if I'm fast enough, or...?{/i}"
 
+    "Morgan see Sarah sneakily approaching a person"
     Morgan "{i}Guess that answers my question.{/i}"
     Morgan "{i}Time to go.{/i}"
 
@@ -156,30 +192,63 @@ label sc_sarah_kill:
     return
 
 label sc_sarah_impersonate:
+    scene black
+    show bg hotel_entrance
+    show Morgan_default at center
     Morgan "{i}She'll probably wear a disguise that gives her a lot of access, like a service staff member.{/i}"
     Morgan "{i}But where could she get such a disguise?{/i}"
     Morgan "{i}If she...{/i}"
 
+    "Morgan see Sarah atacking a person"
     Morgan "{i}Shit, she's already making her move!{/i}"
     Morgan "{i}I need to act, now!{/i}"
     jump sc_sarah_attacking
     return
 
 label sc_sarah_attacking:
+    scene black
+    show bg hotel_entrance
+    show Staff:
+        xalign 0.7
+    with Pause(0.5)
+    show Sarah:
+        xalign 0.5
+        zoom 1.3
+    with moveinleft
+
+    
     Sarah "You're not my target, darling, but you are quite the appetizer."
+    show Staff:
+        rotate 90
+        xalign 0.8
+        yoffset 400
+        zoom 0.5
+
     Sarah "Regardless of how the mission goes, I still get to see the light go out of your eyes."
     Sarah "Thank you for that."
 
+
+
     Morgan "{i}So that's Sarah's disguise.{/i}"
     Morgan "{i}She's going to play as a waiter, probably deliver some poison straight into Rourke's thirsty mouth.{/i}"
+    
 
+    scene black
+    show bg hotel_entrance with dissolve
+    show Chef at left
+    with Pause(0.5)
+    show Sarah at right with moveinright
     Head_chef "Order up! We have a gin martini for Mr. Roarke, on the double!"
 
     Sarah "Of course, ma'am. Right on it!"
 
+    with Pause(0.5)
+    hide Chef
+    show Morgan_default at left with moveinleft
     Morgan "{i}This is it, moment of truth.{/i}"
     Morgan "{i}The Grandmaster told me to make things interesting, but how am I going to do that now?{/i}"
     Morgan "{i}Whatever choice I make, there's no going back.{/i}"
+
 
     menu:
         "Approach Sarah after she delivers the drink":
@@ -190,6 +259,11 @@ label sc_sarah_attacking:
         "Snatch up the drink and gulp it down":
             jump sc_drink_poison
     return
+
+
+
+
+
 
 
 label sc_drink_poison:

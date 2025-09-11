@@ -1,9 +1,12 @@
 label sc_track_graham:
-
+    scene somewhere
+    "the next day? some time has passed? I'm not sure here."
+    show Morgan_default at center with moveinbottom
     Morgan "{i}Sarah's handlers are really good.{/i}"
     Morgan "{i}It didn't take long for the bigshots at Davidson Solutions to uncover Graham's hideout, though sadly his exact whereabouts are unknown.{/i}"
     Morgan "{i}Still, this is a good spot for an ambush if he does return, not to mention that we may be able to track his next movements if we're smart enough.{/i}"
-
+    show Morgan_default at left with moveinright
+    show Sarah at right with moveinright
     Sarah "Find anything?"
 
     Morgan "Nothing about his next move."
@@ -150,6 +153,7 @@ label sc_ask_date:
     return
 
 label sc_motel:
+    "Scene transition, some montage of them dating"
     Morgan "{i}I really bet on the right horse while siding with Sarah.{/i}"
     Morgan "{i}I'm loving every second of this.{/i}"
 
@@ -157,6 +161,7 @@ label sc_motel:
 
     Morgan "(kisses Sarah's hand) Indeed. After you, darling."
 
+    "Scene transition. They go back to Sarah's place"
     Morgan "I'm happy."
 
     Sarah "So am I, honey. So am I."
@@ -199,14 +204,24 @@ label sc_having_sex:
 
     return
 label sc_drink_potion:
+    scene somewhere
+    show Morgan_default at center
     Morgan "{i}I feel my senses leave me.{/i}"
+    show DrK:
+        xalign 0.5
+        yalign 0.25
+        zoom 0.5
+    with fade
     Morgan "{i}It feels no different from being poisoned.{/i}"
     Morgan "{i}The void is coming for me, dragging me down into the abyss...{/i}"
+    hide DrK with dissolve
 
     Grandmaster "Well, well, well. You really should've known better than to fall in love with someone crazy, Morgan."
     Grandmaster "Getting together with an unrepentant murderer was only going to end one way, so..."
+    with Pause(0.5)
     Grandmaster "Oh wait, you're actually recovering, never mind."
-
+    show Morgan_default at left with moveinright
+    show Sarah at right with moveinright
     Sarah "(tearfully) Oh, thank God! Thank God you're okay!"
 
     Morgan "I told you, didn't I? My life belongs to you, now."
@@ -222,6 +237,8 @@ label sc_drink_potion:
 
 
 label sc_remember_past:
+    hide Sarah with dissolve
+    hide Morgan_default with dissolve
     Morgan "{i}There isn't a lot to piece together about Graham beyond what me and Sarah have already dug up.{/i}"
     Morgan "{i}I guess if we want answers, we'll just have to get them from the man himself.{/i}"
 
@@ -234,13 +251,14 @@ label sc_remember_past:
     return
 
 label sc_morgan_past:
+    "Flashback time. (I don't know what to do here)"
+    show Young_Morgan at left
     Young_Morgan "Go away. I don't need your pity."
-
+    show GrandMaster at right
     Grandmaster "Then consider yourself fortunate that I have none to offer."
     Grandmaster "I came to you because I see potential."
     Grandmaster "If you want to change your circumstances, you can come with me."
     Grandmaster "If you refuse, I'll leave."
-
     Young_Morgan "Potential? What potential could a wretch like me possibly have?!"
     Young_Morgan "Everyone around me thinks I'm nothing!"
 
@@ -249,6 +267,8 @@ label sc_morgan_past:
     Grandmaster "You don't need the failures around you to drag you down any longer, child."
     Grandmaster "Together, you and I will build a wonderful life those losers will forever envy!"
     "..."
+    scene CurrentTime
+    "transition. go back to current time"
     Morgan "{i}Those words were all I needed to hear to accept her offer.{/i}"
     Morgan "{i}And the Grandmaster proved true to her word.{/i}"
     Morgan "{i}She's given me a place to belong, a place where I no longer need to hide or sulk in shame.{/i}"

@@ -1,17 +1,23 @@
 label sc_confrontation:
+
     Morgan "Hey! Hey, you!"
     Morgan "I'm hotel security."
     Morgan "Just why were you trying to break into that room?!"
+    show Morgan_default at left with moveinright
+    show Graham at right with moveinbottom
+
 
     Graham "Hotel security, huh?"
     Graham "Awfully stupid of you to confront me alone, don't you think?"
+
 
     Morgan "Don't push your luck, old man."
     Morgan "Just answer my question!"
 
     Graham "You have no idea what you've gotten yourself into, kid."
     Graham "But I'm afraid your interference ends here."
-    Graham "{i}A pity, I never liked hurting women.{/i}"
+    if gender == "Female":
+        Graham "A pity, I never liked hurting women."
 
     Morgan "{i}What... what's going on...?"
     Morgan "{i}I can't feel my legs...{/i}"
@@ -30,7 +36,7 @@ label sc_confrontation:
     Grandmaster "{i}Do better next time.{/i}"
 
     "..."
-    "Press R to skip seen dialogs"
+    hide Graham
     jump sc_guest_list
 
     return

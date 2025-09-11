@@ -3,9 +3,34 @@ label sc_target_poisoned:
     Morgan "{i}And I can't deny there's a certain thrill to being a villain here.{/i}"
     Morgan "{i}Alright, Sarah, show me what you've got.{/i}"
 
+    scene black
+    show bg hotel_entrance
+    show Adam:
+        xalign 0.7
+    with moveinbottom
+    with Pause(0.2)
+    show Sarah:
+        xalign 0.5
+        zoom 1.3
+    with moveinleft
+
     Sarah "Your order, sir."
     Adam "Yes, thanks."
 
+    "Some montage of Adam gulping down the drink and Sarah gracefully left the dining area"
+    "..."
+    scene black
+    show bg hotel_entrance
+
+    "Some montage of Morgan approaching Sarah"
+    show Sarah:
+        xalign 0.7
+    with moveinbottom
+    with Pause(0.2)
+    show Morgan_default:
+        xalign 0.5
+        zoom 1.3
+    with moveinleft
     Morgan "Evening ma'am, mind if I have a word?"
 
     Sarah "I'm sorry, can I help you with something?"
@@ -28,10 +53,14 @@ label sc_target_poisoned:
     Morgan "Looks like things are escalating."
     Morgan "What's your decision, Sarah?"
 
-    Sarah "Fine. Send me the coordinates, quickly."
+    Sarah "Fine. Give me the coordinates, quickly."
 
-    Morgan "You can. Now go, quickly."
-
+    Morgan "Here (give her a coordinates on a paper). Now go, quickly!"
+    with Pause(0.5)
+    scene black 
+    show hologram_GM:
+        xalign 0.5
+        yalign 0.5
     Grandmaster "So you've chosen the path of murder, have you?"
     Grandmaster "Well, I just wanted to let you know that Adam's death has been confirmed and Sarah's arrived at the rendezvous point, safe and sound."
     Grandmaster "I've also given her your contact information."
@@ -50,11 +79,15 @@ label sc_target_poisoned:
 
 
 label sc_next_day:
-    Morgan "{i}I received a message from Sarah the next day, telling me to meet her, alone, at a deserted shooting range.{/i}"
+    scene metting area
+    "..."
+    "Some time have passed"
+    show Morgan_default at center with moveinleft
+    Morgan "{i}I received a message from Sarah, telling me to meet her, alone, at a deserted shooting range.{/i}"
     Morgan "{i}Being asked to come alone is already a red flag, but I did willingly choose the path of danger, after all.{/i}"
-
+    "Morgan wait for a few moments"
     Morgan "Hello, Sarah. Looks like you made it out of the last job safely."
-
+    show Sarah at right with moveinright
     Sarah "I did. You were true to your word."
     Sarah "I still don't know why you helped me, though."
 
@@ -89,14 +122,15 @@ label sc_next_day:
 
 label sc_random_shot:
     Morgan "{i}Guess I'll just spray and pray and hope for the best.{/i}"
-
+    "some montage of shots ricocheting but missed"
     Morgan "{i}As I thought, this challenge was impossible.{/i}"
     Morgan "{i}Guess I'll-URK!{/i}"
 
     Sarah "How disappointing."
     Sarah "I really hoped you'd be a worthy ally, but it turns out I was just wasting my time with you."
     Sarah "At least I'll get some satisfaction from taking your life with my own two hands."
-
+    scene meeting with Fade(0.1, 0.0, 0.5, color="#fff")
+    "..."
     Grandmaster "You can't expect anyone else to believe in you if you don't believe in yourself."
     Grandmaster "And when you're working with bona fide murderers, such a lack of confidence can be fatal."
     Grandmaster "Try again."
@@ -112,7 +146,7 @@ label sc_timimg_shot:
     Morgan "{i}Then the one on the right.{/i}"
     Morgan "{i}Then the one above me.{/i}"
     Morgan "{i}If I get the angles right, I'll have triangulated my way to a bullseye.{/i}"
-
+    "Some montage of incredible timming or something that help the shots land correctly (I don't know, ask Mers lol)"
     Sarah "Wow, you actually did it."
     Sarah "This is amazing!"
 
@@ -152,6 +186,7 @@ label sc_stay_professional:
 label sc_kiss_sarah:
     $ romance = True
 
+    "some montage of Morgan kissing Sarah {i}passionately{/i}"
     Morgan "{i}Yes, this is what I want.{/i}"
     Morgan "{i}I want her, all of her.{/i}"
     Morgan "{i}And now I can finally have her.{/i}"
