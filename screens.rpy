@@ -286,6 +286,17 @@ style quick_button_text:
 ##
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
+init python:
+    class start_with_sound(Action):
+        def __init__(self, audio, pause_time = 0):
+            self.audio = audio
+            self.pause_time = pause_time
+
+        def __call__(self):
+            renpy.play(self.audio)
+            return Start()
+
+
 
 screen navigation():
 
@@ -299,7 +310,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Start") action start_with_sound("menu_play.wav",1)
 
         else:
 

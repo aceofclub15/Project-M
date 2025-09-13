@@ -1,8 +1,40 @@
-﻿default gender = ""
+﻿
+#SOUNDS SETTINGS
+init python:
+
+
+    print(renpy.music.channel_defined("background"))
+    renpy.music.register_channel("background")
+    
+
+    def typing_sound(event, interact=True, **kwargs):
+        if event == "show":  # When textbox is shown
+            what = renpy.store._last_say_what # This grabs the text that was most recently spoken on-screen
+            if what:
+                sound_count = len(what)
+            else:
+                sound_count = 5
+
+            for _ in range(sound_count): # This creates a sound queue based on how many characters are in the dialogue block
+                randosound = renpy.random.randint(1,2) # This generates a random number between 1 and 11 inclusive. Change this based on how many sound files you have
+                renpy.sound.queue(f"click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) # Change "popcat" to the name of your sound file
+
+        elif event == "end" or event == "slow_done":
+            renpy.sound.stop(channel="sound",fadeout=0.05) # This stops the text sounds if there is a pause in the dialogue or the text has finished displaying
+
+            randosound = renpy.random.randint(1, 11) # This generates a random number between 1 and 11 inclusive. Change this based on how many sound files you have
+            renpy.sound.play(f"click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) # This plays one final uninterrupted sound at the end of the dialogue block
+
+
+
+
+
+
+default gender = ""
 default romance = False
 
-define Grandmaster = Character("Grandmaster", color="#e5ff00")
-define Morgan = Character("Morgan", color="#00ffb7")
+define Grandmaster = Character("Grandmaster", color="#e5ff00", callback=typing_sound)
+define Morgan = Character("Morgan", color="#00ffb7", callback=typing_sound)
 define Young_Morgan = Character("Young Morgan", color="#6ec1a9")
 
 
@@ -13,12 +45,13 @@ define June = Character("June Davidson", color="#9d00ff")
 
 define Head_chef = Character("Head Chef",color="#fff")
 define Crew_member = Character("Crew member", color="#0044ff")
-define Agent = Character("Agent X", color = "#868686ff")
+define Agent_X = Character("Agent X", color = "#868686ff")
 define Adam = Character("Adam (Target)", color="#ff2f00")
 define Cop = Character("Police Officer", color ="#0044ff")
 
 
 label start:
+    with Pause(0.5)
     jump sc_computer
     return
 
@@ -26,6 +59,12 @@ label start:
 
 label sc_computer:
     scene black
+
+    $ print(renpy.music.channel_defined("background"))
+
+    $ renpy.music.queue("bg.wav",channel="background",loop=True, relative_volume=0.7)
+    $ print(renpy.music.channel_defined("background"))
+
     #Remember to add NVL mode to this part or something
     "Accessing personal info..."
     "Please choose your character's gender (choice won't affect gameplay)"
@@ -139,14 +178,14 @@ label sc_observation:
     Morgan "I'll just activate my thermoptic implant and set the DataReader to record. Now, Graham, time for you to spill the beans."
     hide Morgan_default with fade
     show Graham at left
-    show Agent X:
+    show Agent_X:
         xalign 0.7
         yalign 0.9
         zoom 0.7
-    Agent "Hey, who the hell are you? This room's closed!"
+    Agent_X "Hey, who the hell are you? This room's closed!"
     Graham "Not anymore."
     "some cool montage of Graham fight and defeat Agent X"
-    hide Agent X with fade
+    hide Agent_X with fade
     show Graham at center with moveinleft
 
     Graham "Hmph. Finally done. Now, let see what we have here..."

@@ -63,7 +63,7 @@ label sc_bluff_cops:
 
     Morgan "There's not enough time for anything else, Sarah! Just trust me, alright?"
     "Some cops show up"
-    show Cop at right with moveinright
+    show Cops at right with moveinright
     Cop "Right, this was the location the tip gave us. And look what we have here."
     Morgan "Officer, look, I can explain, just—"
 
