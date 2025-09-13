@@ -89,7 +89,7 @@ label sc_mission_archive:
         yalign 0.5
 
 
-    "heheheh"
+    "heheheheeeeee"
     Grandmaster "How are you feeling, Enforcer XIII?"
     Morgan "I'm feeling as ready as I'll ever be."
     Grandmaster "Good, because time is of the essence. The assassin should've already infiltrated the hotel."
