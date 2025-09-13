@@ -119,5 +119,6 @@ label sc_assassin_ending:
     Sarah "Until next time, then. Don't be a stranger."
 
     "Assassin Route Good Ending (Normal) achieved"
+    $ persistent.assassin_ending = True
 
     return

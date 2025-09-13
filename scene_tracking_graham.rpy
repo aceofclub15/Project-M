@@ -1,6 +1,6 @@
 label sc_track_graham:
     scene somewhere
-    "the next day? some time has passed? I'm not sure here."
+    "Morgan and Sarah ransack Graham's apartment, dressed in black coveralls."
     show Morgan_default at center with moveinbottom
     Morgan "{i}Sarah's handlers are really good.{/i}"
     Morgan "{i}It didn't take long for the bigshots at Davidson Solutions to uncover Graham's hideout, though sadly his exact whereabouts are unknown.{/i}"
@@ -66,36 +66,9 @@ label sc_track_graham:
         jump sc_separate_way
     return
 
-label sc_separate_way:
-    Morgan "It looks like we're done here. Time to go our separate ways and prep."
 
-    Sarah "Yeah, I suppose so."
-    Sarah "But Morgan, you're a natural at this."
-    Sarah "I really wish you'd found your way to our organization sooner."
 
-    Morgan "I don't exactly disagree, but the Grandmaster has made good use of my talents so far."
-    Morgan "I've had a pretty fortunate life already."
-
-    Sarah "(smiles) I know you have."
-    Sarah "And I owe Ouroboros a huge debt of gratitude for the help they've given me."
-    Sarah "I'm just saying, if you truly commit to being an assassin like I am, you'll be unstoppable!"
-
-    Morgan "I have crossed a number of lines already, but this is a big decision."
-    Morgan "I'll have to think about it."
-
-    Sarah "Of course, Morgan, I don't mean to rush you."
-    Sarah "I'm just putting all the cards on the table."
-    Sarah "And in any case, you've already proven yourself to me."
-    Sarah "Whoever I decide to kill next, it most assuredly won't be you."
-
-    Morgan "Well, I'm happy to hear that."
-    Morgan "Shall we go, then?"
-
-    Sarah "Indeed. Looking forward to tomorrow, partner."
-
-    jump sc_remember_past
-
-    return
+#ROMANCE TIME
 
 label sc_ask_date:
     Morgan "Do you want to take this chance to just... be with me for a while?"
@@ -203,6 +176,8 @@ label sc_having_sex:
     jump sc_drink_potion
 
     return
+
+
 label sc_drink_potion:
     scene somewhere
     show Morgan_default at center
@@ -236,12 +211,50 @@ label sc_drink_potion:
     return
 
 
+
+
+
+
+#Professional have standars
+
+label sc_separate_way:
+    Morgan "It looks like we're done here. Time to go our separate ways and prep."
+
+    Sarah "Yeah, I suppose so."
+    Sarah "But Morgan, you're a natural at this."
+    Sarah "I really wish you'd found your way to our organization sooner."
+
+    Morgan "I don't exactly disagree, but the Grandmaster has made good use of my talents so far."
+    Morgan "I've had a pretty fortunate life already."
+
+    Sarah "(smiles) I know you have."
+    Sarah "And I owe Ouroboros a huge debt of gratitude for the help they've given me."
+    Sarah "I'm just saying, if you truly commit to being an assassin like I am, you'll be unstoppable!"
+
+    Morgan "I have crossed a number of lines already, but this is a big decision."
+    Morgan "I'll have to think about it."
+
+    Sarah "Of course, Morgan, I don't mean to rush you."
+    Sarah "I'm just putting all the cards on the table."
+    Sarah "And in any case, you've already proven yourself to me."
+    Sarah "Whoever I decide to kill next, it most assuredly won't be you."
+
+    Morgan "Well, I'm happy to hear that."
+    Morgan "Shall we go, then?"
+
+    Sarah "Indeed. Looking forward to tomorrow, partner."
+
+    jump sc_remember_past
+
+    return
+
 label sc_remember_past:
     hide Sarah with dissolve
     hide Morgan_default with dissolve
     Morgan "{i}There isn't a lot to piece together about Graham beyond what me and Sarah have already dug up.{/i}"
     Morgan "{i}I guess if we want answers, we'll just have to get them from the man himself.{/i}"
 
+    "Morgan looks at the photo of GM and let his mind wanders"
     Morgan "{i}Is this truly the path you wanted me to take, Grandmaster?{/i}"
     Morgan "{i}I owe everything to you, and the last thing I want to do is let you down.{/i}"
     Morgan "{i}The unwavering faith you have in me has been so heartwarming, but it's also terrifying.{/i}"

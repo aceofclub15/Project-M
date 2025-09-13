@@ -22,7 +22,7 @@ label sc_target_poisoned:
     scene black
     show bg hotel_entrance
 
-    "Some montage of Morgan approaching Sarah"
+    "As Sarah leaves Rourke's table, Morgan approaches her."
     show Sarah:
         xalign 0.7
     with moveinbottom
@@ -34,36 +34,42 @@ label sc_target_poisoned:
     Morgan "Evening ma'am, mind if I have a word?"
 
     Sarah "I'm sorry, can I help you with something?"
-
+    "Morgan leans into Sarah's ear."
     Morgan "Listen carefully and keep cool."
     Morgan "You're being followed."
     Morgan "Someone's come here to apprehend you."
-
+    
+    "Sarah's voice hardens."
     Sarah "What? How do you know this?!"
 
-    Morgan "Does the name Graham ring a bell?"
+    Morgan "Does the name Graham ring a bell?  I have a recording of him knocking out your handler at the lounge."
 
     Sarah "Shit, if he's the one who found me, I'm in serious trouble."
     Sarah "I don't exactly trust you right now, but I can't risk ignoring this."
     Sarah "Do you have anything else for me?"
 
     Morgan "Indeed. I have an alternate extraction route, prepped and ready at the behest of my master."
-    Morgan "That should throw Graham off your trail, and we can rendezvous and discuss next steps later."
+    Morgan "That should throw Graham off your trail, and we can rendezvous sometime later."
 
-    Morgan "Looks like things are escalating."
+    "Rourke convulses under the effect of the poison as he's hastily ushered out."
+    Morgan "Looks like things are escalating. What's your decision, Sarah?"
     Morgan "What's your decision, Sarah?"
 
     Sarah "Fine. Give me the coordinates, quickly."
 
-    Morgan "Here (give her a coordinates on a paper). Now go, quickly!"
+    "Morgan beams the new extraction coordinates."
+    Sarah "I got them. I hope I can trust you."
+    Morgan "Now go, quickly!"
+    
     with Pause(0.5)
     scene black 
+    "Sarah and Morgan part ways. After that, the Grandmaster calls Morgan."
     show hologram_GM:
         xalign 0.5
         yalign 0.5
-    Grandmaster "So you've chosen the path of murder, have you?"
-    Grandmaster "Well, I just wanted to let you know that Adam's death has been confirmed and Sarah's arrived at the rendezvous point, safe and sound."
-    Grandmaster "I've also given her your contact information."
+    Grandmaster "So you've chosen to aid and abet a murderer, have you?"
+    Grandmaster "Well, I just wanted to let you know that Adam's death has been confirmed and Sarah's arrived at the exfil point, safe and sound."
+    Grandmaster "I've also given her your contact information and told her to contact you tomorrow."
     Grandmaster "Time for you to see this through the end."
 
     Morgan "Thank you, Grandmaster. I promise I won't disappoint."
@@ -83,9 +89,11 @@ label sc_next_day:
     "..."
     "Some time have passed"
     show Morgan_default at center with moveinleft
+    
     Morgan "{i}I received a message from Sarah, telling me to meet her, alone, at a deserted shooting range.{/i}"
     Morgan "{i}Being asked to come alone is already a red flag, but I did willingly choose the path of danger, after all.{/i}"
-    "Morgan wait for a few moments"
+    "Morgan gets into a car and drives to the shooting range."
+    "Morgan arrived and wait for a few moments"
     Morgan "Hello, Sarah. Looks like you made it out of the last job safely."
     show Sarah at right with moveinright
     Sarah "I did. You were true to your word."
@@ -134,6 +142,7 @@ label sc_random_shot:
     Grandmaster "You can't expect anyone else to believe in you if you don't believe in yourself."
     Grandmaster "And when you're working with bona fide murderers, such a lack of confidence can be fatal."
     Grandmaster "Try again."
+    "GAME OVER"
 
     jump sc_next_day
     return
@@ -151,7 +160,7 @@ label sc_timimg_shot:
     Sarah "This is amazing!"
 
     Morgan "Now am I good enough for you?"
-
+    "Sarah blushes"
     Sarah "You are... if you want to be, that is."
 
     Morgan "{i}That's quite the invitation in her eyes.{/i}"
@@ -168,7 +177,7 @@ label sc_timimg_shot:
 label sc_stay_professional:
     Morgan "I'm afraid I'm not the kinda person to mix business with pleasure."
     Morgan "Sorry, Sarah."
-
+    "Sarah looks disappointed for a bit before quickly composing herself."
     Sarah "So we're keeping this professional, then."
     Sarah "I can respect that."
     Sarah "Besides, we might be better off if we can fully focus on the next task at hand."
@@ -185,8 +194,9 @@ label sc_stay_professional:
 
 label sc_kiss_sarah:
     $ romance = True
-
+    "Morgan and Sarah kiss with their arms wrapped around each other."
     "some montage of Morgan kissing Sarah {i}passionately{/i}"
+    
     Morgan "{i}Yes, this is what I want.{/i}"
     Morgan "{i}I want her, all of her.{/i}"
     Morgan "{i}And now I can finally have her.{/i}"

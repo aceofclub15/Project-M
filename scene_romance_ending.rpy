@@ -98,5 +98,6 @@ label sc_romance_ending:
 
     # Ending achieved
     "Assassin Route Good Ending (Romance) achieved"
+    $ persistent.romance_ending = True
 
     return

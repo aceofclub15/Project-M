@@ -10,15 +10,20 @@ image June = "june.png"
 image Graham = "graham.png"
 image Young_Morgan = "images/morgan/morgan_default.png"
 image Grandmaster = "gm.png"
+image Grandmaster = "gm.png"
+image Marcus = "staff.png"
 
 image Chef = "chef.png"
 image Cops = "cops.png"
 image Adam = "adam.png"
 image Agent_X = "agent_x.png"
 
+
 image Crew_member = "crew.png"
 image Sarah = "sarah.png"
 image Staff = "staff.png"
+image Bartender = "staff.png"
+
 
 
 

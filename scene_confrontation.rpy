@@ -7,18 +7,19 @@ label sc_confrontation:
     show Graham at right with moveinbottom
 
 
-    Graham "Hotel security, huh?"
-    Graham "Awfully stupid of you to confront me alone, don't you think?"
+    Graham "(smiles viciously) Hotel security, huh?"
+    Graham "Awfully stupid of you to confront me without any backup, don't you think?"
 
 
     Morgan "Don't push your luck, old man."
     Morgan "Just answer my question!"
+    "Graham shrugs"
 
     Graham "You have no idea what you've gotten yourself into, kid."
     Graham "But I'm afraid your interference ends here."
     if gender == "Female":
         Graham "A pity, I never liked hurting women."
-
+    "Graham dashes up to Morgan and injects Morgan with something before Morgan can react."
     Morgan "{i}What... what's going on...?"
     Morgan "{i}I can't feel my legs...{/i}"
     Morgan "{i}My mind is fading...{/i}"
