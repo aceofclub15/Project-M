@@ -216,6 +216,7 @@ style choice_vbox is vbox
 style choice_button is button
 style choice_button_text is button_text
 
+
 style choice_vbox:
     xalign 0.5
     ypos 405
@@ -235,6 +236,9 @@ style choice_button_text is default:
 ## The quick menu is displayed in-game to provide easy access to the out-of-
 ## game menus.
 
+
+
+
 screen quick_menu():
 
     ## Ensure this appears on top of other screens.
@@ -246,14 +250,61 @@ screen quick_menu():
             style_prefix "quick"
             style "quick_menu"
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+
+            
+            if renpy.get_screen("button_tutorial") and dialogs_nav_focus:
+                textbutton _("Back") action Rollback()  style "foo"
+            else:
+                textbutton _("Back") action Rollback() 
+
+            if renpy.get_screen("button_tutorial") and dialogs_nav_focus:
+                textbutton _("Skip") action Skip(fast = False) style "foo"
+            else:
+                textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+
+
+            if renpy.get_screen("button_tutorial") and dialogs_nav_focus:
+                textbutton _("Auto") action Preference("auto-forward", "toggle") style "foo"
+            else:
+                textbutton _("Auto") action Preference("auto-forward", "toggle")
+            
+
+            
+            if renpy.get_screen("button_tutorial") and history_focus:
+                textbutton _("History") action ShowMenu('history') style "foo"
+            else:
+                textbutton _("History") action ShowMenu('history')
+                
+            if renpy.get_screen("button_tutorial") and save_focus:
+                textbutton _("Save") action ShowMenu('save') style "foo"
+            else:
+                textbutton _("Save") action ShowMenu('save')
+            
+            if renpy.get_screen("button_tutorial") and save_focus:
+                textbutton _("Q.Save") action QuickSave() style "foo"
+            else:
+                textbutton _("Q.Save") action QuickSave()
+            
+            if renpy.get_screen("button_tutorial") and save_focus:
+                textbutton _("Q.Save") action QuickSave() style "foo"
+            else:
+                textbutton _("Q.Save") action QuickSave()
+
+            if renpy.get_screen("button_tutorial") and save_focus:
+                textbutton _("Q.Load") action QuickLoad() style "foo"
+            else:
+                textbutton _("Q.Load") action QuickLoad()
+            
+            if renpy.get_screen("button_tutorial") and pref_focus:
+                textbutton _("Prefs") action ShowMenu('preferences') style "foo"
+            else:
+                textbutton _("Prefs") action ShowMenu('preferences')          
+            textbutton _("Tree") action ShowMenu('flowchart_screen') style "foo"
+              
+            
+            
+            
+            
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -278,6 +329,32 @@ style quick_button_text:
     properties gui.text_properties("quick_button")
 
 
+style foo is quick_button
+style foo_text is quick_button_text:
+    color "#ff0000"
+    hover_color gui.hover_color
+
+
+
+
+
+screen button_tutorial:
+    add Solid("#000")
+    frame:
+        xalign 0.5
+        yalign 0.06
+        background None
+        has vbox
+        text "Navigation Tutorial" xalign 0.5
+    frame:
+        xalign 0.5
+        yalign 0.5
+        background None
+        text tutorial_text xalign 0.5
+    use quick_menu
+    
+
+
 ################################################################################
 ## Main and Game Menu Screens
 ################################################################################
@@ -286,17 +363,36 @@ style quick_button_text:
 ##
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
+
+
 init python:
-    class start_with_sound(Action):
-        def __init__(self, audio, pause_time = 0):
-            self.audio = audio
-            self.pause_time = pause_time
-
-        def __call__(self):
-            renpy.play(self.audio)
-            return Start()
+    def unlock_endings():
+        persistent.all_endings = True
+    def lock_endings():
+        persistent._clear(True)
 
 
+
+screen show_title:
+    text "ADHG TEAM":
+        xalign 0.5
+        yalign 0.7
+        size 50
+        font "font/EpundaSlab-VariableFont_wght.ttf"
+
+label splashscreen:
+    scene black
+    with Pause(1)
+    
+    show splash at center with dissolve
+    show screen show_title with dissolve
+    with Pause(2)
+
+    scene black with dissolve
+    hide screen show_title with dissolve
+    with Pause(1)
+
+    return
 
 screen navigation():
 
@@ -321,6 +417,9 @@ screen navigation():
         textbutton _("Load") action ShowMenu("load")
 
         textbutton _("Preferences") action ShowMenu("preferences")
+        if (renpy.get_screen("main_menu")):
+            textbutton _("Unlock all endings") action Function(unlock_endings)
+            textbutton _("Reset Endings") action Function(lock_endings)
 
         if _in_replay:
 

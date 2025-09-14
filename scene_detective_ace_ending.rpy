@@ -97,5 +97,7 @@ label sc_ace_epilogue:
     Morgan "I'm sure you will. Oh, and I'm paying the bill this time."
     "Camera pans out and fades to black."
     "Detective route ace epilogue unlocked."
+    $ persistent.story_tree["ace_ending"]["unlocked"] = True
+    
     $ persistent.ace_ending = True
     return

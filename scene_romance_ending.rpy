@@ -97,7 +97,9 @@ label sc_romance_ending:
     Sarah "Lead the way, darling."
 
     # Ending achieved
+    
     "Assassin Route Good Ending (Romance) achieved"
+    $ persistent.story_tree["romance_ending"]["unlocked"] = True
     $ persistent.romance_ending = True
 
     return

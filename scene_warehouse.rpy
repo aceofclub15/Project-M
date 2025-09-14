@@ -1,4 +1,5 @@
 label sc_warehouse_trap:
+    $ persistent.story_tree["assassin5"]["unlocked"] = True
     scene Warehouse
     "Morgan wakes up the next day, dressed in black coveralls as she and Sarah infiltrate the Triplex warehouse."
     show Morgan_default at left
@@ -51,8 +52,11 @@ label sc_warehouse_trap:
 
     menu:
         "Wait for the cops to arrive and bluff my way out":
+            $ persistent.story_tree["bluff"]["unlocked"] = True
+            $print("BLUFF")
             jump sc_bluff_cops
         "If I can find a way to bend time again...":
+            $ persistent.story_tree["bend_time"]["unlocked"] = True
             jump sc_bend_time
     return
 
@@ -75,10 +79,10 @@ label sc_bluff_cops:
     Grandmaster "You need to try this again, and choose a path that doesn't put me at risk."
     "GAME OVER"
     jump sc_warehouse_trap
-
     return
 
 label sc_bend_time:
+    $ persistent.story_tree["assassin6"]["unlocked"] = True
 
     Morgan "{i}If only I could bend time to my will, I could get me and Sarah out of this!{/i}"
     Morgan "{i}Just how did I do it the last time?!{/i}"
@@ -100,9 +104,8 @@ label sc_bend_time:
 
     if romance:
         # Sarah kisses Morgan
+        "Sarah rushes and kisses Morgan"
         Morgan "Whoa, Sarah!"
-        "Sarah suddenly go in for a kiss????"
-        " (not sure. I add that so that the next dialogs at least make some sense)"
         Sarah "I love you! I love you, I love you, I love you! I'm so glad you're safe!"
         Morgan "I'm glad you're safe too, Sarah. We really are unstoppable, aren't we?"
         Sarah "(tearfully) Yeah, we really are. We're going to conquer this world, my love. Just the two of us."
@@ -118,6 +121,7 @@ label sc_bend_time:
     Morgan "He's going after June Davidson herself!"
 
     jump sc_june_headquarters
+    
     return
 
 label sc_june_headquarters:

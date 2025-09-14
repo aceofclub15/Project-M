@@ -4,13 +4,17 @@ default    persistent.romance_ending = False
 default    persistent.ace_ending = False
 default    persistent.vigilante_ending = False
 
+default history_focus = False
+default dialogs_nav_focus = False
+default save_focus = False
+default pref_focus = False
+default tutorial_text=""
 
 
 #SOUNDS SETTINGS
 init python:
 
 
-    print(renpy.music.channel_defined("background"))
     renpy.music.register_channel("background")
     
 
@@ -31,6 +35,10 @@ init python:
 
             randosound = renpy.random.randint(1, 11) # This generates a random number between 1 and 11 inclusive. Change this based on how many sound files you have
             renpy.sound.play(f"click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) # This plays one final uninterrupted sound at the end of the dialogue block
+
+        
+
+
 
 
 
@@ -64,8 +72,127 @@ define Bartender = Character("Bartender", color="#ff419d")
 
 label start:
     with Pause(0.5)
+    jump button_tutorial
+    return
+
+label button_tutorial:
+
+    # Show the overlay
+    show screen button_tutorial
+    $ tutorial_text = "Welcome to the navigation tutorial! Here, you will learn how to use the quick menu to navigate around."
+    ""
+    # Step 1: history
+    $ history_focus = True
+    $ pref_focus = save_focus = dialogs_focus = False
+    $ tutorial_text = "Use the history button to open the text-log."
+    ""
+    
+    # Step 2: save/load
+    $ save_focus = True
+    $ history_focus = pref_focus = dialogs_focus = False
+    $ tutorial_text = "These buttons let you Save or QuickSave your progress and Load your saves."
+    ""
+
+    # Step 3: preferences
+    $ pref_focus = True
+    $ history_focus = save_focus = dialogs_focus = False
+    $ tutorial_text = "The Preferences button opens game settings."
+    ""
+
+    # Step 4: dialogs controls
+    $ dialogs_nav_focus = True
+    $ history_focus = save_focus = pref_focus = False
+    $ tutorial_text = "Back - go back one dialog \nSkip - skip through all dialogs until the next choice menu \nAuto - automatically go through the dialogs after a few seconds so you don't have to click."
+    ""
+    $ tutorial_text = "For more key shortcuts, go to Preference to open the setting menu then Help"
+    $ tutorial_text = "Enjoy the game!"
+    ""
+
+    # Cleanup
+    $ history_focus = save_focus = pref_focus = dialogs_focus = False
+    hide screen button_tutorial
+    
+    $ config.all_character_callbacks = [typing_sound]
     jump sc_computer
     return
+
+
+
+
+
+
+
+
+
+
+
+init python:
+    def render_node(node_id, depth=0, visited=None):
+        if visited is None:
+            visited = set()
+
+        # already displayed? skip
+        if node_id in visited:
+            return Null()
+
+        node = persistent.story_tree[node_id]
+
+        # skip locked nodes
+        if not node["unlocked"]:
+            return Null()
+
+        visited.add(node_id)
+
+        # wrapper container
+        box = VBox()
+
+        # indent by depth
+        label = ("    |" * depth) + "-> " + node["name"]
+
+        # unlocked → button, locked → plain text (but we skip locked anyway above)
+        txt = renpy.text.text.Text(label, size=22)
+        box.add(txt)
+
+        # recurse into children
+        for child in node["children"]:
+            child_widget = render_node(child, depth + 1, visited)
+            if child_widget is not None:
+                box.add(child_widget)
+
+        return box
+
+
+screen story_progress():
+    tag menu
+    frame:
+        style_prefix "tree"
+
+        vbox:
+            spacing 8
+            text "Progress Tree" size 30
+            add render_node("start")   # start building from root
+
+    textbutton "Return" action Return() xalign 0.5 yalign 0.95
+
+
+screen flowchart_screen():
+    tag menu
+    frame:
+        vbox:
+            spacing 8
+            text "Progress Tree" size 30
+            add render_node("start", 0)
+
+    textbutton "Return" action Return() xalign 0.5 yalign 0.95
+
+
+
+
+
+
+
+
+
 
 
 
@@ -85,6 +212,7 @@ label sc_computer:
 
     menu:
         "Accessing mission archives":
+
             jump sc_mission_archive
 
         "Login as Grandmaster (available after getting all endings)" if persistent.all_endings:
@@ -121,17 +249,18 @@ label sc_mission_archive:
 label sc_hotel_entrance:
     show bg hotel_entrance
     show Morgan_default
-    Morgan "{i}According to the Grandmaster\'s intel, Triplex CEO Adam Rourke will be attending the \'Future of the Extranet\' 
-    conference in the 2nd Conference Hall, 90 minutes from now.{/i}"
-
+    "Morgan saunters into the hotel like she's always belonged there. She is dressed in an elegant but understated business suit and has a suave smile with eyes betraying a sharp focus."
+    Morgan "{i}According to the Grandmaster's intel, Hallex CEO Adam Rourke will be attending 'The Future of the Online Revolution and the Extranet' conference in the 2nd Conference Hall, 90 minutes from now.{/i}"
     "90 minutes to assassination."
-
+    hide Morgan_default
     Morgan "{i}Now, how should I take control of this situation?{/i}"
 
     menu:
         "Raise an alarm throughout the entire hotel":
+            $ persistent.story_tree["emergency"]["unlocked"] = True
             jump sc_emergency
         "Get hold of the guest list":
+            $ persistent.story_tree["discreet"]["unlocked"] = True
             jump sc_guest_list
 
     return
@@ -176,15 +305,17 @@ label sc_guest_list:
     
     menu:
         "Try to stop Graham by confronting him":
+            $ persistent.story_tree["stop_graham"]["unlocked"] = True
             jump sc_confrontation
         "Discreetly record Agent Graham":
+            $ persistent.story_tree["record_graham"]["unlocked"] = True
             jump sc_observation
 
     return
 
 
 label sc_observation:
-    Morgan "Right, I have to be discreet. Can't go picking fights the first chance I get."
+    Morgan "Right, can't go picking fights the first chance I get."
     Morgan " I'll just activate my thermoptic implant and set my video camera to record everything Graham does. Now, Graham, time for you to spill the beans."
     hide Morgan_default with fade
     show Graham at left
@@ -207,18 +338,23 @@ label sc_observation:
         yalign 0.8
     with dissolve
     show Morgan_default at left with moveinleft
-    Morgan "{i} Looks like the assassin's a woman, and she's pretty close to getting ready for the job. I need to make my way to the location ASAP! {/i}"
-    Morgan "{i} But first, I need to hack Graham's phone to get more information. {/i}"
-    Morgan "{i} The encryption on his phone's real strong, so I doubt I could trace it, but I can still call him if I decide to side with him. {/i}"
-    Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here, but I WILL make"
-    Graham "Sarah will pay for what she's done!"
-    Morgan "{i}Those are some juicy details, but I really need to go now. I'm running out of time, and the moment of truth will soon be upon me. {/i}"
+    Morgan "{i} Wow, I've picked up a lot of invaluable intel. It looks like the assassin's a woman. {/i}"
+    Morgan "{i} She's pretty close to getting ready for the job, so I need to make my way to the location ASAP!{/i}"
+    Morgan "{i}But first, let me just hack Graham's phone {/i}"
+    Morgan "{i} The encryption on his phone's real strong, so I doubt I could trace it{/i}"
+    Morgan "{i} But at least I can still call him if I decide to side with him. {/i}"
+    
+    Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"
+    Graham "But I'll make Sarah will pay for what she's done!"
+    Morgan "{i}Those are some juicy details, but I really need to go now.The moment of truth will soon be upon me. {/i}"
     "Morgan quickly go to the 2nd Conference room. The timer updates to show 10 minutes until the assassination. "
     Morgan "{i}If the killer is a woman, how can I narrow things down? How would an assassin infiltrate this place? {/i}"
     menu:
         "She might kill and replace someone":
+            $ persistent.story_tree["she_kill"]["unlocked"] = True
             jump sc_sarah_kill
         "She might impersonate a staff member":
+            $ persistent.story_tree["she_impersonate"]["unlocked"] = True
             jump sc_sarah_impersonate
     return
 
@@ -252,9 +388,10 @@ label sc_sarah_impersonate:
     return
 
 label sc_sarah_attacking:
+    $ persistent.story_tree["investigate"]["unlocked"] = True
     scene black
     show bg hotel_entrance
-    "The assassin, Sarah, distically garroting a helpless female waiter to death and Morgan watches while hidden."
+    "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
     show Staff:
         xalign 0.7
     with Pause(0.5)
@@ -301,10 +438,13 @@ label sc_chef_order:
 
     menu:
         "Help Sarah escape after she delivers the drink":
+            $ persistent.story_tree["help_sarah"]["unlocked"] = True
             jump sc_target_poisoned
         "Knock the drink out of Sarah's tray":
+            $ persistent.story_tree["stop_sarah"]["unlocked"] = True
             jump sc_stop_sarah
         "Snatch up the drink and gulp it down":
+            $ persistent.story_tree["drink_poison"]["unlocked"] = True
             jump sc_drink_poison
     return
 

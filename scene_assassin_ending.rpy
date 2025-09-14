@@ -119,6 +119,9 @@ label sc_assassin_ending:
     Sarah "Until next time, then. Don't be a stranger."
 
     "Assassin Route Good Ending (Normal) achieved"
+    $ persistent.story_tree["assassin_ending"]["unlocked"] = True
+
+    
     $ persistent.assassin_ending = True
 
     return

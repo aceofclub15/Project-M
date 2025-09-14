@@ -80,5 +80,7 @@ label sc_vigilante_epilogue:
     "Morgan shoots Marcus dead with a silenced pistol and leaves."
     scene black
     "Detective route vigilante ending achieved"
+    $ persistent.story_tree["vigilante_ending"]["unlocked"] = True
+
     $ persistent.vigilante_ending = True
     return

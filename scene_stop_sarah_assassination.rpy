@@ -3,7 +3,7 @@ label sc_stop_sarah:
     "Morgan walks up to Sarah."
     show Morgan_default at right with moveinleft
     Morgan "Oops! Excuse me..."
-    "Morgan {i} accidentally {/i} knocks the poisoned Gin martini off the tray, causing the drink to spill onto the floor."
+    "Morgan {i} accidentally {/i} knocks the poisoned gin martini off the tray, causing the drink to spill onto the floor."
     "Morgan discreetly slips a tracker on Sarah, who looks furious about the accident before she composes herself."
     Morgan "Oh my god! I'm so sorry! I didn't..."
     Sarah "Hmph. No problem at all, sir. Excuse me."
@@ -88,8 +88,10 @@ label sc_meet_with_graham:
     
     menu:
         "Sure, my room number's 966":
+            $ persistent.story_tree["give_room"]["unlocked"] = True
             jump sc_give_room_number
         "No thanks, I'm good":
+            $ persistent.story_tree["dont_give_room"]["unlocked"] = True
             jump sc_keep_room_number
     return
 
@@ -98,11 +100,13 @@ label sc_give_room_number:
     Morgan "{i}Now that I get a closer look, she can't be Sarah. God, my paranoia's really getting to me. Still, I can't take any chances here. I'll just head up to my room alone.{/i}"
     Morgan "Yeah, my room number's 966. I don't mind an escort."
     Bartender "Certainly, ma'am. I'll call up someone immediately."
-    "The female bartender dials up someone to escort Morgan. As soon as Morgan sees who's come for her, she's horrified."
-    Morgan "{i}Shit, I screwed up! Sarah wasn't the bartender, but she's still infiltrated the service staff, and I let her right to me!{/i}"
+    "The female bartender dials up someone to escort Morgan. As soon as Morgan sees Freida, she's horrified."
+
+    Morgan "{i}Shit, I screwed up! I did not think that she'll be here, and now I've led her right to me!{/i}"
     "Sarah, disguised as a staff member, quickly walks up to Morgan and tranquilizes them with a needle."
     Morgan "{i}Oh no, she's paralyzed me! I can't move!{/i}"
-    Sarah "Relax, my dear. It'll all be over soon. We'll go over to your room, you'll tell me everything you know, and then I'll end it quickly. It's a pretty good way to die, all things considered."
+    Sarah "Relax, my dear. It'll all be over soon. We'll go over to your room, you'll tell me everything you know, and then I'll end it quickly."
+    Sarah "It's a pretty good way to die, all things considered."
     scene black
     Morgan "{i}I can't offer any resistance as Sarah carries me over to my room. She's right, I have no hope of making it out of this. Graham, Grandmaster, I'm so sorry...{/i}"
     Grandmaster "You can never be too careful in this line of work, Morgan. Sarah's like a chameleon, waiting to ambush you at the earliest opportunity. Don't give her any chance to track you down."
@@ -137,8 +141,10 @@ label sc_keep_room_number:
     
     menu:
         "Yeah, I get you. This doesn't make any sense": 
+            $ persistent.story_tree["no_sense"]["unlocked"] = True
             jump sc_nonsense
         "But they've planned this from the start":
+            $ persistent.story_tree["planned"]["unlocked"] = True
             jump sc_they_planned_this #DOING THIS 
     return
 
@@ -150,6 +156,7 @@ label sc_they_planned_this:
 
     menu:
         "That's not much to go on":
+            $ persistent.story_tree["no_sense"]["unlocked"] = True
             jump sc_no_lead
         "Oh, but you were paid":
             jump sc_graham_paid

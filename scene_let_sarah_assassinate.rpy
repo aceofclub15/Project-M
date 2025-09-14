@@ -53,7 +53,6 @@ label sc_target_poisoned:
 
     "Rourke convulses under the effect of the poison as he's hastily ushered out."
     Morgan "Looks like things are escalating. What's your decision, Sarah?"
-    Morgan "What's your decision, Sarah?"
 
     Sarah "Fine. Give me the coordinates, quickly."
 
@@ -86,14 +85,10 @@ label sc_target_poisoned:
 
 label sc_next_day:
     scene metting area
-    "..."
-    "Some time have passed"
-    show Morgan_default at center with moveinleft
-    
+    "Time advances to the next day, and the scene opens to the interior of Morgan's professional, immaculate office."    
     Morgan "{i}I received a message from Sarah, telling me to meet her, alone, at a deserted shooting range.{/i}"
     Morgan "{i}Being asked to come alone is already a red flag, but I did willingly choose the path of danger, after all.{/i}"
-    "Morgan gets into a car and drives to the shooting range."
-    "Morgan arrived and wait for a few moments"
+    "The sound of a car getting to a car and driving can be heard. The scene transitions to the view of a shooting range."
     Morgan "Hello, Sarah. Looks like you made it out of the last job safely."
     show Sarah at right with moveinright
     Sarah "I did. You were true to your word."
@@ -121,19 +116,21 @@ label sc_next_day:
     Morgan "{i}How the hell am I supposed to pull this off?{/i}"
 
     menu:
-        "Guess I'll just open fire and hope for the best":
+        "There's no way I can do this":
+            $ persistent.story_tree["hope_shot"]["unlocked"] = True
             jump sc_random_shot
         "Maybe the key is to overpower time itself":
+            $ persistent.story_tree["master_time"]["unlocked"] = True
             jump sc_timimg_shot
     return
 
 
 label sc_random_shot:
-    Morgan "{i}Guess I'll just spray and pray and hope for the best.{/i}"
-    "some montage of shots ricocheting but missed"
+    Morgan "{i}This truly is impossible. I'll just spray and pray and hope for the best.{/i}"
+    "Sounds of gunshots ring out, but none hit the target."
     Morgan "{i}As I thought, this challenge was impossible.{/i}"
     Morgan "{i}Guess I'll-URK!{/i}"
-
+    "Morgan get shot from behind."
     Sarah "How disappointing."
     Sarah "I really hoped you'd be a worthy ally, but it turns out I was just wasting my time with you."
     Sarah "At least I'll get some satisfaction from taking your life with my own two hands."
@@ -155,7 +152,8 @@ label sc_timimg_shot:
     Morgan "{i}Then the one on the right.{/i}"
     Morgan "{i}Then the one above me.{/i}"
     Morgan "{i}If I get the angles right, I'll have triangulated my way to a bullseye.{/i}"
-    "Some montage of incredible timming or something that help the shots land correctly (I don't know, ask Mers lol)"
+    "Morgan shoots each plate as the narration continues, ending with a bullet hitting the target."
+
     Sarah "Wow, you actually did it."
     Sarah "This is amazing!"
 
@@ -168,8 +166,10 @@ label sc_timimg_shot:
 
     menu:
         "Kiss her":
+            $ persistent.story_tree["romance"]["unlocked"] = True
             jump sc_kiss_sarah
         "Keep it professional":
+            $ persistent.story_tree["pro"]["unlocked"] = True
             jump sc_stay_professional
     return
 

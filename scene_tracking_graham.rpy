@@ -57,13 +57,16 @@ label sc_track_graham:
     Morgan "Excellent, we know what to do now."
 
     Sarah "Exactly. So, what do you suggest we do next?"
-
     if romance:
-        Morgan "Maybe we use this time to get to know each other?"
-        jump sc_ask_date
-    else:
-        Morgan "We go our separate ways and prepare."
-        jump sc_separate_way
+        menu:
+            "Maybe we use this time to get to know each other? (Go on date)":
+                $ persistent.story_tree["commit_romance"]["unlocked"] = True
+                jump sc_ask_date
+            "We go our separate ways and prepare. (Keep it professional)":
+                $ persistent.story_tree["stop_romance"]["unlocked"] = True
+                jump sc_separate_way
+    jump sc_separate_way
+    
     return
 
 
@@ -218,7 +221,8 @@ label sc_drink_potion:
 #Professional have standars
 
 label sc_separate_way:
-    Morgan "It looks like we're done here. Time to go our separate ways and prep."
+    $ romance = False
+    Morgan "Time to go our separate ways and prep."
 
     Sarah "Yeah, I suppose so."
     Sarah "But Morgan, you're a natural at this."
@@ -249,6 +253,7 @@ label sc_separate_way:
     return
 
 label sc_remember_past:
+    $ persistent.story_tree["go_home"]["unlocked"] = True
     hide Sarah with dissolve
     hide Morgan_default with dissolve
     Morgan "{i}There isn't a lot to piece together about Graham beyond what me and Sarah have already dug up.{/i}"
