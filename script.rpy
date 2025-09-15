@@ -159,7 +159,6 @@ init python:
         node = persistent.story_tree[node_id]
         box = VBox()
 
-        # Indentation
         dis_text = ("    |" * depth) + "--> " + node["name"]
 
         if node["unlocked"]:
