@@ -117,6 +117,7 @@ label sc_give_room_number:
 
 
 label sc_keep_room_number:
+
     Morgan "{i}Now that I get a closer look, that can't be Sarah. {/i}"
     Morgan "{i}God, my paranoia's really getting to me. Still, I can't take any chances here. I'll just head up to my room alone.{/i}"
     "Morgan heads up to room 966, locks the door and puts a few security precautions in place before going to bed."
@@ -138,7 +139,7 @@ label sc_keep_room_number:
     Graham "{i}Davidson Solutions? You know about them too?{/i}"
     Morgan "Yeah, my master's done her own research on the matter."
     Graham "{i}Damn, those bastards must have an insane web of influence. I never thought I'd be dragged into their plans like this, though. {/i}"
-    
+    $ persistent.story_tree["choice3"]["unlocked"] = True
     menu:
         "Yeah, I get you. This doesn't make any sense": 
             $ persistent.story_tree["no_sense"]["unlocked"] = True

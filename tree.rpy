@@ -2,7 +2,8 @@ default persistent.story_tree = {
     "start": {
         "name": "Start - Choice 1",
         "children": ["emergency", "discreet"],
-        "unlocked": True,
+        "unlocked": False,
+        "label": "sc_hotel_entrance"
     },
     "emergency": {
         "name": "Emergency -> Fail",

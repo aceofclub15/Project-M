@@ -252,54 +252,58 @@ screen quick_menu():
 
 
             
-            if renpy.get_screen("button_tutorial") and dialogs_nav_focus:
-                textbutton _("Back") action Rollback()  style "foo"
+            if renpy.get_screen("button_tutorial_screen") and dialogs_nav_focus:
+                textbutton _("Back") action Rollback()  style "tutorial_screen_style"
             else:
                 textbutton _("Back") action Rollback() 
 
-            if renpy.get_screen("button_tutorial") and dialogs_nav_focus:
-                textbutton _("Skip") action Skip(fast = False) style "foo"
+            if renpy.get_screen("button_tutorial_screen") and dialogs_nav_focus:
+                textbutton _("Skip") action Skip(fast = False) style "tutorial_screen_style"
             else:
                 textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
 
 
-            if renpy.get_screen("button_tutorial") and dialogs_nav_focus:
-                textbutton _("Auto") action Preference("auto-forward", "toggle") style "foo"
+            if renpy.get_screen("button_tutorial_screen") and dialogs_nav_focus:
+                textbutton _("Auto") action Preference("auto-forward", "toggle")  sensitive can_click_tree style "tutorial_screen_style"
             else:
-                textbutton _("Auto") action Preference("auto-forward", "toggle")
+                textbutton _("Auto") action Preference("auto-forward", "toggle")  sensitive can_click_tree
             
 
             
-            if renpy.get_screen("button_tutorial") and history_focus:
-                textbutton _("History") action ShowMenu('history') style "foo"
+            if renpy.get_screen("button_tutorial_screen") and history_focus:
+
+                textbutton _("History") action ShowMenu('history')  sensitive can_click_tree style "tutorial_screen_style"
             else:
-                textbutton _("History") action ShowMenu('history')
+                textbutton _("History") action ShowMenu('history')  sensitive can_click_tree
                 
-            if renpy.get_screen("button_tutorial") and save_focus:
-                textbutton _("Save") action ShowMenu('save') style "foo"
+            if renpy.get_screen("button_tutorial_screen") and save_focus:
+                textbutton _("Save") action ShowMenu('save') style "tutorial_screen_style"
             else:
                 textbutton _("Save") action ShowMenu('save')
             
-            if renpy.get_screen("button_tutorial") and save_focus:
-                textbutton _("Q.Save") action QuickSave() style "foo"
+            if renpy.get_screen("button_tutorial_screen") and save_focus:
+                textbutton _("Q.Save") action QuickSave() style "tutorial_screen_style"
             else:
                 textbutton _("Q.Save") action QuickSave()
             
-            if renpy.get_screen("button_tutorial") and save_focus:
-                textbutton _("Q.Save") action QuickSave() style "foo"
-            else:
-                textbutton _("Q.Save") action QuickSave()
 
-            if renpy.get_screen("button_tutorial") and save_focus:
-                textbutton _("Q.Load") action QuickLoad() style "foo"
+            if renpy.get_screen("button_tutorial_screen") and save_focus:
+                textbutton _("Q.Load") action QuickLoad() style "tutorial_screen_style"
             else:
                 textbutton _("Q.Load") action QuickLoad()
             
-            if renpy.get_screen("button_tutorial") and pref_focus:
-                textbutton _("Prefs") action ShowMenu('preferences') style "foo"
+            if renpy.get_screen("button_tutorial_screen") and pref_focus:
+                textbutton _("Prefs") action ShowMenu('preferences')  sensitive can_click_tree style "tutorial_screen_style"
             else:
-                textbutton _("Prefs") action ShowMenu('preferences')          
-            textbutton _("Tree") action ShowMenu('flowchart_screen') style "foo"
+                textbutton _("Prefs") action ShowMenu('preferences')   sensitive can_click_tree 
+
+
+
+            if renpy.get_screen("button_tutorial_screen") and tree_focus:
+                textbutton _("Tree") action ShowMenu('flowchart_screen') sensitive can_click_tree style "tutorial_screen_style"
+            else:
+                textbutton _("Tree") action ShowMenu('flowchart_screen') sensitive can_click_tree
+
               
             
             
@@ -329,8 +333,8 @@ style quick_button_text:
     properties gui.text_properties("quick_button")
 
 
-style foo is quick_button
-style foo_text is quick_button_text:
+style tutorial_screen_style is quick_button
+style tutorial_screen_style_text is quick_button_text:
     color "#ff0000"
     hover_color gui.hover_color
 
@@ -338,20 +342,7 @@ style foo_text is quick_button_text:
 
 
 
-screen button_tutorial:
-    add Solid("#000")
-    frame:
-        xalign 0.5
-        yalign 0.06
-        background None
-        has vbox
-        text "Navigation Tutorial" xalign 0.5
-    frame:
-        xalign 0.5
-        yalign 0.5
-        background None
-        text tutorial_text xalign 0.5
-    use quick_menu
+
     
 
 
@@ -407,6 +398,9 @@ screen navigation():
         if main_menu:
 
             textbutton _("Start") action start_with_sound("menu_play.wav",1)
+            
+            textbutton _("Navigation Tutorial") action Jump("button_tutorial")
+
 
         else:
 

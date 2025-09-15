@@ -8,6 +8,7 @@ default history_focus = False
 default dialogs_nav_focus = False
 default save_focus = False
 default pref_focus = False
+default tree_focus = False
 default tutorial_text=""
 
 
@@ -72,50 +73,77 @@ define Bartender = Character("Bartender", color="#ff419d")
 
 label start:
     with Pause(0.5)
-    jump button_tutorial
+    $ print("here")
+    jump sc_computer
     return
+
+default can_click_tree = False
+screen button_tutorial_screen:
+    tag menu
+    zorder 99
+    add Solid("#000")
+    use quick_menu
+    frame:
+        xalign 0.5
+        yalign 0.06
+        background None
+        has vbox
+        text "Navigation Tutorial" xalign 0.5
+    frame:
+        xalign 0.5
+        yalign 0.5
+        background None
+        text tutorial_text xalign 0.5
+
 
 label button_tutorial:
 
-    # Show the overlay
-    show screen button_tutorial
+
+    show screen button_tutorial_screen
     $ tutorial_text = "Welcome to the navigation tutorial! Here, you will learn how to use the quick menu to navigate around."
     ""
-    # Step 1: history
+
     $ history_focus = True
-    $ pref_focus = save_focus = dialogs_focus = False
     $ tutorial_text = "Use the history button to open the text-log."
     ""
     
-    # Step 2: save/load
+
     $ save_focus = True
-    $ history_focus = pref_focus = dialogs_focus = False
+    $ history_focus = False
     $ tutorial_text = "These buttons let you Save or QuickSave your progress and Load your saves."
     ""
 
     # Step 3: preferences
     $ pref_focus = True
-    $ history_focus = save_focus = dialogs_focus = False
+    $ save_focus = False
     $ tutorial_text = "The Preferences button opens game settings."
     ""
 
-    # Step 4: dialogs controls
+
     $ dialogs_nav_focus = True
-    $ history_focus = save_focus = pref_focus = False
+    $ pref_focus = False
     $ tutorial_text = "Back - go back one dialog \nSkip - skip through all dialogs until the next choice menu \nAuto - automatically go through the dialogs after a few seconds so you don't have to click."
     ""
+    
+
+    $ tree_focus = True
+    $ dialogs_nav_focus = False
+    $ tutorial_text = "Tree button track your choices."
+    ""
+    $ tree_focus = False
+    
+
     $ tutorial_text = "For more key shortcuts, go to Preference to open the setting menu then Help"
     $ tutorial_text = "Enjoy the game!"
     ""
 
-    # Cleanup
-    $ history_focus = save_focus = pref_focus = dialogs_focus = False
-    hide screen button_tutorial
+
+    hide screen button_tutorial_screen
     
     $ config.all_character_callbacks = [typing_sound]
-    jump sc_computer
-    return
 
+
+    return
 
 
 
@@ -127,56 +155,28 @@ label button_tutorial:
 
 
 init python:
-    def render_node(node_id, depth=0, visited=None):
-        if visited is None:
-            visited = set()
-
-        # already displayed? skip
-        if node_id in visited:
-            return Null()
-
+    def render_node(node_id, depth=0):
         node = persistent.story_tree[node_id]
-
-        # skip locked nodes
-        if not node["unlocked"]:
-            return Null()
-
-        visited.add(node_id)
-
-        # wrapper container
         box = VBox()
 
-        # indent by depth
-        label = ("    |" * depth) + "-> " + node["name"]
+        # Indentation
+        dis_text = ("    |" * depth) + "--> " + node["name"]
 
-        # unlocked → button, locked → plain text (but we skip locked anyway above)
-        txt = renpy.text.text.Text(label, size=22)
-        box.add(txt)
+        if node["unlocked"]:
+            txt = renpy.text.text.Text(dis_text, size=22)
+            box.add(txt)
 
-        # recurse into children
+        # Recurse children
         for child in node["children"]:
-            child_widget = render_node(child, depth + 1, visited)
-            if child_widget is not None:
-                box.add(child_widget)
+            box.add(render_node(child, depth + 1))
 
         return box
 
 
-screen story_progress():
-    tag menu
-    frame:
-        style_prefix "tree"
 
-        vbox:
-            spacing 8
-            text "Progress Tree" size 30
-            add render_node("start")   # start building from root
-
-    textbutton "Return" action Return() xalign 0.5 yalign 0.95
 
 
 screen flowchart_screen():
-    tag menu
     frame:
         vbox:
             spacing 8
@@ -191,12 +191,16 @@ screen flowchart_screen():
 
 
 
-
+# GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
 
 label sc_computer:
+    $ can_click_tree = True
     scene black
     if (persistent.ace_ending) and (persistent.vigilante_ending) and (persistent.romance_ending) and (persistent.assassin_ending):
         $ persistent.all_endings = True
@@ -247,6 +251,7 @@ label sc_mission_archive:
     return
 
 label sc_hotel_entrance:
+    $ persistent.story_tree["start"]["unlocked"] = True
     show bg hotel_entrance
     show Morgan_default
     "Morgan saunters into the hotel like she's always belonged there. She is dressed in an elegant but understated business suit and has a suave smile with eyes betraying a sharp focus."
