@@ -1,5 +1,5 @@
 
-define config.main_menu_music = "main_menu.wav"
+
 
 init python:
 
