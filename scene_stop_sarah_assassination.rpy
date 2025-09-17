@@ -31,7 +31,7 @@ label sc_stop_sarah:
 
     "scene changed."
     scene black
-    show bg hotel_entrance
+    show bg hotel
     show Adam at center
     "Morgan approaches Adam."
     Morgan "Excuse me, Mr. Adam Rourke, but I'm Agent Morgan from the FBI."
@@ -67,7 +67,7 @@ label sc_stop_sarah:
 
 label sc_meet_with_graham:
     scene black
-    show bg hotel_entrance
+    show bg hotel
     "Time skips by 10 minutes as Morgan re-enters the hotel."
     "Graham calls Morgan's wireless earpiece."
     Graham "{i} I just got a message from this Ouroboros organization, telling me that Adam's been taken to safety.{/i}"

@@ -1,4 +1,4 @@
-﻿default     persistent.all_endings = False
+﻿default    persistent.all_endings = False
 default    persistent.assassin_ending = False
 default    persistent.romance_ending = False
 default    persistent.ace_ending = False
@@ -16,26 +16,30 @@ default tutorial_text=""
 init python:
 
 
-    renpy.music.register_channel("background")
-    
 
+
+
+    def ch_callbacks(event, **kwargs):
+        typing_sound(event, **kwargs)
+        name_callback(event, **kwargs)
+    
     def typing_sound(event, interact=True, **kwargs):
-        if event == "show":  # When textbox is shown
-            what = renpy.store._last_say_what # This grabs the text that was most recently spoken on-screen
+        #TYPING SOUND WHEN TALKING !!!!!!!!!!!!!!!!!
+        if event == "show":  
+            what = renpy.store._last_say_what 
             if what:
                 sound_count = len(what)
             else:
                 sound_count = 5
 
-            for _ in range(sound_count): # This creates a sound queue based on how many characters are in the dialogue block
-                randosound = renpy.random.randint(1,2) # This generates a random number between 1 and 11 inclusive. Change this based on how many sound files you have
-                renpy.sound.queue(f"click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) # Change "popcat" to the name of your sound file
+            for _ in range(sound_count): 
+                randosound = renpy.random.randint(1,2) 
+                renpy.sound.queue(f"click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) 
 
         elif event == "end" or event == "slow_done":
-            renpy.sound.stop(channel="sound",fadeout=0.05) # This stops the text sounds if there is a pause in the dialogue or the text has finished displaying
+            renpy.sound.stop(channel="sound",fadeout=0.05) 
 
-            randosound = renpy.random.randint(1, 11) # This generates a random number between 1 and 11 inclusive. Change this based on how many sound files you have
-            renpy.sound.play(f"click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) # This plays one final uninterrupted sound at the end of the dialogue block
+
 
         
 
@@ -49,31 +53,34 @@ init python:
 default gender = ""
 default romance = False
 
-define Grandmaster = Character("Grandmaster", color="#e5ff00", callback=typing_sound)
-define January = Character("January", color="#e5ff00", callback=typing_sound)
+define Grandmaster = Character("Grandmaster", color="#e5ff00", callback = name_callback, cb_name = "Grandmaster")
+define January = Character("January", color="#e5ff00", callback = name_callback, cb_name = "January")
 
-define Morgan = Character("Morgan", color="#00ffb7", callback=typing_sound)
-define Young_Morgan = Character("Young Morgan", color="#6ec1a9")
-
-
-define Sarah = Character("Sarah", color="#e94417")
-define Graham = Character("Graham", color="#e0991c")
-define June = Character("June Davidson", color="#9d00ff")
-define Marcus = Character("Marcus Simms", color="#0e8b3c")
+define Morgan = Character("Morgan", color="#00ffb7", callback = name_callback, cb_name = "Morgan")
+define Young_Morgan = Character("Young Morgan", color="#6ec1a9", callback = name_callback, cb_name = "Morgan")
 
 
-define Head_chef = Character("Head Chef",color="#fff")
-define Crew_member = Character("Crew member", color="#0044ff")
-define Agent_X = Character("Agent X", color = "#868686ff")
-define Adam = Character("Adam (Target)", color="#ff2f00")
-define Cop = Character("Police Officer", color ="#0044ff")
-define Bartender = Character("Bartender", color="#ff419d")
+define Sarah = Character("Sarah", color="#e94417", callback = name_callback, cb_name = "Sarah")
+define Graham = Character("Graham", color="#e0991c", callback = name_callback, cb_name = "Graham")
+define June = Character("June Davidson", color="#9d00ff", callback = name_callback, cb_name = "June")
+define Marcus = Character("Marcus Simms", color="#0e8b3c", callback = name_callback, cb_name = "Marcus")
+
+
+define Head_chef = Character("Head Chef",color="#fff", callback = name_callback, cb_name = "Head_chef")
+define Crew_member = Character("Crew member", color="#0044ff", callback = name_callback, cb_name = "Crew_member")
+define Agent_X = Character("Agent X", color = "#868686ff", callback = name_callback, cb_name = "Agent_X")
+define Adam = Character("Adam (Target)", color="#ff2f00", callback = name_callback, cb_name = "Adam")
+define Cop = Character("Police Officer", color ="#0044ff", callback = name_callback, cb_name = "Cop")
+define Bartender = Character("Bartender", color="#ff419d", callback = name_callback, cb_name = "Bartender")
 
 
 
 label start:
-    with Pause(0.5)
-    $ print("here")
+    stop music
+
+    $ can_click_tree = True
+    $ config.all_character_callbacks = [ch_callbacks]
+    $ renpy.music.queue("bg.wav",channel="background",loop=True)
     jump sc_computer
     return
 
@@ -140,7 +147,6 @@ label button_tutorial:
 
     hide screen button_tutorial_screen
     
-    $ config.all_character_callbacks = [typing_sound]
 
 
     return
@@ -199,11 +205,11 @@ screen flowchart_screen():
 
 
 label sc_computer:
-    $ can_click_tree = True
+
+
     scene black
     if (persistent.ace_ending) and (persistent.vigilante_ending) and (persistent.romance_ending) and (persistent.assassin_ending):
         $ persistent.all_endings = True
-    $ renpy.music.queue("bg.wav",channel="background",loop=True, relative_volume=0.7)
 
     #Remember to add NVL mode to this part or something
     "Accessing personal info..."
@@ -251,7 +257,7 @@ label sc_mission_archive:
 
 label sc_hotel_entrance:
     $ persistent.story_tree["start"]["unlocked"] = True
-    show bg hotel_entrance
+    show bg hotel
     show Morgan_default
     "Morgan saunters into the hotel like she's always belonged there. She is dressed in an elegant but understated business suit and has a suave smile with eyes betraying a sharp focus."
     Morgan "{i}According to the Grandmaster's intel, Hallex CEO Adam Rourke will be attending 'The Future of the Online Revolution and the Extranet' conference in the 2nd Conference Hall, 90 minutes from now.{/i}"
@@ -368,7 +374,7 @@ label sc_observation:
 
 label sc_sarah_kill:
     scene black
-    show bg hotel_entrance
+    show bg hotel
     show Morgan_default at center
     Morgan "{i}She'll probably kill someone for the sake of a disguise. But who? Can I catch her in the act if I'm fast enough, or...?{/i}"
     "Morgan hears the sound of a thud, and someone struggling for their lives."
@@ -379,7 +385,7 @@ label sc_sarah_kill:
 
 label sc_sarah_impersonate:
     scene black
-    show bg hotel_entrance
+    show bg hotel
     show Morgan_default at center
     Morgan "{i}She'll probably wear a disguise that gives her a lot of access, like a service staff member.{/i}"
     Morgan "{i}But where could she get such a disguise?{/i}"
@@ -394,7 +400,7 @@ label sc_sarah_impersonate:
 label sc_sarah_attacking:
     $ persistent.story_tree["investigate"]["unlocked"] = True
     scene black
-    show bg hotel_entrance
+    show bg hotel
     "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
     show Staff:
         xalign 0.7
@@ -424,7 +430,7 @@ label sc_sarah_attacking:
 
 label sc_chef_order:
     scene black
-    show bg hotel_entrance with dissolve
+    show bg hotel with dissolve
     show Chef at left
     with Pause(0.5)
     show Sarah at right with moveinright

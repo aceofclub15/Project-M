@@ -4,7 +4,7 @@ label sc_target_poisoned:
     Morgan "{i}Alright, Sarah, show me what you've got.{/i}"
 
     scene black
-    show bg hotel_entrance
+    show bg hotel
     show Adam:
         xalign 0.7
     with moveinbottom
@@ -20,7 +20,7 @@ label sc_target_poisoned:
     "Some montage of Adam gulping down the drink and Sarah gracefully left the dining area"
     "..."
     scene black
-    show bg hotel_entrance
+    show bg hotel
 
     "As Sarah leaves Rourke's table, Morgan approaches her."
     show Sarah:

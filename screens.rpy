@@ -367,7 +367,7 @@ init python:
 screen show_title:
     text "ADHG TEAM":
         xalign 0.5
-        yalign 0.7
+        yalign 0.8
         size 50
         font "font/EpundaSlab-VariableFont_wght.ttf"
 
@@ -375,7 +375,11 @@ label splashscreen:
     scene black
     with Pause(1)
     
-    show splash at center with dissolve
+    show splash:
+        xalign 0.5
+        yalign 0.2
+        zoom 0.8 
+    with dissolve
     show screen show_title with dissolve
     with Pause(2)
 
@@ -397,7 +401,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action start_with_sound("menu_play.wav",1)
+            textbutton _("Start") action start_with_sound("menu_play.wav")
             
             textbutton _("Navigation Tutorial") action Jump("button_tutorial")
 
@@ -834,6 +838,8 @@ style slot_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
+
+
 screen preferences():
 
     tag menu
@@ -875,7 +881,7 @@ screen preferences():
 
                     bar value Preference("text speed")
 
-                    label _("Auto-Forward Time")
+                    label _("Auto-Forward Wait Time")
 
                     bar value Preference("auto-forward time")
 
