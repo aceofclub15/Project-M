@@ -27,12 +27,12 @@ default persistent.story_tree = {
         "unlocked": False,
     },
     "she_kill": {
-        "name": "She might kill → Investigate the noise",
+        "name": "She might kill -> Investigate the noise",
         "children": ["investigate"],
         "unlocked": False,
     },
     "she_impersonate": {
-        "name": "She might impersonate → Investigate the noise",
+        "name": "She might impersonate -> Investigate the noise",
         "children": ["investigate"],
         "unlocked": False,
     },
@@ -43,7 +43,7 @@ default persistent.story_tree = {
         "color": "#66ff66",
     },
     "drink_poison": {
-        "name": "Drink the poison → Fail",
+        "name": "Drink the poison -> Fail",
         "children": [],
         "unlocked": False,
     },
@@ -54,12 +54,12 @@ default persistent.story_tree = {
         "color": "#0099cc",
     },
     "give_room": {
-        "name": "Give room number → Fail",
+        "name": "Give room number -> Fail",
         "children": [],
         "unlocked": False,
     },
     "dont_give_room": {
-        "name": "Don't give room number → Choice 3",
+        "name": "Don't give room number -> Choice 3",
         "children": ["choice3"],
         "unlocked": False,
     },
@@ -101,7 +101,7 @@ default persistent.story_tree = {
 
     },
     "hope_shot": {
-        "name": "Hope → Fail",
+        "name": "Hope -> Fail",
         "children": [],
         "unlocked": False,
     },
@@ -134,17 +134,17 @@ default persistent.story_tree = {
         "unlocked": False,
     },
     "stop_romance": {
-        "name": "Stop Romance → Go Home",
+        "name": "Stop Romance -> Go Home",
         "children": ["go_home"],
         "unlocked": False,
     },
     "pro": {
-        "name": "Keep it professional → Go home",
+        "name": "Keep it professional -> Go home",
         "children": ["go_home"],
         "unlocked": False,
     },
     "go_home": {
-        "name": "Go Home → Assassin Route 5",
+        "name": "Go Home -> Assassin Route 5",
         "children": ["assassin5"],
         "unlocked": False,
         "color": "#66ff66",
@@ -156,12 +156,12 @@ default persistent.story_tree = {
         "color": "#66ff66",
     },
     "bluff": {
-        "name": "Bluff → Fail",
+        "name": "Bluff -> Fail",
         "children": [],
         "unlocked": False,
     },
     "bend_time": {
-        "name": "Bend Time → Assassin Route 6",
+        "name": "Bend Time -> Assassin Route 6",
         "children": ["assassin6"],
         "unlocked": False,
     },

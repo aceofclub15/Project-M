@@ -300,9 +300,9 @@ screen quick_menu():
 
 
             if renpy.get_screen("button_tutorial_screen") and tree_focus:
-                textbutton _("Tree") action Show('flowchart_screen') sensitive can_click_tree style "tutorial_screen_style"
+                textbutton _("Tree") action ShowMenu('flowchart_screen') sensitive can_click_tree style "tutorial_screen_style"
             else:
-                textbutton _("Tree") action Show('flowchart_screen') sensitive can_click_tree
+                textbutton _("Tree") action ShowMenu('flowchart_screen') sensitive can_click_tree
             
             textbutton _("Jump") action Jump('start') 
 
