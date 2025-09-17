@@ -372,6 +372,7 @@ screen show_title:
         font "font/EpundaSlab-VariableFont_wght.ttf"
 
 label splashscreen:
+    $ renpy.music.set_volume(0.5)
     scene black
     with Pause(1)
     

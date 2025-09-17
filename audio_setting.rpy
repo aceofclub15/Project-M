@@ -2,6 +2,7 @@
 define config.main_menu_music = "main_menu.wav"
 
 init python:
+
     style.button.activate_sound = "button_sound.wav" 
     #background music channel for the main game
     renpy.music.register_channel("background")
