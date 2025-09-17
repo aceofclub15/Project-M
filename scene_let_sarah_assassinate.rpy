@@ -10,7 +10,7 @@ label sc_target_poisoned:
     with moveinbottom
     with Pause(0.2)
     show Sarah:
-        xalign 0.5
+        xalign 0.4
         zoom 1.3
     with moveinleft
 

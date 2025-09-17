@@ -32,7 +32,10 @@ label sc_hallex_warehouse_ambush:
     Adam "Go to hell."
     Morgan "You really don't want to push your luck here. If me and Graham found out about this place, it's only a matter of time before-"
     "A series of gunshots ring out as Sarah arrives on the scene and kills Adam's bodyguard. Adam quickly runs away and hides."
-    show Sarah at topright with moveinbottom
+    show Sarah at right with moveinbottom
+    show Adam:
+        yoffset 100
+        xoffset 200 
     Sarah "Sorry to crash the party, everyone, but I'm afraid I have a contract to fulfill. Besides, my master would like a word with you."
     "Sarah's boss, June Davidson, appears alongside her, looking smug and self-assured."
     show June at center with moveinbottom

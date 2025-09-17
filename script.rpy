@@ -3,6 +3,7 @@ default persistent.assassin_ending = False
 default persistent.romance_ending = False
 default persistent.ace_ending = False
 default persistent.vigilante_ending = False
+default persistent.first_time = 1
 default list_endings = []
 
 default history_focus = False
@@ -160,7 +161,7 @@ label button_tutorial:
 
     hide screen button_tutorial_screen
     
-
+    $ persistent.first_time = False
 
     return
 
@@ -186,7 +187,7 @@ init python:
         node = persistent.story_tree[node_id]
         box = VBox()
 
-        dis_text = ("   |" * depth) + "->" + node["name"]
+        dis_text = ("   |" * depth) + ">" + node["name"]
 
         dis_color = node.get("color", "#ffffff")
 
@@ -209,6 +210,12 @@ screen flowchart_screen():
         vbox:
             spacing 8
             text "Progress Tree" size 30
+            text "Color: " size 25
+            text "-blue: important choice" color "#0099cc" size 25
+            text "-green: common choice in many path" color "#66ff66" size 25
+            text "-red: ending" color "#ff6666" size 25
+            text "" size 25
+
             add render_node("start", 0)
 
     textbutton "Return" action Return() xalign 0.5 yalign 0.95
@@ -235,7 +242,7 @@ label sc_computer:
         $ persistent.all_endings = True
 
     #Remember to add NVL mode to this part or something
-    "Accessing personal info..."
+    "Accessing personal info... (choose who is login in)"
     #"Please choose your character's gender (choice won't affect gameplay)"
 
 

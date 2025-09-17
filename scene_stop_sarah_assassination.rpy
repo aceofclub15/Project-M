@@ -149,7 +149,7 @@ label sc_keep_room_number:
             jump sc_nonsense
         "But they've planned this from the start":
             $ persistent.story_tree["planned"]["unlocked"] = True
-            jump sc_they_planned_this #DOING THIS 
+            jump sc_they_planned_this 
     return
 
 label sc_they_planned_this:

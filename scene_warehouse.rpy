@@ -21,10 +21,9 @@ label sc_warehouse_trap:
     Morgan "Shit, this really was a trap!"
     scene Warehouse with Fade(0.1, 1, 0.5, color="#fff")
     "A flashbang grenade is dropped, and the screen goes white. When the white noise clears, Morgan and Sarah are restrained with zip-ties."
-    show Morgan_default:
-        xalign 0.1
+    show Morgan_default at left
     show Sarah:
-        xalign 0.2
+        xalign 0.3
 
     with Pause(0.2)
     
@@ -138,8 +137,7 @@ label sc_june_headquarters:
     "Scene change to June\'s HQ"
     show Graham at center
     with Pause(0.3)
-    show Morgan_default:
-        xalign 0.1
+    show Morgan_default at left
     show Sarah:
         xalign 0.2
 

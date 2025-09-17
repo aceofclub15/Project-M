@@ -20,8 +20,11 @@ label sc_romance_climax:
     "{color=#9d00ff} You two did win. A shame I can't say that for myself. {/color}"
 
     Sarah "Huh? What are you talking about, June?"
-    show Sarah at right with dissolve
+    
     show June at left with moveinleft
+    show Sarah at center
+
+
     Sarah " Graham's dead, we're in the clear."
 
     June "It's the burdens of leadership, Sarah."
@@ -32,6 +35,7 @@ label sc_romance_climax:
     "June collapsed"
     show June:
         rotate 270
+        yoffset 300
     with dissolve
     show Sarah at center with moveinright
     Sarah "What? No, June, NO!"
@@ -66,8 +70,8 @@ label sc_romance_climax:
 label sc_romance_ending:
     scene Beach 
     "transition, our couple is at the beach"
-    show Morgan_default at center
-    show Sarah at center
+    show Morgan_default at left
+    show Sarah at right
     Morgan "{i}And so, I start my new life with Sarah. {/i}"
     Morgan "I must say, you have excellent taste in beachfront property."
 

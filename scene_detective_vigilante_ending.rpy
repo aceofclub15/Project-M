@@ -1,14 +1,15 @@
 label sc_obey_voice:
     scene hallex_warehouse
-    "Morgan arrives alone at the Hallex warehouse, where she finds the smug and self-assured June and Sarah standing over a dead Adam and a grieviously injured Graham."
-    show June at center
+    show June at center zorder 5
     show Adam:
-        rotate 90
-        xalign 0.8
-        yalign 0
+        rotate 270
+        xalign 0.4
+        yoffset 200
     show Graham at topright
     show Sarah at right
+    "Morgan arrives alone at the Hallex warehouse, where she finds the smug and self-assured June and Sarah standing over a dead Adam and a grieviously injured Graham."
     Morgan "{i}I screwed up. I didn't do a good enough job at solving the Hallex case, and this is the result.{/i}"
+    hide Adam
     show Morgan_default at left with moveinleft
     June "Agent Morgan, so good to finally meet you in person. Sarah's told me a lot about you."
 
@@ -34,18 +35,17 @@ label sc_obey_voice:
     Sarah "Wha- URK!"
     Graham "I knew I was doomed the second you got the jump on me, Sarah. But I could at least take you down with me! Hahahaha!"
     "Both Sarah and Graham bleed to death, Graham laughing like a madman all the while."
-    show Sarah:
-        rotate 90
-    show Graham:
-        rotate 90
+    hide Sarah
+    hide Graham
+
     June "No! No, this can't be happening, I-"
     hide Morgan with dissolve
     show Morgan_default:
         rotate 0
     show June at center
     show June:
-        rotate -290
-        yoffset 80
+        rotate 270
+        yoffset 300
     "Morgan takes advantage of June's distraction to overpower her and hold her at gunpoint."
     Morgan "I'm going to make you pay, June, for everything that you've done!"
     June "No! NO! I'd almost fixed everything! Now Wallace...he will..."

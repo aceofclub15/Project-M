@@ -404,7 +404,11 @@ screen navigation():
 
             textbutton _("Start") action start_with_sound("menu_play.wav")
             
-            textbutton _("Navigation Tutorial") action Jump("button_tutorial")
+            if persistent.first_time:
+                textbutton _("> Navigation Tutorial <") action Jump("button_tutorial") 
+            else:
+                textbutton _("Navigation Tutorial") action Jump("button_tutorial") 
+                
 
 
         else:
@@ -418,7 +422,7 @@ screen navigation():
         textbutton _("Preferences") action ShowMenu("preferences")
         if (renpy.get_screen("main_menu")):
             textbutton _("Unlock all endings") action Function(unlock_endings)
-            textbutton _("Reset Endings") action Function(lock_endings)
+            textbutton _("Reset Datas") action Function(lock_endings)
 
         if _in_replay:
 
@@ -451,6 +455,9 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+
+
+
 
 
 ## Main Menu screen ############################################################
