@@ -163,7 +163,7 @@ label sc_timimg_shot:
 
     Morgan "{i}That's quite the invitation in her eyes.{/i}"
     Morgan "{i}But is this the kind of story I've been aspiring to?{/i}"
-
+    $ persistent.story_tree["choice4"]["unlocked"] = True
     menu:
         "Kiss her":
             $ persistent.story_tree["romance"]["unlocked"] = True

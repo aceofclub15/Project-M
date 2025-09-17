@@ -67,7 +67,11 @@ label sc_ambush:
     "Graham aims his gun at Adam, leading to a standoff."
     Graham "Yeah, we got rid of the assassins, but you won't escape justice! Morgan, if you will."
     "Morgan takes out a video camera, which was secretly filming everything since her and Graham's arrival at the warehouse."
-    Morgan "Graham and I made this contingency plan in case we died out here. Your crimes have already been broadcast to the entire public, Adam, and exposing June and Sarah was a nice bonus too. Graham and I are going to be hailed as citizen journalism heroes, while you're going to spend the rest of your life paying for everything you've done."
+    Morgan "Graham and I prepared for this—just in case we didn’t make it out alive. 
+    Your crimes are already out there for the world to see, Adam."
+
+    Morgan "Exposing June and Sarah? That was just an added bonus.
+    People will remember us as heroes of citizen journalism, while you’ll spend the rest of your life paying for what you’ve done."
     Adam "No! NO! I'm not going to prison! I'D RATHER DIE!"
     "Adam suddenly turns his gun on himself and pulls the trigger before Morgan or Graham have time to react."
     show Adam:
@@ -96,8 +100,10 @@ label sc_ace_epilogue:
     "Morgan smiles playfully and kisses Graham on the cheek."
     Morgan "I'm sure you will. Oh, and I'm paying the bill this time."
     "Camera pans out and fades to black."
-    "Detective route ace epilogue unlocked."
+
     $ persistent.story_tree["ace_ending"]["unlocked"] = True
     
     $ persistent.ace_ending = True
+
+    "Detective route ace ending unlocked. ([check_no_endings()]/4)"
     return

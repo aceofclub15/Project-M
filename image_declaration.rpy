@@ -6,7 +6,7 @@ image bg emergency_room = "bg_emergency_room.jpg"
 # Morgan images
 image Morgan_default = At("images/morgan/morgan_default.png", sprite_highlight("Morgan"))
 
-image June = At("june.png", sprite_highlight("June"))
+image June = At("images/june/june_default.png", sprite_highlight("June"))
 image Sarah = At("images/sarah/sarah_default.png", sprite_highlight("Sarah"))
 
 image Graham = At("images/graham/graham_brooding.png", sprite_highlight("Graham"))
@@ -14,8 +14,8 @@ image Graham = At("images/graham/graham_brooding.png", sprite_highlight("Graham"
 image Young_Morgan = At("images/morgan/morgan_default.png", sprite_highlight("Morgan"))
 
 
-image Grandmaster = At("images/grandmaster/grandmaster_default.png", sprite_highlight("Grandmaster"))
-image January = At("gm.png", sprite_highlight("January"))
+
+image January = At("images/grandmaster/grandmaster_default.png", sprite_highlight("January"))
 
 image Marcus = At("staff.png", sprite_highlight("Marcus"))
 
@@ -28,6 +28,8 @@ image Agent_X = At("agent_x.png", sprite_highlight("Agent_X"))
 image Crew_member = At("crew.png", sprite_highlight("Crew_member"))
 image Staff = At("staff.png", sprite_highlight("Staff"))
 image Bartender = At("staff.png", sprite_highlight("Bartender"))
+image Bodyguard = "images/others/bodyguard.png"
+
 
 
 

@@ -33,12 +33,15 @@ label sc_stop_sarah:
     scene black
     show bg hotel
     show Adam at center
+
     "Morgan approaches Adam."
     Morgan "Excuse me, Mr. Adam Rourke, but I'm Agent Morgan from the FBI."
     Morgan "We've received credible intel that your life is in immediate danger, and you need to be secured."
-    "Adam's bodyguard" "That's far enough. We need to see some ID and-"
+    show Bodyguard:
+        align (0.3, 0.8)
+    Bodyguard "That's far enough. We need to see some ID and-"
     Adam "No. No we don't. I'll come with you, Agent Morgan. My life is in your hands."
-    "Adam's bodyguard" "But sir!"
+    Bodyguard "But sir!"
     Adam "You are relieved of duty. Thank you for your service."
     "Adam stands up and whispers in Morgan's ear."
     Adam "I know you're not FBI, but I also know I have no choice but to trust you. Get me out of this place, quickly!"

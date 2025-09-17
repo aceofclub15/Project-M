@@ -79,8 +79,9 @@ label sc_vigilante_epilogue:
     Morgan "I'll take my chances."
     "Morgan shoots Marcus dead with a silenced pistol and leaves."
     scene black
-    "Detective route vigilante ending achieved"
+
     $ persistent.story_tree["vigilante_ending"]["unlocked"] = True
 
     $ persistent.vigilante_ending = True
+    "Detective route vigilante ending achieved ([check_no_endings()]/4)"
     return

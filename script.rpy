@@ -1,8 +1,9 @@
-﻿default    persistent.all_endings = False
-default    persistent.assassin_ending = False
-default    persistent.romance_ending = False
-default    persistent.ace_ending = False
-default    persistent.vigilante_ending = False
+﻿default persistent.all_endings = False
+default persistent.assassin_ending = False
+default persistent.romance_ending = False
+default persistent.ace_ending = False
+default persistent.vigilante_ending = False
+default list_endings = []
 
 default history_focus = False
 default dialogs_nav_focus = False
@@ -12,10 +13,20 @@ default tree_focus = False
 default tutorial_text=""
 
 
+# AMOUNT OF ENDINGS CHECK!!!!!!
+init python:
+    def check_no_endings():
+        list_endings = [persistent.assassin_ending, persistent.ace_ending, persistent.romance_ending, persistent.vigilante_ending]
+        no_ends = 0
+        for e in list_endings:
+            if e == True:
+                no_ends += 1
+        return no_ends
+
+
+
 #SOUNDS SETTINGS
 init python:
-
-
 
 
 
@@ -69,9 +80,11 @@ define Marcus = Character("Marcus Simms", color="#0e8b3c", callback = name_callb
 define Head_chef = Character("Head Chef",color="#fff", callback = name_callback, cb_name = "Head_chef")
 define Crew_member = Character("Crew member", color="#0044ff", callback = name_callback, cb_name = "Crew_member")
 define Agent_X = Character("Agent X", color = "#868686ff", callback = name_callback, cb_name = "Agent_X")
-define Adam = Character("Adam (Target)", color="#ff2f00", callback = name_callback, cb_name = "Adam")
+define Adam = Character("Adam Rourke", color="#ff2f00", callback = name_callback, cb_name = "Adam")
 define Cop = Character("Police Officer", color ="#0044ff", callback = name_callback, cb_name = "Cop")
 define Bartender = Character("Bartender", color="#ff419d", callback = name_callback, cb_name = "Bartender")
+define Bodyguard = Character("Bodyguard", color="#4525d5", callback = name_callback, cb_name = "Bodyguard")
+
 
 
 
@@ -161,19 +174,29 @@ label button_tutorial:
 
 
 init python:
-    def render_node(node_id, depth=0):
+    def render_node(node_id, depth=0, visited=None):
+        if visited is None:
+            visited = set()
+
+        # Prevent re-rendering the same node
+        if node_id in visited:
+            return VBox()
+        visited.add(node_id)
+
         node = persistent.story_tree[node_id]
         box = VBox()
 
-        dis_text = ("    |" * depth) + "--> " + node["name"]
+        dis_text = ("   |" * depth) + "->" + node["name"]
+
+        dis_color = node.get("color", "#ffffff")
 
         if node["unlocked"]:
-            txt = renpy.text.text.Text(dis_text, size=22)
+            txt = renpy.text.text.Text(dis_text, size=22, color=dis_color)
             box.add(txt)
 
-        # Recurse children
-        for child in node["children"]:
-            box.add(render_node(child, depth + 1))
+            # Recurse children
+            for child in node["children"]:
+                box.add(render_node(child, depth + 1, visited))
 
         return box
 

@@ -58,6 +58,8 @@ label sc_track_graham:
 
     Sarah "Exactly. So, what do you suggest we do next?"
     if romance:
+        $ persistent.story_tree["test_commit"]["unlocked"] = True
+
         menu:
             "Maybe we use this time to get to know each other? (Go on date)":
                 $ persistent.story_tree["commit_romance"]["unlocked"] = True
@@ -272,7 +274,7 @@ label sc_morgan_past:
     "Flashback time. (I don't know what to do here)"
     show Young_Morgan at left
     Young_Morgan "Go away. I don't need your pity."
-    show GrandMaster at right
+    show January at right
     Grandmaster "Then consider yourself fortunate that I have none to offer."
     Grandmaster "I came to you because I see potential."
     Grandmaster "If you want to change your circumstances, you can come with me."

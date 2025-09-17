@@ -98,8 +98,8 @@ label sc_romance_ending:
 
     # Ending achieved
     
-    "Assassin Route Good Ending (Romance) achieved"
     $ persistent.story_tree["romance_ending"]["unlocked"] = True
     $ persistent.romance_ending = True
+    "Assassin Route Good Ending (Romance) achieved ([check_no_endings()]/4)"
 
     return
