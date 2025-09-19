@@ -73,8 +73,8 @@ label sc_assassin_climax:
 
     Sarah "I know this wasn't your fault. I know that. But I'm still angry, and I need to take it out on someone."
     Sarah "Please don't let it be you, Morgan. Go away, for your own sake."
-    scene running
-    "transition to morgan pov running"
+    scene black
+
     Morgan "{i}And so I listen to her, and run.{/i}"
     Morgan "{i}My mission is over, and so is my partnership with Sarah.{/i}"
     Morgan "{i}It's time to go back to being an Enforcer, and wait for the Grandmaster's next orders.{/i}"
@@ -87,7 +87,7 @@ label sc_assassin_climax:
 label sc_assassin_ending:
 
     "Time skips forward by six months."
-    scene somewhere
+    scene black  # random_warehouse
     Morgan "{i}Life has a way of surprising you.{/i}"
     Morgan "{i}I never thought I'd see Sarah again after our messy journey together, but I guess it must be a small world after all.{/i}"
     show Morgan_default at left

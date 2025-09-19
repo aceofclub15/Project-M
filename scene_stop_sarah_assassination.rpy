@@ -1,4 +1,6 @@
 label sc_stop_sarah:
+    scene black
+    show bg hotel_restaurant
     Morgan "{i}Looks like I'm playing the hero this time. In a manner of speaking, at least.{/i}"
     "Morgan walks up to Sarah."
     show Morgan_default at right with moveinleft
@@ -11,7 +13,7 @@ label sc_stop_sarah:
     hide Morgan_default with dissolve
 
     "Morgan also hurrily left the scene"
-    "Change of scene."
+    show bg hotel
     Morgan "{i}Right, I need to take advantage of this window and call Graham immediately!{/i}"
     "Morgan dials a number."
     Graham "Huh? Who is this? How did you get this number?"
@@ -29,7 +31,6 @@ label sc_stop_sarah:
     Graham "Whatever she plans to do next, it can't be good. You need to get out of here, quickly!"
     Morgan "Understood, Graham."
 
-    "scene changed."
     scene black
     show bg hotel
     show Adam at center
@@ -45,7 +46,7 @@ label sc_stop_sarah:
     Adam "You are relieved of duty. Thank you for your service."
     "Adam stands up and whispers in Morgan's ear."
     Adam "I know you're not FBI, but I also know I have no choice but to trust you. Get me out of this place, quickly!"
-    Morgan "Of course. My master's prepared safe passage for you. Please come with me."
+    Morgan "Of course. My master's prepared a safe passage for you. Please come with me."
     "Morgan and Adam hurry out of the Charleston hotel, then rush to a getaway car prepared by Ouroboros."
     Morgan "Get in, quickly. You'll be taken somewhere safe."
     Adam "I see you're not coming with me. It's because of Graham, isn't it?"
@@ -126,8 +127,8 @@ label sc_keep_room_number:
     "Morgan heads up to room 966, locks the door and puts a few security precautions in place before going to bed."
     
     
-    "The scene cuts to the next day as Morgan's having breakfast in the hotel foyer."
-    scene hotel_froyer
+    "The scene cuts to the next day as Morgan's having breakfast."
+    scene hotel_foyer
     "Graham contacts Morgan's wireless earpiece."
     Graham "{i}Feeling freshened up? Ready to discuss this case?{/i}"
     Morgan "Damn right I am. First things first, you need to tell me how you know Adam Rourke."

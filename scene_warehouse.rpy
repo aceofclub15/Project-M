@@ -124,7 +124,6 @@ label sc_bend_time:
     return
 
 label sc_june_headquarters:
-
     Morgan "He's going to ambush your boss, Sarah. He's going to take out June Davidson."
 
     Sarah "If he managed to get the drop on us, he could get the drop on June too. I need to call her."
@@ -133,7 +132,8 @@ label sc_june_headquarters:
 
     Sarah "We need to get to the Davidson Solutions headquarters, ASAP!"
     "Morgan and Sarah get in Sarah's car and drive to Davidson Solutions HQ. Luckily, they manage to catch up to him."
-    scene HQ 
+    scene black
+    show bg headquarters
     "Scene change to June\'s HQ"
     show Graham at center
     with Pause(0.3)

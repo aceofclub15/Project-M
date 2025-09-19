@@ -304,7 +304,7 @@ screen quick_menu():
             else:
                 textbutton _("Tree") action ShowMenu('flowchart_screen') sensitive can_click_tree
             
-            textbutton _("Jump") action Jump('start') 
+
 
 
               
@@ -338,7 +338,7 @@ style quick_button_text:
 
 style tutorial_screen_style is quick_button
 style tutorial_screen_style_text is quick_button_text:
-    color "#ff0000"
+    color "#ffbf00"
     hover_color gui.hover_color
 
 
@@ -424,7 +424,7 @@ screen navigation():
         textbutton _("Load") action ShowMenu("load")
 
         textbutton _("Preferences") action ShowMenu("preferences")
-        if (renpy.get_screen("main_menu")):
+        if (renpy.get_screen("main_menu")) and (dev_build):
             textbutton _("Unlock all endings") action Function(unlock_endings)
             textbutton _("Reset Datas") action Function(lock_endings)
 

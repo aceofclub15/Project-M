@@ -1,9 +1,9 @@
 label sc_track_graham:
-    scene somewhere
+    scene Graham_apartment
     "Morgan and Sarah ransack Graham's apartment, dressed in black coveralls."
     show Morgan_default at center with moveinbottom
     Morgan "{i}Sarah's handlers are really good.{/i}"
-    Morgan "{i}It didn't take long for the bigshots at Davidson Solutions to uncover Graham's hideout, though sadly his exact whereabouts are unknown.{/i}"
+    Morgan "{i}It didn't take long for the bigshots at Davidson Solutions to uncover Graham's hideout, though sadly, his exact whereabouts are unknown.{/i}"
     Morgan "{i}Still, this is a good spot for an ambush if he does return, not to mention that we may be able to track his next movements if we're smart enough.{/i}"
     show Morgan_default at left with moveinright
     show Sarah at right with moveinright
@@ -140,6 +140,7 @@ label sc_motel:
     Morgan "(kisses Sarah's hand) Indeed. After you, darling."
 
     "Scene transition. They go back to Sarah's place"
+    show bg sarah_apartment
     Morgan "I'm happy."
 
     Sarah "So am I, honey. So am I."
@@ -184,7 +185,8 @@ label sc_having_sex:
 
 
 label sc_drink_potion:
-    scene somewhere
+    scene black
+    show bg sarah_apartment
     show Morgan_default at center
     Morgan "{i}I feel my senses leave me.{/i}"
     show DrK:
@@ -255,6 +257,7 @@ label sc_separate_way:
     return
 
 label sc_remember_past:
+    scene Morgan_home
     $ persistent.story_tree["go_home"]["unlocked"] = True
     hide Sarah with dissolve
     hide Morgan_default with dissolve
@@ -271,7 +274,8 @@ label sc_remember_past:
     return
 
 label sc_morgan_past:
-    "Flashback time. (I don't know what to do here)"
+    "Flashback time."
+    scene Morgan_past
     show Young_Morgan at left
     Young_Morgan "Go away. I don't need your pity."
     show January at right
@@ -287,8 +291,8 @@ label sc_morgan_past:
     Grandmaster "You don't need the failures around you to drag you down any longer, child."
     Grandmaster "Together, you and I will build a wonderful life those losers will forever envy!"
     "..."
-    scene CurrentTime
-    "transition. go back to current time"
+    scene black
+
     Morgan "{i}Those words were all I needed to hear to accept her offer.{/i}"
     Morgan "{i}And the Grandmaster proved true to her word.{/i}"
     Morgan "{i}She's given me a place to belong, a place where I no longer need to hide or sulk in shame.{/i}"

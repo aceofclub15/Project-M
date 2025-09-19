@@ -48,9 +48,9 @@ label sc_obey_voice:
         yoffset 300
     "Morgan takes advantage of June's distraction to overpower her and hold her at gunpoint."
     Morgan "I'm going to make you pay, June, for everything that you've done!"
-    June "No! NO! I'd almost fixed everything! Now Wallace...he will..."
+    June "No! NO! I'd almost fixed everything! Now Wallace...he will...oh January, I'm so sorry!"
     Morgan "What are you talking about?"
-    June "I can't disappoint him, I can't let him know I failed! I'D RATHER DIE!"
+    June "I can't disappoint him, I can't let him know I failed! Even January can't save me now! I'M ENDING THIS!"
     "Suddenly, June slashes at Morgan with a pocket knife, causing Morgan to shoot her dead in self-defense."
     show June:
         rotate 90

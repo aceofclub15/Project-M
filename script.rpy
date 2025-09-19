@@ -14,6 +14,16 @@ default tree_focus = False
 default tutorial_text=""
 
 
+
+#TESTING STUFF: disable/delete if build for PUBLIC VER
+define config.allow_skipping = True
+define config.fast_skipping = True
+
+default preferences.skip_unseen = True
+
+define dev_build = True
+
+
 # AMOUNT OF ENDINGS CHECK!!!!!!
 init python:
     def check_no_endings():
@@ -242,7 +252,7 @@ label sc_computer:
         $ persistent.all_endings = True
 
     #Remember to add NVL mode to this part or something
-    "Accessing personal info... (choose who is login in)"
+    "Accessing personal info... (choose who is logging in)"
     #"Please choose your character's gender (choice won't affect gameplay)"
 
 
@@ -266,7 +276,7 @@ label sc_mission_archive:
         xalign 0.5
         yalign 0.5
     
-    Grandmaster "How are you feeling, Enforcer XIII?"
+    Grandmaster "How are you feeling, Enforcer XIII?" 
     Morgan "I'm feeling as ready as I'll ever be."
     Grandmaster "Good, because time is of the essence. The assassin from Davidson Solutions should've already infiltrated the hotel."
     Morgan "And I imagine the rogue Federal agent, Graham, is making his move too?"
@@ -309,7 +319,7 @@ label sc_hotel_entrance:
 label sc_emergency:
     show bg emergency_room
     hide Morgan_default
-    Morgan "Attention everyone! This is Officer Morgan of the FBI! I\'m declaring a terroristic threat at the Charleston! I need everyone to please-No wait, wait, don\'t escort me out, NOOOO!"
+    Morgan "Attention, everyone! This is Officer Morgan of the FBI! I\'m declaring a terroristic threat at the Charleston! I need everyone to please-No wait, wait, don\'t escort me out, NOOOO!"
     scene black
     Grandmaster "You made a terrible judgment call, Morgan."
     Grandmaster "By attracting undue attention to yourself, you\'ve ensured that you\'ll be arrested and charged for impersonating a Federal officer."
@@ -356,7 +366,7 @@ label sc_guest_list:
 
 label sc_observation:
     Morgan "Right, can't go picking fights the first chance I get."
-    Morgan " I'll just activate my thermoptic implant and set my video camera to record everything Graham does. Now, Graham, time for you to spill the beans."
+    Morgan " I'll just activate my thermoptic implant and set my video camera to record everything Graham does. Now, Graham, it's time for you to spill the beans."
     hide Morgan_default with fade
     show Graham at left
     "Graham lockpicks the door and barges in, confronting the man inside."
@@ -381,7 +391,7 @@ label sc_observation:
     Morgan "{i} Wow, I've picked up a lot of invaluable intel. It looks like the assassin's a woman. {/i}"
     Morgan "{i} She's pretty close to getting ready for the job, so I need to make my way to the location ASAP!{/i}"
     Morgan "{i}But first, let me just hack Graham's phone {/i}"
-    Morgan "{i} The encryption on his phone's real strong, so I doubt I could trace it{/i}"
+    Morgan "{i} The encryption on his phone is really strong, so I doubt I could trace it{/i}"
     Morgan "{i} But at least I can still call him if I decide to side with him. {/i}"
     
     Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"
@@ -460,17 +470,17 @@ label sc_sarah_attacking:
 
 label sc_chef_order:
     scene black
-    show bg hotel with dissolve
-    show Chef at left
-    with Pause(0.5)
-    show Sarah at right with moveinright
+    show bg restaurant with dissolve
+    #show Chef at left
+    #with Pause(0.5)
+    #show Sarah at right with moveinright
     Head_chef "Order up! We have a gin martini for Mr. Rourke, on the double!"
     "Sarah emerge in her waitress disguise as she takes Rourke's order and sneakily mixes something into the drink as Morgan notices."
     Sarah "Of course, ma'am. Right on it!"
 
     with Pause(0.5)
     hide Chef
-    show Morgan_default at left with moveinleft
+    #show Morgan_default at left with moveinleft
     Morgan "{i}This is it, the moment of truth.{/i}"
     Morgan "{i}The Grandmaster told me to make things interesting, but how am I going to do that now?{/i}"
     Morgan "{i}Whatever choice I make, there's no going back.{/i}"

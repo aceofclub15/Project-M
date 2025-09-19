@@ -4,15 +4,10 @@ label sc_target_poisoned:
     Morgan "{i}Alright, Sarah, show me what you've got.{/i}"
 
     scene black
-    show bg hotel
-    show Adam:
-        xalign 0.7
-    with moveinbottom
+    show bg hotel_restaurant
+    show Adam at center with moveinbottom
     with Pause(0.2)
-    show Sarah:
-        xalign 0.4
-        zoom 1.3
-    with moveinleft
+
 
     Sarah "Your order, sir."
     Adam "Yes, thanks."
@@ -69,7 +64,7 @@ label sc_target_poisoned:
     Grandmaster "So you've chosen to aid and abet a murderer, have you?"
     Grandmaster "Well, I just wanted to let you know that Adam's death has been confirmed and Sarah's arrived at the exfil point, safe and sound."
     Grandmaster "I've also given her your contact information and told her to contact you tomorrow."
-    Grandmaster "Time for you to see this through the end."
+    Grandmaster "Time for you to see this through to the end."
 
     Morgan "Thank you, Grandmaster. I promise I won't disappoint."
 
@@ -84,7 +79,7 @@ label sc_target_poisoned:
 
 
 label sc_next_day:
-    scene metting area
+    show bg shooting_range
     "Time advances to the next day, and the scene opens to the interior of Morgan's professional, immaculate office."    
     Morgan "{i}I received a message from Sarah, telling me to meet her, alone, at a deserted shooting range.{/i}"
     Morgan "{i}Being asked to come alone is already a red flag, but I did willingly choose the path of danger, after all.{/i}"
@@ -109,7 +104,7 @@ label sc_next_day:
     Morgan "I already helped you get away with murder, isn't that good enough for you?"
 
     Sarah "I decide what's good enough for me."
-    Sarah "Now are you going to hit the target or not?"
+    Sarah "Now, are you going to hit the target or not?"
 
     Morgan "{i}The challenge she's set up is ridiculous.{/i}"
     Morgan "{i}Like that 'curve the bullet' scene from the Wanted movie.{/i}"
@@ -134,7 +129,7 @@ label sc_random_shot:
     Sarah "How disappointing."
     Sarah "I really hoped you'd be a worthy ally, but it turns out I was just wasting my time with you."
     Sarah "At least I'll get some satisfaction from taking your life with my own two hands."
-    scene meeting with Fade(0.1, 0.0, 0.5, color="#fff")
+    scene black with Fade(0.1, 0.0, 0.5, color="#fff")
     "..."
     Grandmaster "You can't expect anyone else to believe in you if you don't believe in yourself."
     Grandmaster "And when you're working with bona fide murderers, such a lack of confidence can be fatal."
@@ -210,7 +205,7 @@ label sc_kiss_sarah:
 
     Morgan "And what loose ends are you referring to, exactly?"
 
-    Sarah "Why my brother-in-law, of course."
+    Sarah "Why, my brother-in-law, of course."
     Sarah "Agent Graham is still out to get me, so we're going to get to him first."
     Sarah "You in?"
 
