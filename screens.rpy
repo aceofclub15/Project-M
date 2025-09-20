@@ -376,7 +376,7 @@ screen show_title:
 
 label splashscreen:
  
-    $ config.main_menu_music = "main_menu.wav"
+
 
     scene black
     with Pause(1)
@@ -392,6 +392,9 @@ label splashscreen:
     scene black with dissolve
     hide screen show_title with dissolve
     with Pause(1)
+    $ config.main_menu_music = main_menu_music
+    $ print("played")
+
     return
 
 screen navigation():
@@ -406,7 +409,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action start_with_sound("menu_play.wav")
+            textbutton _("Start") action start_with_sound(start_game_sound)
             
             if persistent.first_time:
                 textbutton _("> Navigation Tutorial <") action Start("button_tutorial") 

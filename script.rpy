@@ -57,7 +57,7 @@ init python:
 
             for _ in range(sound_count): 
                 randosound = renpy.random.randint(1,2) 
-                renpy.sound.queue(f"click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) 
+                renpy.sound.queue(f"audio/sfx/click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) 
 
         elif event == "end" or event == "slow_done":
             renpy.sound.stop(channel="sound",fadeout=0.05) 
@@ -239,7 +239,7 @@ label start:
 
     $ can_click_tree = True
     $ config.all_character_callbacks = [ch_callbacks]
-    $ renpy.music.queue("bg.wav",channel="background",loop=True)
+    $ renpy.music.queue(main_game_music,channel="background",loop=True)
     jump sc_computer
     return
 
