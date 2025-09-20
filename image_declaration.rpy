@@ -1,10 +1,10 @@
 image hologram_GM = "images/bg/computer.png"
 image bg hotel = "images/bg/hotel.png"
-image bg hotel_restaurant = "images/bg/restaurant.png"
+image bg hotel_restaurant = "images/bg/japanese_restaurant.png"
 image bg emergency_room = "bg_emergency_room.jpg"
 image bg headquarters = "images/bg/headquarters.png"
 image bg shooting_range = "images/bg/shooting_range.png"
-image bg sarah_apartment = "images/bg/apartment.png"
+image bg sarah_apartment = "images/bg/sarah_apartment.png"
 
 
 

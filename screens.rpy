@@ -252,31 +252,31 @@ screen quick_menu():
 
 
             
-            if renpy.get_screen("button_tutorial_screen") and dialogs_nav_focus:
+            if dialogs_nav_focus:
                 textbutton _("Back") action Rollback()  style "tutorial_screen_style"
             else:
                 textbutton _("Back") action Rollback() 
 
-            if renpy.get_screen("button_tutorial_screen") and dialogs_nav_focus:
+            if dialogs_nav_focus:
                 textbutton _("Skip") action Skip(fast = False) style "tutorial_screen_style"
             else:
                 textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
 
 
-            if renpy.get_screen("button_tutorial_screen") and dialogs_nav_focus:
+            if dialogs_nav_focus:
                 textbutton _("Auto") action Preference("auto-forward", "toggle")  sensitive can_click_tree style "tutorial_screen_style"
             else:
                 textbutton _("Auto") action Preference("auto-forward", "toggle")  sensitive can_click_tree
             
 
             
-            if renpy.get_screen("button_tutorial_screen") and history_focus:
+            if history_focus:
 
                 textbutton _("History") action ShowMenu('history')  sensitive can_click_tree style "tutorial_screen_style"
             else:
                 textbutton _("History") action ShowMenu('history')  sensitive can_click_tree
                 
-            if renpy.get_screen("button_tutorial_screen") and save_focus:
+            if save_focus:
                 textbutton _("Save") action ShowMenu('save') style "tutorial_screen_style"
             else:
                 textbutton _("Save") action ShowMenu('save')
@@ -287,19 +287,19 @@ screen quick_menu():
                 textbutton _("Q.Save") action QuickSave()
             
 
-            if renpy.get_screen("button_tutorial_screen") and save_focus:
+            if save_focus:
                 textbutton _("Q.Load") action QuickLoad() style "tutorial_screen_style"
             else:
                 textbutton _("Q.Load") action QuickLoad()
             
-            if renpy.get_screen("button_tutorial_screen") and pref_focus:
+            if pref_focus:
                 textbutton _("Prefs") action ShowMenu('preferences')  sensitive can_click_tree style "tutorial_screen_style"
             else:
                 textbutton _("Prefs") action ShowMenu('preferences')   sensitive can_click_tree 
 
 
 
-            if renpy.get_screen("button_tutorial_screen") and tree_focus:
+            if tree_focus:
                 textbutton _("Tree") action ShowMenu('flowchart_screen') sensitive can_click_tree style "tutorial_screen_style"
             else:
                 textbutton _("Tree") action ShowMenu('flowchart_screen') sensitive can_click_tree
@@ -338,7 +338,7 @@ style quick_button_text:
 
 style tutorial_screen_style is quick_button
 style tutorial_screen_style_text is quick_button_text:
-    color "#ffbf00"
+    color "#cc0404"
     hover_color gui.hover_color
 
 
@@ -409,9 +409,9 @@ screen navigation():
             textbutton _("Start") action start_with_sound("menu_play.wav")
             
             if persistent.first_time:
-                textbutton _("> Navigation Tutorial <") action Jump("button_tutorial") 
+                textbutton _("> Navigation Tutorial <") action Start("button_tutorial") 
             else:
-                textbutton _("Navigation Tutorial") action Jump("button_tutorial") 
+                textbutton _("Navigation Tutorial") action Start("button_tutorial") 
                 
 
 

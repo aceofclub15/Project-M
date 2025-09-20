@@ -1,5 +1,6 @@
 label sc_grandmaster_route_start:
-    scene japanese_restaurant
+    scene black
+    show bg hotel
     "The Grandmaster waits at a high-class restaurant. A woman arrives and sits at her table. It's June Davidson."
     Grandmaster "{i}Thanks to agent Morgan's efforts, I was finally able to put all the pieces of this messy story together. And now, with the information I have...{/i}"
 

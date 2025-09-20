@@ -16,6 +16,7 @@ default tutorial_text=""
 
 
 #TESTING STUFF: disable/delete if build for PUBLIC VER
+
 define config.allow_skipping = True
 define config.fast_skipping = True
 
@@ -99,16 +100,9 @@ define Bodyguard = Character("Bodyguard", color="#4525d5", callback = name_callb
 
 
 
-label start:
-    stop music
 
-    $ can_click_tree = True
-    $ config.all_character_callbacks = [ch_callbacks]
-    $ renpy.music.queue("bg.wav",channel="background",loop=True)
-    jump sc_computer
-    return
 
-default can_click_tree = False
+default can_click_tree = True
 screen button_tutorial_screen:
     tag menu
     zorder 99
@@ -159,7 +153,7 @@ label button_tutorial:
 
     $ tree_focus = True
     $ dialogs_nav_focus = False
-    $ tutorial_text = "Tree button track your choices."
+    $ tutorial_text = "Use the tree button to show your choices in the game."
     ""
     $ tree_focus = False
     
@@ -172,7 +166,7 @@ label button_tutorial:
     hide screen button_tutorial_screen
     
     $ persistent.first_time = False
-
+    jump start
     return
 
 
@@ -240,7 +234,14 @@ screen flowchart_screen():
 # GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+label start:
+    stop music
 
+    $ can_click_tree = True
+    $ config.all_character_callbacks = [ch_callbacks]
+    $ renpy.music.queue("bg.wav",channel="background",loop=True)
+    jump sc_computer
+    return
 
 
 
@@ -296,7 +297,6 @@ label sc_mission_archive:
     return
 
 label sc_hotel_entrance:
-    $ persistent.story_tree["start"]["unlocked"] = True
     show bg hotel
     show Morgan_default
     "Morgan saunters into the hotel like she's always belonged there. She is dressed in an elegant but understated business suit and has a suave smile with eyes betraying a sharp focus."
@@ -304,6 +304,7 @@ label sc_hotel_entrance:
     "90 minutes to assassination."
     hide Morgan_default
     Morgan "{i}Now, how should I take control of this situation?{/i}"
+    $ persistent.story_tree["start"]["unlocked"] = True
 
     menu:
         "Raise an alarm throughout the entire hotel":
@@ -444,7 +445,6 @@ label sc_sarah_attacking:
     "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
     show Staff:
         xalign 0.7
-    with Pause(0.5)
     show Sarah:
         xalign 0.5
         zoom 1.3
@@ -470,7 +470,7 @@ label sc_sarah_attacking:
 
 label sc_chef_order:
     scene black
-    show bg restaurant with dissolve
+    show bg hotel_restaurant with dissolve
     #show Chef at left
     #with Pause(0.5)
     #show Sarah at right with moveinright

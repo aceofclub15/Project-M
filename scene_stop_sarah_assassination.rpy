@@ -3,7 +3,7 @@ label sc_stop_sarah:
     show bg hotel_restaurant
     Morgan "{i}Looks like I'm playing the hero this time. In a manner of speaking, at least.{/i}"
     "Morgan walks up to Sarah."
-    show Morgan_default at right with moveinleft
+    show Morgan_default at center with moveinbottom
     Morgan "Oops! Excuse me..."
     "Morgan {i} accidentally {/i} knocks the poisoned gin martini off the tray, causing the drink to spill onto the floor."
     "Morgan discreetly slips a tracker on Sarah, who looks furious about the accident before she composes herself."
