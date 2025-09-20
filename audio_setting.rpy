@@ -4,6 +4,7 @@ define start_game_sound = "audio/sfx/menu_play.wav"
 define main_menu_music = "audio/music/main_menu.wav"
 define main_game_music = "audio/music/bg.wav"
 define muffled_gun_shot_sfx = "audio/sfx/muffled_gunshot.wav"
+define gun_shot =""
 
 
 init python:
