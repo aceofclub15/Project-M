@@ -236,11 +236,10 @@ screen flowchart_screen():
 # GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 label start:
     stop music
-
     $ can_click_tree = True
     $ config.all_character_callbacks = [ch_callbacks]
     $ renpy.music.queue(main_game_music,channel="background",loop=True)
-    jump sc_computer
+    jump sc_stop_sarah
     return
 
 
@@ -286,10 +285,13 @@ label sc_mission_archive:
     Grandmaster "I am. This is your story, Morgan. I only need one thing from you."
     Morgan "That's right. I just need to make things interesting."
     Grandmaster "You catch on well."
-    
+    play sound sfx_tire_screech
     "The car slows to a stop."
     
     Morgan "Looks like we've arrived at the hotel. This is where I get out."
+
+
+
     Grandmaster "All the best, Morgan. I know you'll make me proud."
     Morgan "I aim to please, Grandmaster."
     
@@ -299,11 +301,14 @@ label sc_mission_archive:
 label sc_hotel_entrance:
     show bg hotel
     show Morgan_default
+
+
     "Morgan saunters into the hotel like she's always belonged there. She is dressed in an elegant but understated business suit and has a suave smile with eyes betraying a sharp focus."
     Morgan "{i}According to the Grandmaster's intel, Hallex CEO Adam Rourke will be attending 'The Future of the Online Revolution and the Extranet' conference in the 2nd Conference Hall, 90 minutes from now.{/i}"
     "90 minutes to assassination."
     hide Morgan_default
     Morgan "{i}Now, how should I take control of this situation?{/i}"
+
     $ persistent.story_tree["start"]["unlocked"] = True
 
     menu:

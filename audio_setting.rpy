@@ -2,10 +2,13 @@
 define activate_btn_sound = "audio/sfx/button_sound.wav" 
 define start_game_sound = "audio/sfx/menu_play.wav"
 define main_menu_music = "audio/music/main_menu.wav"
-define main_game_music = "audio/music/bg.wav"
-define muffled_gun_shot_sfx = "audio/sfx/muffled_gunshot.wav"
-define gun_shot =""
+define main_game_music = ""
 
+
+define sfx_muffled_gun_shot = "audio/sfx/muffled_gunshot.wav"
+define sfx_tire_screech = "audio/sfx/tire_screech.wav"
+define sfx_car_driving = "audio/sfx/car_driving.wav"
+define sfx_car_leaving = "audio/sfx/car_leaving.mp3"
 
 init python:
 

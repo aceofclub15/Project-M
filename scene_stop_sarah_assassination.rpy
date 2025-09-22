@@ -44,6 +44,7 @@ label sc_stop_sarah:
     Adam "No. No we don't. I'll come with you, Agent Morgan. My life is in your hands."
     Bodyguard "But sir!"
     Adam "You are relieved of duty. Thank you for your service."
+    hide Bodyguard with dissolve
     "Adam stands up and whispers in Morgan's ear."
     Adam "I know you're not FBI, but I also know I have no choice but to trust you. Get me out of this place, quickly!"
     Morgan "Of course. My master's prepared a safe passage for you. Please come with me."
@@ -58,6 +59,8 @@ label sc_stop_sarah:
     Morgan "Loud and clear, sir."
     Adam "Hmph."
     hide Adam with dissolve
+    play sound sfx_car_leaving volume 1.5 fadeout 0.5
+    pause 1
     "Adam is driven away. The Grandmaster contacts Morgan through Morgan's wireless earpiece."
     Grandmaster "It looks like you're playing the hero this time around, huh, Morgan?"
     Morgan "That's right, Grandmaster. Is that okay with you?"

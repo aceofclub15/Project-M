@@ -139,34 +139,6 @@ label sc_random_shot:
     jump sc_next_day
     return
 
-label sc_timimg_shot:
-    Morgan "{i}Wait, I know how to pull this off.{/i}"
-    Morgan "{i}To be a true assassin, you need mastery over time itself.{/i}"
-    Morgan "{i}How about I bend the very laws of causality in my favor?{/i}"
-    Morgan "{i}First, I'll shoot the metal plate on the left.{/i}"
-    Morgan "{i}Then the one on the right.{/i}"
-    Morgan "{i}Then the one above me.{/i}"
-    Morgan "{i}If I get the angles right, I'll have triangulated my way to a bullseye.{/i}"
-    "Morgan shoots each plate as the narration continues, ending with a bullet hitting the target."
-
-    Sarah "Wow, you actually did it."
-    Sarah "This is amazing!"
-
-    Morgan "Now am I good enough for you?"
-    "Sarah blushes"
-    Sarah "You are... if you want to be, that is."
-
-    Morgan "{i}That's quite the invitation in her eyes.{/i}"
-    Morgan "{i}But is this the kind of story I've been aspiring to?{/i}"
-    $ persistent.story_tree["choice4"]["unlocked"] = True
-    menu:
-        "Kiss her":
-            $ persistent.story_tree["romance"]["unlocked"] = True
-            jump sc_kiss_sarah
-        "Keep it professional":
-            $ persistent.story_tree["pro"]["unlocked"] = True
-            jump sc_stay_professional
-    return
 
 
 label sc_stay_professional:

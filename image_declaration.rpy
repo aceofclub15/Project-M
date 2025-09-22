@@ -42,9 +42,12 @@ image Bodyguard = "images/others/bodyguard.png"
 image DrK = "cult.png"
 image splash = "gui/adhg_logo.svg"
 
+# ACTION PANELS:
+image ap_shooting_1 = "images/CGs/shooting_range_cg_frame_1.png"
+image ap_shooting_2 = "images/CGs/shooting_range_cg_frame_2.png"
+image ap_shooting_3 = "images/CGs/shooting_range_cg_frame_3.png"
+image ap_shooting_4 = "images/CGs/shooting_range_cg_frame_4.png"
+image ap_shooting_5 = "images/CGs/shooting_range_cg_frame_5.png"
 
-transform focus_talk:
-    easein 0.3 zoom 1.2
 
-transform unfocus_talk:
-    easeout 0.3 zoom 1
+
