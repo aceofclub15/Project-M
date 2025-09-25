@@ -1,0 +1,64 @@
+*****Start - Choice 1:
+-Emergency
+    -**Fail**
+-Discreet
+    -Stop Graham      
+        -**Fail**      
+    -Record Graham
+        -She might kill
+            -Investigate the noise
+        -She might impersonate someone
+            -Investigate the noise
+
+
+
+****Investigate the noise:
+    -Drink the poison
+        -**Fail**
+    -Stop Sarah
+    -Help Sarah
+
+
+***Stop Sarah:
+    -Give room number
+        -**Fail**
+    -Don't give room number
+        -Choice 3
+
+**Choice 3:
+    -Doesn't make any sense
+        -*** Vigilante Ending ***
+    -This was planned
+        -*** Vigilante Ending ***
+        -*** Ace Ending ***
+
+
+***Help Sarah:
+    -Romance
+    -Keep it professional
+
+**Romance:
+    -Commit Romance
+        -Assassine Route 5
+    -Keep it professional (stop romancing)
+        -Go home
+
+**Keep it professional:
+    -Go home
+*Go home:
+    -Assassine Route 5
+
+Assassine Route 5:
+        -Bluff
+            -**Fail**
+    
+        -Bend time
+            -Assassine Route 6
+
+Assassine Route 6:
+    if romance:
+        -*** Romance Ending ***
+    else:
+        -*** Assassine Ending ***
+
+    
