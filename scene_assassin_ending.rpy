@@ -88,6 +88,7 @@ label sc_assassin_ending:
 
     "Time skips forward by six months."
     scene black  # random_warehouse
+    show bg warehouse_interior
     Morgan "{i}Life has a way of surprising you.{/i}"
     Morgan "{i}I never thought I'd see Sarah again after our messy journey together, but I guess it must be a small world after all.{/i}"
     show Morgan_default at left

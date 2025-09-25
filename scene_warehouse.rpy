@@ -1,6 +1,7 @@
 label sc_warehouse_trap:
     $ persistent.story_tree["assassin5"]["unlocked"] = True
-    scene Warehouse
+    scene black
+    show bg warehouse_interior
     "Morgan wakes up the next day, dressed in black coveralls as she and Sarah infiltrate the Triplex warehouse."
     show Morgan_default at left
     show Sarah at right
@@ -19,7 +20,7 @@ label sc_warehouse_trap:
     Sarah "So if Graham isn't here, then we—"
     # Flashbang
     Morgan "Shit, this really was a trap!"
-    scene Warehouse with Fade(0.1, 1, 0.5, color="#fff")
+    scene bg warehouse_interior with Fade(0.1, 1, 0.5, color="#fff")
     "A flashbang grenade is dropped, and the screen goes white. When the white noise clears, Morgan and Sarah are restrained with zip-ties."
     show Morgan_default at left
     show Sarah:
@@ -71,7 +72,7 @@ label sc_bluff_cops:
     Morgan "Officer, look, I can explain, just—"
     "Before Morgan can finish his sentence"
     # Gunshot, fade to black
-    scene Warehouse with Fade(0.1, 0.0, 0.2, color="#fff")
+    scene bg warehouse_interior with Fade(0.1, 0.0, 0.2, color="#fff")
     "A bullet fly from afar through the windows glass and hit Morgan\'s head"
     Grandmaster "I'm sorry, Morgan, I had to order your termination."
     Grandmaster "There's no way you could've bluffed your way out of that situation, and I couldn't afford to let the cops take you in for interrogation."

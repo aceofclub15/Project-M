@@ -1,10 +1,13 @@
 image hologram_GM = "images/bg/computer.png"
 image bg hotel = "images/bg/hotel.png"
 image bg hotel_restaurant = "images/bg/japanese_restaurant.png"
-image bg emergency_room = "bg_emergency_room.jpg"
+image bg emergency_room = "images/bg/security_room.png"
 image bg headquarters = "images/bg/headquarters.png"
 image bg shooting_range = "images/bg/shooting_range.png"
+image bg warehouse_interior = "images/bg/warehouse.png"
+
 image bg sarah_apartment = "images/bg/sarah_apartment.png"
+image bg graham_apartment = "images/bg/graham_apartment.png"
 
 
 
@@ -43,11 +46,13 @@ image DrK = "cult.png"
 image splash = "gui/adhg_logo.svg"
 
 # ACTION PANELS:
-image ap_shooting_1 = "images/CGs/shooting_range_cg_frame_1.png"
-image ap_shooting_2 = "images/CGs/shooting_range_cg_frame_2.png"
-image ap_shooting_3 = "images/CGs/shooting_range_cg_frame_3.png"
-image ap_shooting_4 = "images/CGs/shooting_range_cg_frame_4.png"
-image ap_shooting_5 = "images/CGs/shooting_range_cg_frame_5.png"
+image ap_shooting_1 = "images/CGs/shooting_range/shooting_range_cg_frame_1.png"
+image ap_shooting_2 = "images/CGs/shooting_range/shooting_range_cg_frame_2.png"
+image ap_shooting_3 = "images/CGs/shooting_range/shooting_range_cg_frame_3.png"
+image ap_shooting_4 = "images/CGs/shooting_range/shooting_range_cg_frame_4.png"
+image ap_shooting_5 = "images/CGs/shooting_range/shooting_range_cg_frame_5.png"
 
+image ap_spilled_drink_1 = "images/CGs/hotel_restaurant/restaurant_spilled_drink_1.png"
+image ap_spilled_drink_2 = "images/CGs/hotel_restaurant/restaurant_spilled_drink_2.png"
 
 

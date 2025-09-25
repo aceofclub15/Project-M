@@ -16,13 +16,13 @@ default tutorial_text=""
 
 
 #TESTING STUFF: disable/delete if build for PUBLIC VER
-
-define config.allow_skipping = True
-define config.fast_skipping = True
-
-default preferences.skip_unseen = True
-
 define dev_build = True
+define config.allow_skipping = dev_build
+define config.fast_skipping = dev_build
+
+default preferences.skip_unseen = dev_build
+
+
 
 
 # AMOUNT OF ENDINGS CHECK!!!!!!
@@ -166,7 +166,11 @@ label button_tutorial:
     hide screen button_tutorial_screen
     
     $ persistent.first_time = False
-    jump start
+    stop music
+    $ can_click_tree = True
+    $ config.all_character_callbacks = [ch_callbacks]
+    $ renpy.music.queue(music_bg_normal,channel="channel_background",loop=True)
+    jump sc_computer
     return
 
 
@@ -238,15 +242,13 @@ label start:
     stop music
     $ can_click_tree = True
     $ config.all_character_callbacks = [ch_callbacks]
-    $ renpy.music.queue(main_game_music,channel="background",loop=True)
-    jump sc_stop_sarah
+    $ renpy.music.queue(music_bg_normal,channel="channel_background",loop=True)
+    jump sc_computer
     return
 
 
 
 label sc_computer:
-
-
     scene black
     if (persistent.ace_ending) and (persistent.vigilante_ending) and (persistent.romance_ending) and (persistent.assassin_ending):
         $ persistent.all_endings = True
@@ -301,7 +303,6 @@ label sc_mission_archive:
 label sc_hotel_entrance:
     show bg hotel
     show Morgan_default
-
 
     "Morgan saunters into the hotel like she's always belonged there. She is dressed in an elegant but understated business suit and has a suave smile with eyes betraying a sharp focus."
     Morgan "{i}According to the Grandmaster's intel, Hallex CEO Adam Rourke will be attending 'The Future of the Online Revolution and the Extranet' conference in the 2nd Conference Hall, 90 minutes from now.{/i}"
@@ -372,6 +373,7 @@ label sc_guest_list:
 
 label sc_observation:
     Morgan "Right, can't go picking fights the first chance I get."
+
     Morgan " I'll just activate my thermoptic implant and set my video camera to record everything Graham does. Now, Graham, it's time for you to spill the beans."
     hide Morgan_default with fade
     show Graham at left

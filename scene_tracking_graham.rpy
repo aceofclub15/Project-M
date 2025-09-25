@@ -1,5 +1,6 @@
 label sc_track_graham:
-    scene Graham_apartment
+    scene black
+    show bg graham_apartment
     "Morgan and Sarah ransack Graham's apartment, dressed in black coveralls."
     show Morgan_default at center with moveinbottom
     Morgan "{i}Sarah's handlers are really good.{/i}"
@@ -131,7 +132,6 @@ label sc_ask_date:
     return
 
 label sc_motel:
-    "Scene transition, some montage of them dating"
     Morgan "{i}I really bet on the right horse while siding with Sarah.{/i}"
     Morgan "{i}I'm loving every second of this.{/i}"
 
@@ -140,7 +140,10 @@ label sc_motel:
     Morgan "(kisses Sarah's hand) Indeed. After you, darling."
 
     "Scene transition. They go back to Sarah's place"
+    scene black
     show bg sarah_apartment
+    show Sarah at right
+    show Morgan_default at left
     Morgan "I'm happy."
 
     Sarah "So am I, honey. So am I."

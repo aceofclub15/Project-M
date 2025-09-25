@@ -20,7 +20,7 @@ transform fade_in_delay(delay=0.0):
     pause delay
     linear 1.0 alpha 1.0
 
-default delay = 2.5
+default delay = 2
 
 screen creditscreen(sc):
     $ print(sc)
@@ -241,7 +241,7 @@ screen creditscreen(sc):
                 xalign 0.5
                 size 45
                 at fade_in_delay(delay + 0.5)
-            text "for making the credit screen":
+            text "for making the credits screen":
                 color "#ffbf00"
                 xalign 0.3
                 size 40

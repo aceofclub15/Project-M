@@ -18,7 +18,7 @@ label sc_graham_paid:
 
 label sc_hallex_warehouse_ambush:
     "Morgan and Graham arrive at the Hallex warehouse, where they catch Adam in the act of trying to smuggle away a cargo box."
-    scene warehouse_interior
+    scene hallex_warehouse
     show Adam at right
     show Graham at topleft with moveinleft
     show Morgan_default at left with moveinleft

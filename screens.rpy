@@ -258,9 +258,9 @@ screen quick_menu():
                 textbutton _("Back") action Rollback() 
 
             if dialogs_nav_focus:
-                textbutton _("Skip") action Skip(fast = False) style "tutorial_screen_style"
+                textbutton _("Skip Seen") action Skip(fast = False) style "tutorial_screen_style"
             else:
-                textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+                textbutton _("Skip Seen") action Skip() alternate Skip(fast=True, confirm=True)
 
 
             if dialogs_nav_focus:
@@ -375,8 +375,8 @@ screen show_title:
         font "font/EpundaSlab-VariableFont_wght.ttf"
 
 label splashscreen:
- 
 
+    call screen start_for_web
 
     scene black
     with Pause(1)
@@ -392,10 +392,17 @@ label splashscreen:
     scene black with dissolve
     hide screen show_title with dissolve
     with Pause(1)
-    $ config.main_menu_music = main_menu_music
-    $ print("played")
-
     return
+
+screen start_for_web:
+    tag menu
+    add Solid("#000")
+    textbutton "Start Game":
+        xalign 0.5
+        yalign 0.5
+        action Return()
+
+
 
 screen navigation():
 
@@ -410,11 +417,13 @@ screen navigation():
         if main_menu:
 
             textbutton _("Start") action start_with_sound(start_game_sound)
-            
-            if persistent.first_time:
-                textbutton _("> Navigation Tutorial <") action Start("button_tutorial") 
-            else:
-                textbutton _("Navigation Tutorial") action Start("button_tutorial") 
+        if (main_menu) and (persistent.first_time == 1):
+            textbutton _(">Navigation tutorial<") action Start("button_tutorial")
+        elif main_menu:
+            textbutton _("Navigation tutorial") action Start("button_tutorial")
+
+
+
                 
 
 
@@ -439,6 +448,7 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
+        textbutton _("Credits") action Start("finalcredits")
         textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
