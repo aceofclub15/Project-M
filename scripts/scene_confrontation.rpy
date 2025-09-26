@@ -26,7 +26,7 @@ label sc_confrontation:
     Morgan "{i}Oh wait, that's right...{/i}"
     Morgan "{i}Graham stuck a needle in me...{/i}"
     Morgan "{i}He tranquilized me before I knew it...{/i}"
-
+    scene black
     Grandmaster "{i}And so your mission comes to an undignified end, Morgan...{/i}"
     Grandmaster "{i}Lying down on the floor, powerless to do anything.{/i}"
     Grandmaster "{i}You really should've remembered the first lesson I ever taught you...{/i}"

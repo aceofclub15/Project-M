@@ -33,7 +33,7 @@ label sc_assassin_climax:
 
     # Sniper shot kills June
     "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
-    "June collapsed"
+    "June collapses"
     show June:
         rotate 270
     with dissolve

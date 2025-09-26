@@ -33,4 +33,5 @@ init python:
     renpy.music.set_volume(10, channel='channel_VAs')
     def voice_line(char, word, emo):
         filename = f"audio/voices/{char}_{word}_{emo}.wav"
-        renpy.play(filename,channel="channel_VAs")
+        #renpy.play(filename,channel="channel_VAs")
+        print(filename)

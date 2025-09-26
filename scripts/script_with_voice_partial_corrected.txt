@@ -278,7 +278,6 @@ label sc_mission_archive:
         xalign 0.5
         yalign 0.5
 
-
     $ voice_line("gm","ah","sad")
     $ voice_line("gm","oh","sad")
     Grandmaster "How are you feeling now, Enforcer XIII?" 

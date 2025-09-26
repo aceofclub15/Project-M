@@ -140,8 +140,8 @@ label sc_motel:
     Morgan "(kisses Sarah's hand) Indeed. After you, darling."
 
     "Scene transition. They go back to Sarah's place"
-    scene black
-    show bg sarah_apartment
+    scene black 
+    show bg sarah_apartment with fade
     show Sarah at right
     show Morgan_default at left
     Morgan "I'm happy."
@@ -158,6 +158,8 @@ label sc_motel:
 
 
 label sc_having_sex:
+    scene black
+    show bg sarah_apartment_dark
     Morgan "{i}And so I show her.{/i}"
     Morgan "{i}I show her how much she means to me, how much I love her.{/i}"
     Morgan "{i}And I make a vow to spend the rest of my life by her side, no matter what it takes.{/i}"

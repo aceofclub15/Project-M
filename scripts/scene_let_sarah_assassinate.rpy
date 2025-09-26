@@ -18,7 +18,7 @@ label sc_target_poisoned:
     show bg hotel
 
     "As Sarah leaves Rourke's table, Morgan approaches her."
-    show Sarah:
+    show Sarah_disguise:
         xalign 0.7
     with moveinbottom
     with Pause(0.2)
@@ -68,6 +68,7 @@ label sc_target_poisoned:
 
     Morgan "Thank you, Grandmaster. I promise I won't disappoint."
 
+    $ voice_line("gm","okay","hap")
     Grandmaster "I know you won't, Morgan. Until next time."
 
     Morgan "{i}I've made my decision, now it's time to see where it takes me.{/i}"

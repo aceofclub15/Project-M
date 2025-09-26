@@ -37,7 +37,7 @@ label sc_warehouse_trap:
 
     Graham "Hate to break it to you, Sarah, but you're no longer worth my time, or your sister's for that matter."
     Graham "We both know you'll never change."
-    Graham "It'll a bit hurt to see you in the execution chamber, but it is what it is."
+    Graham "It'll hurt to see you in the execution chamber, but it is what it is."
     "Graham gets up and walks away, leaving Morgan and Sarah behind."
     hide Graham with dissolve
     "..."
@@ -69,10 +69,11 @@ label sc_bluff_cops:
     show Cops at right with moveinright
     Cop "Right, this was the location the tip gave us. And look what we have here."
     Morgan "Officer, look, I can explain, just—"
-    "Before Morgan can finish his sentence"
+    "Before Morgan can finish her sentence..."
     # Gunshot, fade to black
     scene bg warehouse_interior with Fade(0.1, 0.0, 0.2, color="#fff")
     "A bullet fly from afar through the windows glass and hit Morgan\'s head"
+    scene black
     Grandmaster "I'm sorry, Morgan, I had to order your termination."
     Grandmaster "There's no way you could've bluffed your way out of that situation, and I couldn't afford to let the cops take you in for interrogation."
     Grandmaster "You need to try this again, and choose a path that doesn't put me at risk."
@@ -134,7 +135,7 @@ label sc_june_headquarters:
     "Morgan and Sarah get in Sarah's car and drive to Davidson Solutions HQ. Luckily, they manage to catch up to him."
     scene black
     show bg headquarters
-    "Scene change to June\'s HQ"
+    "Scene change to Davidson Solutions Headquarters" #June's HQ
     show Graham at center
     with Pause(0.3)
     show Morgan_default at left

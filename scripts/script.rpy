@@ -16,8 +16,7 @@ default tutorial_text=""
 
 
 #TESTING STUFF: disable/delete if build for PUBLIC VER
-define dev_build = True
-define config.allow_skipping = dev_build
+define dev_build = False
 define config.fast_skipping = dev_build
 
 default preferences.skip_unseen = dev_build
@@ -278,16 +277,20 @@ label sc_mission_archive:
         xalign 0.5
         yalign 0.5
 
-    $ voice_line("gm","oh","sad")
+ 
     Grandmaster "How are you feeling now, Enforcer XIII?" 
 
     Morgan "I'm feeling as ready as I'll ever be."
+    $ voice_line("gm","good","hap")
     Grandmaster "Good, because time is of the essence. The assassin from Davidson Solutions should've already infiltrated the hotel."
     Morgan "And I imagine the rogue Federal agent, Graham, is making his move too?"
+    $ voice_line("gm","yes","ang")
     Grandmaster "Indeed, I have him on radar. It won't take long for him to arrive."
     Morgan "Are you sure you want to leave everything to me, Grandmaster?"
+    $ voice_line("gm","so","dis")
     Grandmaster "I am. This is your story, Morgan. I only need one thing from you."
     Morgan "That's right. I just need to make things interesting."
+    $ voice_line("gm","yes","sad")
     Grandmaster "You catch on well."
     play sound sfx_tire_screech
     "The car slows to a stop."
@@ -296,6 +299,7 @@ label sc_mission_archive:
 
 
 
+    $ voice_line("gm","well","ang")
     Grandmaster "All the best, Morgan. I know you'll make me proud."
     Morgan "I aim to please, Grandmaster."
     
@@ -307,7 +311,7 @@ label sc_hotel_entrance:
     show Morgan_default
 
     "Morgan saunters into the hotel like she's always belonged there. She is dressed in an elegant but understated business suit and has a suave smile with eyes betraying a sharp focus."
-    Morgan "{i}According to the Grandmaster's intel, Hallex CEO Adam Rourke will be attending 'The Future of the Online Revolution and the Extranet' conference in the 2nd Conference Hall, 90 minutes from now.{/i}"
+    Morgan "{i}According to the Grandmaster's intel, Hallex CEO Adam Rourke will be attending 'The Future of the Online Revolution and the Extranet' conference in the 2nd Conference Hall.{/i}"
     "90 minutes to assassination."
     hide Morgan_default
     Morgan "{i}Now, how should I take control of this situation?{/i}"
@@ -349,10 +353,10 @@ label sc_guest_list:
     hide Crew_member with fade
     show Morgan_default at center with moveinleft
     Morgan "{i}Now, time to plug in the drive and see.{/i}"
-    "A timer on the screen shows 60 minutes to assassination."
+    "60 minutes to assassination."
     Morgan "{i}It's as I suspected. This list has been tampered with. There's at least one person who isn't supposed to be here, but I'll need to do a bit of recon to pinpoint who they are.{/i}" 
     Morgan "{i}Oh, and it seems as though a lot of the guests are getting warmed up at the lounges before the conference begins. Best head over there.{/i}"
-    "A timer on the screen shows 30 minutes to assassination."
+    "30 minutes to assassination."
     Morgan "{i}Yes, I recognize a bunch of people on the guest list here, but nothing out of the ordinary so far. If I just...wait a minute!{/i}"
     show Morgan_default at right with moveinleft
     show Graham at left with moveinleft
@@ -407,7 +411,7 @@ label sc_observation:
     Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"
     Graham "But I'll make Sarah will pay for what she's done!"
     Morgan "{i}Those are some juicy details, but I really need to go now.The moment of truth will soon be upon me. {/i}"
-    "Morgan quickly go to the 2nd Conference room. The timer updates to show 10 minutes until the assassination. "
+    "Morgan quickly go to the 2nd Conference room. 10 minutes until the assassination. "
     Morgan "{i}If the killer is a woman, how can I narrow things down? How would an assassin infiltrate this place? {/i}"
     menu:
         "She might kill and replace someone":
@@ -454,6 +458,7 @@ label sc_sarah_attacking:
     "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
     show Staff:
         xalign 0.7
+    $ renpy.pause(0.5)
     show Sarah:
         xalign 0.5
         zoom 1.3
@@ -469,7 +474,9 @@ label sc_sarah_attacking:
 
     Sarah "Regardless of how the mission goes, I still get to see the light go out of your eyes."
     Sarah "Thank you for that."
-
+    hide Staff
+    hide Sarah with fade
+    show Sarah_disguise
     "Morgan stays put as Sarah finishes her kill and drags the body away."
 
     Morgan "{i}So that's Sarah's disguise.{/i}"

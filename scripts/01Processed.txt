@@ -35,8 +35,10 @@ label sc_approach_adam:
     pause 1
     "Adam is driven away. The Grandmaster contacts Morgan through Morgan's wireless earpiece."
     $ voice_line("gm","whoa","hap")
+    $ voice_line("gm","whoa","hap")
     Grandmaster "It looks like you're playing the hero this time around, huh, Morgan?"
     Morgan "That's right, Grandmaster. Is that okay with you?"
+    $ voice_line("gm","okay","dis")
     $ voice_line("gm","okay","dis")
     Grandmaster "Of course it is. I asked you to make things interesting, and that's exactly what you're doing. Now rendezvous with Graham, and get to the bottom of this case."
     Morgan "Understood, ma'am."
@@ -60,7 +62,7 @@ label sc_meet_with_graham:
     Morgan "Good idea."
     Graham "{i}And...done. My room's 953 and yours is 966. We'll talk tomorrow.{/i}"
     "Graham disconnects. Morgan sits down at a bar, looking worn out."
-    #scene hotel with dissolve
+    scene bar
     show Bartender at center
     Bartender "You look tired, ma'am. Is there anything I can do to help?"
     Morgan "{i}Wait, if Graham doesn't know where Sarah is, does that mean she's still around here, hunting us down?{/i}"
@@ -78,7 +80,7 @@ label sc_meet_with_graham:
 
 
 label sc_give_room_number:
-    Morgan "{i}No, now that I get a closer look, she can't be Sarah. I guess I can trust her a little.{/i}"
+    Morgan "{i}Now that I get a closer look, she can't be Sarah. God, my paranoia's really getting to me. Still, I can't take any chances here. I'll just head up to my room alone.{/i}"
     Morgan "Yeah, my room number's 966. I don't mind an escort."
     Bartender "Certainly, ma'am. I'll call up someone immediately."
     "The female bartender dials up someone to escort Morgan. As soon as Morgan sees Freida, she's horrified."

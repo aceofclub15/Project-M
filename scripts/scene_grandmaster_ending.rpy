@@ -25,6 +25,7 @@ label sc_grandmaster_ending:
     show June at right with moveinleft
     if relationship_type == "romance":
         "The Grandmaster smiles as she sees June, and the two kiss."
+        $ voice_line("gm","ah","hap")
         Grandmaster "I'm glad you made it, honey."
     elif relationship_type == "friendship":
         "The Grandmaster smiles as she sees June, and the two shake hands."
@@ -51,7 +52,10 @@ label sc_grandmaster_ending:
         "January smiles warmly."
     January "Anytime, June. After all, it's only thanks to training under you that I built Ouroboros into the vast agency that it is today. "
     January "But when I learned that I could traverse alternate timelines and you couldn't, it didn't feel right that I started surpassing you, you know?"
-    June "Oh, Jan, I'm not jealous of you. After all, it's only thanks to you that I've lasted as long as I have. Both of us need each other."
+    if relationship_type == "friendship":
+        June "Don't get too full of yourself now, it's not like I'm jealous. After all, it's only thanks to you that I've lasted as long as I have. Both of us need each other."
+    elif relationship_type == "romance":
+        June "Oh, Jan, I'm not jealous of you. After all, it's only thanks to you that I've lasted as long as I have. Both of us need each other."
     January "Yeah. We're both ruling the world together but we'd both fall apart on our own."
     if relationship_type == "romance":
         January "But even aside from that, I love you, June. I'd be happy in any timeline where we live long lives together."
@@ -67,14 +71,15 @@ label sc_grandmaster_ending:
         "A panel shows January and June together in casual pajamas. January's lazing back on her bed while June is relaxing on the couch."
     
     June "Are you sure we should leave Graham alone, though? I still can't shake the feeling that he'll remain a loose end."
-    January "You leave that matter to me, my love. I'll use my Enforcer 0, Campanella, to take care of him."
+    January "You leave that matter to me. I'll use my Enforcer 0, Campanella, to take care of him."
     June "But if you're using Campanella, then..."
     January "Yup, he's loyal, so he won't go off and do his own thing. I know it goes against the spirit of what Ouroboros is supposed to be, but if it means saving your life, then..."
     
     if relationship_type == "romance":
         "June cuts off January with a kiss."
-    
-    June "Thank you, January. I...I wish I could find a way to make it up to you."
+        June "Thank you, January. I...I wish I could find a way to make it up to you."
+    elif relationship_type == "friendship":
+        June "You're really going above and beyond for me, January. I wish I could find a way to make it up to you."
     "January gives a playful smile."
     January "Hmm, maybe you can."
     "June smiles nervously."
@@ -93,13 +98,15 @@ label sc_grandmaster_ending:
     
     January "Believe me, with the backlog my ADHD has racked up, I don't want you to."
     "June and January laugh warmly alongside each other as the scene fades to black. The time skips to next week, where they're both in the Grandmaster's chambers that have an ethereal background, as she begins her next mission."
-    Grandmaster "The Zephyr artifact retrieval? Really? But that's such a simple and boring mission."
+    $ voice_line("gm","wait","ang")
+    January "The Zephyr artifact retrieval? Really? But that's such a simple and boring mission."
     June "And one that'll blow up in your face if you don't finish it on time. No excuses, January."
     January "{i}I guess I shouldn't be surprised at how well June's adjusted to her new role, given the way she's led Davidson Solutions all these years. {/i}"
     January "{i}And despite my grumbling, she and I both know I wouldn't want things any other way.{/i}"
     January "Fiiine, I'll initiate the timeline dive."
     "A panel shows January powering up the timeline generator computer interface as June looks on in admiration and awe."
     "As the Zephyr artifact mission map loads up, January's dialogue tag changes back to the Grandmaster and her expression changes from playful grouchiness to ice-cold confidence."
+    $ voice_line("gm","heh","hap")
     Grandmaster "Now, which Enforcer should I use this time?"
     
     return

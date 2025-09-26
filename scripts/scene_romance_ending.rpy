@@ -32,7 +32,7 @@ label sc_romance_climax:
     June "You were just a pawn in my plans, so nobody will care what happens to you."
     June "But as for me? You'll find that my clients are rather... unforgiving."
     "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
-    "June collapsed"
+    "June collapses"
     show June:
         rotate 270
         yoffset 300
@@ -52,7 +52,8 @@ label sc_romance_climax:
     Morgan "I'll protect her, June. I'll stay with her no matter what. You can rest easy now, okay?"
 
     June "Thank you, Morgan... please... make Sarah happy..."
-    June "She deserves to be rewarded... for serving me so well..."
+    June "She deserves to be rewarded...for serving me so well... (cough)." 
+    June "My precious January...I'm so sorry I can't be with you...even in this timeline..."
 
     Morgan "{i}It's heartbreaking to see Sarah's career culminate in such a tragedy.{/i}"
     Morgan "{i}Perhaps things were always going to end this way.{/i}"

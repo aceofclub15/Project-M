@@ -1,5 +1,5 @@
 label sc_obey_voice:
-    scene hallex_warehouse
+    scene bg hallex_warehouse
     show June at center zorder 5
     show Adam:
         rotate 270

@@ -5,8 +5,11 @@ image bg emergency_room = "images/bg/security_room.png"
 image bg headquarters = "images/bg/headquarters.png"
 image bg shooting_range = "images/bg/shooting_range.png"
 image bg warehouse_interior = "images/bg/warehouse.png"
+image bg hallex_warehouse = "images/bg/warehouse.png"
+
 
 image bg sarah_apartment = "images/bg/sarah_apartment.png"
+image bg sarah_apartment_dark = "images/bg/sarah_apartment_dark.png"
 image bg graham_apartment = "images/bg/graham_apartment.png"
 
 
@@ -15,7 +18,10 @@ image bg graham_apartment = "images/bg/graham_apartment.png"
 image Morgan_default = At("images/morgan/morgan_default.png", sprite_highlight("Morgan"))
 
 image June = At("images/june/june_default.png", sprite_highlight("June"))
+
 image Sarah = At("images/sarah/sarah_default.png", sprite_highlight("Sarah"))
+image Sarah_disguise = At("images/sarah/sarah_disguise.png", sprite_highlight("Sarah"))
+
 
 image Graham = At("images/graham/graham_brooding.png", sprite_highlight("Graham"))
 
@@ -28,14 +34,14 @@ image January = At("images/grandmaster/grandmaster_default.png", sprite_highligh
 image Marcus = At("staff.png", sprite_highlight("Marcus"))
 
 image Chef = At("chef.png", sprite_highlight("Chef"))
-image Cops = At("cops.png", sprite_highlight("Cops"))
+image Cops = At("images/others/cop.png", sprite_highlight("Cops"))
 image Adam = At("images/adam/adam_default.png", sprite_highlight("Adam"))
-image Agent_X = At("agent_x.png", sprite_highlight("Agent_X"))
+image Agent_X = At("images/others/agent_x.png", sprite_highlight("Agent_X"))
 
 
-image Crew_member = At("crew.png", sprite_highlight("Crew_member"))
-image Staff = At("staff.png", sprite_highlight("Staff"))
-image Bartender = At("staff.png", sprite_highlight("Bartender"))
+image Crew_member = At("images/others/hotel_staff.png", sprite_highlight("Crew_member"))
+image Staff = At("images/others/hotel_staff.png", sprite_highlight("Staff"))
+image Bartender = At("images/others/hotel_staff.png", sprite_highlight("Bartender"))
 image Bodyguard = "images/others/bodyguard.png"
 
 
