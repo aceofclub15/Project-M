@@ -17,7 +17,7 @@ init python:
     style.button.activate_sound = activate_btn_sound
     #background music channel for the main game
     renpy.music.register_channel("channel_background", mixer="music")
-
+    renpy.music.set_volume(0.3, channel='music')  # reduces all music channel volume
 
 
     class start_with_sound(Action):
@@ -28,3 +28,6 @@ init python:
         def __call__(self):
             renpy.play(self.audio)
             return Start()
+
+default preferences.volume.music = 0.8
+default preferences.volume.sfx = 0.8

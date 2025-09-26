@@ -14,8 +14,7 @@ gm_okay_dis Grandmaster "Of course it is. I asked you to make things interesting
 
 
 gm_okay_hap Grandmaster "I know you won't, Morgan. Until next time."
-gm_well_sur Grandmaster "Then consider yourself fortunate that I have none to offer. I came to you because I see potential. If you want to change your circumstances, you can come with me. If you refuse, I'll leave."
-gm_hmmph_fea Grandmaster  "Then what if I told you that you can surpass them? Humiliate them? You don't need the failures around you to drag you down any longer, child. Together, you and I will build a wonderful life those losers will forever envy!"
+
 
 gm_ah_hap Grandmaster "I'm glad you made it, honey."
 
@@ -34,3 +33,6 @@ gm_well_sad Grandmaster “You can never be too careful in this line of work, Mo
 
 gm_so_fea January "Adam is trying to double-cross Marcus Simms"
 gm_whoa_fea Grandmaster "So you've chosen the path of murder"
+
+gm_well_sur Grandmaster "Then consider yourself fortunate that I have none to offer. I came to you because I see potential. If you want to change your circumstances, you can come with me. If you refuse, I'll leave."
+gm_hmmph_fea Grandmaster  "Then what if I told you that you can surpass them? Humiliate them? You don't need the failures around you to drag you down any longer, child. Together, you and I will build a wonderful life those losers will forever envy!"

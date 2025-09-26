@@ -61,6 +61,7 @@ label sc_target_poisoned:
     show hologram_GM:
         xalign 0.5
         yalign 0.5
+    $ voice_line("gm","whoa","fea")
     Grandmaster "So you've chosen to aid and abet a murderer, have you?"
     Grandmaster "Well, I just wanted to let you know that Adam's death has been confirmed and Sarah's arrived at the exfil point, safe and sound."
     Grandmaster "I've also given her your contact information and told her to contact you tomorrow."

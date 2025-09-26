@@ -16,7 +16,7 @@ default tutorial_text=""
 
 
 #TESTING STUFF: disable/delete if build for PUBLIC VER
-define dev_build = False
+define dev_build = True
 define config.fast_skipping = dev_build
 
 default preferences.skip_unseen = dev_build
@@ -277,7 +277,7 @@ label sc_mission_archive:
         xalign 0.5
         yalign 0.5
 
- 
+    $ voice_line("gm","ah","sur")
     Grandmaster "How are you feeling now, Enforcer XIII?" 
 
     Morgan "I'm feeling as ready as I'll ever be."
@@ -344,6 +344,7 @@ label sc_emergency:
     return
 
 label sc_guest_list:
+    scene bg hotel
     Morgan "{i}That's right, I need to do this discreetly. If I get too many eyes on me, this mission's already a failure.{/i}"
     Morgan "Hi, excuse me! I'm Hendricks, from logistics. I just need to cross-check the guest list and make sure there are no empty tables at the 2nd Conference Hall. You know how the bosses are about wasted money."
     show Morgan_default at left with moveinright
@@ -527,6 +528,7 @@ label sc_drink_poison:
     Morgan "{i}Now that I've swallowed this poisoned martini, it'll just... kill... me...{/i}"
     "Morgan downing the drink, and the screen immediately begins to blur."
     scene black with fade
+    $ voice_line("gm","heh","dis")
     Grandmaster "Okay, that was kind of funny."
     Grandmaster "But seriously, you couldn't possibly have expected THAT choice to end well, right?"
     Grandmaster "...Right?"

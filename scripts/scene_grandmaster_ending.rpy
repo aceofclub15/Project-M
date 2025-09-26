@@ -35,6 +35,7 @@ label sc_grandmaster_ending:
     "The two settle down as the waiter serves a steak tartare to each of them."
     show January at left with dissolve
     June "So, what did you learn? How do I prevent my death?"
+    $ voice_line("gm","so","fea")
     January "Adam is trying to double-cross Marcus Simms and the Executive Board of LambdaCorp over the deal with Warlord Hakim's bioweapon. 
     They're the ones who've ordered his death."
     June "Oh, so that's who Emissary Wallace represents. But I really don't want to turn down their paycheck. 

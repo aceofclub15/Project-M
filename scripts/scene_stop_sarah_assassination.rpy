@@ -90,6 +90,7 @@ label sc_give_room_number:
     Sarah "It's a pretty good way to die, all things considered."
     scene black
     Morgan "{i}I can't offer any resistance as Sarah carries me over to my room. She's right, I have no hope of making it out of this. Graham, Grandmaster, I'm so sorry...{/i}"
+    $ voice_line("gm","well","sad")
     Grandmaster "You can never be too careful in this line of work, Morgan. Sarah's like a chameleon, waiting to ambush you at the earliest opportunity. Don't give her any chance to track you down."
     "GAME OVER"
     

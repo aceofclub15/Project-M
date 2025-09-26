@@ -74,6 +74,7 @@ label sc_bluff_cops:
     scene bg warehouse_interior with Fade(0.1, 0.0, 0.2, color="#fff")
     "A bullet fly from afar through the windows glass and hit Morgan\'s head"
     scene black
+    $ voice_line("gm","wait","bad")
     Grandmaster "I'm sorry, Morgan, I had to order your termination."
     Grandmaster "There's no way you could've bluffed your way out of that situation, and I couldn't afford to let the cops take you in for interrogation."
     Grandmaster "You need to try this again, and choose a path that doesn't put me at risk."

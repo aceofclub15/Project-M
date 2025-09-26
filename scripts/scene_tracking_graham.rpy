@@ -278,19 +278,21 @@ label sc_remember_past:
     jump sc_morgan_past
     return
 
-label sc_morgan_past:
+label sc_morgan_past: 
     "Flashback time."
     scene Morgan_past
     show Young_Morgan at left
     Young_Morgan "Go away. I don't need your pity."
     show January at right
+    $ voice_line("gm","well","sur")
     Grandmaster "Then consider yourself fortunate that I have none to offer."
     Grandmaster "I came to you because I see potential."
     Grandmaster "If you want to change your circumstances, you can come with me."
     Grandmaster "If you refuse, I'll leave."
     Young_Morgan "Potential? What potential could a wretch like me possibly have?!"
     Young_Morgan "Everyone around me thinks I'm nothing!"
-
+    
+    $ voice_line("gm","hmmph","fea")
     Grandmaster "Then what if I told you that you can surpass them?"
     Grandmaster "Humiliate them?"
     Grandmaster "You don't need the failures around you to drag you down any longer, child."
