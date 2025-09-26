@@ -16,7 +16,7 @@ default tutorial_text=""
 
 
 #TESTING STUFF: disable/delete if build for PUBLIC VER
-define dev_build = True
+define dev_build = False
 define config.fast_skipping = dev_build
 
 default preferences.skip_unseen = dev_build
@@ -421,7 +421,7 @@ label sc_observation:
     Morgan "{i} She's pretty close to getting ready for the job, so I need to make my way to the location ASAP!{/i}"
     Morgan "{i}But first, let me just hack Graham's phone {/i}"
     $ voice_line("m","tch","ang")
-    Morgan "{i} The encryption on his phone is real strong, so I doubt I could trace it{/i}"
+    Morgan "{i} The encryption on his phone is real strong{/i}"
     Morgan "{i} But at least I can still call him if I decide to side with him. {/i}"
 
     Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"

@@ -5,21 +5,26 @@ label sc_warehouse_trap:
     "Morgan wakes up the next day, dressed in black coveralls as she and Sarah infiltrate the Triplex warehouse."
     show Morgan_default at left
     show Sarah at right
+    $ voice_line("m","hmm","sad")
     Morgan "{i}I already get the feeling that things are going off-track.{/i}"
-    Morgan "{i}Agent Graham should've already been here, but there's no sign of him.{/i}"
-    Morgan "{i}Did we miss something?{/i}"
+    Morgan "{i}Agent Graham should've already been here, but there's no sign of him. Did we miss something?{/i}"
+
 
     if romance:
         Sarah "Hey babe, are you feeling okay?"
+        $ voice_line("m","sigh","hap")
         Morgan "I don't know. I feel like we're walking into a trap here. We should've gotten the drop on Graham already."
         Sarah "(kisses Morgan) I know, my love. But no plan ever survives contact with the enemy."
         Sarah "Whatever happens next, we'll face it together. I love you."
+        $ voice_line("m","yeah","sad")
         Morgan "Yeah, thanks for the pep talk, Sarah. I love you, too."
         "..."
 
     Sarah "So if Graham isn't here, then we—"
     # Flashbang
-    Morgan "Shit, this really was a trap!"
+    Morgan "Then it must be a trap!"
+    $ voice_line("m","shit","sur")
+
     scene bg warehouse_interior with Fade(0.1, 1, 0.5, color="#fff")
     "A flashbang grenade is dropped, and the screen goes white. When the white noise clears, Morgan and Sarah are restrained with zip-ties."
     show Morgan_default at left
@@ -41,6 +46,7 @@ label sc_warehouse_trap:
     "Graham gets up and walks away, leaving Morgan and Sarah behind."
     hide Graham with dissolve
     "..."
+    $ voice_line("m","shit","dis")
     Morgan "Shit! Shit shit shit SHIT! How do we get out of these before the cops show up?!"
 
     if romance:
@@ -60,17 +66,20 @@ label sc_warehouse_trap:
     return
 
 label sc_bluff_cops:
+    $ voice_line("m","well","dis")
     Morgan "We'll bluff our way out."
 
     Sarah "Huh? Are you serious?!"
 
-    Morgan "There's not enough time for anything else, Sarah! Just trust me, alright?"
-    "Some cops show up"
+    Morgan "There's not enough time for anything else, Sarah! You trust me, right?"
+
     show Cops at right with moveinright
     Cop "Right, this was the location the tip gave us. And look what we have here."
+    
     Morgan "Officer, look, I can explain, just—"
     "Before Morgan can finish her sentence..."
     # Gunshot, fade to black
+    $ voice_line("m","ah","ang")
     scene bg warehouse_interior with Fade(0.1, 0.0, 0.2, color="#fff")
     "A bullet fly from afar through the windows glass and hit Morgan\'s head"
     scene black
@@ -85,51 +94,61 @@ label sc_bluff_cops:
 label sc_bend_time:
     $ persistent.story_tree["assassin6"]["unlocked"] = True
 
-    Morgan "{i}If only I could bend time to my will, I could get me and Sarah out of this!{/i}"
-    Morgan "{i}Just how did I do it the last time?!{/i}"
-    Morgan "{i}Wait... maybe if I just...{/i}"
+    $ voice_line("m","hmm","bad")
+    Morgan "{i}If only I could bend time to my will, I could get me and Sarah out of this. Just how did I do it the last time?!{/i}"
+    $ voice_line("m","oh","sur")
+    Morgan "{i}Oh wait... maybe if I just...{/i}"
     "Morgan shifts to a trance state as they miraculously loosen the zip-tie in seconds. Morgan then does the same with Sarah."
     Morgan "Come on, we need to move!"
     "Morgan escapes the warehouse with Sarah, as the cops arrive to find an empty warehouse."
     "The scene shifts to Morgan and Sarah facing each other."
     Sarah "How did you do that? You slipped free like it was nothing!"
 
+    $ voice_line("m","so","bad")
     Morgan "An assassin needs to bend time, right?"
     Morgan "The trouble with zip-ties isn't that they're impossible to break, it's just the time and effort needed for that is too much."
     Morgan "But if I can change that, bend time to my will..."
 
     Sarah "You're special, Morgan. This isn't a power most people have."
 
-    Morgan "I see... I've always wondered why the Grandmaster saw so much potential in me."
-    Morgan "Maybe this is what she meant..."
+    $ voice_line("m","oh","ang")
+    Morgan "I see... I've always wondered why the Grandmaster saw so much potential in me. Maybe this is what she meant..."
 
     if romance:
         # Sarah kisses Morgan
         "Sarah rushes and kisses Morgan"
+        
+        $ voice_line("m","whoa","hap")
         Morgan "Whoa, Sarah!"
         Sarah "I love you! I love you, I love you, I love you! I'm so glad you're safe!"
+        $ voice_line("m","yeah","sad")
         Morgan "I'm glad you're safe too, Sarah. We really are unstoppable, aren't we?"
         Sarah "(tearfully) Yeah, we really are. We're going to conquer this world, my love. Just the two of us."
-        Morgan "You're goddamn right, darling. You're goddamn right."
+        Morgan "You're right, darling. You're so right."
     else:
         Sarah "The Grandmaster is truly remarkable, isn't she? I'm in awe."
+        $ voice_line("m","yeah","sad")
         Morgan "Yeah. I've spent my whole life devoted to her, and I still fail to grasp the depths of her brilliance."
 
     Sarah "So, now that we're clear, we need to find Graham. Any idea where he could be?"
 
-    Morgan "He mentioned having bigger fish to fry, didn't he? That could only mean one thing."
+    $ voice_line("m","hmm","sad")
+    Morgan "He mentioned having bigger fish to fry, didn't he? That could only mean one thing!" 
+    $ voice_line("m","right","bad")
+    Morgan "he's going after June Davidson herself!"
 
-    Morgan "He's going after June Davidson herself!"
 
     jump sc_june_headquarters
     
     return
 
 label sc_june_headquarters:
+
     Morgan "He's going to ambush your boss, Sarah. He's going to take out June Davidson."
 
     Sarah "If he managed to get the drop on us, he could get the drop on June too. I need to call her."
     "Sarah calls June, but there's no response."
+    $ voice_line("m","so","bad")
     Morgan "Looks like my hunch was right."
 
     Sarah "We need to get to the Davidson Solutions headquarters, ASAP!"
@@ -148,6 +167,7 @@ label sc_june_headquarters:
     
     Graham "Tch. Looks like I underestimated you two. But it doesn't matter. I'll bring everyone to justice all at once!"
 
+    $ voice_line("m","hmm","dis")
     Morgan "{i}This is it, the moment where I finally take Agent Graham down.{/i}"
     Morgan "{i}And knowing who I am now, this is what I'll do.{/i}"
 

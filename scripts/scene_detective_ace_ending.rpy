@@ -1,15 +1,19 @@
 label sc_graham_paid:
+    $ voice_line("m","hah","dis")
     Morgan "Oh, but I think you were paid, Graham."
     Graham "{i}What's that supposed to mean? Are you calling me a liar?!{/i}"
+    $ voice_line("m","no","sad")
     Morgan "No, not you. A covert job means a covert payment. You should've received a set of coordinates to a dead drop. 
     But you didn't, because your partner Adam took it all for himself."
     Graham "{i}But why? Why would he do that?{/i}"
+    $ voice_line("m","well","hap")
     Morgan "Well, for one thing, Adam's the CEO of a billion-dollar company, and you're not.
     I wonder what Hallex works on. I wonder how Adam got rich."
     Graham "{i}Oh my God, that son of a bitch! He told me the intel we got on Warlord Hakim's bioweapon was bogus. But if he lied to me...{/i}"
     Morgan "Then he cut you out, and used the knowledge from the mission to enrich himself at your expense. 
     And it seems like you're not the only person he screwed over."
     Graham "{i}So that's why Davidson Solutions put a kill order on him. We need to investigate the Hallex corporation, pronto.{/i}"
+    $ voice_line("m","hmm","dis")
     Morgan "Any idea where to start?"
     Graham "{i}Yeah. Adam has a warehouse in Queens. If we're going to find out what he's hiding, we have to go there.{/i}"
     jump sc_hallex_warehouse_ambush
@@ -26,6 +30,7 @@ label sc_hallex_warehouse_ambush:
     Graham "Adam! Stop right where you are!"
     "Adam notices Graham and Morgan approaching him, and his expression turns hostile as he faces off against them alongside his bodyguard."
     Adam "Tch. And to think I was just a few seconds away from cleaning this mess up."
+    $ voice_line("m","hah","dis")
     Morgan "What do you mean by that, Adam? Covering up your crimes? Running away from the people you screwed over, present company included!"
     "Morgan points to Graham."
     Graham "I'm going to make sure you pay for what you did back in Afghanistan, Adam, and I suggest you come quietly for your own sake."
@@ -85,6 +90,7 @@ label sc_ambush:
     Morgan "Even if they are, they're going to be very unhappy about Adam's crimes being made public. It's only a matter of time before the authorities snuff out all the collaborators."
     Graham "Yeah, there's no way anyone gets away with their crimes now, but our part in this scandal's over. So, what do we do next?"
     
+    $ voice_line("m","well","dis")
     Morgan "We make a good team. Why break it up?"
     jump sc_ace_epilogue
     return
@@ -94,13 +100,17 @@ label sc_ace_epilogue:
     "Time skips ahead by three months, with Morgan and Graham eating ramen at a Japanese restaurant while the news plays on TV."
     "News broadcast: In shocking news, billionaire venture capitalist Marcus Simms was found dead in his home today when the FBI conducted a raid on his mansion in connection with the Hallex scandal. Authorities conclude it was a suicide by hanging."
     Graham "Marcus Simms. So that's who Adam sold America's secrets to."
+    $ voice_line("m","yes","hap")
     Morgan "Seems that way. The two must've had a falling out, which is why Marcus put out a kill order and dragged us both into this mess."
     Graham "At least the authorities proved equal to the challenge and finished what the two of us started. A surprise to be sure, but a welcome one."
+    $ voice_line("m","sigh","sad")
     Morgan "Still, I don't think Marcus acted alone. I wish we could've uncovered everyone he was working with."
     Graham "That's life for you. There's almost never any clean and easy solutions. Still, now that everything's squared up, we can fully focus on the task at hand."
+    $ voice_line("m","oh","sur")
     Morgan "You mean the case of the missing parrot? I knew the Morgan & Graham detective agency wouldn't take any fancy cases right off the bat, but this is bottom of the barrel stuff."
     Graham "I think the Grandmaster really spoiled you, you know. You're way too used to excitement. But you'll learn the value of hard work and patience eventually, I'll make sure of that."
     "Morgan smiles playfully and kisses Graham on the cheek."
+    $ voice_line("m","well","hap")
     Morgan "I'm sure you will. Oh, and I'm paying the bill this time."
     "Camera pans out and fades to black."
 

@@ -120,7 +120,7 @@ label sc_next_day:
     Sarah "I decide what's good enough for me."
     Sarah "Now, are you going to hit the target or not?"
     
-    $ voice_line("m","what","ang")
+
     Morgan "{i}The challenge she's set up is ridiculous. Like that 'curve the bullet' scene from the Wanted movie.{/i}"
     Morgan "{i}How the hell am I supposed to pull this off?{/i}"
 
@@ -182,7 +182,7 @@ label sc_stay_professional:
 label sc_kiss_sarah:
     $ romance = True
     "Morgan and Sarah kiss with their arms wrapped around each other."
-    "some montage of Morgan kissing Sarah {i}passionately{/i}"
+
     $ voice_line("m","yes","hap")
     Morgan "{i}Yes, this is what I want.{/i}"
     Morgan "{i}I want her, all of her.{/i}"

@@ -4,6 +4,7 @@ label sc_timimg_shot:
     Morgan "{i}Wait, I know how to pull this off.{/i}"
     Morgan "{i}To be a true assassin, you need mastery over time itself.{/i}"
     Morgan "{i}How about I bend the very laws of causality in my favor?{/i}"
+    $ voice_line("m","so","ang")
     Morgan "{i}First, I'll shoot the metal plate on the left. Then the one on the right. After that, the one above.{/i}"
     Morgan "{i}If I get the angles right, I'll have triangulated my way to a bullseye.{/i}"
     window hide

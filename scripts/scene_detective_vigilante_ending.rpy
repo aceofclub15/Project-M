@@ -8,11 +8,13 @@ label sc_obey_voice:
     show Graham at topright
     show Sarah at right
     "Morgan arrives alone at the Hallex warehouse, where she finds the smug and self-assured June and Sarah standing over a dead Adam and a grieviously injured Graham."
+    $ voice_line("m","sigh","sad")
     Morgan "{i}I screwed up. I didn't do a good enough job at solving the Hallex case, and this is the result.{/i}"
     hide Adam
     show Morgan_default at left with moveinleft
     June "Agent Morgan, so good to finally meet you in person. Sarah's told me a lot about you."
 
+    $ voice_line("m","oh","sur")
     Morgan "Oh, has she now?"
     June "Yes. How you're an annoyance. An impediment she can't seem to surpass."
     June "It's all thanks to you that my little gamble almost fell to pieces, which is why I had to come all the way here and settle things personally."
@@ -47,8 +49,10 @@ label sc_obey_voice:
         rotate 270
         yoffset 300
     "Morgan takes advantage of June's distraction to overpower her and hold her at gunpoint."
+    $ voice_line("m","grr","bad")
     Morgan "I'm going to make you pay, June, for everything that you've done!"
     June "No! NO! I'd almost fixed everything! Now Wallace...he will...oh January, I'm so sorry!"
+    $ voice_line("m","huh","sur")
     Morgan "What are you talking about?"
     June "I can't disappoint him, I can't let him know I failed! Even January can't save me now! I'M ENDING THIS!"
     "Suddenly, June slashes at Morgan with a pocket knife, causing Morgan to shoot her dead in self-defense."
@@ -56,6 +60,7 @@ label sc_obey_voice:
         rotate 90
     "After that, Morgan searches the everyone's body and try to find whatever clues she can."
     "She then notices a mysterious ID card belonging to a man named Marcus Simms in Adam's wallet."
+    $ voice_line("m","sigh","sad")
     Morgan "{i}This bloody spectacle before me reminds me of my failure. {b}My inadequacy.{/b} {/i}"
     Morgan "{i} Graham died because I wasn't a good enough detective. But, at the very least, I will avenge my fallen friend, no matter what.{/i}"
     
@@ -68,14 +73,18 @@ label sc_vigilante_epilogue:
     "Time skips by one year. A high-rise office is shown. An elevator opens, and Marcus Simms enters the room."
     show Marcus at right with moveinleft
     "As he approaches his swivel chair, he hears Morgan's voice from behind."
+    $ voice_line("m","so","bad")
     Morgan "I've read such glowing articles about you, Marcus. People respected you as one of the pre-eminent national security advisors in the United States. A pity they didn't know you were just a double-crosser selling state secrets."
     show Morgan_default at left with moveinleft
     "Marcus composes himself and tries to sneakily open his gun drawer."
     Marcus "Well, people can be naive. I just did what anyone else would in my position. Tell me, did you come alone?"
+    $ voice_line("m","yes","ang")
     Morgan "I did. You need to answer for all the people who are dead because of you. June Davidson, Sarah, and my old friend, Graham."
     "Marcus pulls out his gun and fires. But the chamber is empty."
+    $ voice_line("m","hah","dis")
     Morgan "You disappoint me, Marcus. I already took the bullets out of your gun. Surely, you should've foreseen that."
     Marcus "And what about you? Can you foresee the consequences of that path you're on? If you keep going down this road of vengeance and bloodshed, you may end up in a similar position to me one day."
+    $ voice_line("m","hmm","dis")
     Morgan "I'll take my chances."
     "Morgan shoots Marcus dead with a silenced pistol and leaves."
     scene black

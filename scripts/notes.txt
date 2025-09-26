@@ -12,9 +12,6 @@
     $ voice_line("m","oh","sur")
     $ voice_line("m","oh","ang")
 
-    $ voice_line("m","what","ang")
-
-
     $ voice_line("m","good","hap")
     $ voice_line("m","good","dis")
 
@@ -25,10 +22,16 @@
     $ voice_line("m","yes","hap")
     $ voice_line("m","yes","ang")
 
-    $ voice_line("m","tch","ang")
     $ voice_line("m","sigh","hap")
     $ voice_line("m","sigh","bad")
+    $ voice_line("m","sigh","sad")
+
+
     $ voice_line("m","shit","sur")
+    $ voice_line("m","shit","dis")
+    $ voice_line("m","shit","fea")
+
+
 
     $ voice_line("m","uh","bad")
     $ voice_line("m","uh","fea")
@@ -36,6 +39,8 @@
 
     $ voice_line("m","so","ang")
     $ voice_line("m","so","hap")
+    $ voice_line("m","so","bad")
+
 
     $ voice_line("m","no","ang")
     $ voice_line("m","no","sad")
@@ -47,11 +52,29 @@
 
 
 
-    $ voice_line("m","yeah","sad")
     $ voice_line("m","ah","dis")
+    $ voice_line("m","ah","ang")
+
 
     $ voice_line("m","hah","hap")
+    $ voice_line("m","hah","dis")
+    $ voice_line("m","hah","ang")
+
     $ voice_line("m","grr","bad")
+    $ voice_line("m","whoa","hap")
+
+    $ voice_line("m","huh","sur")
+    $ voice_line("m","tch","ang")
+    $ voice_line("m","yeah","sad")
+
+
+
+    $ voice_line("m","what","ang")
+    $ voice_line("m","what","sur")
+
+
+
+
 
 
 

@@ -12,7 +12,7 @@ label sc_romance_climax:
     show Morgan_default at right with moveinleft
     hide Graham with dissolve
 
-
+    $ voice_line("m","hah","ang")
     Morgan "We did it... oh my God we did it, Sarah! We won!"
 
     Sarah "That's right! We won, my love! The world is ours!"
@@ -27,12 +27,11 @@ label sc_romance_climax:
 
     Sarah " Graham's dead, we're in the clear."
 
-    June "It's the burdens of leadership, Sarah."
-    June "I tried a gamble to get Graham out of hiding, and it let him straight to my headquarters."
-    June "You were just a pawn in my plans, so nobody will care what happens to you."
-    June "But as for me? You'll find that my clients are rather... unforgiving."
+    June "It's the burdens of leadership, Sarah. I tried a gamble to get Graham out of hiding, and it let him straight to my headquarters."
+
+    June "You were just a pawn in my plans, so nobody will care what happens to you. But as for me? You'll find that my clients are rather... unforgiving."
     "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
-    "June collapses"
+
     show June:
         rotate 270
         yoffset 300
@@ -46,8 +45,8 @@ label sc_romance_climax:
     Sarah "(crying) I'm sorry, June! I'm sorry I couldn't protect you! I promise I'll make it right!"
 
     June "(coughing) Don't repeat my mistakes, June... don't make a promise you can't keep..."
-    June "I've used you for my ambitions all your life, sweet child... but now you need to live for yourself..."
-    June "Find a new life..."
+    June "I've used you for my ambitions all your life, sweet child... but now you need to live for yourself... Find a new life..."
+
 
     Morgan "I'll protect her, June. I'll stay with her no matter what. You can rest easy now, okay?"
 
@@ -55,12 +54,10 @@ label sc_romance_climax:
     June "She deserves to be rewarded...for serving me so well... (cough)." 
     June "My precious January...I'm so sorry I can't be with you...even in this timeline..."
 
-    Morgan "{i}It's heartbreaking to see Sarah's career culminate in such a tragedy.{/i}"
-    Morgan "{i}Perhaps things were always going to end this way.{/i}"
-    Morgan "{i}But she still got a chance to say goodbye. And she still has me to lean on.{/i}"
-    Morgan "{i}I will protect her, no matter what.{/i}"
-    Morgan "{i}She won't meet the same end as her master.{/i}"
-    Morgan "{i}We're both going to get our happy endings, whatever it takes.{/i}"
+    Morgan "{i}It's heartbreaking to see Sarah's career culminate in such a tragedy. But perhaps things were always going to end this way.{/i}"
+    Morgan "{i}At least she still got a chance to say goodbye. And she still has me to lean on.{/i}"
+    Morgan "{i}I will protect her, no matter what. She won't meet the same end as her master.{/i}"
+    Morgan "{i}We're both going to get our happy endings, no matter what it takes.{/i}"
 
 
     jump sc_romance_ending
@@ -73,7 +70,9 @@ label sc_romance_ending:
     "transition, our couple is at the beach"
     show Morgan_default at left
     show Sarah at right
+    $ voice_line("m","so","bad")
     Morgan "{i}And so, I start my new life with Sarah. {/i}"
+    $ voice_line("m","well","hap")
     Morgan "I must say, you have excellent taste in beachfront property."
 
     Sarah "(snuggles up to Morgan) Why thank you! I'm glad you finally listened to my infinite wisdom and stopped insisting on renting stuff all the time."
@@ -105,6 +104,6 @@ label sc_romance_ending:
     
     $ persistent.story_tree["romance_ending"]["unlocked"] = True
     $ persistent.romance_ending = True
-    "Assassin Route Good Ending (Romance) achieved ([check_no_endings()]/4)"
+    "Assassin Route Romance Ending achieved ([check_no_endings()]/4)"
 
     return
