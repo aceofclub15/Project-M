@@ -279,22 +279,24 @@ label sc_mission_archive:
 
     $ voice_line("gm","ah","sur")
     Grandmaster "How are you feeling now, Enforcer XIII?" 
-
+    $ voice_line("m","good","hap")
     Morgan "I'm feeling as ready as I'll ever be."
     $ voice_line("gm","good","hap")
     Grandmaster "Good, because time is of the essence. The assassin from Davidson Solutions should've already infiltrated the hotel."
+    $ voice_line("m","hmm","bad")
     Morgan "And I imagine the rogue Federal agent, Graham, is making his move too?"
     $ voice_line("gm","yes","ang")
     Grandmaster "Indeed, I have him on radar. It won't take long for him to arrive."
     Morgan "Are you sure you want to leave everything to me, Grandmaster?"
     $ voice_line("gm","so","dis")
     Grandmaster "I am. This is your story, Morgan. I only need one thing from you."
+    $ voice_line("m","right","hap")
     Morgan "That's right. I just need to make things interesting."
     $ voice_line("gm","yes","sad")
     Grandmaster "You catch on well."
     play sound sfx_tire_screech
     "The car slows to a stop."
-    
+    $ voice_line("m","oh","sur")
     Morgan "Looks like we've arrived at the hotel. This is where I get out."
 
 
@@ -314,6 +316,7 @@ label sc_hotel_entrance:
     Morgan "{i}According to the Grandmaster's intel, Hallex CEO Adam Rourke will be attending 'The Future of the Online Revolution and the Extranet' conference in the 2nd Conference Hall.{/i}"
     "90 minutes to assassination."
     hide Morgan_default
+    $ voice_line("m","hmm","sad")
     Morgan "{i}Now, how should I take control of this situation?{/i}"
 
     $ persistent.story_tree["start"]["unlocked"] = True
@@ -332,6 +335,7 @@ label sc_hotel_entrance:
 label sc_emergency:
     show bg emergency_room
     hide Morgan_default
+    $ voice_line("m","hey","ang")
     Morgan "Attention, everyone! This is Officer Morgan of the FBI! I\'m declaring a terroristic threat at the Charleston! I need everyone to please-No wait, wait, don\'t escort me out, NOOOO!"
     scene black
     Grandmaster "You made a terrible judgment call, Morgan."
@@ -345,23 +349,32 @@ label sc_emergency:
 
 label sc_guest_list:
     scene bg hotel
+    $ voice_line("m","right","hap")
     Morgan "{i}That's right, I need to do this discreetly. If I get too many eyes on me, this mission's already a failure.{/i}"
+    $ voice_line("m","oh","sur")
     Morgan "Hi, excuse me! I'm Hendricks, from logistics. I just need to cross-check the guest list and make sure there are no empty tables at the 2nd Conference Hall. You know how the bosses are about wasted money."
     show Morgan_default at left with moveinright
     show Crew_member at right with moveinright
     Crew_member "Oh, I do, believe me. Here, take this flash drive. It should have everything you need to know about the Extranet conference."
+    $ voice_line("m","thanks","sad")
+
     Morgan "Oh thank you, you're a lifesaver!"
     hide Crew_member with fade
     show Morgan_default at center with moveinleft
     Morgan "{i}Now, time to plug in the drive and see.{/i}"
     "60 minutes to assassination."
+    $ voice_line("m","hmm","dis")
     Morgan "{i}It's as I suspected. This list has been tampered with. There's at least one person who isn't supposed to be here, but I'll need to do a bit of recon to pinpoint who they are.{/i}" 
+    $ voice_line("m","oh","sur")
+
     Morgan "{i}Oh, and it seems as though a lot of the guests are getting warmed up at the lounges before the conference begins. Best head over there.{/i}"
     "30 minutes to assassination."
+    $ voice_line("m","hmm","dis")
     Morgan "{i}Yes, I recognize a bunch of people on the guest list here, but nothing out of the ordinary so far. If I just...wait a minute!{/i}"
     show Morgan_default at right with moveinleft
     show Graham at left with moveinleft
     "Graham stumbles out of a lounge, acting drunk."
+    $ voice_line("m","oh","sur")
     Morgan "{i}That's him! That's Agent Graham! But what is he doing here?{/i}"
     "He suddenly stops acting drunk. No one is watching him."
     "Graham approaches a locked door at the end of the hallway and pulls out a lockpick."
@@ -379,6 +392,7 @@ label sc_guest_list:
 
 
 label sc_observation:
+    $ voice_line("m","right","bad")
     Morgan "Right, can't go picking fights the first chance I get."
 
     Morgan " I'll just activate my thermoptic implant and set my video camera to record everything Graham does. Now, Graham, it's time for you to spill the beans."
@@ -406,13 +420,16 @@ label sc_observation:
     Morgan "{i} Wow, I've picked up a lot of invaluable intel. It looks like the assassin's a woman. {/i}"
     Morgan "{i} She's pretty close to getting ready for the job, so I need to make my way to the location ASAP!{/i}"
     Morgan "{i}But first, let me just hack Graham's phone {/i}"
-    Morgan "{i} The encryption on his phone is really strong, so I doubt I could trace it{/i}"
+    $ voice_line("m","tch","ang")
+    Morgan "{i} The encryption on his phone is real strong, so I doubt I could trace it{/i}"
     Morgan "{i} But at least I can still call him if I decide to side with him. {/i}"
-    
+
     Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"
     Graham "But I'll make Sarah will pay for what she's done!"
+    $ voice_line("m","oh","ang")
     Morgan "{i}Those are some juicy details, but I really need to go now.The moment of truth will soon be upon me. {/i}"
-    "Morgan quickly go to the 2nd Conference room. 10 minutes until the assassination. "
+    "Morgan quickly goes to the 2nd Conference room. 10 minutes until the assassination. "
+    $ voice_line("m","hmm","bad")
     Morgan "{i}If the killer is a woman, how can I narrow things down? How would an assassin infiltrate this place? {/i}"
     menu:
         "She might kill and replace someone":
@@ -431,8 +448,11 @@ label sc_sarah_kill:
     scene black
     show bg hotel
     show Morgan_default at center
+    $ voice_line("m","hmm","sad")
     Morgan "{i}She'll probably kill someone for the sake of a disguise. But who? Can I catch her in the act if I'm fast enough, or...?{/i}"
     "Morgan hears the sound of a thud, and someone struggling for their lives."
+    $ voice_line("m","sigh","bad")
+
     Morgan "{i}Guess that answers my question. Time to go.{/i}"
 
     jump sc_sarah_attacking
@@ -442,13 +462,15 @@ label sc_sarah_impersonate:
     scene black
     show bg hotel
     show Morgan_default at center
+    $ voice_line("m","hmm","dis")
     Morgan "{i}She'll probably wear a disguise that gives her a lot of access, like a service staff member.{/i}"
     Morgan "{i}But where could she get such a disguise?{/i}"
     Morgan "{i}If she...{/i}"
 
     "Morgan hears a sound of someone struggling for their life."
-    Morgan "{i}Shit, she's already making her move!{/i}"
-    Morgan "{i}I need to act, now!{/i}"
+
+    $ voice_line("m","shit","sur")
+    Morgan "{i}Shit, she's already making her move! I need to act, now!{/i}"
     jump sc_sarah_attacking
     return
 
@@ -479,7 +501,7 @@ label sc_sarah_attacking:
     hide Sarah with fade
     show Sarah_disguise
     "Morgan stays put as Sarah finishes her kill and drags the body away."
-
+    $ voice_line("m","hmm","dis")
     Morgan "{i}So that's Sarah's disguise.{/i}"
     Morgan "{i}She's going to play as a waiter, probably deliver some poison straight into Rourke's thirsty mouth.{/i}"
     jump sc_chef_order
@@ -498,6 +520,7 @@ label sc_chef_order:
     with Pause(0.5)
     hide Chef
     #show Morgan_default at left with moveinleft
+    $ voice_line("m","hmm","bad")
     Morgan "{i}This is it, the moment of truth.{/i}"
     Morgan "{i}The Grandmaster told me to make things interesting, but how am I going to do that now?{/i}"
     Morgan "{i}Whatever choice I make, there's no going back.{/i}"
@@ -522,8 +545,9 @@ label sc_chef_order:
 
 
 label sc_drink_poison:
-    Morgan "Don't mind me!"
 
+    Morgan "Don't mind me!"
+    $ voice_line("m","uh","bad")
     Morgan "{i}Wait... what the hell was I thinking?{/i}"
     Morgan "{i}Now that I've swallowed this poisoned martini, it'll just... kill... me...{/i}"
     "Morgan downing the drink, and the screen immediately begins to blur."

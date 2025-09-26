@@ -31,7 +31,7 @@ image Young_Morgan = At("images/morgan/morgan_default.png", sprite_highlight("Mo
 
 image January = At("images/grandmaster/grandmaster_default.png", sprite_highlight("January"))
 
-image Marcus = At("staff.png", sprite_highlight("Marcus"))
+image Marcus = At("images/others/marcus.png", sprite_highlight("Marcus"))
 
 image Chef = At("chef.png", sprite_highlight("Chef"))
 image Cops = At("images/others/cop.png", sprite_highlight("Cops"))

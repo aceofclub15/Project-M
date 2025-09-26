@@ -106,7 +106,7 @@ label sc_keep_room_number:
     
     
     "The scene cuts to the next day as Morgan's having breakfast."
-    scene hotel_foyer
+    scene hotel #hotel_foyer
     "Graham contacts Morgan's wireless earpiece."
     Graham "{i}Feeling freshened up? Ready to discuss this case?{/i}"
     Morgan "Damn right I am. First things first, you need to tell me how you know Adam Rourke."
