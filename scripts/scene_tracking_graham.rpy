@@ -11,12 +11,14 @@ label sc_track_graham:
     Morgan "{i}Still, this is a good spot for an ambush if he does return, not to mention that we may be able to track his next movements if we're smart enough.{/i}"
     show Morgan_default at left with moveinright
     show Sarah at right with moveinright
+    $ voice_line("s","hmm","sur")
     Sarah "Find anything?"
     $ voice_line("m","no","sad")
     Morgan "Nothing about his next move."
     Morgan "Though it looks like someone tipped Graham off about your job. Someone you might know."
 
 
+    $ voice_line("s","huh","sur")
     Sarah "You mean Davidson Solutions?"
 
     $ voice_line("m","yeah","sad")
@@ -37,7 +39,7 @@ label sc_track_graham:
         Morgan "I think you're amazing, just as you are."
         Sarah "Morgan... you mean it?"
 
-        $ voice_line("m","yes","ang")
+        $ voice_line("m","damn","bad")
         Morgan "Yes. I promise you, no matter what Graham or June think of you, I'm going to put your needs first."
         Morgan "You can trust me, Sarah."
         Sarah "(kisses Morgan back) I do trust you. Thank you for being here, Morgan."
@@ -46,24 +48,26 @@ label sc_track_graham:
         $ voice_line("m","well","bad")
         Morgan "In any case, it doesn't look like there's anything on Graham's movements here."
 
+    $ voice_line("s","well","sad")
     Sarah "Maybe we should take a break, slow things down. If we just take some time to think, then we might make a breakthrough."
 
     
-    $ voice_line("m","yeah","sad")
+    $ voice_line("m","good","hap")
     Morgan "Sounds good to me."
 
     Sarah "This is it! A map of the routes Graham is taking to uncover the truth behind Adam's murder."
     Sarah "It looks like he'll go to the Triplex Warehouse in Queens tomorrow night."
     
-    $ voice_line("m","uh","bad")
+    $ voice_line("m","what","sur")
     Morgan "Any idea where he is now?"
 
     Sarah "No, I can't piece it together from here. But we finally have the jump on him, Morgan!"
     Sarah "When he arrives at the warehouse tomorrow, he won't know what hit him!"
     
-    $ voice_line("m","good","dis")
+    $ voice_line("m","what","ang")
     Morgan "Excellent, we know what to do now."
 
+    $ voice_line("s","what","sur")
     Sarah "Exactly. So, what do you suggest we do next?"
     $ voice_line("m","hmm","bad")
     if romance:
@@ -96,7 +100,7 @@ label sc_ask_date:
     Sarah "That sounds like a great idea. I've been looking forward to spending some time with you too, Morgan."
 
 
-    $ voice_line("m","uh","fea")
+    $ voice_line("m","so","sur")
     Morgan "So um, what did you have in mind?"
 
     Sarah "Are you sure you don't want to take the initiative?"
@@ -148,6 +152,7 @@ label sc_motel:
     Morgan "{i}I really bet on the right horse while siding with Sarah. I'm loving every second of this.{/i}"
 
 
+    $ voice_line("s","ah","hap")
     Sarah "Ah, there you are! Shall we go, my love?"
 
     Morgan "(kisses Sarah's hand) Indeed. After you, darling."
@@ -159,6 +164,7 @@ label sc_motel:
     show Morgan_default at left
     Morgan "I'm happy."
 
+    $ voice_line("s","so","hap")
     Sarah "So am I, honey. So am I."
 
     $ voice_line("m","so","hap")
@@ -230,6 +236,7 @@ label sc_drink_potion:
     Morgan "I told you, didn't I? My life belongs to you, now. We'll be together, no matter what."
 
 
+    $ voice_line("s","yeah","hap")
     Sarah "Yeah. Yeah, we will be."
 
     "Morgan falls asleep in Sarah's arms."
@@ -274,6 +281,7 @@ label sc_separate_way:
     $ voice_line("m","so","ang")
     Morgan "Shall we go, then?"
 
+    $ voice_line("s","yes","hap")
     Sarah "Indeed. Looking forward to tomorrow, partner."
 
     jump sc_remember_past

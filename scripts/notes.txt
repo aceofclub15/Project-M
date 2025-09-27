@@ -1,3 +1,5 @@
+
+
 gm_good_hap Grandmaster "How are you feeling, Enforcer XIII?"
 m_good_hap Morgan "I'm feeling as ready as I'll ever be."
 gm_well_hap Grandmaster "Good, because time is of the essence."
@@ -43,12 +45,12 @@ m_hey_ang Morgan "Hey!"
 m_hey_ang Morgan "Hey, you!"
 m_what_ang Morgan "I'm hotel security."
 m_grr_ang Morgan "Just why were you trying to break into that room?!"
-g_huh_ang Graham "'Hotel security, huh?'"
-g_heh_ang Graham "'Awfully stupid of you to confront me without any backup, don't you think?'"
+g_huh_ang Graham "(smiles viciously) Hotel security, huh?"
+g_heh_ang Graham "Awfully stupid of you to confront me without any backup, don't you think?"
 m_grr_ang Morgan "Don't push your luck, old man, just answer my question!"
-g_tch_ang Graham "'You have no idea what you've gotten yourself into, kid.'"
-g_tch_ang Graham "'But I'm afraid your interference ends here.'"
-g_tch_ang Graham "'A pity, I never liked hurting women.'"
+g_tch_ang Graham "You have no idea what you've gotten yourself into, kid."
+g_tch_ang Graham "But I'm afraid your interference ends here."
+g_tch_ang Graham "A pity, I never liked hurting women."
 
 m_oh_sad Morgan "(Screen begins to blur.) What...what's going on...I can't feel my legs...my mind is fading...oh wait, that's right...Graham stuck a needle in me...he tranquilized me before I knew it..."
 
@@ -451,3 +453,4 @@ gm_the_bad Grandmaster "The Zephyr artifact retrieval? Really? But that's such a
 j_hah_bad June "And one that'll blow up in your face if you don't finish it on time. No excuses, January."
 gm_well_bad Grandmaster "Fiiine, I'll initiate the timeline dive."
 gm_now_bad Grandmaster "Now, which Enforcer should I use this time?"
+

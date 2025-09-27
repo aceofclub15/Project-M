@@ -9,7 +9,9 @@ label sc_target_poisoned:
     with Pause(0.2)
 
 
+    $ voice_line("s","yes","hap")
     Sarah "Your order, sir."
+    $ voice_line("a","yes","hap")
     Adam "Yes, thanks."
 
     "Some montage of Adam gulping down the drink and Sarah gracefully left the dining area"
@@ -36,7 +38,8 @@ label sc_target_poisoned:
     Morgan "You're being followed."
     Morgan "Someone's come here to apprehend you."
     
-    "Sarah's voice hardens."
+
+    $ voice_line("s","what","ang")
     Sarah "What? How do you know this?!"
 
     $ voice_line("m","well","hap")
@@ -58,6 +61,7 @@ label sc_target_poisoned:
     Sarah "Fine. Give me the coordinates, quickly."
 
     "Morgan beams the new extraction coordinates."
+    $ voice_line("s","well","sad")
     Sarah "I got them. I hope I can trust you."
     Morgan "Now go, quickly!"
     
@@ -95,6 +99,7 @@ label sc_next_day:
     $ voice_line("m","hmm","sad")
     Morgan "{i}Being asked to come alone is already a red flag, but I did willingly choose the path of danger, after all.{/i}"
     "The sound of a car getting to a car and driving can be heard. The scene transitions to the view of a shooting range."
+    $ voice_line("m","well","bad")
     Morgan "Hello, Sarah. Looks like you made it out of the last job safely."
     show Sarah at right with moveinright
     Sarah "I did. You were true to your word."
@@ -104,14 +109,16 @@ label sc_next_day:
     Morgan "The answer to that is simple."
     Morgan "Because I wanted to."
 
+    $ voice_line("s","huh","sur")
     Sarah "And your master just lets you go around doing whatever you want?"
     
-    $ voice_line("m","yeah","sad")
+    $ voice_line("m","so","bad")
     Morgan "In a manner of speaking."
 
     Sarah "You've just made yourself an accomplice to a high-profile murder."
     Sarah "You do seem to have the stomach for my line of work, but whether you have the skill is another question entirely."
 
+    $ voice_line("s","tch","ang")
     Sarah "Show me you have what it takes, Morgan, and we can do great things together."
     
     $ voice_line("m","uh","bad")
@@ -167,7 +174,7 @@ label sc_stay_professional:
     Sarah "I can respect that."
     Sarah "Besides, we might be better off if we can fully focus on the next task at hand."
 
-    $ voice_line("m","uh","bad")
+    $ voice_line("m","what","sur")
     Morgan "And what task would that be?"
 
     Sarah "Getting rid of one last pesky loose end."
@@ -196,7 +203,7 @@ label sc_kiss_sarah:
     Sarah "Well, aren't you a good kisser? I'll at least give you that much."
     Sarah "And I'm glad to have you by my side as we finish things and tie up all loose ends."
     
-    $ voice_line("m","uh","bad")
+    $ voice_line("m","what","sur")
     Morgan "And what loose ends are you referring to, exactly?"
 
     Sarah "Why, my brother-in-law, of course."

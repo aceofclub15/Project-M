@@ -16,7 +16,7 @@ label sc_warehouse_trap:
         Morgan "I don't know. I feel like we're walking into a trap here. We should've gotten the drop on Graham already."
         Sarah "(kisses Morgan) I know, my love. But no plan ever survives contact with the enemy."
         Sarah "Whatever happens next, we'll face it together. I love you."
-        $ voice_line("m","yeah","sad")
+        $ voice_line("m","yeah","hap")
         Morgan "Yeah, thanks for the pep talk, Sarah. I love you, too."
         "..."
 
@@ -35,6 +35,7 @@ label sc_warehouse_trap:
     
     Graham "Indeed it was."
     show Graham at right with moveinright
+    $ voice_line("g","hah","hap")
     Graham "Looks like you two tried to hunt me down in this warehouse after all, exactly as I planned."
     Graham "Now, as much as I'd like to bring you both to justice myself, I have bigger fish to fry, so I'll just have to leave that to the police arriving at the scene."
 
@@ -46,12 +47,13 @@ label sc_warehouse_trap:
     "Graham gets up and walks away, leaving Morgan and Sarah behind."
     hide Graham with dissolve
     "..."
-    $ voice_line("m","shit","dis")
+    $ voice_line("m","shit","fea")
     Morgan "Shit! Shit shit shit SHIT! How do we get out of these before the cops show up?!"
 
     if romance:
         Sarah "We'll figure it out together, darling. I won't let anything happen to you on my watch!"
     else:
+        $ voice_line("s","what","sur")
         Sarah "How should I know?! You need to think fast, Morgan!"
 
     Morgan "{i}...What do I do, what do I do?!...{/i}"
@@ -69,6 +71,7 @@ label sc_bluff_cops:
     $ voice_line("m","well","dis")
     Morgan "We'll bluff our way out."
 
+    $ voice_line("s","huh","sur")
     Sarah "Huh? Are you serious?!"
 
     Morgan "There's not enough time for anything else, Sarah! You trust me, right?"
@@ -102,6 +105,7 @@ label sc_bend_time:
     Morgan "Come on, we need to move!"
     "Morgan escapes the warehouse with Sarah, as the cops arrive to find an empty warehouse."
     "The scene shifts to Morgan and Sarah facing each other."
+    $ voice_line("s","what","sur")
     Sarah "How did you do that? You slipped free like it was nothing!"
 
     $ voice_line("m","so","bad")
@@ -118,7 +122,7 @@ label sc_bend_time:
         # Sarah kisses Morgan
         "Sarah rushes and kisses Morgan"
         
-        $ voice_line("m","whoa","hap")
+        $ voice_line("m","whoa","sur")
         Morgan "Whoa, Sarah!"
         Sarah "I love you! I love you, I love you, I love you! I'm so glad you're safe!"
         $ voice_line("m","yeah","sad")
@@ -146,11 +150,13 @@ label sc_june_headquarters:
 
     Morgan "He's going to ambush your boss, Sarah. He's going to take out June Davidson."
 
+    $ voice_line("s","well","bad")
     Sarah "If he managed to get the drop on us, he could get the drop on June too. I need to call her."
     "Sarah calls June, but there's no response."
-    $ voice_line("m","so","bad")
+    $ voice_line("m","yeah","bad")
     Morgan "Looks like my hunch was right."
 
+    $ voice_line("s","ugh","fea")
     Sarah "We need to get to the Davidson Solutions headquarters, ASAP!"
     "Morgan and Sarah get in Sarah's car and drive to Davidson Solutions HQ. Luckily, they manage to catch up to him."
     scene black

@@ -5,6 +5,7 @@ label sc_romance_climax:
     Morgan "{i}Agent Graham may have cut through June's footsoldiers with ease, but they weren't masters of time like I am.{/i}"
     Morgan "{i}There's no move of his I can't foresee. No tactic of his I can't outmatch.{/i}"
 
+    $ voice_line("m","what","ang")
     Morgan "Time to die, Graham! This is for Sarah!"
     Sarah "Goodbye, you sanctimonious old man. You won't be missed."
 
@@ -37,6 +38,7 @@ label sc_romance_climax:
         yoffset 300
     with dissolve
     show Sarah at center with moveinright
+    $ voice_line("s","what","sad")
     Sarah "What? No, June, NO!"
 
     June "Let this be a lesson to you both. If you play with fire... you're going to get burned."
@@ -83,6 +85,7 @@ label sc_romance_ending:
     Morgan "{i}And, of course, our vibrant event planning business keeps the coffers full even when assassination work dries up.{/i}"
     Morgan "{i}I really underestimated the benefits of having a 'legitimate business' as a cover.{/i}"
 
+    $ voice_line("s","so","hap")
     Sarah "As much as murder remains my number one passion, I have come to enjoy providing the people a good time every now and then."
 
     Morgan "So have I. People deserve to have a chance to let loose every now and then."
@@ -95,9 +98,11 @@ label sc_romance_ending:
 
     Sarah "Some dishes really are best served cold, aren't they?"
 
+    $ voice_line("m","well","bad")
     Morgan "Indeed they are." 
     Morgan "(kisses Sarah) And some dishes are best sampled... in private."
 
+    $ voice_line("s","well","bad")
     Sarah "Lead the way, darling."
 
     # Ending achieved

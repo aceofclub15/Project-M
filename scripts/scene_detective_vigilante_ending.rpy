@@ -18,6 +18,7 @@ label sc_obey_voice:
     Morgan "Oh, has she now?"
     June "Yes. How you're an annoyance. An impediment she can't seem to surpass."
     June "It's all thanks to you that my little gamble almost fell to pieces, which is why I had to come all the way here and settle things personally."
+    $ voice_line("m","what","sur")
     Morgan "And what was your gamble, exactly?"
     June "Oh Morgan, I'm not here to monologue my plan. I just wanted to show you the consequences of your failure."
     June "Because you weren't quick on your feet, the man you've been trying to save ended up dying anyway."
@@ -52,7 +53,7 @@ label sc_obey_voice:
     $ voice_line("m","grr","bad")
     Morgan "I'm going to make you pay, June, for everything that you've done!"
     June "No! NO! I'd almost fixed everything! Now Wallace...he will...oh January, I'm so sorry!"
-    $ voice_line("m","huh","sur")
+    $ voice_line("m","what","sur")
     Morgan "What are you talking about?"
     June "I can't disappoint him, I can't let him know I failed! Even January can't save me now! I'M ENDING THIS!"
     "Suddenly, June slashes at Morgan with a pocket knife, causing Morgan to shoot her dead in self-defense."
@@ -78,7 +79,7 @@ label sc_vigilante_epilogue:
     show Morgan_default at left with moveinleft
     "Marcus composes himself and tries to sneakily open his gun drawer."
     Marcus "Well, people can be naive. I just did what anyone else would in my position. Tell me, did you come alone?"
-    $ voice_line("m","yes","ang")
+    $ voice_line("m","ugh","bad")
     Morgan "I did. You need to answer for all the people who are dead because of you. June Davidson, Sarah, and my old friend, Graham."
     "Marcus pulls out his gun and fires. But the chamber is empty."
     $ voice_line("m","hah","dis")

@@ -28,6 +28,7 @@ label sc_assassin_climax:
     $ voice_line("m","huh","sur")
     Morgan "Huh? But why? I need to deliver her to my master!"
 
+    $ voice_line("s","well","bad")
     Sarah "Do what June says, Morgan."
     "Sarah points the gun at Morgan"
     $ voice_line("m","what","ang")
@@ -44,20 +45,23 @@ label sc_assassin_climax:
     Sarah "June?!"
     Sarah "No! NOOO!"
 
+    $ voice_line("g","so","bad")
     Graham "Looks like she was doomed from the very beginning, huh?"
 
-    $ voice_line("m","huh","sur")
+    $ voice_line("m","what","sur")
     Morgan "Doomed? What are you talking about?"
 
     Graham "Dear old June Davidson signed her own death warrant the moment I broke into this building."
     Graham "She's the one who went maverick and dragged me into this case to kill two birds with one stone, and look how that ended up for her."
 
+    $ voice_line("s","what","dis")
     Sarah "Are you saying June brought this on herself?"
 
     Graham "Yup. She was only hired to kill Adam Roarke, nothing more. But she decided to get clever and use you for the job, knowing that it'd bring me out of hiding too."
     Graham "Adam and I are both... connected, you see, and she thought she'd get a nice bonus by delivering both of our heads."
     Graham "Once everything went to shit, she probably wanted to capture me alive as a last-ditch Hail Mary. Well clearly, she was mistaken."
 
+    $ voice_line("s","so","ang")
     Sarah "And that means I have no reason to keep you alive."
     "Sarah glares at Graham and shot him"
     with Pause(0.3)
@@ -68,10 +72,12 @@ label sc_assassin_climax:
     Morgan "{i}Seems like Graham did nothing to soften Sarah's pain. I could see she was still broken, that perhaps she always would be.{/i}"
     Morgan "{i}But still, we'd been through so much together. I didn't want things to end like this.{/i}"
 
+    $ voice_line("m","well","sad")
     Morgan "Sarah..."
 
     Sarah "(looking hurt) You need to leave, Morgan. Now."
 
+    $ voice_line("m","sigh","sad")
     Morgan "But..."
 
     Sarah "I know this wasn't your fault. I know that. But I'm still angry, and I need to take it out on someone."
@@ -108,14 +114,15 @@ label sc_assassin_ending:
     $ voice_line("m","oh","sur")
     Morgan "I see. Well, I don't know if it'll help, but I could beam over a copy of the merger data I just swiped, in case you want to take a look at it."
 
+    $ voice_line("s","what","sur")
     Sarah "Wait, seriously? And the Grandmaster will just let you do that?"
 
-    $ voice_line("m","well","bad")
+    $ voice_line("m","what","hap")
     Morgan "What can I say? She gives her Enforcers a lot of discretionary power."
 
     Sarah "If I didn't know any better, I'd say you were taking me for a ride... but we have been through a lot together, haven't we?"
 
-    $ voice_line("m","yeah","sad")
+    $ voice_line("m","yeah","hap")
     Morgan "Yeah, we have."
 
     Sarah "(smiles wistfully) Tell you what, you beam over the data, and I'll give you a map of my infiltration route."

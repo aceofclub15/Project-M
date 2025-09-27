@@ -281,18 +281,19 @@ label sc_mission_archive:
     Grandmaster "How are you feeling now, Enforcer XIII?" 
     $ voice_line("m","good","hap")
     Morgan "I'm feeling as ready as I'll ever be."
-    $ voice_line("gm","good","hap")
+    $ voice_line("gm","well","hap")
     Grandmaster "Good, because time is of the essence. The assassin from Davidson Solutions should've already infiltrated the hotel."
     $ voice_line("m","hmm","bad")
     Morgan "And I imagine the rogue Federal agent, Graham, is making his move too?"
-    $ voice_line("gm","yes","ang")
+    $ voice_line("gm","yes","hap")
     Grandmaster "Indeed, I have him on radar. It won't take long for him to arrive."
+    $ voice_line("m","hmm","bad")
     Morgan "Are you sure you want to leave everything to me, Grandmaster?"
-    $ voice_line("gm","so","dis")
+    $ voice_line("gm","yes","hap")
     Grandmaster "I am. This is your story, Morgan. I only need one thing from you."
     $ voice_line("m","right","hap")
     Morgan "That's right. I just need to make things interesting."
-    $ voice_line("gm","yes","sad")
+    $ voice_line("gm","heh","hap")
     Grandmaster "You catch on well."
     play sound sfx_tire_screech
     "The car slows to a stop."
@@ -301,8 +302,9 @@ label sc_mission_archive:
 
 
 
-    $ voice_line("gm","well","ang")
+    $ voice_line("gm","good","hap")
     Grandmaster "All the best, Morgan. I know you'll make me proud."
+    $ voice_line("m","yeah","hap")
     Morgan "I aim to please, Grandmaster."
     
     jump sc_hotel_entrance
@@ -338,9 +340,12 @@ label sc_emergency:
     $ voice_line("m","hey","ang")
     Morgan "Attention, everyone! This is Officer Morgan of the FBI! I\'m declaring a terroristic threat at the Charleston! I need everyone to please-No wait, wait, don\'t escort me out, NOOOO!"
     scene black
+    $ voice_line("gm","hmmph","dis")
     Grandmaster "You made a terrible judgment call, Morgan."
     Grandmaster "By attracting undue attention to yourself, you\'ve ensured that you\'ll be arrested and charged for impersonating a Federal officer."
+    $ voice_line("gm","hmmph","dis")
     Grandmaster "As for Adam Rourke, he was assassinated, but the assassin did a sloppy enough job to get arrested as well."
+    $ voice_line("gm","hmmph","dis")
     Grandmaster "An incredibly boring and anti-climactic way to end things."
     Grandmaster "I\'m disappointed."
     "GAME OVER"
@@ -351,10 +356,11 @@ label sc_guest_list:
     scene bg hotel
     $ voice_line("m","right","hap")
     Morgan "{i}That's right, I need to do this discreetly. If I get too many eyes on me, this mission's already a failure.{/i}"
-    $ voice_line("m","oh","sur")
+    $ voice_line("m","hah","hap")
     Morgan "Hi, excuse me! I'm Hendricks, from logistics. I just need to cross-check the guest list and make sure there are no empty tables at the 2nd Conference Hall. You know how the bosses are about wasted money."
     show Morgan_default at left with moveinright
     show Crew_member at right with moveinright
+
     Crew_member "Oh, I do, believe me. Here, take this flash drive. It should have everything you need to know about the Extranet conference."
     $ voice_line("m","thanks","sad")
 
@@ -495,7 +501,9 @@ label sc_sarah_attacking:
         yoffset 400
         zoom 0.5
 
+    $ voice_line("s","tch","dis")
     Sarah "Regardless of how the mission goes, I still get to see the light go out of your eyes."
+    $ voice_line("s","tch","dis")
     Sarah "Thank you for that."
     hide Staff
     hide Sarah with fade
@@ -513,6 +521,7 @@ label sc_chef_order:
     #show Chef at left
     #with Pause(0.5)
     #show Sarah at right with moveinright
+
     Head_chef "Order up! We have a gin martini for Mr. Rourke, on the double!"
     "Sarah emerge in her waitress disguise as she takes Rourke's order and sneakily mixes something into the drink as Morgan notices."
     Sarah "Of course, ma'am. Right on it!"
@@ -552,10 +561,12 @@ label sc_drink_poison:
     Morgan "{i}Now that I've swallowed this poisoned martini, it'll just... kill... me...{/i}"
     "Morgan downing the drink, and the screen immediately begins to blur."
     scene black with fade
-    $ voice_line("gm","heh","dis")
+    $ voice_line("gm","okay","bad")
     Grandmaster "Okay, that was kind of funny."
     Grandmaster "But seriously, you couldn't possibly have expected THAT choice to end well, right?"
+    $ voice_line("gm","right","bad")
     Grandmaster "...Right?"
+    $ voice_line("gm","whoa","bad")
     Grandmaster "Please start over before I think this over any further."
     "GAME OVER"
     jump sc_chef_order

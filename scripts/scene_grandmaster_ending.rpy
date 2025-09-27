@@ -34,6 +34,7 @@ label sc_grandmaster_ending:
     June "You know I could never say no to you, January."
     "The two settle down as the waiter serves a steak tartare to each of them."
     show January at left with dissolve
+    $ voice_line("j","so","bad")
     June "So, what did you learn? How do I prevent my death?"
     $ voice_line("gm","so","fea")
     January "Adam is trying to double-cross Marcus Simms and the Executive Board of LambdaCorp over the deal with Warlord Hakim's bioweapon. 
@@ -43,6 +44,7 @@ label sc_grandmaster_ending:
     January "Well, I'd advise against going after Graham. He's the architect of your downfall in both the timelines I explore."
     January "Either Graham works with Morgan in the detective timeline to take you down, or he manages to find a way to your headquarters before the assassin timeline's Morgan finally defeats him."
     January "Which still won't matter because-"
+    $ voice_line("j","marcus","hap")
     June "Marcus and LambdaCorp will execute me for my incompetence."
     "June smiles in relief."
     if relationship_type == "romance":
@@ -60,6 +62,7 @@ label sc_grandmaster_ending:
     January "Yeah. We're both ruling the world together but we'd both fall apart on our own."
     if relationship_type == "romance":
         January "But even aside from that, I love you, June. I'd be happy in any timeline where we live long lives together."
+        $ voice_line("j","so","hap")
         June "So would I."
         "June and January go to January's home, following which they spend the night together."
         January "{i}Growing up, I'd felt so alone. So isolated. I thought nobody would ever understand me, or see the world the same way I did. But June does. And more than that, she appreciates me. A quiet life with her means more than any victory I've ever tasted in the other timelines.{/i}"
@@ -78,10 +81,12 @@ label sc_grandmaster_ending:
     
     if relationship_type == "romance":
         "June cuts off January with a kiss."
+        $ voice_line("j","thanks","hap")
         June "Thank you, January. I...I wish I could find a way to make it up to you."
     elif relationship_type == "friendship":
         June "You're really going above and beyond for me, January. I wish I could find a way to make it up to you."
     "January gives a playful smile."
+    $ voice_line("gm","ah","hap")
     January "Hmm, maybe you can."
     "June smiles nervously."
     June "I'm not sure I like where this is going..."
@@ -107,7 +112,7 @@ label sc_grandmaster_ending:
     January "Fiiine, I'll initiate the timeline dive."
     "A panel shows January powering up the timeline generator computer interface as June looks on in admiration and awe."
     "As the Zephyr artifact mission map loads up, January's dialogue tag changes back to the Grandmaster and her expression changes from playful grouchiness to ice-cold confidence."
-    $ voice_line("gm","heh","hap")
+    $ voice_line("gm","now","bad")
     Grandmaster "Now, which Enforcer should I use this time?"
     
     return
