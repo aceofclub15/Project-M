@@ -7,29 +7,28 @@ label sc_romance_climax:
 
     $ voice_line("m","what","ang")
     Morgan "Time to die, Graham! This is for Sarah!"
+    $ voice_line("s","well","dis")
     Sarah "Goodbye, you sanctimonious old man. You won't be missed."
 
     "Montage of Morgan fighting and defeating Graham."
     show Morgan_default at right with moveinleft
     hide Graham with dissolve
 
-    $ voice_line("m","hah","ang")
+    $ voice_line("m","oh","hap")
     Morgan "We did it... oh my God we did it, Sarah! We won!"
-
+    $ voice_line("s","uh","hap")
     Sarah "That's right! We won, my love! The world is ours!"
     "They heard a voice from behind"
+    $ voice_line("j","well","bad")
     "{color=#9d00ff} You two did win. A shame I can't say that for myself. {/color}"
 
-    Sarah "Huh? What are you talking about, June?"
-    
+    $ voice_line("s","huh","sur")
+    Sarah "Huh? What are you talking about, June? Graham's dead, we're in the clear."
     show June at left with moveinleft
     show Sarah at center
 
-
-    Sarah " Graham's dead, we're in the clear."
-
+    $ voice_line("j","well","sad")
     June "It's the burdens of leadership, Sarah. I tried a gamble to get Graham out of hiding, and it let him straight to my headquarters."
-
     June "You were just a pawn in my plans, so nobody will care what happens to you. But as for me? You'll find that my clients are rather... unforgiving."
     "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
 
@@ -40,20 +39,22 @@ label sc_romance_climax:
     show Sarah at center with moveinright
     $ voice_line("s","what","sad")
     Sarah "What? No, June, NO!"
-
+    $ voice_line("j","well","sad")
     June "Let this be a lesson to you both. If you play with fire... you're going to get burned."
+    $ voice_line("j","well","sad")
     June "I made promises I couldn't keep, and this is the result..."
 
-    Sarah "(crying) I'm sorry, June! I'm sorry I couldn't protect you! I promise I'll make it right!"
-
+    $ voice_line("s","ugh","sad")
+    Sarah "I'm sorry, June! I'm sorry I couldn't protect you! I promise I'll make it right!"
+    $ voice_line("j","well","sad")
     June "(coughing) Don't repeat my mistakes, June... don't make a promise you can't keep..."
     June "I've used you for my ambitions all your life, sweet child... but now you need to live for yourself... Find a new life..."
 
-
+    $ voice_line("m","yes","hap")
     Morgan "I'll protect her, June. I'll stay with her no matter what. You can rest easy now, okay?"
-
+    $ voice_line("j","thanks","sad")
     June "Thank you, Morgan... please... make Sarah happy..."
-    June "She deserves to be rewarded...for serving me so well... (cough)." 
+    June "She deserves to be rewarded...for serving me so well... (cough)."
     June "My precious January...I'm so sorry I can't be with you...even in this timeline..."
 
     Morgan "{i}It's heartbreaking to see Sarah's career culminate in such a tragedy. But perhaps things were always going to end this way.{/i}"
@@ -62,6 +63,7 @@ label sc_romance_climax:
     Morgan "{i}We're both going to get our happy endings, no matter what it takes.{/i}"
 
 
+   
     jump sc_romance_ending
 
     return
@@ -76,32 +78,29 @@ label sc_romance_ending:
     Morgan "{i}And so, I start my new life with Sarah. {/i}"
     $ voice_line("m","well","hap")
     Morgan "I must say, you have excellent taste in beachfront property."
-
+    $ voice_line("s","well","hap")
     Sarah "(snuggles up to Morgan) Why thank you! I'm glad you finally listened to my infinite wisdom and stopped insisting on renting stuff all the time."
     Sarah "We're filthy rich and we should act like it!"
-
+    $ voice_line("m","well","hap")
     Morgan "(kisses Sarah) I couldn't agree with you more, my love. You've truly made me see the light."
-
     Morgan "{i}And, of course, our vibrant event planning business keeps the coffers full even when assassination work dries up.{/i}"
     Morgan "{i}I really underestimated the benefits of having a 'legitimate business' as a cover.{/i}"
 
     $ voice_line("s","so","hap")
     Sarah "As much as murder remains my number one passion, I have come to enjoy providing the people a good time every now and then."
-
+    $ voice_line("m","so","hap")
     Morgan "So have I. People deserve to have a chance to let loose every now and then."
     Morgan "After all, who knows when a fun vacation" 
     Morgan "(smirks deviously) might become your last."
-
     Morgan "{i}And with that, June Davidson is avenged.{/i}"
     Morgan "{i}It took a great deal of patience for the two of us to discover the identities of the five LambdaCorp executives who ordered her death, but it was all worth it.{/i}"
     Morgan "{i}June's killers walked right into our luxurious trap, and now their bodies will be cleaned out with no one the wiser.{/i}"
 
+    $ voice_line("s","well","bad")
     Sarah "Some dishes really are best served cold, aren't they?"
-
     $ voice_line("m","well","bad")
     Morgan "Indeed they are." 
     Morgan "(kisses Sarah) And some dishes are best sampled... in private."
-
     $ voice_line("s","well","bad")
     Sarah "Lead the way, darling."
 

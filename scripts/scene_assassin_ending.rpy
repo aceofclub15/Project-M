@@ -1,6 +1,5 @@
 label sc_assassin_climax:
 
-
     Morgan "{i}I need to be careful with Graham. The Grandmaster might want to interrogate him and find out everything he knows.{/i}"
 
     $ voice_line("m","hmm","bad")
@@ -8,7 +7,8 @@ label sc_assassin_climax:
 
 
     Morgan "You're mine now, Graham. No sudden moves!"
-
+    
+    $ voice_line("g","well","bad")
     Graham "You really think you can take me alive? You think those two ladies will let you?!"
 
     $ voice_line("m","hah","dis")
@@ -17,50 +17,60 @@ label sc_assassin_climax:
     show Morgan_default at right with moveinleft
 
     "There is a shout from behind"
-    "{color=#9d00ff} No, you can't! {/color}"
+    
+    $ voice_line("j","no","dis")
+    June "No, you can't!"
 
-
-    $ voice_line("m","huh","sur")
+    $ voice_line("m","what","bad")
     Morgan "What are you doing, June? I'm on your side!"
     show June at left with moveinleft
+    
+    $ voice_line("j","grr","ang")
     June "If you're on my side, you'll hand over Graham, right now!"
-
+    
     $ voice_line("m","huh","sur")
     Morgan "Huh? But why? I need to deliver her to my master!"
-
+    
     $ voice_line("s","well","bad")
     Sarah "Do what June says, Morgan."
     "Sarah points the gun at Morgan"
+    
     $ voice_line("m","what","ang")
-    Morgan "What the hell?! I can't just betray the—"
+    Morgan "What the hell?! I can't just betray the Grandmaster-"
 
-    June "Screw the Grandmaster! You already know she doesn't care what you do! Taking Graham to her's a waste of time, but if you hand him over to me, I can still fix—"
+    $ voice_line("j","hmmph","dis")
+    June "You can't be serious, Morgan! You already know that she doesn't care what you do! Taking Graham to her's a waste of time, but if you hand him over to me, I can still fix-"
 
     # Sniper shot kills June
     "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
     "June collapses"
-    show June:
+    show June:   
         rotate 270
     with dissolve
-    Sarah "June?!"
-    Sarah "No! NOOO!"
+    
+    $ voice_line("s","no","sad")
+    Sarah "June?! No! NOOO!"
 
     $ voice_line("g","so","bad")
     Graham "Looks like she was doomed from the very beginning, huh?"
-
+    
     $ voice_line("m","what","sur")
     Morgan "Doomed? What are you talking about?"
-
+    
+    $ voice_line("g","well","bad")
     Graham "Dear old June Davidson signed her own death warrant the moment I broke into this building."
+    
     Graham "She's the one who went maverick and dragged me into this case to kill two birds with one stone, and look how that ended up for her."
-
+    
     $ voice_line("s","what","dis")
     Sarah "Are you saying June brought this on herself?"
-
+    
+    $ voice_line("g","yeah","bad")
     Graham "Yup. She was only hired to kill Adam Roarke, nothing more. But she decided to get clever and use you for the job, knowing that it'd bring me out of hiding too."
-    Graham "Adam and I are both... connected, you see, and she thought she'd get a nice bonus by delivering both of our heads."
+    
+    Graham "Adam and I are both...connected, you see, and she thought she'd get a nice bonus by delivering both of our heads."
     Graham "Once everything went to shit, she probably wanted to capture me alive as a last-ditch Hail Mary. Well clearly, she was mistaken."
-
+    
     $ voice_line("s","so","ang")
     Sarah "And that means I have no reason to keep you alive."
     "Sarah glares at Graham and shot him"
@@ -75,11 +85,14 @@ label sc_assassin_climax:
     $ voice_line("m","well","sad")
     Morgan "Sarah..."
 
-    Sarah "(looking hurt) You need to leave, Morgan. Now."
-
+   
+    $ voice_line("s","tch","bad")
+    Sarah "You need to leave, Morgan. Now."
+    
     $ voice_line("m","sigh","sad")
     Morgan "But..."
 
+    $ voice_line("s","well","sad")
     Sarah "I know this wasn't your fault. I know that. But I'm still angry, and I need to take it out on someone."
     Sarah "Please don't let it be you, Morgan. Go away, for your own sake."
     scene black
@@ -102,16 +115,18 @@ label sc_assassin_ending:
     Morgan "{i}I never thought I'd see Sarah again after our messy journey together, but I guess it must be a small world after all.{/i}"
     show Morgan_default at left
     show Sarah at right
-    Sarah "Morgan? What are you doing here?"
-
-    $ voice_line("m","well","hap")
     
-    Morgan "Just another heist for the Grandmaster, stealing some intel on a planned merger between LambdaCorp and HelixTech. What about you?"
+    $ voice_line("m","what","sur")
+    Morgan "Morgan? What are you doing here?"
+    
+    $ voice_line("s","well","bad")
+    Sarah "Just another heist for the Grandmaster, stealing some intel on a planned merger between LambdaCorp and DarwinTech. What about you?"
 
-    Sarah "(holsters gun) I'm here on my own time. Trying to get some leads on who killed June."
+    $ voice_line("s","yeah","hap")
+    Sarah "I'm here on my own time. Trying to get some leads on who killed June."
     Sarah "LambdaCorp is a name that kept coming up in my research, so that's why I'm here."
 
-    $ voice_line("m","oh","sur")
+    $ voice_line("m","yeah","hap")
     Morgan "I see. Well, I don't know if it'll help, but I could beam over a copy of the merger data I just swiped, in case you want to take a look at it."
 
     $ voice_line("s","what","sur")
@@ -120,20 +135,23 @@ label sc_assassin_ending:
     $ voice_line("m","what","hap")
     Morgan "What can I say? She gives her Enforcers a lot of discretionary power."
 
-    Sarah "If I didn't know any better, I'd say you were taking me for a ride... but we have been through a lot together, haven't we?"
+    $ voice_line("s","so","hap")
+    Sarah "If I didn't know any better, I'd say you were taking me for a ride...but we have been through a lot together, haven't we?"
 
     $ voice_line("m","yeah","hap")
     Morgan "Yeah, we have."
 
-    Sarah "(smiles wistfully) Tell you what, you beam over the data, and I'll give you a map of my infiltration route."
+    $ voice_line("s","well","hap")
+    Sarah "Tell you what, you beam over the data, and I'll give you a map of my infiltration route."
     Sarah "I've cleaned out all the security on the way, so you'll have no problem making your exit."
 
-    $ voice_line("m","oh","sur")
+    $ voice_line("m","really","hap")
     Morgan "Really? That'd be a big help, Sarah. You've got yourself a deal."
 
-    $ voice_line("m","well","hap")
+    $ voice_line("m","yeah","hap")
     Morgan "I guess I'll see you around, partner."
-
+    
+    $ voice_line("s","well","hap")
     Sarah "Until next time, then. Don't be a stranger."
 
 

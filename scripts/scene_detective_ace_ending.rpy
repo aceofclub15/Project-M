@@ -1,21 +1,23 @@
 label sc_graham_paid:
     $ voice_line("m","oh","bad")
     Morgan "Oh, but I think you were paid, Graham."
+    $ voice_line("g","what","ang")
     Graham "{i}What's that supposed to mean? Are you calling me a liar?!{/i}"
-    $ voice_line("m","no","sad")
-    Morgan "No, not you. A covert job means a covert payment. You should've received a set of coordinates to a dead drop. 
-    But you didn't, because your partner Adam took it all for himself."
+    $ voice_line("m","no","bad")
+    Morgan "No, not you. A covert job means a covert payment. You should've received a set of coordinates to a dead drop. But you didn't, because your partner Adam took it all for himself."
     $ voice_line("g","what","sur")
     Graham "{i}But why? Why would he do that?{/i}"
-    $ voice_line("m","well","hap")
-    Morgan "Well, for one thing, Adam's the CEO of a billion-dollar company, and you're not.
-    I wonder what Hallex works on. I wonder how Adam got rich."
+    $ voice_line("m","well","bad")
+    Morgan "Well, for one thing, Adam's the CEO of a billion-dollar company, and you're not. I wonder what Hallex works on. I wonder how Adam got rich."
+    $ voice_line("g","god","ang")
     Graham "{i}Oh my God, that son of a bitch! He told me the intel we got on Warlord Hakim's bioweapon was bogus. But if he lied to me...{/i}"
-    Morgan "Then he cut you out, and used the knowledge from the mission to enrich himself at your expense. 
-    And it seems like you're not the only person he screwed over."
+    $ voice_line("m","so","bad")
+    Morgan "Then he cut you out, and used the knowledge from the mission to enrich himself at your expense. And it seems like you're not the only person he screwed over."
+    $ voice_line("g","so","bad")
     Graham "{i}So that's why Davidson Solutions put a kill order on him. We need to investigate the Hallex corporation, pronto.{/i}"
     $ voice_line("m","huh","sur")
     Morgan "Any idea where to start?"
+    $ voice_line("g","yeah","bad")
     Graham "{i}Yeah. Adam has a warehouse in Queens. If we're going to find out what he's hiding, we have to go there.{/i}"
     jump sc_hallex_warehouse_ambush
     return
@@ -32,31 +34,38 @@ label sc_hallex_warehouse_ambush:
     "Adam notices Graham and Morgan approaching him, and his expression turns hostile as he faces off against them alongside his bodyguard."
     $ voice_line("a","tch","dis")
     Adam "Tch. And to think I was just a few seconds away from cleaning this mess up."
-    $ voice_line("m","hah","dis")
+    $ voice_line("m","what","ang")
     Morgan "What do you mean by that, Adam? Covering up your crimes? Running away from the people you screwed over, present company included!"
     "Morgan points to Graham."
+    $ voice_line("g","well","bad")
     Graham "I'm going to make sure you pay for what you did back in Afghanistan, Adam, and I suggest you come quietly for your own sake."
     $ voice_line("a","tch","ang")
     Adam "Go to hell."
+    $ voice_line("m","ugh","bad")
     Morgan "You really don't want to push your luck here. If me and Graham found out about this place, it's only a matter of time before-"
     "A series of gunshots ring out as Sarah arrives on the scene and kills Adam's bodyguard. Adam quickly runs away and hides."
     show Sarah at right with moveinbottom
     show Adam:
         yoffset 100
         xoffset 200 
+    $ voice_line("s","well","bad")
     Sarah "Sorry to crash the party, everyone, but I'm afraid I have a contract to fulfill. Besides, my master would like a word with you."
     "Sarah's boss, June Davidson, appears alongside her, looking smug and self-assured."
     show June at center with moveinbottom
+    $ voice_line("j","right","hap")
     June "Hello, Morgan and Graham. It's a pleasure to finally meet you both in person."
     $ voice_line("g","ugh","dis")
     Graham "Can the pleasantries, June. Why the hell are you here?"
+    $ voice_line("j","well","bad")
     June "To propose a truce. You and I both have a common enemy, now that you've seen firsthand what a repugnant weasel Adam Roarke is. Let's work together, in the interests of justice."
+    $ voice_line("g","ugh","dis")
     Graham "You? A fighter for justice?! Give me a break. Adam may be a corrupt backstabbing weasel, but you've killed hundreds of people just to line your bank account."
     Graham "Besides, the only reason you hired Sarah was to lure me out of hiding so you could kill me too, right? Was that for the sake of justice too?!"
     "Morgan discreetly sneaks away to find a hidden vantage point in a corner."
     hide Morgan_default with dissolve
     "June turns to face Adam"
-    June "(Sigh...)You disappoint me, Adam. If you'd just gone along with my idea, I would've ensured that Sarah backstabbed you quickly and painlessly. Now I'm going to have to make it HURT!"
+    $ voice_line("j","hmmph","dis")
+    June "You disappoint me, Adam. If you'd just gone along with my idea, I would've ensured that Sarah backstabbed you quickly and painlessly. Now I'm going to have to make it HURT!"
 
     jump sc_ambush
     return
@@ -70,7 +79,7 @@ label sc_ambush:
     show Adam at right
     "The two then gang up on June and hold her at gunpoint."
     June "No, no NO! This can't be happening, you can't beat me so easily, I-"
-    "A gunshot rings out from Adam's gun and June collapses."   
+    "A gunshot rings out from Adam's gun and June collapses."   
     show June:
         rotate 90
     $ voice_line("a","haha","hap")
@@ -89,7 +98,6 @@ label sc_ambush:
     "Adam suddenly turns his gun on himself and pulls the trigger before Morgan or Graham have time to react."
     show Adam:
         rotate 90
-    $ voice_line("g","ugh","bad")
     Graham "Shit! The bastard killed himself!"
     Morgan "In any case, the bad guys are dead. I'd say justice is served, even if it's not in the way we'd have liked."
     Graham "Maybe you're right. Still, I wish we'd learned more about who else Adam ripped off. I hate knowing that those bastards are still at large."

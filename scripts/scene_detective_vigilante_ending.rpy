@@ -16,10 +16,12 @@ label sc_obey_voice:
 
     $ voice_line("m","oh","sur")
     Morgan "Oh, has she now?"
+    $ voice_line("j","yes","dis")
     June "Yes. How you're an annoyance. An impediment she can't seem to surpass."
     June "It's all thanks to you that my little gamble almost fell to pieces, which is why I had to come all the way here and settle things personally."
     $ voice_line("m","what","sur")
     Morgan "And what was your gamble, exactly?"
+    $ voice_line("j","oh","dis")
     June "Oh Morgan, I'm not here to monologue my plan. I just wanted to show you the consequences of your failure."
     June "Because you weren't quick on your feet, the man you've been trying to save ended up dying anyway."
     "June points to Adam with her thumb."
@@ -33,16 +35,20 @@ label sc_obey_voice:
     show June at center
     June "Now now, agent. You'll get your turn. Now stay there and let the consequences of your failure sink in."
     "Sarah chokes Graham to death, her smile vicious."
+    $ voice_line("s","yes","hap")
     Sarah "Yes, this is how I've wanted to end things with you, Graham! I'll end you, while you cower and realize you could NEVER surpass me! Hehehe, yes, YES!"
     "Sarah's expression grows increasingly ecstatic as the life goes out of Graham's eyes, when suddenly, he slashes her throat with a switchblade."
+    $ voice_line("s","what","sur")
     Sarah "Wha- URK!"
+    $ voice_line("g","hah","hap")
     Graham "I knew I was doomed the second you got the jump on me, Sarah. But I could at least take you down with me! Hahahaha!"
     "Both Sarah and Graham bleed to death, Graham laughing like a madman all the while."
     hide Sarah
     hide Graham
 
+    $ voice_line("j","no","fea")
     June "No! No, this can't be happening, I-"
-    hide Morgan with dissolve
+    hide Morgan_default with dissolve
     show Morgan_default:
         rotate 0
     show June at center
@@ -55,6 +61,7 @@ label sc_obey_voice:
     June "No! NO! I'd almost fixed everything! Now Wallace...he will...oh January, I'm so sorry!"
     $ voice_line("m","what","sur")
     Morgan "What are you talking about?"
+    $ voice_line("j","grr","ang")
     June "I can't disappoint him, I can't let him know I failed! Even January can't save me now! I'M ENDING THIS!"
     "Suddenly, June slashes at Morgan with a pocket knife, causing Morgan to shoot her dead in self-defense."
     show June:
@@ -74,7 +81,7 @@ label sc_vigilante_epilogue:
     "Time skips by one year. A high-rise office is shown. An elevator opens, and Marcus Simms enters the room."
     show Marcus at right with moveinleft
     "As he approaches his swivel chair, he hears Morgan's voice from behind."
-    $ voice_line("m","so","bad")
+    $ voice_line("m","well","bad")
     Morgan "I've read such glowing articles about you, Marcus. People respected you as one of the pre-eminent national security advisors in the United States. A pity they didn't know you were just a double-crosser selling state secrets."
     show Morgan_default at left with moveinleft
     "Marcus composes himself and tries to sneakily open his gun drawer."
@@ -82,7 +89,7 @@ label sc_vigilante_epilogue:
     $ voice_line("m","ugh","bad")
     Morgan "I did. You need to answer for all the people who are dead because of you. June Davidson, Sarah, and my old friend, Graham."
     "Marcus pulls out his gun and fires. But the chamber is empty."
-    $ voice_line("m","hah","dis")
+    $ voice_line("m","sigh","dis")
     Morgan "You disappoint me, Marcus. I already took the bullets out of your gun. Surely, you should've foreseen that."
     Marcus "And what about you? Can you foresee the consequences of that path you're on? If you keep going down this road of vengeance and bloodshed, you may end up in a similar position to me one day."
     $ voice_line("m","hmm","dis")

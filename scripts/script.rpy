@@ -362,8 +362,9 @@ label sc_guest_list:
     show Crew_member at right with moveinright
 
     Crew_member "Oh, I do, believe me. Here, take this flash drive. It should have everything you need to know about the Extranet conference."
-    $ voice_line("m","thanks","sad")
 
+
+    $ voice_line("m","thanks","hap")
     Morgan "Oh thank you, you're a lifesaver!"
     hide Crew_member with fade
     show Morgan_default at center with moveinleft
@@ -494,6 +495,7 @@ label sc_sarah_attacking:
     with moveinleft
 
     
+    $ voice_line("s","tch","dis")
     Sarah "You're not my target, darling, but you are quite the appetizer."
     show Staff:
         rotate 90
@@ -563,6 +565,7 @@ label sc_drink_poison:
     scene black with fade
     $ voice_line("gm","okay","bad")
     Grandmaster "Okay, that was kind of funny."
+    $ voice_line("gm","right","bad")
     Grandmaster "But seriously, you couldn't possibly have expected THAT choice to end well, right?"
     $ voice_line("gm","right","bad")
     Grandmaster "...Right?"

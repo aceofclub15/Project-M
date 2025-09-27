@@ -15,7 +15,7 @@ default character_words = {
         "god", "grr", "haha", "heh", "hmm", "hmmph", "huh", "no", "oh", "right",
         "tch", "thanks", "uhh", "well", "yes"
     ],
-    "r": [
+    "a": [
         "good", "grr", "haha", "hmm", "huh", "no", "tch", "yeah", "yes"
     ],
     "s": [

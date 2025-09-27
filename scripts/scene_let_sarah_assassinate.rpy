@@ -1,4 +1,5 @@
 label sc_target_poisoned:
+    # Existing voice line for an internal thought, keeping it as is or removing based on typical workflow, but let's assume internal dialogue doesn't need external voice_line updates unless specified.
     $ voice_line("m","so","ang")
     Morgan "{i}Looks like I'm siding with the psychopathic murderer.{/i}"
     Morgan "{i}And I can't deny there's a certain thrill to being a villain here.{/i}"
@@ -7,7 +8,6 @@ label sc_target_poisoned:
     show bg hotel_restaurant
     show Adam at center with moveinbottom
     with Pause(0.2)
-
 
     $ voice_line("s","yes","hap")
     Sarah "Your order, sir."
@@ -28,61 +28,55 @@ label sc_target_poisoned:
         xalign 0.5
         zoom 1.3
     with moveinleft
-    $ voice_line("m","hey","sad")
+    $ voice_line("m","well","bad")
     Morgan "Evening ma'am, mind if I have a word?"
-
+    $ voice_line("s","what","sur")
     Sarah "I'm sorry, can I help you with something?"
     "Morgan leans into Sarah's ear."
-    $ voice_line("m","well","hap")
+    $ voice_line("m","so","bad")
     Morgan "Listen carefully and keep cool."
     Morgan "You're being followed."
     Morgan "Someone's come here to apprehend you."
-    
 
     $ voice_line("s","what","ang")
     Sarah "What? How do you know this?!"
-
-    $ voice_line("m","well","hap")
+    $ voice_line("m","right","bad")
     Morgan "Does the name Graham ring a bell?  I have a recording of him knocking out your handler at the lounge."
-
+    $ voice_line("s","shit","fea")
     Sarah "Shit, if he's the one who found me, I'm in serious trouble."
     Sarah "I don't exactly trust you right now, but I can't risk ignoring this."
     Sarah "Do you have anything else for me?"
 
-    $ voice_line("m","yes","hap")
+    $ voice_line("m","so","bad")
     Morgan "Indeed. I have an alternate extraction route, prepped and ready at the behest of my master."
     Morgan "That should throw Graham off your trail, and we can rendezvous sometime later."
-
     "Rourke convulses under the effect of the poison as he's hastily ushered out."
-    
-    $ voice_line("m","oh","sur")
+    $ voice_line("m","what","bad")
     Morgan "Looks like things are escalating. What's your decision, Sarah?"
-
+    $ voice_line("s","tch","fea")
     Sarah "Fine. Give me the coordinates, quickly."
 
     "Morgan beams the new extraction coordinates."
     $ voice_line("s","well","sad")
     Sarah "I got them. I hope I can trust you."
+    $ voice_line("m","ugh","fea")
     Morgan "Now go, quickly!"
-    
     with Pause(0.5)
     scene black 
     "Sarah and Morgan part ways. After that, the Grandmaster calls Morgan."
     show hologram_GM:
         xalign 0.5
         yalign 0.5
-    $ voice_line("gm","whoa","fea")
+    $ voice_line("gm","so","bad")
     Grandmaster "So you've chosen to aid and abet a murderer, have you?"
     Grandmaster "Well, I just wanted to let you know that Adam's death has been confirmed and Sarah's arrived at the exfil point, safe and sound."
     Grandmaster "I've also given her your contact information and told her to contact you tomorrow."
     Grandmaster "Time for you to see this through to the end."
-    
-    $ voice_line("m","thanks","hap")
+    $ voice_line("m","yeah","hap")
     Morgan "Thank you, Grandmaster. I promise I won't disappoint."
-
-    $ voice_line("gm","okay","hap")
+    $ voice_line("gm","good","hap")
     Grandmaster "I know you won't, Morgan. Until next time."
-    
+    # Internal dialogue, no external voice line update needed
     $ voice_line("m","yeah","sad")
     Morgan "{i}I've made my decision, now it's time to see where it takes me.{/i}"
     Morgan "{i}I'm looking forward to hearing from Sarah again.{/i}"
@@ -94,40 +88,37 @@ label sc_target_poisoned:
 
 label sc_next_day:
     show bg shooting_range
-    "Time advances to the next day, and the scene opens to the interior of Morgan's professional, immaculate office."    
+    "Time advances to the next day, and the scene opens to the interior of Morgan's professional, immaculate office."
+    # Internal dialogue, no external voice line update needed
     Morgan "{i}I received a message from Sarah, telling me to meet her, alone, at a deserted shooting range.{/i}"
+    # Internal dialogue, no external voice line update needed
     $ voice_line("m","hmm","sad")
     Morgan "{i}Being asked to come alone is already a red flag, but I did willingly choose the path of danger, after all.{/i}"
     "The sound of a car getting to a car and driving can be heard. The scene transitions to the view of a shooting range."
     $ voice_line("m","well","bad")
     Morgan "Hello, Sarah. Looks like you made it out of the last job safely."
     show Sarah at right with moveinright
+    $ voice_line("s","hmm","bad")
     Sarah "I did. You were true to your word."
     Sarah "I still don't know why you helped me, though."
-    
     $ voice_line("m","yes","hap")
     Morgan "The answer to that is simple."
     Morgan "Because I wanted to."
-
     $ voice_line("s","huh","sur")
     Sarah "And your master just lets you go around doing whatever you want?"
-    
     $ voice_line("m","so","bad")
     Morgan "In a manner of speaking."
-
+    $ voice_line("s","well","bad")
     Sarah "You've just made yourself an accomplice to a high-profile murder."
     Sarah "You do seem to have the stomach for my line of work, but whether you have the skill is another question entirely."
-
     $ voice_line("s","tch","ang")
     Sarah "Show me you have what it takes, Morgan, and we can do great things together."
-    
-    $ voice_line("m","uh","bad")
+    $ voice_line("m","what","sur")
     Morgan "I already helped you get away with murder, isn't that good enough for you?"
-
+    $ voice_line("s","what","ang")
     Sarah "I decide what's good enough for me."
     Sarah "Now, are you going to hit the target or not?"
-    
-
+    # Internal dialogue, no external voice line update needed
     Morgan "{i}The challenge she's set up is ridiculous. Like that 'curve the bullet' scene from the Wanted movie.{/i}"
     Morgan "{i}How the hell am I supposed to pull this off?{/i}"
 
@@ -136,6 +127,7 @@ label sc_next_day:
             $ persistent.story_tree["hope_shot"]["unlocked"] = True
             jump sc_random_shot
         "Maybe the key is to overpower time itself":
+        
             $ persistent.story_tree["master_time"]["unlocked"] = True
             jump sc_timimg_shot
     return
@@ -144,12 +136,12 @@ label sc_next_day:
 label sc_random_shot:
     Morgan "{i}This truly is impossible. I'll just spray and pray and hope for the best.{/i}"
     "Sounds of gunshots ring out, but none hit the target."
-    
     $ voice_line("m","tch","ang")
     Morgan "{i}As I thought, this challenge was impossible.{/i}"
     Morgan "{i}Guess I'll-{/i}"
     $ voice_line("m","ah","dis")
     "Morgan get shot from behind."
+    $ voice_line("s","sigh","sad")
     Sarah "How disappointing."
     Sarah "I really hoped you'd be a worthy ally, but it turns out I was just wasting my time with you."
     Sarah "At least I'll get some satisfaction from taking your life with my own two hands."
@@ -173,10 +165,8 @@ label sc_stay_professional:
     Sarah "So we're keeping this professional, then."
     Sarah "I can respect that."
     Sarah "Besides, we might be better off if we can fully focus on the next task at hand."
-
     $ voice_line("m","what","sur")
     Morgan "And what task would that be?"
-
     Sarah "Getting rid of one last pesky loose end."
     Sarah "My brother-in-law, Agent Graham, wants to bring me to justice for my so-called crimes."
     Sarah "I'm going to make sure he never gets the chance."
@@ -189,28 +179,29 @@ label sc_stay_professional:
 label sc_kiss_sarah:
     $ romance = True
     "Morgan and Sarah kiss with their arms wrapped around each other."
-
     $ voice_line("m","yes","hap")
     Morgan "{i}Yes, this is what I want.{/i}"
     Morgan "{i}I want her, all of her.{/i}"
     Morgan "{i}And now I can finally have her.{/i}"
     Morgan "{i}This is the best day of my life!{/i}"
     
+    # Internal dialogue, no external voice line update needed
     $ voice_line("m","oh","ang")
     Morgan "{i}I see now why assassins seem to bend time so easily.{/i}"
     Morgan "{i}That rush of adrenaline made the kiss seem like a wonderful eternity, but it was just a few seconds long.{/i}"
 
-    Sarah "Well, aren't you a good kisser? I'll at least give you that much."
+    $ voice_line("s","well","hap")
+    Sarah "Well, aren't you 
+    a good kisser? I'll at least give you that much."
     Sarah "And I'm glad to have you by my side as we finish things and tie up all loose ends."
-    
     $ voice_line("m","what","sur")
     Morgan "And what loose ends are you referring to, exactly?"
-
+    $ voice_line("s","so","ang")
     Sarah "Why, my brother-in-law, of course."
     Sarah "Agent Graham is still out to get me, so we're going to get to him first."
     Sarah "You in?"
     
-    $ voice_line("m","yes","ang")
+    $ voice_line("m","right","ang")
     Morgan "You're goddamn right I am"
     jump sc_track_graham
     return

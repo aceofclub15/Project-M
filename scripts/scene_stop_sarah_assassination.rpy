@@ -1,55 +1,73 @@
 ###THE SCENE BEFORE IS IN AP
 
 
-
+###THE SCENE BEFORE IS IN AP
 label sc_approach_adam:
     scene black
     show bg hotel
     show Adam at center
 
     "Morgan approaches Adam."
-    $ voice_line("m","hey","ang")
+    $ voice_line("m","well","hap")
     Morgan "Excuse me, Mr. Adam Rourke, but I'm Agent Morgan from the FBI."
+    $ voice_line("m","well","hap")
     Morgan "We've received credible intel that your life is in immediate danger, and you need to be secured."
     show Bodyguard:
         align (0.3, 0.8)
+
     Bodyguard "That's far enough. We need to see some ID and-"
+    $ voice_line("a","no","sur")
     Adam "No. No we don't. I'll come with you, Agent Morgan. My life is in your hands."
+
     Bodyguard "But sir!"
+    $ voice_line("a","yes","hap")
     Adam "You are relieved of duty. Thank you for your service."
+
     hide Bodyguard with dissolve
     "Adam stands up and whispers in Morgan's ear."
-    Adam "I know you're not FBI, but I also know I have no choice but to trust you. Get me out of this place, quickly!"
+    $ voice_line("a","haha","bad")
+    Adam "I know you're not FBI, but I also know I have no choice but to trust you."
+    $ voice_line("a","hmm","bad")
+    Adam "Get me out of this place, quickly!"
     $ voice_line("m","yeah","hap")
-    Morgan "Of course. My master's prepared a safe passage for you. Please come with me."
+    Morgan "Of course. My master's prepared safe passage for you. Please come with me."
+
     "Morgan and Adam hurry out of the Charleston hotel, then rush to a getaway car prepared by Ouroboros."
     $ voice_line("m","ugh","fea")
     Morgan "Get in, quickly. You'll be taken somewhere safe."
+    $ voice_line("a","hmm","sur")
     Adam "I see you're not coming with me. It's because of Graham, isn't it?"
+
     $ voice_line("m","huh","sur")
     Morgan "You know about Graham?"
+    $ voice_line("a","yes","hap")
     Adam "I do, and I overheard you speaking to him through your earpiece. That's how I knew I could trust you."
+
     "Adam's expression hardens."
+    $ voice_line("a","grr","ang")
     Adam "Whoever it is that put a price on my head, you find them, and you destroy them. You hear me?!"
     Morgan "{i}Adam certainly seems used to throwing his weight around, with the way he's getting up in my face. But I don't have the time to put his ego in check, so I'll just go along to get along.{/i}"
-    $ voice_line("m","tch","dis")
+    $ voice_line("m","yes","hap")
     Morgan "Loud and clear, sir."
+    $ voice_line("a","hmm","ang")
     Adam "Hmph."
     hide Adam with dissolve
     play sound sfx_car_leaving volume 1.5 fadeout 0.5
     pause 1
     "Adam is driven away. The Grandmaster contacts Morgan through Morgan's wireless earpiece."
-    $ voice_line("gm","whoa","hap")
+    $ voice_line("gm","huh","hap")
     Grandmaster "It looks like you're playing the hero this time around, huh, Morgan?"
+    $ voice_line("m","yes","ang")
     Morgan "That's right, Grandmaster. Is that okay with you?"
     $ voice_line("gm","yes","hap")
-    Grandmaster "Of course it is. I asked you to make things interesting, and that's exactly what you're doing. Now rendezvous with Graham, and get to the bottom of this case."
-    $ voice_line("m","yes","ang")
+    Grandmaster "Of course it is. I asked you to make things interesting, and that's exactly what you're doing."
+    $ voice_line("gm","okay","hap")
+    Grandmaster "Now rendezvous with Graham, and get to the bottom of this case."
+    $ voice_line("m","right","hap")
     Morgan "Understood, ma'am."
-    
+
     jump sc_meet_with_graham
     return
-
 
 
 label sc_meet_with_graham:
@@ -57,15 +75,19 @@ label sc_meet_with_graham:
     show bg hotel
     "Time skips by 10 minutes as Morgan re-enters the hotel."
     "Graham calls Morgan's wireless earpiece."
-    Graham "{i} I just got a message from this Ouroboros organization, telling me that Adam's been taken to safety.{/i}"
-    Graham "{i}Your doing, I assume?{/i}"
+    $ voice_line("g","well","bad")
+    Graham "{i}I just got a message from this Ouroboros organization, telling me that Adam's been taken to safety. Your doing, I assume?{/i}"
+    $ voice_line("m","right","bad")
     Morgan "That's right. What happened to Sarah?"
+    $ voice_line("g","well","bad")
     Graham "{i}She's gone dark. I think she discovered the tracker you put on her.{/i}"
-    $ voice_line("m","well","bad")
+    $ voice_line("m","ugh","bad")
     Morgan "That's unfortunate. I guess we'll have to stay on guard and not leave the hotel."
+    $ voice_line("g","yes","bad")
     Graham "{i}Agreed. I'll book separate rooms for the two of us so that we can stay here for a couple of days.{/i}"
     $ voice_line("m","good","bad")
     Morgan "Good idea."
+    $ voice_line("g","well","bad")
     Graham "{i}And...done. My room's 953 and yours is 966. We'll talk tomorrow.{/i}"
     "Graham disconnects. Morgan sits down at a bar, looking worn out."
     #scene hotel with dissolve
@@ -75,7 +97,6 @@ label sc_meet_with_graham:
     $ voice_line("m","uh","bad")
     Morgan "{i}The bartender seems overly assertive, but maybe it's just exhaustion's getting to me.{/i}"
     Bartender "I think you should retire to your room, sir. If you let me know the room number, I can call someone who's available, like miss Freida, to escort you."
-    
     menu:
         "Sure, my room number's 966":
             $ persistent.story_tree["give_room"]["unlocked"] = True
@@ -98,6 +119,7 @@ label sc_give_room_number:
     Morgan "{i}Shit, I screwed up! I did not think that she'll be here, and now I've led her right to me!{/i}"
     "Sarah, disguised as a staff member, quickly walks up to Morgan and tranquilizes them with a needle."
     Morgan "{i}Oh no, she's paralyzed me! I can't move!{/i}"
+    $ voice_line("s","well","bad")
     Sarah "Relax, my dear. It'll all be over soon. We'll go over to your room, you'll tell me everything you know, and then I'll end it quickly."
     Sarah "It's a pretty good way to die, all things considered."
     scene black
@@ -132,14 +154,18 @@ label sc_keep_room_number:
     Graham "{i}No, I showed up because of Sarah. She's...my sister-in-law.{/i}"
     $ voice_line("m","what","sur")
     Morgan "What?!"
+    $ voice_line("g","yeah","bad")
     Graham "{i}Yeah, it's an ugly family secret. My wife, Jasmine, always thought Sarah was just independent and free-spirited.{/i}" 
+    $ voice_line("g","what","sur")
     Graham "{i}Turns out she was a psychopathic serial killer the entire time. Jasmine and I only discovered this a few months into our marriage.{/i}" 
+    $ voice_line("g","ugh","fea")
     Graham "{i}We tried to call the cops on Sarah, only for some hired goons to blow up our house.{/i}"
     Morgan "If reporting Sarah to the cops led to your house blowing up, that means Davidson Solutions must've already recruited her."
     $ voice_line("g","what","sur")
     Graham "{i}Davidson Solutions? You know about them too?{/i}"
     $ voice_line("m","yes","hap")
     Morgan "Yeah, my master's done her own research on the matter."
+    $ voice_line("g","ugh","fea")
     Graham "{i}Damn, those bastards must have an insane web of influence. I never thought I'd be dragged into their plans like this, though. {/i}"
     $ persistent.story_tree["choice3"]["unlocked"] = True
     menu:
@@ -158,6 +184,7 @@ label sc_they_planned_this:
     Graham "{i}Bring me out of hiding? Wait a minute, could it be because...?{/i}"
     $ voice_line("m","yeah","sad")
     Morgan "Yes, it's probably your connection to Adam. Tell me, what did you two work on back in Afghanistan?"
+    $ voice_line("g","well","bad")
     Graham "{i}Nothing much, just some deal that went bad. I wasn't even paid for it.{/i}"
 
     $ voice_line("m","hmm","sad")
@@ -170,11 +197,8 @@ label sc_they_planned_this:
     return
 
 
-
-
-
-
 label sc_no_lead:
+    $ voice_line("m","hmm","sad")
     Morgan "That's not much to go on. Looks like we've hit a dead end."
     $ voice_line("g","yeah","sad")
     Graham "{i}Yeah, this is super frustrating. I need to go outside, clear my head for a bit. Graham out.{/i}"
@@ -199,8 +223,6 @@ label sc_no_lead:
     Morgan "{i}Seems like I have no choice then...{/i}"
     jump sc_obey_voice
     return
-
-
 
 
 label sc_nonsense:
@@ -230,7 +252,3 @@ label sc_nonsense:
         "I have no choice but to obey":
             jump sc_obey_voice
     return
-
-
-
-
