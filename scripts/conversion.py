@@ -87,7 +87,9 @@ def process_script(script_file_path: str, dialogue_map: Dict[str, Tuple[str, str
                             processed_lines.append(line)
                             
                             # Break the inner loop once a match is found
+                            print()
                             break 
+
                             
     except FileNotFoundError:
         print(f"Error: Script file not found at {script_file_path}")
@@ -103,8 +105,8 @@ def main():
         
     # CORRECTED: Use correct sys.argv indices
     notes_file_path = "notes.txt"
-    script_file_path = "scene_stop_sarah_assassination.rpy"
-    output_file_path = "01Processed.rpy"
+    script_file_path = "script.rpy"
+    output_file_path = "01Processed.txt"
     
     print(f"1. Creating dialogue map from: {notes_file_path}")
     dialogue_map = create_dialogue_map(notes_file_path)

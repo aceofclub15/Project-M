@@ -1,0 +1,12 @@
+# Lines from notes.txt that did not match the expected pattern
+# Format: line_number: original_line
+
+334: Female bartender "You look tired, sir. Is there anything I can do to help?"
+335: Female bartender "I think you should retire to your room, sir. If you let me know the room number, I can call someone who's available, like miss Freida, to escort you."
+337: Female bartender "Certainly, sir. I'll call up Freida immediately."
+355: Female voice "Your worst nightmare, Morgan. Would you kindly check your email? You'll find I've left a nice little present for you."
+357: Female voice "That's right, Enforcer XIII. You've failed to save Adam because he left your protection to go cover up his crimes. I hold all the cards now. If you want Graham to live, you'll come to the Hallex warehouse in Queens. Alone."
+367: Female voice "Your worst nightmare, Morgan. Would you kindly check your email? You'll find I've left a nice little present for you."
+369: Female voice "That's right, Enforcer XIII. You've failed to save Adam because he left your protection to go cover up his crimes. I hold all the cards now. If you want Graham to live, you'll come to the Hallex warehouse in Queens. Alone."
+423: Marcus "Well, people can be naive. I just did what anyone else would in my position. Tell me, did you come alone?"
+426: Marcus "And what about you? Can you foresee the consequences of that path you're on? If you keep going down this road of vengeance and bloodshed, you may end up in a similar position to me one day."

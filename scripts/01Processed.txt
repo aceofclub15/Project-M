@@ -1,199 +1,568 @@
-###THE SCENE BEFORE IS IN AP
+﻿default persistent.all_endings = False
+default persistent.assassin_ending = False
+default persistent.romance_ending = False
+default persistent.ace_ending = False
+default persistent.vigilante_ending = False
+default persistent.first_time = 1
+default list_endings = []
+
+default history_focus = False
+default dialogs_nav_focus = False
+default save_focus = False
+default pref_focus = False
+default tree_focus = False
+default tutorial_text=""
 
 
 
-label sc_approach_adam:
-    scene black
-    show bg hotel
-    show Adam at center
+#TESTING STUFF: disable/delete if build for PUBLIC VER
+define dev_build = True
+define config.fast_skipping = dev_build
 
-    "Morgan approaches Adam."
-    Morgan "Excuse me, Mr. Adam Rourke, but I'm Agent Morgan from the FBI."
-    Morgan "We've received credible intel that your life is in immediate danger, and you need to be secured."
-    show Bodyguard:
-        align (0.3, 0.8)
-    Bodyguard "That's far enough. We need to see some ID and-"
-    Adam "No. No we don't. I'll come with you, Agent Morgan. My life is in your hands."
-    Bodyguard "But sir!"
-    Adam "You are relieved of duty. Thank you for your service."
-    hide Bodyguard with dissolve
-    "Adam stands up and whispers in Morgan's ear."
-    Adam "I know you're not FBI, but I also know I have no choice but to trust you. Get me out of this place, quickly!"
-    Morgan "Of course. My master's prepared a safe passage for you. Please come with me."
-    "Morgan and Adam hurry out of the Charleston hotel, then rush to a getaway car prepared by Ouroboros."
-    Morgan "Get in, quickly. You'll be taken somewhere safe."
-    Adam "I see you're not coming with me. It's because of Graham, isn't it?"
-    Morgan "You know about Graham?"
-    Adam "I do, and I overheard you speaking to him through your earpiece. That's how I knew I could trust you."
-    "Adam's expression hardens."
-    Adam "Whoever it is that put a price on my head, you find them, and you destroy them. You hear me?!"
-    Morgan "{i}Adam certainly seems used to throwing his weight around, with the way he's getting up in my face. But I don't have the time to put his ego in check, so I'll just go along to get along.{/i}"
-    Morgan "Loud and clear, sir."
-    Adam "Hmph."
-    hide Adam with dissolve
-    play sound sfx_car_leaving volume 1.5 fadeout 0.5
-    pause 1
-    "Adam is driven away. The Grandmaster contacts Morgan through Morgan's wireless earpiece."
-    $ voice_line("gm","whoa","hap")
-    $ voice_line("gm","whoa","hap")
-    Grandmaster "It looks like you're playing the hero this time around, huh, Morgan?"
-    Morgan "That's right, Grandmaster. Is that okay with you?"
-    $ voice_line("gm","okay","dis")
-    $ voice_line("gm","okay","dis")
-    Grandmaster "Of course it is. I asked you to make things interesting, and that's exactly what you're doing. Now rendezvous with Graham, and get to the bottom of this case."
-    Morgan "Understood, ma'am."
+default preferences.skip_unseen = dev_build
+
+
+
+
+# AMOUNT OF ENDINGS CHECK!!!!!!
+init python:
+    def check_no_endings():
+        list_endings = [persistent.assassin_ending, persistent.ace_ending, persistent.romance_ending, persistent.vigilante_ending]
+        no_ends = 0
+        for e in list_endings:
+            if e == True:
+                no_ends += 1
+        return no_ends
+
+
+
+#SOUNDS SETTINGS
+init python:
+
+
+
+    def ch_callbacks(event, **kwargs):
+        typing_sound(event, **kwargs)
+        name_callback(event, **kwargs)
     
-    jump sc_meet_with_graham
+    def typing_sound(event, interact=True, **kwargs):
+        #TYPING SOUND WHEN TALKING !!!!!!!!!!!!!!!!!
+        if event == "show":  
+            what = renpy.store._last_say_what 
+            if what:
+                sound_count = len(what)
+            else:
+                sound_count = 5
+
+            for _ in range(sound_count): 
+                randosound = renpy.random.randint(1,2) 
+                renpy.sound.queue(f"audio/sfx/click{randosound}.wav", channel="sound", loop=False, relative_volume=1.5) 
+
+        elif event == "end" or event == "slow_done":
+            renpy.sound.stop(channel="sound",fadeout=0.05) 
+
+
+
+        
+
+
+
+
+
+
+
+
+default gender = ""
+default romance = False
+
+define Grandmaster = Character("Grandmaster", color="#e5ff00", callback = name_callback, cb_name = "Grandmaster")
+define January = Character("January", color="#e5ff00", callback = name_callback, cb_name = "January")
+
+define Morgan = Character("Morgan", color="#00ffb7", callback = name_callback, cb_name = "Morgan")
+define Young_Morgan = Character("Young Morgan", color="#6ec1a9", callback = name_callback, cb_name = "Morgan")
+
+
+define Sarah = Character("Sarah", color="#e94417", callback = name_callback, cb_name = "Sarah")
+define Graham = Character("Graham", color="#e0991c", callback = name_callback, cb_name = "Graham")
+define June = Character("June Davidson", color="#9d00ff", callback = name_callback, cb_name = "June")
+define Marcus = Character("Marcus Simms", color="#0e8b3c", callback = name_callback, cb_name = "Marcus")
+
+
+define Head_chef = Character("Head Chef",color="#fff", callback = name_callback, cb_name = "Head_chef")
+define Crew_member = Character("Crew member", color="#0044ff", callback = name_callback, cb_name = "Crew_member")
+define Agent_X = Character("Agent X", color = "#868686ff", callback = name_callback, cb_name = "Agent_X")
+define Adam = Character("Adam Rourke", color="#ff2f00", callback = name_callback, cb_name = "Adam")
+define Cop = Character("Police Officer", color ="#0044ff", callback = name_callback, cb_name = "Cop")
+define Bartender = Character("Bartender", color="#ff419d", callback = name_callback, cb_name = "Bartender")
+define Bodyguard = Character("Bodyguard", color="#4525d5", callback = name_callback, cb_name = "Bodyguard")
+
+
+
+
+
+
+default can_click_tree = True
+screen button_tutorial_screen:
+    tag menu
+    zorder 99
+    add Solid("#000")
+    use quick_menu
+    frame:
+        xalign 0.5
+        yalign 0.06
+        background None
+        has vbox
+        text "Navigation Tutorial" xalign 0.5
+    frame:
+        xalign 0.5
+        yalign 0.5
+        background None
+        text tutorial_text xalign 0.5
+
+
+label button_tutorial:
+
+
+    show screen button_tutorial_screen
+    $ tutorial_text = "Welcome to the navigation tutorial! Here, you will learn how to use the quick menu to navigate around."
+    ""
+
+    $ history_focus = True
+    $ tutorial_text = "Use the history button to open the text-log."
+    ""
+    
+
+    $ save_focus = True
+    $ history_focus = False
+    $ tutorial_text = "These buttons let you Save or QuickSave your progress and Load your saves."
+    ""
+
+    # Step 3: preferences
+    $ pref_focus = True
+    $ save_focus = False
+    $ tutorial_text = "The Preferences button opens game settings."
+    ""
+
+
+    $ dialogs_nav_focus = True
+    $ pref_focus = False
+    $ tutorial_text = "Back - go back one dialog \nSkip - skip through all dialogs until the next choice menu \nAuto - automatically go through the dialogs after a few seconds so you don't have to click."
+    ""
+    
+
+    $ tree_focus = True
+    $ dialogs_nav_focus = False
+    $ tutorial_text = "Use the tree button to show your choices in the game."
+    ""
+    $ tree_focus = False
+    
+
+    $ tutorial_text = "For more key shortcuts, go to Preference to open the setting menu then Help"
+    $ tutorial_text = "Enjoy the game!"
+    ""
+
+
+    hide screen button_tutorial_screen
+    
+    $ persistent.first_time = False
+    stop music
+    $ can_click_tree = True
+    $ config.all_character_callbacks = [ch_callbacks]
+    $ renpy.music.queue(music_bg_normal,channel="channel_background",loop=True)
+    jump sc_computer
     return
 
 
 
-label sc_meet_with_graham:
+
+
+
+
+
+
+
+init python:
+    def render_node(node_id, depth=0, visited=None):
+        if visited is None:
+            visited = set()
+
+        # Prevent re-rendering the same node
+        if node_id in visited:
+            return VBox()
+        visited.add(node_id)
+
+        node = persistent.story_tree[node_id]
+        box = VBox()
+
+        dis_text = ("   |" * depth) + ">" + node["name"]
+
+        dis_color = node.get("color", "#ffffff")
+
+        if node["unlocked"]:
+            txt = renpy.text.text.Text(dis_text, size=22, color=dis_color)
+            box.add(txt)
+
+            # Recurse children
+            for child in node["children"]:
+                box.add(render_node(child, depth + 1, visited))
+
+        return box
+
+
+
+
+
+screen flowchart_screen():
+    frame:
+        vbox:
+            spacing 8
+            text "Progress Tree" size 30
+            text "Color: " size 25
+            text "-blue: important choice" color "#0099cc" size 25
+            text "-green: common choice in many path" color "#66ff66" size 25
+            text "-red: ending" color "#ff6666" size 25
+            text "" size 25
+
+            add render_node("start", 0)
+
+    textbutton "Return" action Return() xalign 0.5 yalign 0.95
+
+
+
+
+
+
+
+# GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# GAME STORY START HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+label start:
+    stop music
+    $ can_click_tree = True
+    $ config.all_character_callbacks = [ch_callbacks]
+    $ renpy.music.queue(music_bg_normal,channel="channel_background",loop=True)
+    jump sc_computer
+    return
+
+
+
+label sc_computer:
     scene black
-    show bg hotel
-    "Time skips by 10 minutes as Morgan re-enters the hotel."
-    "Graham calls Morgan's wireless earpiece."
-    Graham "{i} I just got a message from this Ouroboros organization, telling me that Adam's been taken to safety.{/i}"
-    Graham "{i}Your doing, I assume?{/i}"
-    Morgan "That's right. What happened to Sarah?"
-    Graham "{i}She's gone dark. I think she discovered the tracker you put on her.{/i}"
-    Morgan "That's unfortunate. I guess we'll have to stay on guard and not leave the hotel."
-    Graham "{i}Agreed. I'll book separate rooms for the two of us so that we can stay here for a couple of days.{/i}"
-    Morgan "Good idea."
-    Graham "{i}And...done. My room's 953 and yours is 966. We'll talk tomorrow.{/i}"
-    "Graham disconnects. Morgan sits down at a bar, looking worn out."
-    scene bar
-    show Bartender at center
-    Bartender "You look tired, ma'am. Is there anything I can do to help?"
-    Morgan "{i}Wait, if Graham doesn't know where Sarah is, does that mean she's still around here, hunting us down?{/i}"
-    Morgan "{i}The bartender seems overly assertive, but maybe it's just exhaustion's getting to me.{/i}"
-    Bartender "I think you should retire to your room, sir. If you let me know the room number, I can call someone who's available, like miss Freida, to escort you."
-    
+    if (persistent.ace_ending) and (persistent.vigilante_ending) and (persistent.romance_ending) and (persistent.assassin_ending):
+        $ persistent.all_endings = True
+
+    #Remember to add NVL mode to this part or something
+    "Accessing personal info... (choose who is logging in)"
+    #"Please choose your character's gender (choice won't affect gameplay)"
+
+
+    $gender = "Female"
+
+
     menu:
-        "Sure, my room number's 966":
-            $ persistent.story_tree["give_room"]["unlocked"] = True
-            jump sc_give_room_number
-        "No thanks, I'm good":
-            $ persistent.story_tree["dont_give_room"]["unlocked"] = True
-            jump sc_keep_room_number
+        "Accessing mission archives":
+
+            jump sc_mission_archive
+
+        "Login as Grandmaster (available after getting all endings)" if persistent.all_endings:
+            jump sc_grandmaster_route_start
     return
 
 
-label sc_give_room_number:
-    Morgan "{i}Now that I get a closer look, she can't be Sarah. God, my paranoia's really getting to me. Still, I can't take any chances here. I'll just head up to my room alone.{/i}"
-    Morgan "Yeah, my room number's 966. I don't mind an escort."
-    Bartender "Certainly, ma'am. I'll call up someone immediately."
-    "The female bartender dials up someone to escort Morgan. As soon as Morgan sees Freida, she's horrified."
 
-    Morgan "{i}Shit, I screwed up! I did not think that she'll be here, and now I've led her right to me!{/i}"
-    "Sarah, disguised as a staff member, quickly walks up to Morgan and tranquilizes them with a needle."
-    Morgan "{i}Oh no, she's paralyzed me! I can't move!{/i}"
-    Sarah "Relax, my dear. It'll all be over soon. We'll go over to your room, you'll tell me everything you know, and then I'll end it quickly."
-    Sarah "It's a pretty good way to die, all things considered."
+label sc_mission_archive:
+    scene black 
+    show hologram_GM:
+        xalign 0.5
+        yalign 0.5
+
+    $ voice_line("gm","ah","sur")
+    Grandmaster "How are you feeling now, Enforcer XIII?" 
+    $ voice_line("m","good","hap")
+    Morgan "I'm feeling as ready as I'll ever be."
+    $ voice_line("gm","good","hap")
+    Grandmaster "Good, because time is of the essence. The assassin from Davidson Solutions should've already infiltrated the hotel."
+    $ voice_line("m","hmm","bad")
+    Morgan "And I imagine the rogue Federal agent, Graham, is making his move too?"
+    $ voice_line("gm","yes","ang")
+    Grandmaster "Indeed, I have him on radar. It won't take long for him to arrive."
+    Morgan "Are you sure you want to leave everything to me, Grandmaster?"
+    $ voice_line("gm","so","dis")
+    Grandmaster "I am. This is your story, Morgan. I only need one thing from you."
+    $ voice_line("m","right","hap")
+    Morgan "That's right. I just need to make things interesting."
+    $ voice_line("gm","yes","sad")
+    Grandmaster "You catch on well."
+    play sound sfx_tire_screech
+    "The car slows to a stop."
+    $ voice_line("m","oh","sur")
+    Morgan "Looks like we've arrived at the hotel. This is where I get out."
+
+
+
+    $ voice_line("gm","well","ang")
+    Grandmaster "All the best, Morgan. I know you'll make me proud."
+    Morgan "I aim to please, Grandmaster."
+    
+    jump sc_hotel_entrance
+    return
+
+label sc_hotel_entrance:
+    show bg hotel
+    show Morgan_default
+
+    "Morgan saunters into the hotel like she's always belonged there. She is dressed in an elegant but understated business suit and has a suave smile with eyes betraying a sharp focus."
+    Morgan "{i}According to the Grandmaster's intel, Hallex CEO Adam Rourke will be attending 'The Future of the Online Revolution and the Extranet' conference in the 2nd Conference Hall.{/i}"
+    "90 minutes to assassination."
+    hide Morgan_default
+    $ voice_line("m","hmm","sad")
+    Morgan "{i}Now, how should I take control of this situation?{/i}"
+
+    $ persistent.story_tree["start"]["unlocked"] = True
+
+    menu:
+        "Raise an alarm throughout the entire hotel":
+            $ persistent.story_tree["emergency"]["unlocked"] = True
+            jump sc_emergency
+        "Get hold of the guest list":
+            $ persistent.story_tree["discreet"]["unlocked"] = True
+            jump sc_guest_list
+
+    return
+
+
+label sc_emergency:
+    show bg emergency_room
+    hide Morgan_default
+    $ voice_line("m","hey","ang")
+    Morgan "Attention, everyone! This is Officer Morgan of the FBI! I\'m declaring a terroristic threat at the Charleston! I need everyone to please-No wait, wait, don\'t escort me out, NOOOO!"
     scene black
-    Morgan "{i}I can't offer any resistance as Sarah carries me over to my room. She's right, I have no hope of making it out of this. Graham, Grandmaster, I'm so sorry...{/i}"
-    Grandmaster "You can never be too careful in this line of work, Morgan. Sarah's like a chameleon, waiting to ambush you at the earliest opportunity. Don't give her any chance to track you down."
+    Grandmaster "You made a terrible judgment call, Morgan."
+    Grandmaster "By attracting undue attention to yourself, you\'ve ensured that you\'ll be arrested and charged for impersonating a Federal officer."
+    Grandmaster "As for Adam Rourke, he was assassinated, but the assassin did a sloppy enough job to get arrested as well."
+    Grandmaster "An incredibly boring and anti-climactic way to end things."
+    Grandmaster "I\'m disappointed."
     "GAME OVER"
-    
-    jump sc_meet_with_graham
+    jump sc_hotel_entrance
     return
 
+label sc_guest_list:
+    scene bg hotel
+    $ voice_line("m","right","hap")
+    Morgan "{i}That's right, I need to do this discreetly. If I get too many eyes on me, this mission's already a failure.{/i}"
+    $ voice_line("m","oh","sur")
+    Morgan "Hi, excuse me! I'm Hendricks, from logistics. I just need to cross-check the guest list and make sure there are no empty tables at the 2nd Conference Hall. You know how the bosses are about wasted money."
+    show Morgan_default at left with moveinright
+    show Crew_member at right with moveinright
+    Crew_member "Oh, I do, believe me. Here, take this flash drive. It should have everything you need to know about the Extranet conference."
+    $ voice_line("m","thanks","sad")
 
-label sc_keep_room_number:
+    Morgan "Oh thank you, you're a lifesaver!"
+    hide Crew_member with fade
+    show Morgan_default at center with moveinleft
+    Morgan "{i}Now, time to plug in the drive and see.{/i}"
+    "60 minutes to assassination."
+    $ voice_line("m","hmm","dis")
+    Morgan "{i}It's as I suspected. This list has been tampered with. There's at least one person who isn't supposed to be here, but I'll need to do a bit of recon to pinpoint who they are.{/i}" 
+    $ voice_line("m","oh","sur")
 
-    Morgan "{i}Now that I get a closer look, that can't be Sarah. {/i}"
-    Morgan "{i}God, my paranoia's really getting to me. Still, I can't take any chances here. I'll just head up to my room alone.{/i}"
-    "Morgan heads up to room 966, locks the door and puts a few security precautions in place before going to bed."
-    
-    
-    "The scene cuts to the next day as Morgan's having breakfast."
-    scene hotel_foyer
-    "Graham contacts Morgan's wireless earpiece."
-    Graham "{i}Feeling freshened up? Ready to discuss this case?{/i}"
-    Morgan "Damn right I am. First things first, you need to tell me how you know Adam Rourke."
-    Graham "{i}Adam and I go way back. We were both intelligence contractors for the CIA back during the days of the Afghan war.{/i}"
-    Morgan "Is that why you showed up here? Because you knew Adam was the target?"
-    Graham "{i}No, I showed up because of Sarah. She's...my sister-in-law.{/i}"
-    Morgan "What?!"
-    Graham "{i}Yeah, it's an ugly family secret. My wife, Jasmine, always thought Sarah was just independent and free-spirited.{/i}" 
-    Graham "{i}Turns out she was a psychopathic serial killer the entire time. Jasmine and I only discovered this a few months into our marriage.{/i}" 
-    Graham "{i}We tried to call the cops on Sarah, only for some hired goons to blow up our house.{/i}"
-    Morgan "If reporting Sarah to the cops led to your house blowing up, that means Davidson Solutions must've already recruited her."
-    Graham "{i}Davidson Solutions? You know about them too?{/i}"
-    Morgan "Yeah, my master's done her own research on the matter."
-    Graham "{i}Damn, those bastards must have an insane web of influence. I never thought I'd be dragged into their plans like this, though. {/i}"
-    $ persistent.story_tree["choice3"]["unlocked"] = True
-    menu:
-        "Yeah, I get you. This doesn't make any sense": 
-            $ persistent.story_tree["no_sense"]["unlocked"] = True
-            jump sc_nonsense
-        "But they've planned this from the start":
-            $ persistent.story_tree["planned"]["unlocked"] = True
-            jump sc_they_planned_this 
-    return
-
-label sc_they_planned_this:
-    Morgan "I think Davidson Solutions hired Sarah for this job intentionally, to bring you out of hiding."
-    Graham "{i}Bring me out of hiding? Wait a minute, could it be because...?{/i}"
-    Morgan "Yes, it's probably your connection to Adam. Tell me, what did you two work on back in Afghanistan?"
-    Graham "{i}Nothing much, just some deal that went bad. I wasn't even paid for it.{/i}"
-
-    menu:
-        "That's not much to go on":
-            $ persistent.story_tree["no_sense"]["unlocked"] = True
-            jump sc_no_lead
-        "Oh, but you were paid":
-            jump sc_graham_paid
-    return
-
-
-
-
-
-
-label sc_no_lead:
-    Morgan "That's not much to go on. Looks like we've hit a dead end."
-    Graham "{i}Yeah, this is super frustrating. I need to go outside, clear my head for a bit. Graham out.{/i}"
-    "As Graham disconnects, Morgan leans back and ponders things."
-    Morgan "{i}I really wish I'd done a better job of piecing things together, but in any case, our only option now is to hope for the best. {/i}"
-    Morgan "{i}Maybe Graham might find something on his little soul-searching journey.{/i}"
-
-    "Time skips by 10 minutes, when someone calls up Morgan's wireless earpiece."
-    Morgan "Hello? Who is this?"
-    "Female voice" "Your worst nightmare, Morgan. Would you kindly check your email? You'll find I've left a nice little present for you."
-    "Morgan checks her email, and to her horror, she sees that a video's been sent showing Sarah standing over the body of a murdered Adam, and a captured Graham."
-    Morgan "Oh, no!"
-    "Female voice" "That's right, Enforcer XIII. You've failed to save Adam because he left your protection to go cover up his crimes."
-    "Female voice" "I hold all the cards now. If you want Graham to live, you'll come to the Hallex warehouse in Queens. Alone."
-    Morgan "{i}Did she just call me Enforcer XIII? How does she know about my job at Ouroboros? In any case, it's clear that I'm outmatched.{/i}"
-
-    Morgan "{i}Seems like I have no choice then...{/i}"
-    jump sc_obey_voice
-    return
-
-
-
-
-label sc_nonsense:
-    Morgan "Yeah, I get you. This whole puzzle doesn't make any sense."
-    Graham "{i}Just why the hell would Davidson Solutions want me dead? I need to go outside, take my mind off things."
-    Morgan "Should I come with you?"
-    Graham "{i}No, I need to think on this. Alone. Graham out."
-    "As Graham disconnects, Morgan leans back and ponders things."
-    Morgan "{i}I really wish I'd done a better job of piecing things together, but in any case, our only option now is to hope for the best and see if some other clues turn up. Maybe Graham might find something on his little soul-searching journey.{/i}"
-    "Time skips by 10 minutes, when someone calls up Morgan's wireless earpiece."
-    Morgan "Hello? Who is this?"
-    "Female voice" "Your worst nightmare, Morgan. Would you kindly check your email? You'll find I've left a nice little present for you."
-    "Morgan checks her email, and to her horror, she sees that a video's been sent showing Sarah standing over the body of a murdered Adam, and a captured Graham."
-    Morgan "Oh, no!"
-    "Female voice" "That's right, Enforcer XIII. You've failed to save Adam because he left your protection to go cover up his crimes. I hold all the cards now. If you want Graham to live, you'll come to the Hallex warehouse in Queens. Alone."
-    Morgan "{i}Did she just call me Enforcer XIII? How does she know about my job at Ouroboros? In any case, it's clear that I'm outmatched.{/i}"
+    Morgan "{i}Oh, and it seems as though a lot of the guests are getting warmed up at the lounges before the conference begins. Best head over there.{/i}"
+    "30 minutes to assassination."
+    $ voice_line("m","hmm","dis")
+    Morgan "{i}Yes, I recognize a bunch of people on the guest list here, but nothing out of the ordinary so far. If I just...wait a minute!{/i}"
+    show Morgan_default at right with moveinleft
+    show Graham at left with moveinleft
+    "Graham stumbles out of a lounge, acting drunk."
+    $ voice_line("m","oh","sur")
+    Morgan "{i}That's him! That's Agent Graham! But what is he doing here?{/i}"
+    "He suddenly stops acting drunk. No one is watching him."
+    "Graham approaches a locked door at the end of the hallway and pulls out a lockpick."
+    Morgan "{i}Looks like Graham's making his move now, but he hasn't noticed me. The room he's trying to get into must have something to do with the assassination, but what do I do about all this?{/i}"
     
     menu:
-        "I have no choice but to obey":
-            jump sc_obey_voice
+        "Try to stop Graham by confronting him":
+            $ persistent.story_tree["stop_graham"]["unlocked"] = True
+            jump sc_confrontation
+        "Discreetly record Agent Graham":
+            $ persistent.story_tree["record_graham"]["unlocked"] = True
+            jump sc_observation
+
     return
 
 
+label sc_observation:
+    $ voice_line("m","right","bad")
+    Morgan "Right, can't go picking fights the first chance I get."
+
+    Morgan " I'll just activate my thermoptic implant and set my video camera to record everything Graham does. Now, Graham, it's time for you to spill the beans."
+    hide Morgan_default with fade
+    show Graham at left
+    "Graham lockpicks the door and barges in, confronting the man inside."
+    show Agent_X:
+        xalign 0.7
+        yalign 0.9
+        zoom 0.7
+    Agent_X "Hey, who the hell are you? This room's closed!"
+    Graham "Not anymore."
+    hide Agent_X with fade
+    show Graham at center with moveinleft
+    "Graham fighting and punching out the man. Graham then hacks into the man's laptop" 
+    "From the laptop a female voice can be heard."
+    "Female voice" "{color=#ff0000} Mission update. I've infiltrated the conference room. Looking for a disguise now. Will finish the job soon. {/color}"
+
+    show Graham:
+        zoom 0.6
+        xalign 0.8
+        yalign 0.8
+    with dissolve
+    show Morgan_default at left with moveinleft
+    Morgan "{i} Wow, I've picked up a lot of invaluable intel. It looks like the assassin's a woman. {/i}"
+    Morgan "{i} She's pretty close to getting ready for the job, so I need to make my way to the location ASAP!{/i}"
+    Morgan "{i}But first, let me just hack Graham's phone {/i}"
+    $ voice_line("m","tch","ang")
+    Morgan "{i} The encryption on his phone is real strong{/i}"
+    Morgan "{i} But at least I can still call him if I decide to side with him. {/i}"
+
+    Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"
+    Graham "But I'll make Sarah will pay for what she's done!"
+    $ voice_line("m","oh","ang")
+    Morgan "{i}Those are some juicy details, but I really need to go now.The moment of truth will soon be upon me. {/i}"
+    "Morgan quickly goes to the 2nd Conference room. 10 minutes until the assassination. "
+    $ voice_line("m","hmm","bad")
+    Morgan "{i}If the killer is a woman, how can I narrow things down? How would an assassin infiltrate this place? {/i}"
+    menu:
+        "She might kill and replace someone":
+            $ persistent.story_tree["she_kill"]["unlocked"] = True
+            jump sc_sarah_kill
+        "She might impersonate a staff member":
+            $ persistent.story_tree["she_impersonate"]["unlocked"] = True
+            jump sc_sarah_impersonate
+    return
+
+
+
+
+
+label sc_sarah_kill:
+    scene black
+    show bg hotel
+    show Morgan_default at center
+    $ voice_line("m","hmm","sad")
+    Morgan "{i}She'll probably kill someone for the sake of a disguise. But who? Can I catch her in the act if I'm fast enough, or...?{/i}"
+    "Morgan hears the sound of a thud, and someone struggling for their lives."
+    $ voice_line("m","sigh","bad")
+
+    Morgan "{i}Guess that answers my question. Time to go.{/i}"
+
+    jump sc_sarah_attacking
+    return
+
+label sc_sarah_impersonate:
+    scene black
+    show bg hotel
+    show Morgan_default at center
+    $ voice_line("m","hmm","dis")
+    Morgan "{i}She'll probably wear a disguise that gives her a lot of access, like a service staff member.{/i}"
+    Morgan "{i}But where could she get such a disguise?{/i}"
+    Morgan "{i}If she...{/i}"
+
+    "Morgan hears a sound of someone struggling for their life."
+
+    $ voice_line("m","shit","sur")
+    Morgan "{i}Shit, she's already making her move! I need to act, now!{/i}"
+    jump sc_sarah_attacking
+    return
+
+label sc_sarah_attacking:
+    $ persistent.story_tree["investigate"]["unlocked"] = True
+    scene black
+    show bg hotel
+    "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
+    show Staff:
+        xalign 0.7
+    $ renpy.pause(0.5)
+    show Sarah:
+        xalign 0.5
+        zoom 1.3
+    with moveinleft
+
+    
+    $ voice_line("s","tch","dis")
+    Sarah "You're not my target, darling, but you are quite the appetizer."
+    show Staff:
+        rotate 90
+        xalign 0.8
+        yoffset 400
+        zoom 0.5
+
+    $ voice_line("s","tch","dis")
+    Sarah "Regardless of how the mission goes, I still get to see the light go out of your eyes."
+    Sarah "Thank you for that."
+    hide Staff
+    hide Sarah with fade
+    show Sarah_disguise
+    "Morgan stays put as Sarah finishes her kill and drags the body away."
+    $ voice_line("m","hmm","dis")
+    Morgan "{i}So that's Sarah's disguise.{/i}"
+    Morgan "{i}She's going to play as a waiter, probably deliver some poison straight into Rourke's thirsty mouth.{/i}"
+    jump sc_chef_order
+    return
+
+label sc_chef_order:
+    scene black
+    show bg hotel_restaurant with dissolve
+    #show Chef at left
+    #with Pause(0.5)
+    #show Sarah at right with moveinright
+    $ voice_line("j","god","hap")
+    Head_chef "Order up! We have a gin martini for Mr. Rourke, on the double!"
+    "Sarah emerge in her waitress disguise as she takes Rourke's order and sneakily mixes something into the drink as Morgan notices."
+    Sarah "Of course, ma'am. Right on it!"
+
+    with Pause(0.5)
+    hide Chef
+    #show Morgan_default at left with moveinleft
+    $ voice_line("m","hmm","bad")
+    Morgan "{i}This is it, the moment of truth.{/i}"
+    Morgan "{i}The Grandmaster told me to make things interesting, but how am I going to do that now?{/i}"
+    Morgan "{i}Whatever choice I make, there's no going back.{/i}"
+
+
+    menu:
+        "Help Sarah escape after she delivers the drink":
+            $ persistent.story_tree["help_sarah"]["unlocked"] = True
+            jump sc_target_poisoned
+        "Knock the drink out of Sarah's tray":
+            $ persistent.story_tree["stop_sarah"]["unlocked"] = True
+            jump sc_stop_sarah
+        "Snatch up the drink and gulp it down":
+            $ persistent.story_tree["drink_poison"]["unlocked"] = True
+            jump sc_drink_poison
+    return
+
+
+
+
+
+
+
+label sc_drink_poison:
+
+    $ voice_line("m","whoa","sur")
+    Morgan "Don't mind me!"
+    $ voice_line("m","uh","bad")
+    Morgan "{i}Wait... what the hell was I thinking?{/i}"
+    Morgan "{i}Now that I've swallowed this poisoned martini, it'll just... kill... me...{/i}"
+    "Morgan downing the drink, and the screen immediately begins to blur."
+    scene black with fade
+    $ voice_line("gm","heh","dis")
+    Grandmaster "Okay, that was kind of funny."
+    Grandmaster "But seriously, you couldn't possibly have expected THAT choice to end well, right?"
+    Grandmaster "...Right?"
+    Grandmaster "Please start over before I think this over any further."
+    "GAME OVER"
+    jump sc_chef_order
+    return
 
 
