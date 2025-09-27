@@ -16,7 +16,7 @@ default tutorial_text=""
 
 
 #TESTING STUFF: disable/delete if build for PUBLIC VER
-define dev_build = False
+define dev_build = True
 define config.fast_skipping = dev_build
 
 default preferences.skip_unseen = dev_build
