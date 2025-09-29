@@ -243,7 +243,6 @@ label start:
     $ config.all_character_callbacks = [ch_callbacks]
     $ renpy.music.queue(music_bg_normal,channel="channel_background",loop=True)
     $ renpy.music.set_volume(0.4, channel='channel_background')
-    jump sc_june_headquarters
     jump sc_computer
     return
 
@@ -345,7 +344,7 @@ label sc_emergency:
     $ voice_line("gm","hmmph","bad")
     Grandmaster "You made a terrible judgment call, Morgan."
     Grandmaster "By attracting undue attention to yourself, you\'ve ensured that you\'ll be arrested and charged for impersonating a Federal officer."
-    $ voice_line("gm","hmmph","bad")
+    $ voice_line("gm","well","sad")
     Grandmaster "As for Adam Rourke, he was assassinated, but the assassin did a sloppy enough job to get arrested as well."
     $ voice_line("gm","hmmph","fea")
     Grandmaster "An incredibly boring and anti-climactic way to end things."
@@ -387,6 +386,7 @@ label sc_guest_list:
     Morgan "{i}That's him! That's Agent Graham! But what is he doing here?{/i}"
     "He suddenly stops acting drunk. No one is watching him."
     "Graham approaches a locked door at the end of the hallway and pulls out a lockpick."
+    $ voice_line("m","hmm","bad")
     Morgan "{i}Looks like Graham's making his move now, but he hasn't noticed me. The room he's trying to get into must have something to do with the assassination, but what do I do about all this?{/i}"
     
     menu:
@@ -404,6 +404,7 @@ label sc_observation:
     $ voice_line("m","right","bad")
     Morgan "Right, can't go picking fights the first chance I get."
 
+    $ voice_line("m","well","dis")
     Morgan " I'll just activate my thermoptic implant and set my video camera to record everything Graham does. Now, Graham, it's time for you to spill the beans."
     hide Morgan_default with fade
     show Graham at left
@@ -426,11 +427,14 @@ label sc_observation:
         yalign 0.8
     with dissolve
     show Morgan_default at left with moveinleft
+    $ voice_line("m","whoa","bad")
     Morgan "{i} Wow, I've picked up a lot of invaluable intel. It looks like the assassin's a woman. {/i}"
     Morgan "{i} She's pretty close to getting ready for the job, so I need to make my way to the location ASAP!{/i}"
+    $ voice_line("m","hmm","bad")
     Morgan "{i}But first, let me just hack Graham's phone {/i}"
     $ voice_line("m","tch","ang")
     Morgan "{i} The encryption on his phone is real strong{/i}"
+    $ voice_line("m","well","hap")
     Morgan "{i} But at least I can still call him if I decide to side with him. {/i}"
 
     Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"
@@ -533,6 +537,7 @@ label sc_chef_order:
     with Pause(0.5)
     hide Chef
     #show Morgan_default at left with moveinleft
+    $ voice_line("m","so","bad")
     Morgan "{i}This is it, the moment of truth.{/i}"
     Morgan "{i}The Grandmaster told me to make things interesting, but how am I going to do that now?{/i}"
     Morgan "{i}Whatever choice I make, there's no going back.{/i}"

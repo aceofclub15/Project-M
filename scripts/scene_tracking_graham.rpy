@@ -54,16 +54,16 @@ label sc_track_graham:
     $ voice_line("s","hah","hap")
     Sarah "This is it! A map of the routes Graham is taking to uncover the truth behind Adam's murder."
     Sarah "It looks like he'll go to the Hallex Warehouse in Queens tomorrow night."
-    $ voice_line("m","what","sur")
+    $ voice_line("m","hmm","sad")
     Morgan "Any idea where he is now?"
     $ voice_line("s","no","ang")
     Sarah "No, I can't piece it together from here. But we finally have the jump on him, Morgan!"
     Sarah "When he arrives at the warehouse tomorrow, he won't know what hit him!"
-    $ voice_line("m","what","ang")
+    $ voice_line("m","good","hap")
     Morgan "Excellent, we know what to do now."
     $ voice_line("s","what","sur")
     Sarah "Exactly. So, what do you suggest we do next?"
-    $ voice_line("m","so","hap")
+    $ voice_line("m","hmm","bad")
     if romance:
         $ persistent.story_tree["test_commit"]["unlocked"] = True
 
@@ -113,13 +113,13 @@ label sc_ask_date:
             slay = "Queen"
 
     Sarah "You've got this, [slay]!"
-    $ voice_line("m","so","hap")
+    $ voice_line("m","hmm","sad")
     Morgan "Alright, if you say so. I guess I'll just go home and freshen up."
     $ voice_line("s","yes","hap")
     Sarah "Indeed you will, darling. And I'll send you the meetup coordinates and see you in an hour."
     Sarah "Don't keep me waiting."
 
-    $ voice_line("m","hah","ang")
+    $ voice_line("m","yeah","hap")
     Morgan "Wouldn't dream of it."
     $ voice_line("s","oh","hap")
     Sarah "Oh and uh, once the date is over, maybe you can come over to my place and... stay there? I'm so excited about having my first time with a woman!"
@@ -134,7 +134,7 @@ label sc_motel:
 
     $ voice_line("s","ah","hap")
     Sarah "Ah, there you are! Shall we go, my love?"
-    $ voice_line("m","yes","hap")
+    $ voice_line("m","yeah","hap")
     Morgan "Indeed. After you, darling."
 
     "Scene transition. They go back to Sarah's place"
@@ -146,7 +146,7 @@ label sc_motel:
     Morgan "I'm happy."
     $ voice_line("s","so","hap")
     Sarah "So am I, honey. So am I."
-    $ voice_line("m","what","hap")
+    $ voice_line("m","well","hap")
     Morgan "You remember what I told you, right? That you're amazing just as you are?"
     $ voice_line("s","yeah","hap")
     Sarah "You did. Now it's time for you to show me."
@@ -157,15 +157,16 @@ label sc_motel:
 label sc_having_sex:
     scene black
     show bg sarah_apartment_dark
+    $ voice_line("m","so","hap")
     Morgan "{i}And so I show her. I show her how much she means to me, how much I love her.{/i}"
     Morgan "{i}And I make a vow to spend the rest of my life by her side, no matter what it takes.{/i}"
     Morgan "{i}This is a day I will never, ever forget.{/i}"
 
-    $ voice_line("m","so","hap")
+    $ voice_line("m","yeah","hap")
     Morgan "I had a wonderful time tonight. I... I love you, Sarah."
     $ voice_line("s","so","hap")
     Sarah "I love you too. And I share your vow. We will spend the rest of our lives together, no matter what."
-    $ voice_line("m","so","hap")
+    $ voice_line("m","good","hap")
     Morgan "I'm so, so happy to hear that."
     $ voice_line("s","well","bad")
     Sarah "There's just one more thing I need to do to make this official. One final test for you before I accept you as my lifelong partner."
@@ -194,7 +195,7 @@ label sc_drink_potion:
     Morgan "{i}The void is coming for me, dragging me down into the abyss...{/i}"
     hide DrK with dissolve
 
-    $ voice_line("gm","heh","hap")
+    $ voice_line("gm","hmmph","bad")
     Grandmaster "You really should've known better than to fall in love with someone crazy, Morgan."
     Grandmaster "Getting together with an unrepentant murderer was only going to end one way, so..."
     with Pause(0.5)
@@ -204,6 +205,7 @@ label sc_drink_potion:
     show Sarah at right with moveinright
     $ voice_line("s","yeah","hap")
     Sarah "Oh, thank God! Thank God you're okay!"
+    $ voice_line("m","well","hap")
     Morgan "I told you, didn't I? My life belongs to you, now. We'll be together, no matter what."
     $ voice_line("s","yeah","hap")
     Sarah "Yeah. Yeah, we will be."
@@ -230,7 +232,7 @@ label sc_separate_way:
     Morgan "I understand that. I thought of it too, but I don't think I'm ready to fully commit to you, Sarah. I'm sorry."
     $ voice_line("s","so","hap")
     Sarah "That's a shame, Morgan, but I understand. Even if we won't be lovers, I'm happy to call you my friend. I wish you'd come across our organization sooner."
-    $ voice_line("m","well","bad")
+    $ voice_line("m","hmm","sad")
     Morgan "This is a big decision, Sarah. I'll have to think about it."
     $ voice_line("s","right","hap")
     Sarah "Of course, Morgan, I don't mean to rush you. I'm just putting all the cards on the table. And in any case, you've already proven yourself to me. Whoever I decide to kill next, it most assuredly won't be you."
@@ -271,7 +273,7 @@ label sc_morgan_past:
         zoom 0.7
         xalign 0.2
         yalign 0.8
-    $ voice_line("m","well","bad")
+    $ voice_line("m","grr","bad")
     Young_Morgan "Go away. I don't need your pity."
     show January at right
     $ voice_line("gm","good","hap")
@@ -285,6 +287,7 @@ label sc_morgan_past:
     "..."
     scene black
 
+    $ voice_line("m","yeah","hap")
     Morgan "{i}Those words were all I needed to hear to accept her offer. And the Grandmaster proved true to her word.{/i}"
     Morgan "{i}She's given me a place to belong, a place where I no longer need to hide or sulk in shame.{/i}"
     Morgan "{i}And I will spend my whole life serving her, even if her only ask is that I follow my heart.{/i}"

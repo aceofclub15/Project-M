@@ -81,7 +81,7 @@ label sc_vigilante_epilogue:
     "Time skips by one year. A high-rise office is shown. An elevator opens, and Marcus Simms enters the room."
     show Marcus at right with moveinleft
     "As he approaches his swivel chair, he hears Morgan's voice from behind."
-    $ voice_line("m","well","bad")
+    $ voice_line("m","hmm","dis")
     Morgan "I've read such glowing articles about you, Marcus. People respected you as one of the pre-eminent national security advisors in the United States. A pity they didn't know you were just a double-crosser selling state secrets."
     show Morgan_default at left with moveinleft
     "Marcus composes himself and tries to sneakily open his gun drawer."

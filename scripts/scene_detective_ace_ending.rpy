@@ -3,7 +3,7 @@ label sc_graham_paid:
     Morgan "Oh, but I think you were paid, Graham."
     $ voice_line("g","what","ang")
     Graham "{i}What's that supposed to mean? Are you calling me a liar?!{/i}"
-    $ voice_line("m","oh","sur")
+    $ voice_line("m","no","sad")
     Morgan "No, not you. A covert job means a covert payment. You should've received a set of coordinates to a dead drop. But you didn't, because your partner Adam took it all for himself."
     $ voice_line("g","what","sur")
     Graham "{i}But why? Why would he do that?{/i}"
@@ -15,7 +15,7 @@ label sc_graham_paid:
     Morgan "Then he cut you out, and used the knowledge from the mission to enrich himself at your expense. And it seems like you're not the only person he screwed over."
     $ voice_line("g","so","bad")
     Graham "{i}So that's why Davidson Solutions put a kill order on him. We need to investigate the Hallex corporation, pronto.{/i}"
-    $ voice_line("m","huh","sur")
+    $ voice_line("m","hmm","dis")
     Morgan "Any idea where to start?"
     $ voice_line("g","yeah","bad")
     Graham "{i}Yeah. Adam has a warehouse in Queens. If we're going to find out what he's hiding, we have to go there.{/i}"
@@ -89,9 +89,11 @@ label sc_ambush:
     "Graham aims his gun at Adam, leading to a standoff."
     Graham "Yeah, we got rid of the assassins, but you won't escape justice! Morgan, if you will."
     "Morgan takes out a video camera, which was secretly filming everything since her and Graham's arrival at the warehouse."
+    $ voice_line("m","hah","dis")
     Morgan "Graham and I prepared for this—just in case we didn’t make it out alive. 
     Your crimes are already out there for the world to see, Adam."
 
+    $ voice_line("m","hmm","dis")
     Morgan "Exposing June and Sarah? That was just an added bonus.
     People will remember us as heroes of citizen journalism, while you’ll spend the rest of your life paying for what you’ve done."
     Adam "No! NO! I'm not going to prison! I'D RATHER DIE!"
@@ -99,8 +101,10 @@ label sc_ambush:
     show Adam:
         rotate 90
     Graham "Shit! The bastard killed himself!"
+    $ voice_line("m","well","bad")
     Morgan "In any case, the bad guys are dead. I'd say justice is served, even if it's not in the way we'd have liked."
     Graham "Maybe you're right. Still, I wish we'd learned more about who else Adam ripped off. I hate knowing that those bastards are still at large."
+    $ voice_line("m","hmm","bad")
     Morgan "Even if they are, they're going to be very unhappy about Adam's crimes being made public. It's only a matter of time before the authorities snuff out all the collaborators."
     Graham "Yeah, there's no way anyone gets away with their crimes now, but our part in this scandal's over. So, what do we do next?"
     

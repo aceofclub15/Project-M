@@ -26,10 +26,11 @@ label sc_confrontation:
     "Graham dashes up to Morgan and injects Morgan with something before Morgan can react."
     $ voice_line("m","what","sur")
     Morgan "{i}What... what's going on... I can't feel my legs...? And my mind is fading..."
+    $ voice_line("m","tch","ang")
     Morgan "{i}Oh wait, Graham stuck a needle in me... He tranquilized me before I knew it...{/i}"
     scene black
-    Grandmaster "{i}And so your mission comes to an undignified end, Morgan...{/i}"
-    Grandmaster "{i}Lying down on the floor, powerless to do anything.{/i}"
+    $ voice_line("gm","so","bad")
+    Grandmaster "{i}And so your mission comes to an undignified end, Morgan... Lying down on the floor, powerless to do anything.{/i}"
     Grandmaster "{i}You really should've remembered the first lesson I ever taught you. Never pick a fight you can't win.{/i}"
     $ voice_line("gm","hmmph","fea")
     Grandmaster "{i}Of course, Graham didn't heed the lesson either.{/i}"

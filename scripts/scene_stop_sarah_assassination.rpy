@@ -10,7 +10,6 @@ label sc_approach_adam:
     "Morgan approaches Adam."
     $ voice_line("m","well","hap")
     Morgan "Excuse me, Mr. Adam Rourke, but I'm Agent Morgan from the FBI."
-    $ voice_line("m","well","hap")
     Morgan "We've received credible intel that your life is in immediate danger, and you need to be secured."
     show Bodyguard:
         align (0.3, 0.8)
@@ -92,6 +91,7 @@ label sc_meet_with_graham:
     #scene hotel with dissolve
     show Bartender at center
     Bartender "You look tired, ma'am. Is there anything I can do to help?"
+    $ voice_line("m","hmm","bad")
     Morgan "{i}Wait, if Graham doesn't know where Sarah is, does that mean she's still around here, hunting us down?{/i}"
     $ voice_line("m","uh","bad")
     Morgan "{i}The bartender seems overly assertive, but maybe it's just exhaustion's getting to me.{/i}"
@@ -132,7 +132,8 @@ label sc_give_room_number:
 
 
 label sc_keep_room_number:
-
+    $ voice_line("m","no","sad")
+    Morgan "No, but thank you anyway!"
     Morgan "{i}Now that I get a closer look, that can't be Sarah. {/i}"
     $ voice_line("m","sigh","hap")
     Morgan "{i}God, my paranoia's really getting to me. Still, I can't take any chances here. I'll just head up to my room alone.{/i}"
@@ -159,6 +160,7 @@ label sc_keep_room_number:
     Graham "{i}Turns out she was a psychopathic serial killer the entire time. Jasmine and I only discovered this a few months into our marriage.{/i}" 
     $ voice_line("g","ugh","fea")
     Graham "{i}We tried to call the cops on Sarah, only for some hired goons to blow up our house.{/i}"
+    $ voice_line("m","hmm","sad")
     Morgan "If reporting Sarah to the cops led to your house blowing up, that means Davidson Solutions must've already recruited her."
     $ voice_line("g","what","sur")
     Graham "{i}Davidson Solutions? You know about them too?{/i}"
@@ -209,12 +211,12 @@ label sc_no_lead:
     "Time skips by 10 minutes, when someone calls up Morgan's wireless earpiece."
     $ voice_line("m","huh","sur")
     Morgan "Hello? Who is this?"
-    "Female voice" "Your worst nightmare, Morgan. Would you kindly check your email? You'll find I've left a nice little present for you."
+    "Female voice" "{color=#9d00ff} Your worst nightmare, Morgan. Would you kindly check your email? You'll find I've left a nice little present for you. {/color}"
     "Morgan checks her email, and to her horror, she sees that a video's been sent showing Sarah standing over the body of a murdered Adam, and a captured Graham."
     $ voice_line("m","shit","dis")
     Morgan "Shit."
-    "Female voice" "That's right, Enforcer XIII. You've failed to save Adam because he left your protection to go cover up his crimes."
-    "Female voice" "I hold all the cards now. If you want Graham to live, you'll come to the Hallex warehouse in Queens. Alone."
+    "Female voice" "{color=#9d00ff} That's right, Enforcer XIII. You've failed to save Adam because he left your protection to go cover up his crimes. {/color}"
+    "Female voice" "{color=#9d00ff} I hold all the cards now. If you want Graham to live, you'll come to the Hallex warehouse in Queens. Alone. {/color}"
     $ voice_line("m","oh","sur")
     Morgan "{i}Did she just call me Enforcer XIII? How does she know about my job at Ouroboros? In any case, it's clear that I'm outmatched.{/i}"
 
@@ -225,6 +227,7 @@ label sc_no_lead:
 
 
 label sc_nonsense:
+    $ voice_line("m","yeah","sad")
     Morgan "Yeah, I get you. This whole puzzle doesn't make any sense."
     $ voice_line("g","well","bad")
     Graham "{i}Just why the hell would Davidson Solutions want me dead? I need to go outside, take my mind off things."
@@ -238,11 +241,11 @@ label sc_nonsense:
     "Time skips by 10 minutes, when someone calls up Morgan's wireless earpiece."
     $ voice_line("m","huh","sur")
     Morgan "Hello? Who is this?"
-    "Female voice" "Your worst nightmare, Morgan. Would you kindly check your email? You'll find I've left a nice little present for you."
+    "Female voice" "{color=#9d00ff} Your worst nightmare, Morgan. Would you kindly check your email? You'll find I've left a nice little present for you. {/color}"
     "Morgan checks her email, and to her horror, she sees that a video's been sent showing Sarah standing over the body of a murdered Adam, and a captured Graham."
     $ voice_line("m","shit","dis")
     Morgan "Shit."
-    "Female voice" "That's right, Enforcer XIII. You've failed to save Adam because he left your protection to go cover up his crimes. I hold all the cards now. If you want Graham to live, you'll come to the Hallex warehouse in Queens. Alone."
+    "Female voice" "{color=#9d00ff} That's right, Enforcer XIII. You've failed to save Adam because he left your protection to go cover up his crimes. I hold all the cards now. If you want Graham to live, you'll come to the Hallex warehouse in Queens. Alone. {/color}"
     $ voice_line("m","oh","sur")
     Morgan "{i}Did she just call me Enforcer XIII? How does she know about my job at Ouroboros? In any case, it's clear that I'm outmatched.{/i}"
     

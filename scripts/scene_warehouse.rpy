@@ -12,7 +12,7 @@ label sc_warehouse_trap:
 
     if romance:
         Sarah "Hey babe, are you feeling okay?"
-        $ voice_line("m","yeah","sad")
+        $ voice_line("m","uh","bad")
         Morgan "I don't know. I feel like we're walking into a trap here. We should've gotten the drop on Graham already."
         $ voice_line("s","yeah","hap")
         Sarah "I know, my love. But no plan ever survives contact with the enemy. Whatever happens next, we'll face it together. I love you."
@@ -23,8 +23,8 @@ label sc_warehouse_trap:
     $ voice_line("s","so","bad")
     Sarah "So if Graham isn't here, then we..."
     # Flashbang
-    Morgan "Then it must be a trap!"
     $ voice_line("m","shit","sur")
+    Morgan "Then it must be a trap!"
 
     scene bg warehouse_interior with Fade(0.1, 1, 0.5, color="#fff")
     "A flashbang grenade is dropped, and the screen goes white. When the white noise clears, Morgan and Sarah are restrained with zip-ties."
@@ -57,6 +57,7 @@ label sc_warehouse_trap:
     else:
         $ voice_line("s","what","sur")
         Sarah "How should I know?! You need to think fast, Morgan!"
+    $ voice_line("m","hmm","sad")
     Morgan "{i}...What do I do, what do I do?!{/i}"
 
     menu:
@@ -73,7 +74,7 @@ label sc_bluff_cops:
     Morgan "We'll bluff our way out."
     $ voice_line("s","huh","sur")
     Sarah "Huh? Are you serious?!"
-    $ voice_line("m","right","bad")
+    $ voice_line("m","tch","ang")
     Morgan "There's not enough time for anything else, Sarah! Just trust me, alright?"
     show Cops at right with moveinright
 
@@ -86,9 +87,10 @@ label sc_bluff_cops:
     scene bg warehouse_interior with Fade(0.1, 0.0, 0.2, color="#fff")
     "A bullet fly from afar through the windows glass and hit Morgan\'s head"
     scene black
-    $ voice_line("gm","wait","bad")
+    $ voice_line("gm","well","sad")
     Grandmaster "I'm sorry, Morgan, I had to order your termination."
     Grandmaster "There's no way you could've bluffed your way out of that situation, and I couldn't afford to let the cops take you in for interrogation."
+    $ voice_line("gm","so","bad")
     Grandmaster "You need to try this again, and choose a path that doesn't put me at risk."
     "GAME OVER"
     jump sc_warehouse_trap
@@ -107,7 +109,7 @@ label sc_bend_time:
     "The scene shifts to Morgan and Sarah facing each other."
     $ voice_line("s","what","sur")
     Sarah "How did you do that? You slipped free like it was nothing!"
-    $ voice_line("m","what","sur")
+    $ voice_line("m","well","hap")
     Morgan "An assassin needs to bend time, right? The trouble with zip-ties isn't that they're impossible to break, it's just the time and effort needed for that is too much. But if I can change that, bend time to my will..."
 
     $ voice_line("s","yeah","sur")
@@ -137,7 +139,7 @@ label sc_bend_time:
         
     $ voice_line("s","so","bad")
     Sarah "So, now that we're clear, we need to find Graham. Any idea where he could be?"
-    $ voice_line("m","yeah","sad")
+    $ voice_line("m","hmm","sad")
     Morgan "He's going to ambush your boss, Sarah. He's going to take out June Davidson."
     
     jump sc_june_headquarters
@@ -148,7 +150,7 @@ label sc_june_headquarters:
     $ voice_line("s","well","bad")
     Sarah "If he managed to get the drop on us, he could get the drop on June too. I need to call her."
     "Sarah calls June, but there's no response."
-    $ voice_line("m","yeah","sad")
+    $ voice_line("m","tch","ang")
     Morgan "Looks like my hunch was right."
     $ voice_line("s","ugh","fea")
     Sarah "We need to get to the Davidson Solutions headquarters, ASAP!"
