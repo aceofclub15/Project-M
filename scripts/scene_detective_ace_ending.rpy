@@ -1,9 +1,9 @@
 label sc_graham_paid:
-    $ voice_line("m","oh","bad")
+    $ voice_line("m","oh","sur")
     Morgan "Oh, but I think you were paid, Graham."
     $ voice_line("g","what","ang")
     Graham "{i}What's that supposed to mean? Are you calling me a liar?!{/i}"
-    $ voice_line("m","no","bad")
+    $ voice_line("m","oh","sur")
     Morgan "No, not you. A covert job means a covert payment. You should've received a set of coordinates to a dead drop. But you didn't, because your partner Adam took it all for himself."
     $ voice_line("g","what","sur")
     Graham "{i}But why? Why would he do that?{/i}"
@@ -41,7 +41,7 @@ label sc_hallex_warehouse_ambush:
     Graham "I'm going to make sure you pay for what you did back in Afghanistan, Adam, and I suggest you come quietly for your own sake."
     $ voice_line("a","tch","ang")
     Adam "Go to hell."
-    $ voice_line("m","ugh","bad")
+    $ voice_line("m","hah","dis")
     Morgan "You really don't want to push your luck here. If me and Graham found out about this place, it's only a matter of time before-"
     "A series of gunshots ring out as Sarah arrives on the scene and kills Adam's bodyguard. Adam quickly runs away and hides."
     show Sarah at right with moveinbottom
@@ -110,7 +110,7 @@ label sc_ambush:
     return
 
 label sc_ace_epilogue:
-    scene japanese_restaurant
+    scene bg japanese_restaurant
     "Time skips ahead by three months, with Morgan and Graham eating ramen at a Japanese restaurant while the news plays on TV."
     "News broadcast: In shocking news, billionaire venture capitalist Marcus Simms was found dead in his home today when the FBI conducted a raid on his mansion in connection with the Hallex scandal. Authorities conclude it was a suicide by hanging."
     Graham "Marcus Simms. So that's who Adam sold America's secrets to."

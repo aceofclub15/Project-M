@@ -20,7 +20,7 @@ label sc_track_graham:
     $ voice_line("s","huh","sur")
     Sarah "You mean Davidson Solutions?"
 
-    $ voice_line("m","yeah","bad")
+    $ voice_line("m","yeah","sad")
     Morgan "Yeah, looks like the job wasn't just about taking out Adam Rourke. It was also about drawing Graham out of hiding."
 
     $ voice_line("s","what","ang")
@@ -32,7 +32,7 @@ label sc_track_graham:
     Sarah "Yeah, June Davidson. She's been really good to me for the most part, but sometimes she uses me like some kind of pawn! It pisses me off!"
 
     if romance:
-        $ voice_line("m","uh","hap")
+        $ voice_line("m","well","hap")
         Morgan "(kisses Sarah) I'm sorry she treated you like that. You deserve better than to be used as a tool."
         Morgan "I think you're amazing, just as you are."
         $ voice_line("s","uh","hap")
@@ -87,15 +87,15 @@ label sc_ask_date:
     Morgan "Do you want to take this chance to just...be with me for a while?"
     $ voice_line("s","uh","hap")
     Sarah "You mean, like, go out on a date?"
-    $ voice_line("m","yeah","hap")
+    $ voice_line("m","yeah","sad")
     Morgan "Yeah, something like that."
     $ voice_line("s","yeah","hap")
     Sarah "That sounds like a great idea. I've been looking forward to spending some time with you too, Morgan."
-    $ voice_line("m","so","sur")
+    $ voice_line("m","so","hap")
     Morgan "So um, what did you have in mind?"
     $ voice_line("s","hmm","sur")
     Sarah "Are you sure you don't want to take the initiative?"
-    $ voice_line("m","ugh","sad")
+    $ voice_line("m","sigh","sad")
     Morgan "Believe me, you don't want to put that pressure on me. My mind just wanders from one place to another."
     Morgan "Without my master keeping me on track, I'd be a lost cause."
     $ voice_line("s","yeah","hap")
@@ -119,7 +119,7 @@ label sc_ask_date:
     Sarah "Indeed you will, darling. And I'll send you the meetup coordinates and see you in an hour."
     Sarah "Don't keep me waiting."
 
-    $ voice_line("m","yeah","hap")
+    $ voice_line("m","hah","ang")
     Morgan "Wouldn't dream of it."
     $ voice_line("s","oh","hap")
     Sarah "Oh and uh, once the date is over, maybe you can come over to my place and... stay there? I'm so excited about having my first time with a woman!"
@@ -172,7 +172,7 @@ label sc_having_sex:
     $ voice_line("s","so","bad")
     Sarah "This is something I use for my daily meditation. In order to revel in death, I need to know it, understand it. If you drink this, you'll become just like me. There will be nothing left between us. Are you ready?"
 
-    $ voice_line("m","oh","hap")
+    $ voice_line("m","well","hap")
     Morgan "I told you, didn't I? My life belongs to you, now. We'll be together, no matter what."
     jump sc_drink_potion
 
@@ -198,7 +198,7 @@ label sc_drink_potion:
     Grandmaster "You really should've known better than to fall in love with someone crazy, Morgan."
     Grandmaster "Getting together with an unrepentant murderer was only going to end one way, so..."
     with Pause(0.5)
-    $ voice_line("gm","whoa","hap")
+    $ voice_line("gm","whoa","fea")
     Grandmaster "Oh wait, you're actually recovering, never mind."
     show Morgan_default at left with moveinright
     show Sarah at right with moveinright
@@ -223,14 +223,14 @@ label sc_drink_potion:
 label sc_separate_way:
     $ romance = False
     $ voice_line("m","so","bad")
-    Morgan "It looks like we're done here. Time to go our separate ways and prep."
+    Morgan "I know what you're thinking Sarah, but maybe we should just focus on the mission."
     $ voice_line("s","yeah","bad")
-    Sarah "Yeah, I suppose so. But Morgan, you're a natural at this. I really wish you'd found your way to our organization sooner."
-    $ voice_line("m","good","bad")
-    Morgan "I don't exactly disagree, but the Grandmaster has made good use of my talents so far. I've had a pretty fortunate life already."
+    Sarah "Wait, that's it? I thought we'd take this opportunity to spend some more time together."
+    $ voice_line("m","well","hap")
+    Morgan "I understand that. I thought of it too, but I don't think I'm ready to fully commit to you, Sarah. I'm sorry."
     $ voice_line("s","so","hap")
-    Sarah "I know you have. And I owe Ouroboros a huge debt of gratitude for the help they've given me. I'm just saying, if you truly commit to being an assassin like I am, you'll be unstoppable!"
-    $ voice_line("m","well","sad")
+    Sarah "That's a shame, Morgan, but I understand. Even if we won't be lovers, I'm happy to call you my friend. I wish you'd come across our organization sooner."
+    $ voice_line("m","well","bad")
     Morgan "This is a big decision, Sarah. I'll have to think about it."
     $ voice_line("s","right","hap")
     Sarah "Of course, Morgan, I don't mean to rush you. I'm just putting all the cards on the table. And in any case, you've already proven yourself to me. Whoever I decide to kill next, it most assuredly won't be you."
@@ -274,13 +274,13 @@ label sc_morgan_past:
     $ voice_line("m","well","bad")
     Young_Morgan "Go away. I don't need your pity."
     show January at right
-    $ voice_line("gm","good","bad")
+    $ voice_line("gm","good","hap")
     Grandmaster "Then consider yourself fortunate that I have none to offer. I came to you because I see potential."
     Grandmaster "If you want to change your circumstances, you can come with me. If you refuse, I'll leave."
-    $ voice_line("m","what","fea")
+    $ voice_line("m","what","sur")
     Young_Morgan "Potential? What potental could a wretch like me possibly have?! Everyone around me thinks I'm nothing!"
     
-    $ voice_line("gm","well","dis")
+    $ voice_line("gm","well","ang")
     Grandmaster "Then what if I told you that you can surpass them? Humiliate them? You don't need the failures around you to drag you down any longer, child. Together, you and I will build a wonderful life those losers will forever envy!"
     "..."
     scene black

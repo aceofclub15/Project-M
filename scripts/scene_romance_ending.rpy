@@ -1,77 +1,8 @@
-label sc_romance_climax:
-
-    Morgan "{i}My future with Sarah is all I care about now, and this asshole's in the way! He will die tonight!{/i}"
-
-    Morgan "{i}Agent Graham may have cut through June's footsoldiers with ease, but they weren't masters of time like I am.{/i}"
-    Morgan "{i}There's no move of his I can't foresee. No tactic of his I can't outmatch.{/i}"
-
-    $ voice_line("m","what","ang")
-    Morgan "Time to die, Graham! This is for Sarah!"
-    $ voice_line("s","well","dis")
-    Sarah "Goodbye, you sanctimonious old man. You won't be missed."
-
-    "Montage of Morgan fighting and defeating Graham."
-    show Morgan_default at right with moveinleft
-    hide Graham with dissolve
-
-    $ voice_line("m","oh","hap")
-    Morgan "We did it... oh my God we did it, Sarah! We won!"
-    $ voice_line("s","uh","hap")
-    Sarah "That's right! We won, my love! The world is ours!"
-    "They heard a voice from behind"
-    $ voice_line("j","well","bad")
-    "{color=#9d00ff} You two did win. A shame I can't say that for myself. {/color}"
-
-    $ voice_line("s","huh","sur")
-    Sarah "Huh? What are you talking about, June? Graham's dead, we're in the clear."
-    show June at left with moveinleft
-    show Sarah at center
-
-    $ voice_line("j","well","sad")
-    June "It's the burdens of leadership, Sarah. I tried a gamble to get Graham out of hiding, and it let him straight to my headquarters."
-    June "You were just a pawn in my plans, so nobody will care what happens to you. But as for me? You'll find that my clients are rather... unforgiving."
-    "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
-
-    show June:
-        rotate 270
-        yoffset 300
-    with dissolve
-    show Sarah at center with moveinright
-    $ voice_line("s","what","sad")
-    Sarah "What? No, June, NO!"
-    $ voice_line("j","well","sad")
-    June "Let this be a lesson to you both. If you play with fire... you're going to get burned."
-    $ voice_line("j","well","sad")
-    June "I made promises I couldn't keep, and this is the result..."
-
-    $ voice_line("s","ugh","sad")
-    Sarah "I'm sorry, June! I'm sorry I couldn't protect you! I promise I'll make it right!"
-    $ voice_line("j","well","sad")
-    June "(coughing) Don't repeat my mistakes, June... don't make a promise you can't keep..."
-    June "I've used you for my ambitions all your life, sweet child... but now you need to live for yourself... Find a new life..."
-
-    $ voice_line("m","yes","hap")
-    Morgan "I'll protect her, June. I'll stay with her no matter what. You can rest easy now, okay?"
-    $ voice_line("j","thanks","sad")
-    June "Thank you, Morgan... please... make Sarah happy..."
-    June "She deserves to be rewarded...for serving me so well... (cough)."
-    June "My precious January...I'm so sorry I can't be with you...even in this timeline..."
-
-    Morgan "{i}It's heartbreaking to see Sarah's career culminate in such a tragedy. But perhaps things were always going to end this way.{/i}"
-    Morgan "{i}At least she still got a chance to say goodbye. And she still has me to lean on.{/i}"
-    Morgan "{i}I will protect her, no matter what. She won't meet the same end as her master.{/i}"
-    Morgan "{i}We're both going to get our happy endings, no matter what it takes.{/i}"
-
-
-   
-    jump sc_romance_ending
-
-    return
+# ROMANCE CLIMAX IN THE AP
 
 
 label sc_romance_ending:
-    scene Beach 
-    "transition, our couple is at the beach"
+    scene bg beach
     show Morgan_default at left
     show Sarah at right
     $ voice_line("m","so","bad")

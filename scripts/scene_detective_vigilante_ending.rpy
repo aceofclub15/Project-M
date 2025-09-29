@@ -77,7 +77,7 @@ label sc_obey_voice:
 
 
 label sc_vigilante_epilogue:
-    scene highrise_office
+    scene bg office
     "Time skips by one year. A high-rise office is shown. An elevator opens, and Marcus Simms enters the room."
     show Marcus at right with moveinleft
     "As he approaches his swivel chair, he hears Morgan's voice from behind."
@@ -86,13 +86,13 @@ label sc_vigilante_epilogue:
     show Morgan_default at left with moveinleft
     "Marcus composes himself and tries to sneakily open his gun drawer."
     Marcus "Well, people can be naive. I just did what anyone else would in my position. Tell me, did you come alone?"
-    $ voice_line("m","ugh","bad")
+    $ voice_line("m","yes","ang")
     Morgan "I did. You need to answer for all the people who are dead because of you. June Davidson, Sarah, and my old friend, Graham."
     "Marcus pulls out his gun and fires. But the chamber is empty."
-    $ voice_line("m","sigh","dis")
+    $ voice_line("m","sigh","bad")
     Morgan "You disappoint me, Marcus. I already took the bullets out of your gun. Surely, you should've foreseen that."
     Marcus "And what about you? Can you foresee the consequences of that path you're on? If you keep going down this road of vengeance and bloodshed, you may end up in a similar position to me one day."
-    $ voice_line("m","hmm","dis")
+    $ voice_line("m","hmm","bad")
     Morgan "I'll take my chances."
     "Morgan shoots Marcus dead with a silenced pistol and leaves."
     scene black

@@ -6,23 +6,19 @@ label sc_target_poisoned:
     Morgan "{i}Sarah, show me what you've got.{/i}"
     scene black
     show bg hotel_restaurant
-    show Adam at center with moveinbottom
+    show Adam at right
     with Pause(0.2)
-
+    show Sarah_disguise at left with moveinleft
     $ voice_line("s","yes","hap")
     Sarah "Your order, sir."
     $ voice_line("a","yes","hap")
     Adam "Yes, thanks."
 
-    "Some montage of Adam gulping down the drink and Sarah gracefully left the dining area"
-    "..."
+    "As Adam is gulping down the drink, Sarah gracefully leaves the dining area."
     scene black
     show bg hotel
-
-    "As Sarah leaves Rourke's table, Morgan approaches her."
     show Sarah_disguise:
         xalign 0.7
-    with moveinbottom
     with Pause(0.2)
     show Morgan_default:
         xalign 0.5
@@ -51,7 +47,7 @@ label sc_target_poisoned:
     Morgan "Indeed. I have an alternate extraction route, prepped and ready at the behest of my master."
     Morgan "That should throw Graham off your trail, and we can rendezvous sometime later."
     "Rourke convulses under the effect of the poison as he's hastily ushered out."
-    $ voice_line("m","what","bad")
+    $ voice_line("m","oh","sur")
     Morgan "Looks like things are escalating. What's your decision, Sarah?"
     $ voice_line("s","tch","fea")
     Sarah "Fine. Give me the coordinates, quickly."
@@ -59,7 +55,6 @@ label sc_target_poisoned:
     "Morgan beams the new extraction coordinates."
     $ voice_line("s","well","sad")
     Sarah "I got them. I hope I can trust you."
-    $ voice_line("m","ugh","fea")
     Morgan "Now go, quickly!"
     with Pause(0.5)
     scene black 
@@ -67,12 +62,12 @@ label sc_target_poisoned:
     show hologram_GM:
         xalign 0.5
         yalign 0.5
-    $ voice_line("gm","so","bad")
+    $ voice_line("gm","so","hap")
     Grandmaster "So you've chosen to aid and abet a murderer, have you?"
     Grandmaster "Well, I just wanted to let you know that Adam's death has been confirmed and Sarah's arrived at the exfil point, safe and sound."
     Grandmaster "I've also given her your contact information and told her to contact you tomorrow."
     Grandmaster "Time for you to see this through to the end."
-    $ voice_line("m","yeah","hap")
+    $ voice_line("m","yeah","sad")
     Morgan "Thank you, Grandmaster. I promise I won't disappoint."
     $ voice_line("gm","good","hap")
     Grandmaster "I know you won't, Morgan. Until next time."
@@ -201,7 +196,7 @@ label sc_kiss_sarah:
     Sarah "Agent Graham is still out to get me, so we're going to get to him first."
     Sarah "You in?"
     
-    $ voice_line("m","right","ang")
+    $ voice_line("m","right","hap")
     Morgan "You're goddamn right I am"
     jump sc_track_graham
     return

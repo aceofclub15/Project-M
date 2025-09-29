@@ -12,11 +12,11 @@ label sc_warehouse_trap:
 
     if romance:
         Sarah "Hey babe, are you feeling okay?"
-        $ voice_line("m","yeah","bad")
+        $ voice_line("m","yeah","sad")
         Morgan "I don't know. I feel like we're walking into a trap here. We should've gotten the drop on Graham already."
         $ voice_line("s","yeah","hap")
         Sarah "I know, my love. But no plan ever survives contact with the enemy. Whatever happens next, we'll face it together. I love you."
-        $ voice_line("m","yeah","hap")
+        $ voice_line("m","yeah","sad")
         Morgan "Yeah, thanks for the pep talk, Sarah. I love you, too."
         "..."
 
@@ -38,7 +38,7 @@ label sc_warehouse_trap:
     show Graham at right with moveinright
     $ voice_line("g","hah","hap")
     Graham "Looks like you two tried to hunt me down in this warehouse after all, exactly as I planned."
-    $ voice_line("m","shit","fea")
+    $ voice_line("m","shit","dis")
     Morgan "Shit, this really was a trap!"
     $ voice_line("g","well","bad")
     Graham "Indeed it was. Now, as much as I'd like to bring you both to justice myself, I have bigger fish to fry, so I'll just have to leave that to the police arriving at the scene."
@@ -49,7 +49,7 @@ label sc_warehouse_trap:
     "Graham gets up and walks away, leaving Morgan and Sarah behind."
     hide Graham with dissolve
     "..."
-    $ voice_line("m","shit","fea")
+    $ voice_line("m","shit","sur")
     Morgan "Shit! Shit shit shit SHIT! How do we get out of these before the cops show up?!"
     if romance:
         $ voice_line("s","well","hap")
@@ -69,7 +69,7 @@ label sc_warehouse_trap:
     return
 
 label sc_bluff_cops:
-    $ voice_line("m","yeah","bad")
+    $ voice_line("m","yeah","sad")
     Morgan "We'll bluff our way out."
     $ voice_line("s","huh","sur")
     Sarah "Huh? Are you serious?!"
@@ -112,18 +112,18 @@ label sc_bend_time:
 
     $ voice_line("s","yeah","sur")
     Sarah "You're special, Morgan. This isn't a power most people have."
-    $ voice_line("m","so","sur")
+    $ voice_line("m","oh","ang")
     Morgan "I see... I've always wondered why the Grandmaster saw so much potential in me. Maybe this is what she meant..."
 
     if romance:
         # Sarah kisses Morgan
         "Sarah rushes and kisses Morgan"
         
-        $ voice_line("m","whoa","sur")
+        $ voice_line("m","whoa","hap")
         Morgan "Whoa, Sarah!"
         $ voice_line("s","yeah","hap")
         Sarah "I love you! I love you, I love you, I love you! I'm so glad you're safe!"
-        $ voice_line("m","yeah","hap")
+        $ voice_line("m","yeah","sad")
         Morgan "I'm glad you're safe too, Sarah. We really are unstoppable, aren't we?"
         $ voice_line("s","yeah","hap")
         Sarah "Yeah, we really are. We're going to conquer this world, my love. Just the two of us."
@@ -132,12 +132,12 @@ label sc_bend_time:
     else:
         $ voice_line("s","hmm","sur")
         Sarah "The Grandmaster is truly remarkable, isn't she? I'm in awe."
-        $ voice_line("m","yeah","sur")
+        $ voice_line("m","yeah","sad")
         Morgan "Yeah. I've spent my whole life devoted to her, and I still fail to grasp the depths of her brilliance."
         
     $ voice_line("s","so","bad")
     Sarah "So, now that we're clear, we need to find Graham. Any idea where he could be?"
-    $ voice_line("m","yeah","bad")
+    $ voice_line("m","yeah","sad")
     Morgan "He's going to ambush your boss, Sarah. He's going to take out June Davidson."
     
     jump sc_june_headquarters
@@ -145,12 +145,10 @@ label sc_bend_time:
     return
 
 label sc_june_headquarters:
-
-    Morgan "He's going to ambush your boss, Sarah. He's going to take out June Davidson."
     $ voice_line("s","well","bad")
     Sarah "If he managed to get the drop on us, he could get the drop on June too. I need to call her."
     "Sarah calls June, but there's no response."
-    $ voice_line("m","yeah","bad")
+    $ voice_line("m","yeah","sad")
     Morgan "Looks like my hunch was right."
     $ voice_line("s","ugh","fea")
     Sarah "We need to get to the Davidson Solutions headquarters, ASAP!"

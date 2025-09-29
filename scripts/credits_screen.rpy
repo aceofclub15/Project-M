@@ -1,18 +1,19 @@
 label finalcredits:
     stop music
     scene black
-
+    play music music_bg_action
     show screen creditscreen(1)
     pause 10
     hide screen creditscreen with dissolve
 
     show screen creditscreen(2)
-    pause 8
+    pause 9
     hide screen creditscreen with dissolve
 
     show screen creditscreen(3)
     pause 8
     hide screen creditscreen with dissolve
+    stop music
     return
 
 transform fade_in_delay(delay=0.0):

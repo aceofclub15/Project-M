@@ -409,8 +409,13 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
+        if renpy.get_screen("main_menu"):
+            xoffset 225
+            yalign 0.75
+        else:
+            yalign 0.5
+
         xpos gui.navigation_xpos
-        yalign 0.5
 
         spacing gui.navigation_spacing
 
@@ -471,7 +476,10 @@ style navigation_button:
     properties gui.button_properties("navigation_button")
 
 style navigation_button_text:
+    xalign 0.5
+
     properties gui.text_properties("navigation_button")
+
 
 
 
@@ -520,7 +528,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -682,35 +690,37 @@ screen about():
 
     tag menu
 
-    use game_menu(_("About"), scroll="viewport"):
-
+    use game_menu(_("About"), scroll=None):    # avoid conflicting 'scroll="viewport"' here
         style_prefix "about"
 
         vbox:
             label "[config.name!t]"
             text _("Version [config.version!t]\n")
 
-
-
-
             text _("Licenses") size 30
 
             frame:
                 xfill True
-                ymaximum 600    # limits the frame height so the viewport inside it scrolls
-                has vbox
+                ymaximum 600
+                has hbox   
+
 
                 viewport:
+                    id "license_viewport" 
                     draggable True
                     mousewheel True
+                    yfill True
+
                     vbox:
                         spacing 8
-                        # show each license block (these are Python variables defined above)
                         text code_license
-                        text ""  # spacer
+                        text ""
                         text cc_by_nc_text
-                        text ""  # spacer
+                        text ""
                         text voice_acting_text
+
+                vbar value YScrollValue("license_viewport") ymaximum 600
+
             text _("Made with {a=https://www.renpy.org/}Ren'Py{/a}[renpy.version_only].")
 
             

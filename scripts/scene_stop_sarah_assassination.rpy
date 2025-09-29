@@ -29,11 +29,10 @@ label sc_approach_adam:
     Adam "I know you're not FBI, but I also know I have no choice but to trust you."
     $ voice_line("a","hmm","bad")
     Adam "Get me out of this place, quickly!"
-    $ voice_line("m","yeah","hap")
+    $ voice_line("m","yeah","sad")
     Morgan "Of course. My master's prepared safe passage for you. Please come with me."
 
     "Morgan and Adam hurry out of the Charleston hotel, then rush to a getaway car prepared by Ouroboros."
-    $ voice_line("m","ugh","fea")
     Morgan "Get in, quickly. You'll be taken somewhere safe."
     $ voice_line("a","hmm","sur")
     Adam "I see you're not coming with me. It's because of Graham, isn't it?"
@@ -55,11 +54,11 @@ label sc_approach_adam:
     play sound sfx_car_leaving volume 1.5 fadeout 0.5
     pause 1
     "Adam is driven away. The Grandmaster contacts Morgan through Morgan's wireless earpiece."
-    $ voice_line("gm","huh","hap")
+    $ voice_line("gm","hmmph","bad")
     Grandmaster "It looks like you're playing the hero this time around, huh, Morgan?"
     $ voice_line("m","yes","ang")
     Morgan "That's right, Grandmaster. Is that okay with you?"
-    $ voice_line("gm","yes","hap")
+    $ voice_line("gm","yes","ang")
     Grandmaster "Of course it is. I asked you to make things interesting, and that's exactly what you're doing."
     $ voice_line("gm","okay","hap")
     Grandmaster "Now rendezvous with Graham, and get to the bottom of this case."
@@ -81,12 +80,12 @@ label sc_meet_with_graham:
     Morgan "That's right. What happened to Sarah?"
     $ voice_line("g","well","bad")
     Graham "{i}She's gone dark. I think she discovered the tracker you put on her.{/i}"
-    $ voice_line("m","ugh","bad")
+    $ voice_line("m","sigh","bad")
     Morgan "That's unfortunate. I guess we'll have to stay on guard and not leave the hotel."
     $ voice_line("g","yes","bad")
     Graham "{i}Agreed. I'll book separate rooms for the two of us so that we can stay here for a couple of days.{/i}"
-    $ voice_line("m","good","bad")
-    Morgan "Good idea."
+    $ voice_line("m","good","hap")
+    Morgan "Good idea!"
     $ voice_line("g","well","bad")
     Graham "{i}And...done. My room's 953 and yours is 966. We'll talk tomorrow.{/i}"
     "Graham disconnects. Morgan sits down at a bar, looking worn out."
@@ -115,7 +114,7 @@ label sc_give_room_number:
     Bartender "Certainly, ma'am. I'll call up someone immediately."
     "The female bartender dials up someone to escort Morgan. As soon as Morgan sees Freida, she's horrified."
 
-    $ voice_line("m","shit","fea")
+    $ voice_line("m","shit","dis")
     Morgan "{i}Shit, I screwed up! I did not think that she'll be here, and now I've led her right to me!{/i}"
     "Sarah, disguised as a staff member, quickly walks up to Morgan and tranquilizes them with a needle."
     Morgan "{i}Oh no, she's paralyzed me! I can't move!{/i}"

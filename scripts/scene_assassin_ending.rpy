@@ -21,7 +21,7 @@ label sc_assassin_climax:
     $ voice_line("j","no","dis")
     June "No, you can't!"
 
-    $ voice_line("m","what","bad")
+    $ voice_line("m","what","ang")
     Morgan "What are you doing, June? I'm on your side!"
     show June at left with moveinleft
     
@@ -82,7 +82,7 @@ label sc_assassin_climax:
     Morgan "{i}Seems like Graham did nothing to soften Sarah's pain. I could see she was still broken, that perhaps she always would be.{/i}"
     Morgan "{i}But still, we'd been through so much together. I didn't want things to end like this.{/i}"
 
-    $ voice_line("m","well","sad")
+    $ voice_line("m","well","bad")
     Morgan "Sarah..."
 
    
@@ -126,29 +126,29 @@ label sc_assassin_ending:
     Sarah "I'm here on my own time. Trying to get some leads on who killed June."
     Sarah "LambdaCorp is a name that kept coming up in my research, so that's why I'm here."
 
-    $ voice_line("m","yeah","hap")
+    $ voice_line("m","yeah","sad")
     Morgan "I see. Well, I don't know if it'll help, but I could beam over a copy of the merger data I just swiped, in case you want to take a look at it."
 
     $ voice_line("s","what","sur")
     Sarah "Wait, seriously? And the Grandmaster will just let you do that?"
 
-    $ voice_line("m","what","hap")
+    $ voice_line("m","well","hap")
     Morgan "What can I say? She gives her Enforcers a lot of discretionary power."
 
     $ voice_line("s","so","hap")
     Sarah "If I didn't know any better, I'd say you were taking me for a ride...but we have been through a lot together, haven't we?"
 
-    $ voice_line("m","yeah","hap")
+    $ voice_line("m","yeah","sad")
     Morgan "Yeah, we have."
 
     $ voice_line("s","well","hap")
     Sarah "Tell you what, you beam over the data, and I'll give you a map of my infiltration route."
     Sarah "I've cleaned out all the security on the way, so you'll have no problem making your exit."
 
-    $ voice_line("m","really","hap")
+    $ voice_line("m","well","dis")
     Morgan "Really? That'd be a big help, Sarah. You've got yourself a deal."
 
-    $ voice_line("m","yeah","hap")
+    $ voice_line("m","yeah","sad")
     Morgan "I guess I'll see you around, partner."
     
     $ voice_line("s","well","hap")

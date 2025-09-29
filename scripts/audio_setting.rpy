@@ -13,11 +13,11 @@ define sfx_car_driving = "audio/sfx/car_driving.wav"
 define sfx_car_leaving = "audio/sfx/car_leaving.mp3"
 
 init python:
-
     style.button.activate_sound = activate_btn_sound
+
+
     #background music channel for the main game
     renpy.music.register_channel("channel_background", mixer="music")
-    renpy.music.set_volume(0.3, channel='music')  # reduces all music channel volume
 
 
     class start_with_sound(Action):

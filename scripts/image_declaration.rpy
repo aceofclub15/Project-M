@@ -6,6 +6,13 @@ image bg headquarters = "images/bg/headquarters.png"
 image bg shooting_range = "images/bg/shooting_range.png"
 image bg warehouse_interior = "images/bg/warehouse.png"
 image bg hallex_warehouse = "images/bg/warehouse.png"
+image bg office = "images/bg/office.png"
+image bg beach = "images/bg/beach.png"
+image bg japanese_restaurant = "images/bg/jpn_restaurant.png"
+
+
+
+
 
 
 image bg sarah_apartment = "images/bg/sarah_apartment.png"
@@ -62,3 +69,12 @@ image ap_spilled_drink_1 = "images/CGs/hotel_restaurant/restaurant_spilled_drink
 image ap_spilled_drink_2 = "images/CGs/hotel_restaurant/restaurant_spilled_drink_2.png"
 
 
+image ap_hq_fight_1 = "images/CGs/headquarters_fight/hq_fight_1.png"
+image ap_hq_fight_2 = "images/CGs/headquarters_fight/hq_fight_2.png"
+image ap_hq_fight_3 = "images/CGs/headquarters_fight/hq_fight_3.png"
+image ap_hq_fight_4 = "images/CGs/headquarters_fight/hq_fight_4.png"
+# no ap_hq_fight_5 because it changes to different screen
+image ap_hq_fight_6 = "images/CGs/headquarters_fight/hq_fight_6.png"
+image ap_hq_fight_7 = "images/CGs/headquarters_fight/hq_fight_7.png"
+image ap_hq_fight_8 = "images/CGs/headquarters_fight/hq_fight_8.png"
+image ap_hq_fight_9 = "images/CGs/headquarters_fight/hq_fight_9.png"
