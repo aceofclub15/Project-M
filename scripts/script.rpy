@@ -414,6 +414,7 @@ label sc_observation:
         yalign 0.9
         zoom 0.7
     Agent_X "Hey, who the hell are you? This room's closed!"
+    $ voice_line("g", "hah", "hap")
     Graham "Not anymore."
     hide Agent_X with fade
     show Graham at center with moveinleft
@@ -437,6 +438,7 @@ label sc_observation:
     $ voice_line("m","well","hap")
     Morgan "{i} But at least I can still call him if I decide to side with him. {/i}"
 
+    $ voice_line("g", "sigh", "sad")
     Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"
     Graham "But I'll make Sarah will pay for what she's done!"
     $ voice_line("m","oh","sur")
@@ -501,7 +503,7 @@ label sc_sarah_attacking:
     with moveinleft
 
     
-    $ voice_line("s","tch","dis")
+    $ voice_line("s","oh","hap")
     Sarah "You're not my target, darling, but you are quite the appetizer."
     show Staff:
         rotate 90
@@ -511,7 +513,6 @@ label sc_sarah_attacking:
 
     $ voice_line("s","tch","dis")
     Sarah "Regardless of how the mission goes, I still get to see the light go out of your eyes."
-    $ voice_line("s","tch","dis")
     Sarah "Thank you for that."
     hide Staff
     hide Sarah with fade

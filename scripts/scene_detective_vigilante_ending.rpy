@@ -12,19 +12,22 @@ label sc_obey_voice:
     Morgan "{i}I screwed up. I didn't do a good enough job at solving the Hallex case, and this is the result.{/i}"
     hide Adam
     show Morgan_default at left with moveinleft
+    $ voice_line("j", "oh", "hap")
     June "Agent Morgan, so good to finally meet you in person. Sarah's told me a lot about you."
 
     $ voice_line("m","oh","sur")
     Morgan "Oh, has she now?"
-    $ voice_line("j","yes","dis")
+    $ voice_line("j", "right", "hap")
     June "Yes. How you're an annoyance. An impediment she can't seem to surpass."
+    $ voice_line("j", "hmmph", "dis")
     June "It's all thanks to you that my little gamble almost fell to pieces, which is why I had to come all the way here and settle things personally."
     $ voice_line("m","what","sur")
     Morgan "And what was your gamble, exactly?"
-    $ voice_line("j","oh","dis")
+    $ voice_line("j", "hah", "bad")
     June "Oh Morgan, I'm not here to monologue my plan. I just wanted to show you the consequences of your failure."
     June "Because you weren't quick on your feet, the man you've been trying to save ended up dying anyway."
     "June points to Adam with her thumb."
+    $ voice_line("j", "well", "sad")
     June "And as for your partner in crime."
     "June gestures to Sarah, who smiles sadistically and begins to strangle Graham to death."
     "Morgan rushes to Graham's defense, only for June to pin her down and force her to watch."
@@ -33,6 +36,7 @@ label sc_obey_voice:
     show Morgan_default:
         rotate 270
     show June at center
+    $ voice_line("j", "hah", "bad")
     June "Now now, agent. You'll get your turn. Now stay there and let the consequences of your failure sink in."
     "Sarah chokes Graham to death, her smile vicious."
     $ voice_line("s","yes","hap")
@@ -46,7 +50,7 @@ label sc_obey_voice:
     hide Sarah
     hide Graham
 
-    $ voice_line("j","no","fea")
+    $ voice_line("j", "no", "fea")
     June "No! No, this can't be happening, I-"
     hide Morgan_default with dissolve
     show Morgan_default:
@@ -58,6 +62,7 @@ label sc_obey_voice:
     "Morgan takes advantage of June's distraction to overpower her and hold her at gunpoint."
     $ voice_line("m","grr","bad")
     Morgan "I'm going to make you pay, June, for everything that you've done!"
+    $ voice_line("j", "no", "fea")
     June "No! NO! I'd almost fixed everything! Now Wallace...he will...oh January, I'm so sorry!"
     $ voice_line("m","what","sur")
     Morgan "What are you talking about?"

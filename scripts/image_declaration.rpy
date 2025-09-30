@@ -48,7 +48,7 @@ image Agent_X = At("images/others/agent_x.png", sprite_highlight("Agent_X"))
 
 image Crew_member = At("images/others/hotel_staff.png", sprite_highlight("Crew_member"))
 image Staff = At("images/others/hotel_staff.png", sprite_highlight("Staff"))
-image Bartender = At("images/others/hotel_staff.png", sprite_highlight("Bartender"))
+image Bartender = At("images/others/hotel_staff_female.png", sprite_highlight("Bartender"))
 image Bodyguard = "images/others/bodyguard.png"
 
 

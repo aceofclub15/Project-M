@@ -81,7 +81,7 @@ label sc_stop_sarah:
     Morgan "{i}Right, I need to take advantage of this window and call Graham immediately!{/i}"
     "Morgan dials a number."
     
-    $ voice_line("g","huh","sur")
+    $ voice_line("g", "huh", "sur")
     Graham "Huh? Who is this? How did you get this number?"
     $ voice_line("m","so","bad")
     Morgan "I'm someone trying to stop an assassination, and I think you know which one I'm talking about."
@@ -89,7 +89,7 @@ label sc_stop_sarah:
     Morgan "I've delayed your dear friend Sarah, but time is short. I need your help."
 
     
-    $ voice_line("g","huh","sur")
+    $ voice_line("g", "wait", "dis")
     Graham "Did you say Sarah?"
     
     $ voice_line("m","yeah","sad")
@@ -102,13 +102,14 @@ label sc_stop_sarah:
     
     $ voice_line("g","damn","hap")
     Graham "Damn, so you really were there."
-    $ voice_line("g","god","hap")
+    $ voice_line("g", "well", "bad")
     Graham "I was planning to go after Sarah after she went through with her little murder plan, but if you're here to save Adam's life, that'd be a big weight off my conscience."
     
     $ voice_line("m","well","hap")
     Morgan "I need you to be my eyes and ears. I'm taking Adam to safety, but Sarah will come after us soon. I've also just planted a tracker on her"
     
     "Morgan wirelessly transmits the tracker details."
+    $ voice_line("g", "yeah", "sad")
     Graham "Yes, I have it. I see that Sarah's gone into the storage room."
     Graham "Whatever she plans to do next, it can't be good. You need to get out of here, quickly!"
     $ voice_line("m","yes","hap")
@@ -176,6 +177,7 @@ label sc_romance_climax:
 
     $ voice_line("j","well","sad")
     June "It's the burdens of leadership, Sarah. I tried a gamble to get Graham out of hiding, and it let him straight to my headquarters."
+    $ voice_line("j", "hmmph", "dis")
     June "You were just a pawn in my plans, so nobody will care what happens to you. But as for me? You'll find that my clients are rather... unforgiving."
     "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
 
@@ -186,9 +188,9 @@ label sc_romance_climax:
     show Sarah at center with moveinright
     $ voice_line("s","what","sad")
     Sarah "What? No, June, NO!"
-    $ voice_line("j","well","sad")
+    $ voice_line("j", "ugh", "sad")
     June "Let this be a lesson to you both. If you play with fire... you're going to get burned."
-    $ voice_line("j","well","sad")
+    $ voice_line("j", "well", "bad")
     June "I made promises I couldn't keep, and this is the result..."
 
     $ voice_line("s","ugh","sad")
@@ -202,6 +204,7 @@ label sc_romance_climax:
     $ voice_line("j","thanks","sad")
     June "Thank you, Morgan... please... make Sarah happy..."
     June "She deserves to be rewarded...for serving me so well... (cough)."
+    $ voice_line("j", "oh", "fea")
     June "My precious January...I'm so sorry I can't be with you...even in this timeline..."
 
     $ voice_line("m","hmm","bad")
@@ -253,7 +256,7 @@ label sc_assassin_climax:
         yoffset 300
         xoffset 200
     window show
-    $ voice_line("g","well","bad")
+    $ voice_line("g", "well", "hap")
     Graham "You really think you can take me alive? You think those two ladies will let you?!"
 
     $ voice_line("m","hah","dis")
@@ -261,7 +264,7 @@ label sc_assassin_climax:
 
     "There is a shout from behind"
     
-    $ voice_line("j","no","dis")
+    $ voice_line("j", "well", "bad")
     June "No, you can't!"
 
     $ voice_line("m","what","ang")
@@ -281,7 +284,7 @@ label sc_assassin_climax:
     $ voice_line("m","tch","ang")
     Morgan "What the hell?! I can't just betray the Grandmaster-"
 
-    $ voice_line("j","hmmph","dis")
+    $ voice_line("j", "god", "hap")
     June "You can't be serious, Morgan! You already know that she doesn't care what you do! Taking Graham to her's a waste of time, but if you hand him over to me, I can still fix-"
 
     # Sniper shot kills June
@@ -301,9 +304,10 @@ label sc_assassin_climax:
     $ voice_line("m","what","sur")
     Morgan "Doomed? What are you talking about?"
     
-    $ voice_line("g","well","bad")
+    $ voice_line("g", "hah", "hap")
     Graham "Dear old June Davidson signed her own death warrant the moment I broke into this building."
     
+    $ voice_line("g", "well", "hap")
     Graham "She's the one who went maverick and dragged me into this case to kill two birds with one stone, and look how that ended up for her."
     
     $ voice_line("s","what","dis")
@@ -312,6 +316,7 @@ label sc_assassin_climax:
     $ voice_line("g","yeah","bad")
     Graham "Yup. She was only hired to kill Adam Roarke, nothing more. But she decided to get clever and use you for the job, knowing that it'd bring me out of hiding too."
     
+    $ voice_line("g", "yes", "bad")
     Graham "Adam and I are both...connected, you see, and she thought she'd get a nice bonus by delivering both of our heads."
     Graham "Once everything went to shit, she probably wanted to capture me alive as a last-ditch Hail Mary. Well clearly, she was mistaken."
     

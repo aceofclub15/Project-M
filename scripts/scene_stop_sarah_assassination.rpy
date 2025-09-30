@@ -15,30 +15,30 @@ label sc_approach_adam:
         align (0.3, 0.8)
 
     Bodyguard "That's far enough. We need to see some ID and-"
-    $ voice_line("a","no","sur")
+    $ voice_line("a", "no", "ang")
     Adam "No. No we don't. I'll come with you, Agent Morgan. My life is in your hands."
 
     Bodyguard "But sir!"
-    $ voice_line("a","yes","hap")
+    $ voice_line("a", "hmm", "sur")
     Adam "You are relieved of duty. Thank you for your service."
 
     hide Bodyguard with dissolve
-    "Adam stands up and whispers in Morgan's ear."
+    "Adam whispers in Morgan's ear."
     $ voice_line("a","haha","bad")
     Adam "I know you're not FBI, but I also know I have no choice but to trust you."
-    $ voice_line("a","hmm","bad")
+    $ voice_line("a", "hmm", "sur")
     Adam "Get me out of this place, quickly!"
     $ voice_line("m","yeah","sad")
     Morgan "Of course. My master's prepared safe passage for you. Please come with me."
 
     "Morgan and Adam hurry out of the Charleston hotel, then rush to a getaway car prepared by Ouroboros."
     Morgan "Get in, quickly. You'll be taken somewhere safe."
-    $ voice_line("a","hmm","sur")
+    $ voice_line("a", "hmm", "bad")
     Adam "I see you're not coming with me. It's because of Graham, isn't it?"
 
     $ voice_line("m","huh","sur")
     Morgan "You know about Graham?"
-    $ voice_line("a","yes","hap")
+    $ voice_line("a","haha","bad")
     Adam "I do, and I overheard you speaking to him through your earpiece. That's how I knew I could trust you."
 
     "Adam's expression hardens."
@@ -47,7 +47,7 @@ label sc_approach_adam:
     Morgan "{i}Adam certainly seems used to throwing his weight around, with the way he's getting up in my face. But I don't have the time to put his ego in check, so I'll just go along to get along.{/i}"
     $ voice_line("m","yes","hap")
     Morgan "Loud and clear, sir."
-    $ voice_line("a","hmm","ang")
+    $ voice_line("a", "hmm", "ang")
     Adam "Hmph."
     hide Adam with dissolve
     play sound sfx_car_leaving volume 1.5 fadeout 0.5
@@ -74,19 +74,19 @@ label sc_meet_with_graham:
     "Time skips by 10 minutes as Morgan re-enters the hotel."
     "Graham calls Morgan's wireless earpiece."
     $ voice_line("g","well","bad")
-    Graham "{i}I just got a message from this Ouroboros organization, telling me that Adam's been taken to safety. Your doing, I assume?{/i}"
+    Graham "I just got a message from this Ouroboros organization, telling me that Adam's been taken to safety. Your doing, I assume?"
     $ voice_line("m","right","bad")
     Morgan "That's right. What happened to Sarah?"
-    $ voice_line("g","well","bad")
-    Graham "{i}She's gone dark. I think she discovered the tracker you put on her.{/i}"
+    $ voice_line("g", "tch", "bad")
+    Graham "She's gone dark. I think she discovered the tracker you put on her."
     $ voice_line("m","sigh","bad")
     Morgan "That's unfortunate. I guess we'll have to stay on guard and not leave the hotel."
     $ voice_line("g","yes","bad")
-    Graham "{i}Agreed. I'll book separate rooms for the two of us so that we can stay here for a couple of days.{/i}"
+    Graham "Agreed. I'll book separate rooms for the two of us so that we can stay here for a couple of days."
     $ voice_line("m","good","hap")
     Morgan "Good idea!"
     $ voice_line("g","well","bad")
-    Graham "{i}And...done. My room's 953 and yours is 966. We'll talk tomorrow.{/i}"
+    Graham "Done. My room's 953 and yours is 966. We'll talk tomorrow.{/i}"
     "Graham disconnects. Morgan sits down at a bar, looking worn out."
     #scene hotel with dissolve
     show Bartender at center
@@ -143,31 +143,32 @@ label sc_keep_room_number:
     "The scene cuts to the next day as Morgan's having breakfast."
     scene hotel #hotel_foyer
     "Graham contacts Morgan's wireless earpiece."
-    $ voice_line("g","well","bad")
-    Graham "{i}Feeling freshened up? Ready to discuss this case?{/i}"
+    $ voice_line("g", "well", "hap")
+    Graham "{i}Feeling freshened up? Ready to discuss this case?"
     $ voice_line("m","yes","ang")
     Morgan "Damn right I am. First things first, you need to tell me how you know Adam Rourke."
     $ voice_line("g","well","bad")
-    Graham "{i}Adam and I go way back. We were both intelligence contractors for the CIA back during the days of the Afghan war.{/i}"
+    Graham "{i}Adam and I go way back. We were both intelligence contractors for the CIA back during the days of the Afghan war."
     $ voice_line("m","huh","sur")
     Morgan "Is that why you showed up here? Because you knew Adam was the target?"
-    Graham "{i}No, I showed up because of Sarah. She's...my sister-in-law.{/i}"
+    $ voice_line("g", "sigh", "sad")
+    Graham "No, I showed up because of Sarah. She's...my sister-in-law."
     $ voice_line("m","what","sur")
     Morgan "What?!"
-    $ voice_line("g","yeah","bad")
-    Graham "{i}Yeah, it's an ugly family secret. My wife, Jasmine, always thought Sarah was just independent and free-spirited.{/i}" 
+    $ voice_line("g", "yeah", "sad")
+    Graham "Yeah, it's an ugly family secret. My wife, Jasmine, always thought Sarah was just independent and free-spirited." 
     $ voice_line("g","what","sur")
-    Graham "{i}Turns out she was a psychopathic serial killer the entire time. Jasmine and I only discovered this a few months into our marriage.{/i}" 
-    $ voice_line("g","ugh","fea")
-    Graham "{i}We tried to call the cops on Sarah, only for some hired goons to blow up our house.{/i}"
+    Graham "Turns out she was a psychopathic serial killer the entire time. Jasmine and I only discovered this a few months into our marriage." 
+    $ voice_line("g", "well", "bad")
+    Graham "We tried to call the cops on Sarah, only for some hired goons to blow up our house."
     $ voice_line("m","hmm","sad")
     Morgan "If reporting Sarah to the cops led to your house blowing up, that means Davidson Solutions must've already recruited her."
-    $ voice_line("g","what","sur")
-    Graham "{i}Davidson Solutions? You know about them too?{/i}"
+    $ voice_line("g", "what", "fea")
+    Graham "Davidson Solutions? You know about them too?{/i}"
     $ voice_line("m","yes","hap")
     Morgan "Yeah, my master's done her own research on the matter."
-    $ voice_line("g","ugh","fea")
-    Graham "{i}Damn, those bastards must have an insane web of influence. I never thought I'd be dragged into their plans like this, though. {/i}"
+    $ voice_line("g", "damn", "hap")
+    Graham "Damn, those bastards must have an insane web of influence. I never thought I'd be dragged into their plans like this, though."
     $ persistent.story_tree["choice3"]["unlocked"] = True
     menu:
         "Yeah, I get you. This doesn't make any sense": 
@@ -181,12 +182,12 @@ label sc_keep_room_number:
 label sc_they_planned_this:
     $ voice_line("m","well","bad")
     Morgan "I think Davidson Solutions hired Sarah for this job intentionally, to bring you out of hiding."
-    $ voice_line("g","huh","sur")
-    Graham "{i}Bring me out of hiding? Wait a minute, could it be because...?{/i}"
+    $ voice_line("g", "wait", "dis")
+    Graham "Bring me out of hiding? Wait a minute, could it be because...?"
     $ voice_line("m","yeah","sad")
     Morgan "Yes, it's probably your connection to Adam. Tell me, what did you two work on back in Afghanistan?"
-    $ voice_line("g","well","bad")
-    Graham "{i}Nothing much, just some deal that went bad. I wasn't even paid for it.{/i}"
+    $ voice_line("g", "well", "bad")
+    Graham "Nothing much, just some deal that went bad. I wasn't even paid for it."
 
     $ voice_line("m","hmm","sad")
     menu:
@@ -201,7 +202,7 @@ label sc_they_planned_this:
 label sc_no_lead:
     $ voice_line("m","hmm","sad")
     Morgan "That's not much to go on. Looks like we've hit a dead end."
-    $ voice_line("g","yeah","sad")
+    $ voice_line("g", "sigh", "sad")
     Graham "{i}Yeah, this is super frustrating. I need to go outside, clear my head for a bit. Graham out.{/i}"
     "As Graham disconnects, Morgan leans back and ponders things."
     $ voice_line("m","sigh","hap")
@@ -230,14 +231,16 @@ label sc_nonsense:
     $ voice_line("m","yeah","sad")
     Morgan "Yeah, I get you. This whole puzzle doesn't make any sense."
     $ voice_line("g","well","bad")
-    Graham "{i}Just why the hell would Davidson Solutions want me dead? I need to go outside, take my mind off things."
+    Graham "Just why the hell would Davidson Solutions want me dead? I need to go outside, take my mind off things."
     $ voice_line("m","well","bad")
     Morgan "Should I come with you?"
     $ voice_line("g","no","bad")
-    Graham "{i}No, I need to think on this. Alone. Graham out."
+    Graham "No, I need to think on this. Alone. Graham out."
     "As Graham disconnects, Morgan leans back and ponders things."
     $ voice_line("m","sigh","hap")
-    Morgan "{i}I really wish I'd done a better job of piecing things together, but in any case, our only option now is to hope for the best and see if some other clues turn up. Maybe Graham might find something on his little soul-searching journey.{/i}"
+    Morgan "{i}I really wish I'd done a better job of piecing things together, but in any case, our only option now is to wait and see if some other clues turn up. {/i}"
+    $ voice_line("m","well","bad")
+    Morgan "{i}Well, maybe Graham might find something on his little soul-searching journey.{/i}"
     "Time skips by 10 minutes, when someone calls up Morgan's wireless earpiece."
     $ voice_line("m","huh","sur")
     Morgan "Hello? Who is this?"

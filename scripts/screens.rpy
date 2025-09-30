@@ -393,14 +393,33 @@ label splashscreen:
     hide screen show_title with dissolve
     with Pause(1)
     return
-
+default is_web_build = True
 screen start_for_web:
     tag menu
     add Solid("#000")
-    textbutton "Start Game":
-        xalign 0.5
-        yalign 0.5
-        action Return()
+    if is_web_build:
+        vbox:
+            spacing 20
+            xalign 0.5
+            yalign 0.5
+
+            text "Warning" size 80 color "#FF4444" xalign 0.5
+
+            text "Due to web limitations, there may be some audio delay on the first playthrough." size 40 xalign 0.5
+            text "We highly recommend downloading the executable for the best experience." size 40 xalign 0.5
+
+            textbutton "Start Game":
+                xalign 0.5
+                yalign 0.7
+                text_size 40
+                action Return()
+    else:
+        textbutton "Start Game":
+            text_size 50
+            xalign 0.5
+            yalign 0.5
+            action Return()
+
 
 
 

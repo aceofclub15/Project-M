@@ -12,7 +12,7 @@ label sc_target_poisoned:
     show Sarah_disguise at left with moveinleft
     $ voice_line("s","yes","hap")
     Sarah "Your order, sir."
-    $ voice_line("a","yes","hap")
+    $ voice_line("a", "hmm", "sur")
     Adam "Yes, thanks."
 
     "As Adam is gulping down the drink, Sarah gracefully leaves the dining area."

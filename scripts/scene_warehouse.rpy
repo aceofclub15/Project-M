@@ -40,11 +40,11 @@ label sc_warehouse_trap:
     Graham "Looks like you two tried to hunt me down in this warehouse after all, exactly as I planned."
     $ voice_line("m","shit","dis")
     Morgan "Shit, this really was a trap!"
-    $ voice_line("g","well","bad")
+    $ voice_line("g", "well", "hap")
     Graham "Indeed it was. Now, as much as I'd like to bring you both to justice myself, I have bigger fish to fry, so I'll just have to leave that to the police arriving at the scene."
     $ voice_line("s","what","ang")
     Sarah "Really? Bigger fish than me, your own sister-in-law?!"
-    $ voice_line("g","wait","dis")
+    $ voice_line("g", "ugh", "dis")
     Graham "Hate to break it to you, Sarah, but you're no longer worth my time, or your sister's for that matter. We both know you'll never change. It'll hurt to see you in the execution chamber, but it is what it is."
     "Graham gets up and walks away, leaving Morgan and Sarah behind."
     hide Graham with dissolve
