@@ -118,7 +118,7 @@ label sc_give_room_number:
     Morgan "{i}Shit, I screwed up! I did not think that she'll be here, and now I've led her right to me!{/i}"
     "Sarah, disguised as a staff member, quickly walks up to Morgan and tranquilizes them with a needle."
     Morgan "{i}Oh no, she's paralyzed me! I can't move!{/i}"
-    $ voice_line("s","well","bad")
+    $ voice_line("s", "uh", "hap")
     Sarah "Relax, my dear. It'll all be over soon. We'll go over to your room, you'll tell me everything you know, and then I'll end it quickly."
     Sarah "It's a pretty good way to die, all things considered."
     scene black

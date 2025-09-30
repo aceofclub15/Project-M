@@ -504,7 +504,7 @@ label sc_sarah_attacking:
     with moveinleft
 
     
-    $ voice_line("s","oh","hap")
+    $ voice_line("s", "uh", "hap")
     Sarah "You're not my target, darling, but you are quite the appetizer."
     show Staff:
         rotate 90
@@ -534,6 +534,7 @@ label sc_chef_order:
 
     Head_chef "Order up! We have a gin martini for Mr. Rourke, on the double!"
     "Sarah emerge in her waitress disguise as she takes Rourke's order and sneakily mixes something into the drink as Morgan notices."
+    $ voice_line("s", "yeah", "ang")
     Sarah "Of course, ma'am. Right on it!"
 
     with Pause(0.5)

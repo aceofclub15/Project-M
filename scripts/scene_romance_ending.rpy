@@ -29,12 +29,12 @@ label sc_romance_ending:
     Morgan "{i}It took a great deal of patience for the two of us to discover the identities of the five LambdaCorp executives who ordered her death, but it was all worth it.{/i}"
     Morgan "{i}June's killers walked right into our luxurious trap, and now their bodies will be cleaned out with no one the wiser.{/i}"
 
-    $ voice_line("s","well","bad")
+    $ voice_line("s", "yeah", "hap")
     Sarah "Some dishes really are best served cold, aren't they?"
     $ voice_line("m","yes","hap")
     Morgan "Indeed they are." 
     Morgan "(kisses Sarah) And some dishes are best sampled... in private."
-    $ voice_line("s","well","bad")
+    $ voice_line("s", "uh", "hap")
     Sarah "Lead the way, darling."
 
     # Ending achieved

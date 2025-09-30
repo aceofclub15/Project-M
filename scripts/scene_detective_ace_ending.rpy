@@ -48,7 +48,7 @@ label sc_hallex_warehouse_ambush:
     show Adam:
         yoffset 100
         xoffset 200 
-    $ voice_line("s","well","bad")
+    $ voice_line("s", "uh", "hap")
     Sarah "Sorry to crash the party, everyone, but I'm afraid I have a contract to fulfill. Besides, my master would like a word with you."
     "Sarah's boss, June Davidson, appears alongside her, looking smug and self-assured."
     show June at center with moveinbottom

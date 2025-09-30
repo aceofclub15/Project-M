@@ -32,7 +32,7 @@ label sc_timimg_shot:
     show bg shooting_range
     show Sarah at center with moveinbottom
     window show
-    $ voice_line("s","yeah","sur")
+    $ voice_line("s", "yeah", "hap")
     Sarah "Wow, you actually did it."
     Sarah "This is amazing!"
     $ voice_line("m","good","dis")
@@ -131,7 +131,7 @@ label sc_romance_climax:
 
     $ voice_line("m","hah","dis")
     Morgan "Time to die, Graham! This is for Sarah!"
-    $ voice_line("s","well","dis")
+    $ voice_line("s", "uh", "hap")
     Sarah "Goodbye, you sanctimonious old man. You won't be missed."
     window hide
     pause 0.75
@@ -170,7 +170,7 @@ label sc_romance_climax:
     $ voice_line("j","well","bad")
     "{color=#9d00ff} You two did win. A shame I can't say that for myself. {/color}"
 
-    $ voice_line("s","huh","sur")
+    $ voice_line("s", "so", "ang")
     Sarah "Huh? What are you talking about, June? Graham's dead, we're in the clear."
     show June at left with moveinleft
     show Sarah at center with moveinleft
@@ -186,14 +186,14 @@ label sc_romance_climax:
         yoffset 300
     with dissolve
     show Sarah at center with moveinright
-    $ voice_line("s","what","sad")
+    $ voice_line("s", "no", "ang")
     Sarah "What? No, June, NO!"
     $ voice_line("j", "ugh", "sad")
     June "Let this be a lesson to you both. If you play with fire... you're going to get burned."
     $ voice_line("j", "well", "bad")
     June "I made promises I couldn't keep, and this is the result..."
 
-    $ voice_line("s","ugh","sad")
+    $ voice_line("s", "no", "ang")
     Sarah "I'm sorry, June! I'm sorry I couldn't protect you! I promise I'll make it right!"
     $ voice_line("j","well","sad")
     June "(coughing) Don't repeat my mistakes, June... don't make a promise you can't keep..."
@@ -277,7 +277,7 @@ label sc_assassin_climax:
     $ voice_line("m","huh","sur")
     Morgan "Huh? But why? I need to deliver her to my master!"
     
-    $ voice_line("s","well","bad")
+    $ voice_line("s", "so", "ang")
     Sarah "Do what June says, Morgan."
     "Sarah points the gun at Morgan"
     
@@ -295,7 +295,7 @@ label sc_assassin_climax:
         yoffset 300
     with dissolve
     
-    $ voice_line("s","no","sad")
+    $ voice_line("s", "no", "ang")
     Sarah "June?! No! NOOO!"
 
     $ voice_line("g","so","bad")
@@ -310,7 +310,7 @@ label sc_assassin_climax:
     $ voice_line("g", "well", "hap")
     Graham "She's the one who went maverick and dragged me into this case to kill two birds with one stone, and look how that ended up for her."
     
-    $ voice_line("s","what","dis")
+    $ voice_line("s", "yeah", "ang")
     Sarah "Are you saying June brought this on herself?"
     
     $ voice_line("g","yeah","bad")
@@ -337,13 +337,13 @@ label sc_assassin_climax:
     Morgan "Sarah..."
 
    
-    $ voice_line("s","tch","bad")
+    $ voice_line("s", "so", "bad")
     Sarah "You need to leave, Morgan. Now."
     
     $ voice_line("m","sigh","sad")
     Morgan "But..."
 
-    $ voice_line("s","well","sad")
+    $ voice_line("s", "so", "bad")
     Sarah "I know this wasn't your fault. I know that. But I'm still angry, and I need to take it out on someone."
     Sarah "Please don't let it be you, Morgan. Go away, for your own sake."
     scene black

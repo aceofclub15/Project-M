@@ -12,18 +12,18 @@ label sc_track_graham:
     show Morgan_default at left with moveinright
    
     show Sarah at right with moveinright
-    $ voice_line("s","hmm","sur")
+    $ voice_line("s", "ah", "hap")
     Sarah "Find anything?"
     $ voice_line("m","no","sad")
     Morgan "Nothing about his next move. Though it looks like someone tipped Graham off about your job. Someone you might know."
 
-    $ voice_line("s","huh","sur")
+    $ voice_line("s", "so", "hap")
     Sarah "You mean Davidson Solutions?"
 
     $ voice_line("m","yeah","sad")
     Morgan "Yeah, looks like the job wasn't just about taking out Adam Rourke. It was also about drawing Graham out of hiding."
 
-    $ voice_line("s","what","ang")
+    $ voice_line("s", "so", "ang")
     Sarah "What?! Christ, I've been wanting to settle things with Graham too, but for June to do this behind my back..."
     
     $ voice_line("m","huh","sur")
@@ -47,11 +47,11 @@ label sc_track_graham:
     else:
         $ voice_line("m","so","bad")
         Morgan "In any case, it doesn't look like there's anything on Graham's movements here."
-    $ voice_line("s","well","sad")
+    $ voice_line("s", "so", "bad")
     Sarah "Maybe we should take a break, slow things down. If we just take some time to think, then we might make a breakthrough."
     $ voice_line("m","good","hap")
     Morgan "Sounds good to me."
-    $ voice_line("s","hah","hap")
+    $ voice_line("s", "so", "hap")
     Sarah "This is it! A map of the routes Graham is taking to uncover the truth behind Adam's murder."
     Sarah "It looks like he'll go to the Hallex Warehouse in Queens tomorrow night."
     $ voice_line("m","hmm","sad")
@@ -61,7 +61,7 @@ label sc_track_graham:
     Sarah "When he arrives at the warehouse tomorrow, he won't know what hit him!"
     $ voice_line("m","good","hap")
     Morgan "Excellent, we know what to do now."
-    $ voice_line("s","what","sur")
+    $ voice_line("s", "so", "bad")
     Sarah "Exactly. So, what do you suggest we do next?"
     $ voice_line("m","hmm","bad")
     if romance:
@@ -93,7 +93,7 @@ label sc_ask_date:
     Sarah "That sounds like a great idea. I've been looking forward to spending some time with you too, Morgan."
     $ voice_line("m","so","hap")
     Morgan "So um, what did you have in mind?"
-    $ voice_line("s","hmm","sur")
+    $ voice_line("s", "so", "hap")
     Sarah "Are you sure you don't want to take the initiative?"
     $ voice_line("m","sigh","sad")
     Morgan "Believe me, you don't want to put that pressure on me. My mind just wanders from one place to another."
@@ -103,7 +103,7 @@ label sc_ask_date:
     Sarah "The MIX Gala's happening in a bit, and I can hack into the system and get two invites for us in a jiffy!"
     $ voice_line("m","what","sur")
     Morgan "That's a fashion event, isn't it? Are you sure I can pull it off?"
-    $ voice_line("s","no","hap")
+    $ voice_line("s", "yeah", "hap")
     Sarah "Are you kidding me? You looked amazing when I saw you back at the Charleston hotel!"
     default slay = ""
     python:
@@ -115,7 +115,7 @@ label sc_ask_date:
     Sarah "You've got this, [slay]!"
     $ voice_line("m","hmm","sad")
     Morgan "Alright, if you say so. I guess I'll just go home and freshen up."
-    $ voice_line("s","yes","hap")
+    $ voice_line("s", "uh", "hap")
     Sarah "Indeed you will, darling. And I'll send you the meetup coordinates and see you in an hour."
     Sarah "Don't keep me waiting."
 
@@ -168,7 +168,7 @@ label sc_having_sex:
     Sarah "I love you too. And I share your vow. We will spend the rest of our lives together, no matter what."
     $ voice_line("m","good","hap")
     Morgan "I'm so, so happy to hear that."
-    $ voice_line("s","well","bad")
+    $ voice_line("s", "so", "bad")
     Sarah "There's just one more thing I need to do to make this official. One final test for you before I accept you as my lifelong partner."
     $ voice_line("s","so","bad")
     Sarah "This is something I use for my daily meditation. In order to revel in death, I need to know it, understand it. If you drink this, you'll become just like me. There will be nothing left between us. Are you ready?"
@@ -234,11 +234,11 @@ label sc_separate_way:
     Sarah "That's a shame, Morgan, but I understand. Even if we won't be lovers, I'm happy to call you my friend. I wish you'd come across our organization sooner."
     $ voice_line("m","hmm","sad")
     Morgan "This is a big decision, Sarah. I'll have to think about it."
-    $ voice_line("s","right","hap")
+    $ voice_line("s", "yeah", "hap")
     Sarah "Of course, Morgan, I don't mean to rush you. I'm just putting all the cards on the table. And in any case, you've already proven yourself to me. Whoever I decide to kill next, it most assuredly won't be you."
     $ voice_line("m","well","hap")
     Morgan "Well, I'm happy to hear that. Shall we go, then?"
-    $ voice_line("s","yes","hap")
+    $ voice_line("s", "so", "hap")
     Sarah "Indeed. Looking forward to tomorrow, partner."
     jump sc_remember_past
 

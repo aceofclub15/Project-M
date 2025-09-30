@@ -11,6 +11,7 @@ label sc_warehouse_trap:
 
 
     if romance:
+        $ voice_line("s", "so", "bad")
         Sarah "Hey babe, are you feeling okay?"
         $ voice_line("m","uh","bad")
         Morgan "I don't know. I feel like we're walking into a trap here. We should've gotten the drop on Graham already."
@@ -42,7 +43,7 @@ label sc_warehouse_trap:
     Morgan "Shit, this really was a trap!"
     $ voice_line("g", "well", "hap")
     Graham "Indeed it was. Now, as much as I'd like to bring you both to justice myself, I have bigger fish to fry, so I'll just have to leave that to the police arriving at the scene."
-    $ voice_line("s","what","ang")
+    $ voice_line("s", "so", "ang")
     Sarah "Really? Bigger fish than me, your own sister-in-law?!"
     $ voice_line("g", "ugh", "dis")
     Graham "Hate to break it to you, Sarah, but you're no longer worth my time, or your sister's for that matter. We both know you'll never change. It'll hurt to see you in the execution chamber, but it is what it is."
@@ -55,7 +56,7 @@ label sc_warehouse_trap:
         $ voice_line("s","well","hap")
         Sarah "We'll figure it out together, darling. I won't let anything happen to you on my watch!"
     else:
-        $ voice_line("s","what","sur")
+        $ voice_line("s", "yeah", "ang")
         Sarah "How should I know?! You need to think fast, Morgan!"
     $ voice_line("m","hmm","sad")
     Morgan "{i}...What do I do, what do I do?!{/i}"
@@ -72,7 +73,7 @@ label sc_warehouse_trap:
 label sc_bluff_cops:
     $ voice_line("m","yeah","sad")
     Morgan "We'll bluff our way out."
-    $ voice_line("s","huh","sur")
+    $ voice_line("s", "yeah", "ang")
     Sarah "Huh? Are you serious?!"
     $ voice_line("m","tch","ang")
     Morgan "There's not enough time for anything else, Sarah! Just trust me, alright?"
@@ -107,12 +108,12 @@ label sc_bend_time:
     Morgan "Come on, we need to move!"
     "Morgan escapes the warehouse with Sarah, as the cops arrive to find an empty warehouse."
     "The scene shifts to Morgan and Sarah facing each other."
-    $ voice_line("s","what","sur")
+    $ voice_line("s", "ah", "hap")
     Sarah "How did you do that? You slipped free like it was nothing!"
     $ voice_line("m","well","hap")
     Morgan "An assassin needs to bend time, right? The trouble with zip-ties isn't that they're impossible to break, it's just the time and effort needed for that is too much. But if I can change that, bend time to my will..."
 
-    $ voice_line("s","yeah","sur")
+    $ voice_line("s", "yeah", "hap")
     Sarah "You're special, Morgan. This isn't a power most people have."
     $ voice_line("m","oh","ang")
     Morgan "I see... I've always wondered why the Grandmaster saw so much potential in me. Maybe this is what she meant..."
@@ -132,7 +133,7 @@ label sc_bend_time:
         $ voice_line("m","right","hap")
         Morgan "You're goddamn right, darling. You're goddamn right."
     else:
-        $ voice_line("s","hmm","sur")
+        $ voice_line("s", "so", "hap")
         Sarah "The Grandmaster is truly remarkable, isn't she? I'm in awe."
         $ voice_line("m","yeah","sad")
         Morgan "Yeah. I've spent my whole life devoted to her, and I still fail to grasp the depths of her brilliance."
@@ -147,12 +148,12 @@ label sc_bend_time:
     return
 
 label sc_june_headquarters:
-    $ voice_line("s","well","bad")
+    $ voice_line("s", "no", "ang")
     Sarah "If he managed to get the drop on us, he could get the drop on June too. I need to call her."
     "Sarah calls June, but there's no response."
     $ voice_line("m","tch","ang")
     Morgan "Looks like my hunch was right."
-    $ voice_line("s","ugh","fea")
+    $ voice_line("s", "no", "ang")
     Sarah "We need to get to the Davidson Solutions headquarters, ASAP!"
     "Morgan and Sarah get in Sarah's car and drive to Davidson Solutions HQ. Luckily, they manage to catch up to him."
     scene black

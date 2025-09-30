@@ -10,7 +10,7 @@ label sc_target_poisoned:
     show Adam at right
     with Pause(0.2)
     show Sarah_disguise at left with moveinleft
-    $ voice_line("s","yes","hap")
+    $ voice_line("s", "well", "hap")
     Sarah "Your order, sir."
     $ voice_line("a", "hmm", "sur")
     Adam "Yes, thanks."
@@ -27,17 +27,17 @@ label sc_target_poisoned:
     with moveinleft
     $ voice_line("m","well","bad")
     Morgan "Evening ma'am, mind if I have a word?"
-    $ voice_line("s","what","sur")
+    $ voice_line("s", "yeah", "ang")
     Sarah "I'm sorry, can I help you with something?"
     "Morgan leans into Sarah's ear."
     $ voice_line("m","so","bad")
     Morgan "Listen carefully and keep cool. You're being followed and someone's come here to apprehend you."
 
-    $ voice_line("s","what","ang")
+    $ voice_line("s", "yeah", "ang")
     Sarah "What? How do you know this?!"
     $ voice_line("m","right","bad")
     Morgan "Does the name Graham ring a bell?  I have a recording of him knocking out your handler at the lounge."
-    $ voice_line("s","shit","fea")
+    $ voice_line("s", "so", "ang")
     Sarah "Shit, if he's the one who found me, I'm in serious trouble."
     Sarah "I don't exactly trust you right now, but I can't risk ignoring this."
     Sarah "Do you have anything else for me?"
@@ -48,11 +48,11 @@ label sc_target_poisoned:
     "Rourke convulses under the effect of the poison as he's hastily ushered out."
     $ voice_line("m","oh","sur")
     Morgan "Looks like things are escalating. What's your decision, Sarah?"
-    $ voice_line("s","tch","fea")
+    $ voice_line("s", "yeah", "ang")
     Sarah "Fine. Give me the coordinates, quickly."
 
     "Morgan beams the new extraction coordinates."
-    $ voice_line("s","well","sad")
+    $ voice_line("s", "so", "sad")
     Sarah "I got them. I hope I can trust you."
     Morgan "Now go, quickly!"
     with Pause(0.5)
@@ -92,23 +92,24 @@ label sc_next_day:
     $ voice_line("m","oh","sur")
     Morgan "Hello, Sarah. Looks like you made it out of the last job safely."
     show Sarah at right with moveinright
-    $ voice_line("s","hmm","bad")
+    $ voice_line("s", "so", "hap")
     Sarah "I did. You were true to your word."
     Sarah "I still don't know why you helped me, though."
     $ voice_line("m","yes","hap")
     Morgan "The answer to that is simple. Because I wanted to."
-    $ voice_line("s","huh","sur")
+    $ voice_line("s", "yeah", "ang")
     Sarah "And your master just lets you go around doing whatever you want?"
     $ voice_line("m","well","hap")
     Morgan "In a manner of speaking."
     $ voice_line("s","well","bad")
+    $ voice_line("s", "so", "ang")
     Sarah "You've just made yourself an accomplice to a high-profile murder."
     Sarah "You do seem to have the stomach for my line of work, but whether you have the skill is another question entirely."
-    $ voice_line("s","tch","ang")
+    $ voice_line("s", "so", "hap")
     Sarah "Show me you have what it takes, Morgan, and we can do great things together."
     $ voice_line("m","what","sur")
     Morgan "I already helped you get away with murder, isn't that good enough for you?"
-    $ voice_line("s","what","ang")
+    $ voice_line("s", "so", "ang")
     Sarah "I decide what's good enough for me."
     Sarah "Now, are you going to hit the target or not?"
     # Internal dialogue, no external voice line update needed
@@ -156,14 +157,15 @@ label sc_stay_professional:
     Morgan "I'm afraid I'm not the kinda person to mix business with pleasure."
     Morgan "Sorry, Sarah."
     "Sarah looks disappointed for a bit before quickly composing herself."
+    $ voice_line("s", "oh", "hap")
     Sarah "So we're keeping this professional, then."
     Sarah "I can respect that."
     Sarah "Besides, we might be better off if we can fully focus on the next task at hand."
     $ voice_line("m","what","sur")
     Morgan "And what task would that be?"
+    $ voice_line("s", "so", "ang")
     Sarah "Getting rid of one last pesky loose end."
-    Sarah "My brother-in-law, Agent Graham, wants to bring me to justice for my so-called crimes."
-    Sarah "I'm going to make sure he never gets the chance."
+    Sarah "My brother-in-law, Agent Graham, wants to bring me to justice for my so-called crimes. And I'm going to make sure he never gets the chance."
     Sarah "You in?"
     $ voice_line("m","yes","ang")
     Morgan "Absolutely, lead the way"

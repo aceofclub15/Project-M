@@ -39,10 +39,10 @@ label sc_obey_voice:
     $ voice_line("j", "hah", "bad")
     June "Now now, agent. You'll get your turn. Now stay there and let the consequences of your failure sink in."
     "Sarah chokes Graham to death, her smile vicious."
-    $ voice_line("s","yes","hap")
+    $ voice_line("s", "yeah", "hap")
     Sarah "Yes, this is how I've wanted to end things with you, Graham! I'll end you, while you cower and realize you could NEVER surpass me! Hehehe, yes, YES!"
     "Sarah's expression grows increasingly ecstatic as the life goes out of Graham's eyes, when suddenly, he slashes her throat with a switchblade."
-    $ voice_line("s","what","sur")
+    $ voice_line("s", "no", "ang")
     Sarah "Wha- URK!"
     $ voice_line("g","hah","hap")
     Graham "I knew I was doomed the second you got the jump on me, Sarah. But I could at least take you down with me! Hahahaha!"
