@@ -70,7 +70,7 @@ label sc_grandmaster_ending:
         $ voice_line("j", "hah", "bad")
         June "Don't get too full of yourself now, it's not like I'm jealous. After all, it's only thanks to you that I've lasted as long as I have. Both of us need each other."
     elif relationship_type == "romance":
-    $ voice_line("j", "well", "hap")
+        $ voice_line("j", "well", "hap")
         June "Oh, Jan, I'm not jealous of you. After all, it's only thanks to you that I've lasted as long as I have. Both of us need each other."
     
     $ voice_line("gm","yes","ang")
@@ -83,6 +83,7 @@ label sc_grandmaster_ending:
         "June and January go to January's home, following which they spend the night together."
         January "{i}Growing up, I'd felt so alone. So isolated. I thought nobody would ever understand me, or see the world the same way I did. But June does. And more than that, she appreciates me. A quiet life with her means more than any victory I've ever tasted in the other timelines.{/i}"
         "A panel shows January and June together, with January wrapping one arm around June as they're covered with a bedsheet."
+        show bg bed_jj with dissolve
     elif relationship_type == "friendship":
         $ voice_line("gm","heh","hap")
         January "And that's why I'll always find a way to save you, June."

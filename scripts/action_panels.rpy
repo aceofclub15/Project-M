@@ -1,3 +1,33 @@
+label sc_sarah_attacking:
+    $ persistent.story_tree["investigate"]["unlocked"] = True
+    scene black
+    show bg hotel
+    "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
+    show ap_garroting_1
+    pause 0.75
+    $ voice_line("s", "uh", "hap")
+    Sarah "You're not my target, darling, but you are quite the appetizer."
+    show ap_garroting_2
+    pause 0.75
+    $ voice_line("s","tch","dis")
+    Sarah "Regardless of how the mission goes, I still get to see the light go out of your eyes."
+    window hide
+    show ap_garroting_3
+    pause 1
+    show ap_garroting_4
+    pause 1.5
+    show ap_garroting_5
+    pause 0.5
+    window show
+    "Morgan stays put as Sarah finishes her kill and drags the body away."
+    $ voice_line("m","hmm","dis")
+    Morgan "{i}So that's Sarah's disguise.{/i}"
+    Morgan "{i}She's going to play as a waiter, probably deliver some poison straight into Rourke's thirsty mouth.{/i}"
+    jump sc_chef_order
+    return
+
+
+
 
 label sc_timimg_shot:
     scene black with fade
@@ -27,6 +57,7 @@ label sc_timimg_shot:
         for i in range(3):
             renpy.sound.queue(sfx_muffled_gun_shot)
             renpy.pause(0.25)
+    $ voice_line("m","yeah","hap")
     pause 0.5
     scene black
     show bg shooting_range
@@ -135,21 +166,28 @@ label sc_romance_climax:
     Sarah "Goodbye, you sanctimonious old man. You won't be missed."
     window hide
     pause 0.75
+    $ voice_line("s","heh","hap")
     show ap_hq_fight_1
     pause 1
+    $ voice_line("g","tch","bad")
     show ap_hq_fight_2
     pause 1
 
+    $ voice_line("m","hah","dis")
     show ap_hq_fight_3
     pause 0.75
+    $ voice_line("g","ugh","fea")
     show ap_hq_fight_4
     pause 1
 
+    $ voice_line("m","hmm","dis")
     show ap_hq_fight_6
     pause 0.75
+    
     show ap_hq_fight_7
     pause 1
 
+    $ voice_line("s","heh","hap")
     show ap_hq_fight_8
     pause 1
     show ap_hq_fight_9

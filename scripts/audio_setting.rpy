@@ -31,3 +31,5 @@ init python:
 
 default preferences.volume.music = 0.8
 default preferences.volume.sfx = 0.8
+default preferences.volume.sfx = 0.8
+

@@ -490,40 +490,13 @@ label sc_sarah_impersonate:
     jump sc_sarah_attacking
     return
 
-label sc_sarah_attacking:
-    $ persistent.story_tree["investigate"]["unlocked"] = True
-    scene black
-    show bg hotel
-    "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
-    show Staff:
-        xalign 0.7
-    $ renpy.pause(0.5)
-    show Sarah:
-        xalign 0.5
-        zoom 1.3
-    with moveinleft
 
-    
-    $ voice_line("s", "uh", "hap")
-    Sarah "You're not my target, darling, but you are quite the appetizer."
-    show Staff:
-        rotate 90
-        xalign 0.8
-        yoffset 400
-        zoom 0.5
+#SC_SARAH_ACTTACKING is in AP
 
-    $ voice_line("s","tch","dis")
-    Sarah "Regardless of how the mission goes, I still get to see the light go out of your eyes."
-    Sarah "Thank you for that."
-    hide Staff
-    hide Sarah with fade
-    show Sarah_disguise
-    "Morgan stays put as Sarah finishes her kill and drags the body away."
-    $ voice_line("m","hmm","dis")
-    Morgan "{i}So that's Sarah's disguise.{/i}"
-    Morgan "{i}She's going to play as a waiter, probably deliver some poison straight into Rourke's thirsty mouth.{/i}"
-    jump sc_chef_order
-    return
+
+
+#SC_SARAH_ACTTACKING is in AP
+
 
 label sc_chef_order:
     scene black

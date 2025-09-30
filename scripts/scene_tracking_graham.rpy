@@ -161,7 +161,7 @@ label sc_having_sex:
     Morgan "{i}And so I show her. I show her how much she means to me, how much I love her.{/i}"
     Morgan "{i}And I make a vow to spend the rest of my life by her side, no matter what it takes.{/i}"
     Morgan "{i}This is a day I will never, ever forget.{/i}"
-
+    show bg bed_ms with dissolve
     $ voice_line("m","yeah","hap")
     Morgan "I had a wonderful time tonight. I... I love you, Sarah."
     $ voice_line("s","so","hap")

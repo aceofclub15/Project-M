@@ -12,6 +12,8 @@ image bg japanese_restaurant = "images/bg/jpn_restaurant.png"
 
 
 
+image bg bed_jj = "images/CGs/bed/june_and_gm_bed.png"
+image bg bed_ms = "images/CGs/bed/morgan_and_sarah_bed.png"
 
 
 
@@ -78,3 +80,11 @@ image ap_hq_fight_6 = "images/CGs/headquarters_fight/hq_fight_6.png"
 image ap_hq_fight_7 = "images/CGs/headquarters_fight/hq_fight_7.png"
 image ap_hq_fight_8 = "images/CGs/headquarters_fight/hq_fight_8.png"
 image ap_hq_fight_9 = "images/CGs/headquarters_fight/hq_fight_9.png"
+
+
+image ap_garroting_1 = "images/CGs/hotel_garroting/garroting_1.png"
+image ap_garroting_2 = "images/CGs/hotel_garroting/garroting_2.png"
+image ap_garroting_3 = "images/CGs/hotel_garroting/garroting_3.png"
+image ap_garroting_4 = "images/CGs/hotel_garroting/garroting_4.png"
+image ap_garroting_5 = "images/CGs/hotel_garroting/garroting_5.png"
+
