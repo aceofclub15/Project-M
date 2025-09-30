@@ -1,0 +1,99 @@
+Common route 3
+s_ah_hap Female voice "Mission update. I've infiltrated the conference room. Looking for a disguise now. Will finish the job soon."
+
+Common route 4
+s_uh_hap Sarah "You're not my target, darling, but you are quite the appetizer. Regardless of how the mission goes, I still get to see the light go out of your eyes. Thank you for that."
+s_yeah_ang Sarah "Of course, ma'am. Right on it!"
+
+Assassin route 1
+s_well_hap Sarah "Your order, sir."
+s_yeah_ang Sarah "I'm sorry, can I help you with something?"
+s_yeah_ang Sarah "What? How do you know this?!"
+s_so_ang Sarah "Shit, if he's the one who found me, I'm in serious trouble. I don't exactly trust you right now, but I can't risk ignoring this. Do you have anything else for me?"
+s_yeah_ang Sarah "Fine. Send me the coordinates, quickly."
+s_so_sad Sarah "I got them. I hope I can trust you."
+
+Assassin route 2
+s_so_hap Sarah "I did. You were true to your word. I still don't know why you helped me, though."
+s_yeah_ang Sarah "And your master just lets you go around doing whatever you want?"
+s_so_ang Sarah "You've just made yourself an accomplice to a high-profile murder. You do seem to have the stomach for my line of work, but whether you have the skill is another question entirely."
+s_so_hap Sarah "Show me you have what it takes, Morgan, and we can do great things together."
+s_so_ang Sarah "I decide what's good enough for me. Now are you going to hit the target or not?"
+s_yeah_hap Sarah "Wow, you actually did it. This is amazing!"
+
+Assassin route 3.1
+s_oh_hap Sarah "So we're keeping this professional, then. I can respect that. Besides, we might be better off if we can fully focus on the next task at hand."
+s_so_ang Sarah "Getting rid of one last pesky loose end. My brother-in-law, Graham, wants to bring me to justice for my so-called crimes. I'm going to make sure he never gets the chance. You in?"
+
+Assassin route 4
+s_ah_hap Sarah "Find anything?"
+s_so_hap Sarah "You mean Davidson Solutions?"
+s_so_ang Sarah "What?! Christ, I've been wanting to settle things with Graham too, but for June to do this behind my back..."
+s_so_sad Sarah "Maybe we should take a break, slow things down. If we just take some time to think, then we might make a breakthrough."
+s_so_hap Sarah "This is it! A map of the routes Graham is taking to uncover the truth behind Adam's murder. It looks like he'll go to the Hallex Warehouse in Queens tomorrow night."
+s_so_sad Sarah "Exactly. So, what do you suggest we do next?"
+
+Assassin route 4.1
+s_yeah_hap Sarah "Of course, Morgan, I don't mean to rush you. I'm just putting all the cards on the table. And in any case, you've already proven yourself to me. Whoever I decide to kill next, it most assuredly won't be you."
+s_so_hap Sarah "Indeed. Looking forward to tomorrow, partner."
+
+Assassin route R2
+s_so_hap Sarah "Are you sure you don't want to take the initiative?"
+s_yeah_hap Sarah "Are you kidding me? You looked amazing when I saw you back at the Charleston hotel! You've got this, queen!"
+s_uh_hap Sarah "Indeed you will, darling. And I'll send you the meetup coordinates and see you in an hour. Don't keep me waiting."
+
+Assassin route R4
+s_so_bad Sarah  "There's just one more thing I need to do to make this official. One final test for you before I accept you as my lifelong partner."
+
+Assassin route 5
+s_so_bad Sarah "Hey babe, are you feeling okay?"
+s_so_ang Sarah "Really? Bigger fish than me, your own sister-in-law?!"
+s_yeah_ang Sarah "How should I know?! You need to think fast, Morgan!"
+
+Assassin route F2
+s_yeah_ang Sarah "Huh? Are you serious?!"
+
+Assassin route 6
+s_ah_hap Sarah "How did you do that? You slipped free like it was nothing!"
+s_yeah_hap Sarah "You're special, Morgan. This isn't a power most people have."
+s_so_hap Sarah "The Grandmaster is truly remarkable, isn't she? I'm in awe."
+
+Assassin route 7
+s_no_ang Sarah "If he managed to get the drop on us, he could get the drop on June too. I need to call her."
+s_no_ang Sarah ""We need to get to the Davidson Solutions headquarters, ASAP!"
+
+Assassin route 7.1
+s_so_ang Sarah "Do what June says, Morgan."
+s_no_ang Sarah "June?! No! NOOO!"
+s_yeah_ang Sarah "Are you saying June brought this on herself?"
+s_so_bad Sarah "You need to leave, Morgan. Now."
+s_so_bad Sarah "I know this wasn't your fault. I know that. But I'm still angry, and I need to take it out on someone. Please don't let it be you, Morgan. Go away, for your own sake."
+
+Assassin route normal epilogue
+s_yeah_sur Sarah "Morgan? What are you doing here?"
+s_so_hap Sarah "I'm here on my own time. Trying to get some leads on who killed June. LambdaCorp is a name that kept coming up in my research, so that's why I'm here."
+s_oh_hap Sarah "Wait, seriously? And the Grandmaster will just let you do that?"
+s_so_hap Sarah "If I didn't know any better, I'd say you were taking me for a ride...but we have been through a lot together, haven't we?" 
+s_well_hap Sarah "Tell you what, you beam over the data, and I'll give you a map of my infiltration route. I've cleaned out all the security on the way, so you'll have no problem making your exit."
+s_well_hap Sarah "Until next time, then. Don't be a stranger."
+
+Assassin route R6
+s_uh_hap Sarah "Goodbye, you sanctimonious old man. You won't be missed."
+s_so_ang Sarah "Huh? What are you talking about, June? Graham's dead, we're in the clear."
+s_no_ang Sarah "What? No, June, NO!"
+s_no_ang Sarah "I'm sorry, June! I'm sorry I couldn't protect you! I promise I'll make it right!"
+
+Assassin route romance epilogue
+s_yeah_hap Sarah "Some dishes really are best served cold, aren't they?"
+s_uh_hap Sarah "Lead the way, darling."
+
+Detective route F1
+s_uh_hap Sarah  "Relax, my dear. It'll all be over soon. We'll go over to your room, you'll tell me everything you know, and then I'll end it quickly. It's a pretty good way to die, all things considered."
+
+Detective route 4
+s_yeah_hap Sarah  "Yes, this is how I've wanted to end things with you, Graham! I'll see the light go out of your eyes, while you cower and realize you could NEVER surpass me! Hehehe, yes, YES!"
+s_no_ang Sarah "What! URK!"
+
+Detective route D3
+s_uh_hap Sarah "Sorry to crash the party, everyone, but I'm afraid I have a contract to fulfill. Besides, my master would like a word with you."
+

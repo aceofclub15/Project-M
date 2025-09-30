@@ -420,6 +420,7 @@ label sc_observation:
     show Graham at center with moveinleft
     "Graham fighting and punching out the man. Graham then hacks into the man's laptop" 
     "From the laptop a female voice can be heard."
+    $ voice_line("s", "ah", "hap")
     "Female voice" "{color=#ff0000} Mission update. I've infiltrated the conference room. Looking for a disguise now. Will finish the job soon. {/color}"
 
     show Graham:
