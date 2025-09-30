@@ -2,7 +2,7 @@ label sc_warehouse_trap:
     $ persistent.story_tree["assassin5"]["unlocked"] = True
     scene black
     show bg warehouse_interior
-    "Morgan wakes up the next day, dressed in black coveralls as she and Sarah infiltrate the Hallex warehouse."
+    "Morgan and Sarah wakes up the next day, dressed in black coveralls and infiltrate the Hallex warehouse."
     show Morgan_default at left
     show Sarah at right
     $ voice_line("m","hmm","sad")
@@ -28,10 +28,14 @@ label sc_warehouse_trap:
     Morgan "Then it must be a trap!"
 
     scene bg warehouse_interior with Fade(0.1, 1, 0.5, color="#fff")
-    "A flashbang grenade is dropped, and the screen goes white. When the white noise clears, Morgan and Sarah are restrained with zip-ties."
+    "A flashbang grenade is exploded. And when the white noise clears, Morgan and Sarah are restrained with zip-ties."
     show Morgan_default at left
+    show Morgan_default:
+        yoffset 300
+    #Put Sarah and Morgan at the same height here
     show Sarah:
-        xalign 0.3
+        xalign 0.25
+        yoffset 500
 
     with Pause(0.2)
     
@@ -47,7 +51,7 @@ label sc_warehouse_trap:
     Sarah "Really? Bigger fish than me, your own sister-in-law?!"
     $ voice_line("g", "ugh", "dis")
     Graham "Hate to break it to you, Sarah, but you're no longer worth my time, or your sister's for that matter. We both know you'll never change. It'll hurt to see you in the execution chamber, but it is what it is."
-    "Graham gets up and walks away, leaving Morgan and Sarah behind."
+    "Graham walks away, leaving Morgan and Sarah behind."
     hide Graham with dissolve
     "..."
     $ voice_line("m","shit","sur")
@@ -60,14 +64,14 @@ label sc_warehouse_trap:
         Sarah "How should I know?! You need to think fast, Morgan!"
     $ voice_line("m","hmm","sad")
     Morgan "{i}...What do I do, what do I do?!{/i}"
-
+    window show
     menu:
-        "Wait for the cops to arrive and bluff my way out":
-            $ persistent.story_tree["bluff"]["unlocked"] = True
-            jump sc_bluff_cops
         "If I can find a way to bend time again...":
             $ persistent.story_tree["bend_time"]["unlocked"] = True
             jump sc_bend_time
+        "Wait for the cops to arrive and bluff my way out":
+            $ persistent.story_tree["bluff"]["unlocked"] = True
+            jump sc_bluff_cops
     return
 
 label sc_bluff_cops:
@@ -86,7 +90,7 @@ label sc_bluff_cops:
     # Gunshot, fade to black
     $ voice_line("m","ah","ang")
     scene bg warehouse_interior with Fade(0.1, 0.0, 0.2, color="#fff")
-    "A bullet fly from afar through the windows glass and hit Morgan\'s head"
+    "A bullet pierces the windows and strikes Morgan's head"
     scene black
     $ voice_line("gm","well","sad")
     Grandmaster "I'm sorry, Morgan, I had to order your termination."
@@ -104,10 +108,14 @@ label sc_bend_time:
     Morgan "{i}If only I could bend time to my will, I could get me and Sarah out of this. Just how did I do it the last time?!{/i}"
     $ voice_line("m","oh","sur")
     Morgan "{i}Oh wait... maybe if I just...{/i}"
-    "Morgan shifts to a trance state as they miraculously loosen the zip-tie in seconds. Morgan then does the same with Sarah."
+    "Morgan shifts to a trance state as she miraculously loosen her zip-tie in seconds. Morgan then helps Sarah with her escape."
+    $ voice_line("m","hmm","bad")
     Morgan "Come on, we need to move!"
-    "Morgan escapes the warehouse with Sarah, as the cops arrive to find an empty warehouse."
-    "The scene shifts to Morgan and Sarah facing each other."
+    scene warehouse with dissolve
+    show Morgan_default at left
+    show Sarah at right
+    "Morgan escapes the warehouse with Sarah, just as the cops arrive to find an empty warehouse."
+    "Morgan and Sarah facing each other."
     $ voice_line("s", "ah", "hap")
     Sarah "How did you do that? You slipped free like it was nothing!"
     $ voice_line("m","well","hap")
@@ -120,7 +128,7 @@ label sc_bend_time:
 
     if romance:
         # Sarah kisses Morgan
-        "Sarah rushes and kisses Morgan"
+        "Sarah rushes to kiss Morgan."
         
         $ voice_line("m","whoa","hap")
         Morgan "Whoa, Sarah!"
@@ -139,7 +147,7 @@ label sc_bend_time:
         Morgan "Yeah. I've spent my whole life devoted to her, and I still fail to grasp the depths of her brilliance."
         
     $ voice_line("s","so","bad")
-    Sarah "So, now that we're clear, we need to find Graham. Any idea where he could be?"
+    Sarah "So now that we're in the clear, we need to find Graham. Any idea where he could be?"
     $ voice_line("m","hmm","sad")
     Morgan "He's going to ambush your boss, Sarah. He's going to take out June Davidson."
     
@@ -148,20 +156,23 @@ label sc_bend_time:
     return
 
 label sc_june_headquarters:
-    $ voice_line("s", "no", "ang")
+    $ voice_line("s", "heh", "hap")
     Sarah "If he managed to get the drop on us, he could get the drop on June too. I need to call her."
     "Sarah calls June, but there's no response."
     $ voice_line("m","tch","ang")
     Morgan "Looks like my hunch was right."
-    $ voice_line("s", "no", "ang")
-    Sarah "We need to get to the Davidson Solutions headquarters, ASAP!"
-    "Morgan and Sarah get in Sarah's car and drive to Davidson Solutions HQ. Luckily, they manage to catch up to him."
+    Sarah "We need to get to the Davidson Solutions Headquarters, ASAP!"
+    "Morgan gets in Sarah's car and they drive to Davidson Solutions Headquarters. Luckily, they manage to catch up to Graham just in time."
+    play sound sfx_car_leaving volume 1.5 fadeout 0.5
     scene black
     show bg headquarters
-    "Scene change to Davidson Solutions Headquarters" #June's HQ
+    "{i} At Davidson Solutions Headquarters {/i}" #June's HQ
+    
     show Graham at center
+    play sound sfx_tire_screech volume 1.5 fadeout 0.5
     with Pause(0.3)
     show Morgan_default at left
+    #Put Sarah and Morgan at same height
     show Sarah:
         xalign 0.2
 

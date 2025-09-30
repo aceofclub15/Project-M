@@ -408,9 +408,23 @@ screen start_for_web:
             text "Due to web limitations, there may be some audio delay on the first playthrough." size 40 xalign 0.5
             text "We highly recommend downloading the executable for the best experience." size 40 xalign 0.5
 
+            # Content Warning Section
+            frame:
+                background "#2228"
+                xalign 0.5
+                yalign 0.5
+                padding (20, 20)
+                vbox:
+                    spacing 10
+                    text "CONTENT WARNINGS" size 50 color "#FFAA00" xalign 0.5
+                    text "This game includes themes and depictions that may be upsetting to some players:" size 30 xalign 0.5
+                    text "Violence, Language, Drugs, Alcohol, Poisoning," size 25 xalign 0.5
+                    text "Manipulation, Betrayal, Psychological Themes," size 25 xalign 0.5
+                    text "Sexual Themes, Death" size 25 xalign 0.5
+
             textbutton "Start Game":
                 xalign 0.5
-                yalign 0.7
+                yalign 0.9
                 text_size 40
                 action Return()
     else:

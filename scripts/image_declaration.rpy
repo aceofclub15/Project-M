@@ -56,8 +56,6 @@ image Bodyguard = "images/others/bodyguard.png"
 
 
 
-
-image DrK = "cult.png"
 image splash = "gui/adhg_logo.svg"
 
 # ACTION PANELS:

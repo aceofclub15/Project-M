@@ -57,4 +57,5 @@ label sc_assassin_ending:
 
     $ persistent.assassin_ending = True
     "Assassin Route Assassin Ending achieved ([check_no_endings()]/4)"
+    jump finalcredits
     return

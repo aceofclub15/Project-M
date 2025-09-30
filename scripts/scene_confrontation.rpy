@@ -21,7 +21,7 @@ label sc_confrontation:
 
     $ voice_line("g","tch","ang")
     Graham "You have no idea what you've gotten yourself into, kid. But I'm afraid your interference ends here. "
-    $ voice_line("g","tch","ang")
+    $ voice_line("g","tch","bad")
     Graham "A pity, I never liked hurting women."
     "Graham dashes up to Morgan and injects Morgan with something before Morgan can react."
     $ voice_line("m","what","sur")
@@ -32,7 +32,6 @@ label sc_confrontation:
     $ voice_line("gm","so","bad")
     Grandmaster "{i}And so your mission comes to an undignified end, Morgan... Lying down on the floor, powerless to do anything.{/i}"
     Grandmaster "{i}You really should've remembered the first lesson I ever taught you. Never pick a fight you can't win.{/i}"
-    $ voice_line("gm","hmmph","fea")
     Grandmaster "{i}Of course, Graham didn't heed the lesson either.{/i}"
     Grandmaster "{i}After knocking you out, he tried to face off against the assassin directly... And they both killed each other.{/i}"
     $ voice_line("gm","hmmph","bad")

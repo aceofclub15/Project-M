@@ -11,6 +11,8 @@ define sfx_muffled_gun_shot = "audio/sfx/muffled_gunshot.wav"
 define sfx_tire_screech = "audio/sfx/tire_screech.wav"
 define sfx_car_driving = "audio/sfx/car_driving.wav"
 define sfx_car_leaving = "audio/sfx/car_leaving.mp3"
+define sfx_elevator_ring = "audio/sfx/elevator_ring.wav"
+
 
 init python:
     style.button.activate_sound = activate_btn_sound

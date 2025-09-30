@@ -81,18 +81,26 @@ label sc_grandmaster_ending:
         $ voice_line("j", "well", "sad")
         June "So would I."
         "June and January go to January's home, following which they spend the night together."
+        scene bg sarah_apartment_dark
         January "{i}Growing up, I'd felt so alone. So isolated. I thought nobody would ever understand me, or see the world the same way I did. But June does. And more than that, she appreciates me. A quiet life with her means more than any victory I've ever tasted in the other timelines.{/i}"
-        "A panel shows January and June together, with January wrapping one arm around June as they're covered with a bedsheet."
+        window hide
         show bg bed_jj with dissolve
+        ""
+        
+
     elif relationship_type == "friendship":
         $ voice_line("gm","heh","hap")
         January "And that's why I'll always find a way to save you, June."
         $ voice_line("j", "thanks", "hap")
         June "And for that, I am forever grateful."
         "June and January go to January's home, following which they have a sleepover party."
+        scene bg sarah_apartment
+
         January "{i}Growing up, I'd felt so alone. So isolated. I thought nobody would ever understand me, or see the world the same way I did. But June does. My friendship with her means more than any victory I've tasted in the other timelines.{/i}"
-        "A panel shows January and June together in casual pajamas. January's lazing back on her bed while June is relaxing on the couch."
-    
+    scene bg warehouse_interior with dissolve
+    show June at right
+    show January at left 
+    window show
     $ voice_line("j", "hmmph", "dis")
     June "Are you sure we should leave Graham alone, though? I still can't shake the feeling that he'll remain a loose end."
     $ voice_line("gm","well","ang")

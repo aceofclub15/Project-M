@@ -17,13 +17,13 @@ label sc_track_graham:
     $ voice_line("m","no","sad")
     Morgan "Nothing about his next move. Though it looks like someone tipped Graham off about your job. Someone you might know."
 
-    $ voice_line("s", "so", "hap")
+    $ voice_line("s", "oh", "hap")
     Sarah "You mean Davidson Solutions?"
 
     $ voice_line("m","yeah","sad")
     Morgan "Yeah, looks like the job wasn't just about taking out Adam Rourke. It was also about drawing Graham out of hiding."
 
-    $ voice_line("s", "so", "ang")
+    $ voice_line("s", "hmmph", "ang")
     Sarah "What?! Christ, I've been wanting to settle things with Graham too, but for June to do this behind my back..."
     
     $ voice_line("m","huh","sur")
@@ -41,7 +41,7 @@ label sc_track_graham:
         Morgan "I do. I promise you, no matter what Graham or June think of you, I'm going to put your needs first."
         Morgan "You can trust me, Sarah."
         $ voice_line("s","yeah","hap")
-        Sarah "(kisses Morgan back) I do trust you. Thank you for being here, Morgan."
+        Sarah "(kisses Morgan) I do trust you. Thank you for being here, Morgan."
         $ voice_line("m","well","hap")
         Morgan "Anytime, Sarah. Now, I haven't turned up anything on Graham's movements so far, but..."
     else:
@@ -51,8 +51,9 @@ label sc_track_graham:
     Sarah "Maybe we should take a break, slow things down. If we just take some time to think, then we might make a breakthrough."
     $ voice_line("m","good","hap")
     Morgan "Sounds good to me."
-    $ voice_line("s", "so", "hap")
+    $ voice_line("s", "oh", "hap")
     Sarah "This is it! A map of the routes Graham is taking to uncover the truth behind Adam's murder."
+    $ voice_line("s", "so", "hap")
     Sarah "It looks like he'll go to the Hallex Warehouse in Queens tomorrow night."
     $ voice_line("m","hmm","sad")
     Morgan "Any idea where he is now?"
@@ -105,14 +106,7 @@ label sc_ask_date:
     Morgan "That's a fashion event, isn't it? Are you sure I can pull it off?"
     $ voice_line("s", "yeah", "hap")
     Sarah "Are you kidding me? You looked amazing when I saw you back at the Charleston hotel!"
-    default slay = ""
-    python:
-        if gender == "Male":
-            slay = "King"
-        else:
-            slay = "Queen"
-
-    Sarah "You've got this, [slay]!"
+    Sarah "You've got this, Queen!"
     $ voice_line("m","hmm","sad")
     Morgan "Alright, if you say so. I guess I'll just go home and freshen up."
     $ voice_line("s", "uh", "hap")
@@ -136,8 +130,7 @@ label sc_motel:
     Sarah "Ah, there you are! Shall we go, my love?"
     $ voice_line("m","yeah","hap")
     Morgan "Indeed. After you, darling."
-
-    "Scene transition. They go back to Sarah's place"
+    "They go back to Sarah's aparment."
     scene black 
     show bg sarah_apartment with fade
     show Sarah at right
@@ -171,8 +164,8 @@ label sc_having_sex:
     $ voice_line("s", "so", "bad")
     Sarah "There's just one more thing I need to do to make this official. One final test for you before I accept you as my lifelong partner."
     $ voice_line("s","so","bad")
-    Sarah "This is something I use for my daily meditation. In order to revel in death, I need to know it, understand it. If you drink this, you'll become just like me. There will be nothing left between us. Are you ready?"
-
+    Sarah "This is something I use for my daily meditation. In order to revel in death, I need to know it, understand it."
+    Sarah "If you drink this, you'll become just like me. There will be nothing left between us. Are you ready?"
     $ voice_line("m","well","hap")
     Morgan "I told you, didn't I? My life belongs to you, now. We'll be together, no matter what."
     jump sc_drink_potion
@@ -186,31 +179,26 @@ label sc_drink_potion:
     show Morgan_default at center
     $ voice_line("m","uh","bad")
     Morgan "{i}I feel my senses leave me.{/i}"
-    show DrK:
-        xalign 0.5
-        yalign 0.25
-        zoom 0.5
-    with fade
     Morgan "{i}It feels no different from being poisoned.{/i}"
     Morgan "{i}The void is coming for me, dragging me down into the abyss...{/i}"
-    hide DrK with dissolve
-
+    scene black
     $ voice_line("gm","hmmph","bad")
     Grandmaster "You really should've known better than to fall in love with someone crazy, Morgan."
-    Grandmaster "Getting together with an unrepentant murderer was only going to end one way, so..."
+    Grandmaster "Getting together with an unrepentant assassin was only going to end one way, so..."
     with Pause(0.5)
     $ voice_line("gm","whoa","fea")
     Grandmaster "Oh wait, you're actually recovering, never mind."
+    show bg sarah_apartment
     show Morgan_default at left with moveinright
     show Sarah at right with moveinright
     $ voice_line("s","yeah","hap")
     Sarah "Oh, thank God! Thank God you're okay!"
     $ voice_line("m","well","hap")
-    Morgan "I told you, didn't I? My life belongs to you, now. We'll be together, no matter what."
+    Morgan "I told you, didn't I? My life belongs to you now. We'll be together, no matter what."
     $ voice_line("s","yeah","hap")
     Sarah "Yeah. Yeah, we will be."
 
-    "Morgan falls asleep in Sarah's arms."
+    "Morgan and Sarah falls asleep in each other arms."
     jump sc_warehouse_trap
 
     return
@@ -253,13 +241,13 @@ label sc_remember_past:
     $ voice_line("m","hmm","sad")
     Morgan "{i}There isn't a lot to piece together about Graham beyond what me and Sarah have already dug up. I guess if we want answers, we'll just have to get them from the man himself.{/i}"
 
-    "Morgan let her mind wanders thinking about the Grandmaster"
+    "Morgan lets her mind wander thinking about the Grandmaster."
     #"Morgan looks at the photo of GM and let his mind wanders"
 
     $ voice_line("m","well","bad")
     Morgan "{i}Is this truly the path you wanted me to take, Grandmaster?{/i}"
     Morgan "{i}I owe everything to you, and the last thing I want to do is let you down.{/i}"
-    Morgan "{i}The unwavering faith you have in me has been so heartwarming, but it's also terrifying.{/i}"
+    Morgan "{i}The unwavering faith you had in me is so heartwarming, but it was also terrifying.{/i}"
     $ voice_line("m","sigh","bad")
     Morgan "{i}How can I ever repay you for saving my life when I was nothing?{/i}"
 
@@ -267,8 +255,8 @@ label sc_remember_past:
     return
 
 label sc_morgan_past: 
-    "Flashback time."
-    scene black # Morgan_past
+    scene black with Fade(0.1, 1, 0.5, color="#fff")
+    # Morgan_past
     show Young_Morgan:
         zoom 0.7
         xalign 0.2
@@ -283,9 +271,11 @@ label sc_morgan_past:
     Young_Morgan "Potential? What potental could a wretch like me possibly have?! Everyone around me thinks I'm nothing!"
     
     $ voice_line("gm","well","ang")
-    Grandmaster "Then what if I told you that you can surpass them? Humiliate them? You don't need the failures around you to drag you down any longer, child. Together, you and I will build a wonderful life those losers will forever envy!"
+    Grandmaster "Then what if I told you that you can surpass them? Humiliate them? You don't need the failures around you to drag you down any longer, child."
+    Grandmaster "Together, you and I will build a wonderful life those losers will forever envy!"
     "..."
-    scene black
+    scene black with Fade(0.1, 1, 0.5, color="#fff")
+
 
     $ voice_line("m","yeah","hap")
     Morgan "{i}Those words were all I needed to hear to accept her offer. And the Grandmaster proved true to her word.{/i}"

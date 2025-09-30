@@ -2,7 +2,9 @@ label sc_sarah_attacking:
     $ persistent.story_tree["investigate"]["unlocked"] = True
     scene black
     show bg hotel
-    "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
+    "Morgan watches Sarah - the assassin who is sadistically garroting a helpless female waiter to death."
+    scene black
+    ""
     show ap_garroting_1
     pause 0.75
     $ voice_line("s", "uh", "hap")
@@ -35,15 +37,17 @@ label sc_timimg_shot:
     Morgan "{i}Wait, I know how to pull this off.{/i}"
     Morgan "{i}To be a true assassin, you need mastery over time itself.{/i}"
     $ voice_line("m","hmm","bad")
-    Morgan "{i}How about I bend the very laws of causality in my favor?{/i}"
+    Morgan "{i}How about I bend the very laws of nature in my favor?{/i}"
     $ voice_line("m","so","ang")
     Morgan "{i}First, I'll shoot the metal plate on the left. Then the one on the right. After that, the one above.{/i}"
     $ voice_line("m","hmm","dis")
-    Morgan "{i}If I get the angles right, I'll have triangulated my way to a bullseye.{/i}"
+    Morgan "{i}If I get the angles right, I'll have ricochet my way to a bullseye.{/i}"
+    scene black
+    ""
     window hide
-
-    show ap_shooting_1
     pause 0.5
+    show ap_shooting_1
+    pause 0.75
     show ap_shooting_2
     pause 0.5
     show ap_shooting_3
@@ -57,12 +61,12 @@ label sc_timimg_shot:
         for i in range(3):
             renpy.sound.queue(sfx_muffled_gun_shot)
             renpy.pause(0.25)
-    $ voice_line("m","yeah","hap")
     pause 0.5
+    window show
+    ""
     scene black
     show bg shooting_range
     show Sarah at center with moveinbottom
-    window show
     $ voice_line("s", "yeah", "hap")
     Sarah "Wow, you actually did it."
     Sarah "This is amazing!"
@@ -94,28 +98,29 @@ label sc_stop_sarah:
     show Morgan_default at center with moveinbottom
     $ voice_line("m","oh","sur")
     Morgan "Oops! Excuse me..."
+    ""
     show ap_spilled_drink_1
-    "Morgan {i} accidentally {/i} knocks the poisoned gin martini off the tray, causing the drink to spill onto the floor."
+    "Morgan {i}accidentally{/i} knocks the poisoned gin martini off the tray, causing the drink to spill onto the floor."
     pause 0.5
     show ap_spilled_drink_2
     pause 1.0
-    "Morgan discreetly slips a tracker on Sarah, who looks furious about the accident before she composes herself."
+    "Morgan discreetly slips a tracker on Sarah, who is furious about the accident before she composes herself."
     $ voice_line("m","whoa","hap")
     Morgan "Oh my god! I'm so sorry! I didn't..."
     $ voice_line("s","hmmph","ang")
-    Sarah "Hmph. No problem at all, sir. Excuse me."
-    "Sarah leaves the scene and Morgan also hurrily does so"
+    Sarah "Hmph. No problem at all, ma'am. Excuse me."
+    "Sarah leaves the scene and Morgan also goes back to lobby."
     
     scene black 
     show bg hotel
     $ voice_line("m","right","hap")
     Morgan "{i}Right, I need to take advantage of this window and call Graham immediately!{/i}"
-    "Morgan dials a number."
+    "Morgan dials Graham's number."
     
     $ voice_line("g", "huh", "sur")
     Graham "Huh? Who is this? How did you get this number?"
     $ voice_line("m","so","bad")
-    Morgan "I'm someone trying to stop an assassination, and I think you know which one I'm talking about."
+    Morgan "I'm someone trying to stop an assassination, you know which one I'm talking about."
     $ voice_line("m","hmm","dis")
     Morgan "I've delayed your dear friend Sarah, but time is short. I need your help."
 
@@ -128,8 +133,8 @@ label sc_stop_sarah:
     $ voice_line("m","so","bad")
     Morgan "I know you have a personal vendetta against her. Work with me, and we can stop her."
     
-    Morgan "{i}Time to show him the recording.{/i}"
-    "Morgan wirelessly sends the lounge recording to Graham, who's in another room. We see Graham's eyes widen in shock as he watches it."
+    Morgan "{i}Time to play him the recording.{/i}"
+    "Morgan wirelessly sends the lounge recording to Graham. Graham's eyes widen in shock."
     
     $ voice_line("g","damn","hap")
     Graham "Damn, so you really were there."
@@ -137,7 +142,7 @@ label sc_stop_sarah:
     Graham "I was planning to go after Sarah after she went through with her little murder plan, but if you're here to save Adam's life, that'd be a big weight off my conscience."
     
     $ voice_line("m","well","hap")
-    Morgan "I need you to be my eyes and ears. I'm taking Adam to safety, but Sarah will come after us soon. I've also just planted a tracker on her"
+    Morgan "I need you to be my eyes and ears. I'm taking Adam to safety, but Sarah will come after us soon. I've also just planted a tracker on her."
     
     "Morgan wirelessly transmits the tracker details."
     $ voice_line("g", "yeah", "sad")
@@ -164,47 +169,46 @@ label sc_romance_climax:
     Morgan "Time to die, Graham! This is for Sarah!"
     $ voice_line("s", "uh", "hap")
     Sarah "Goodbye, you sanctimonious old man. You won't be missed."
+    scene black
+    ""
     window hide
     pause 0.75
-    $ voice_line("s","heh","hap")
     show ap_hq_fight_1
-    pause 1
-    $ voice_line("g","tch","bad")
+    pause 1.5
     show ap_hq_fight_2
-    pause 1
+    pause 1.5
 
-    $ voice_line("m","hah","dis")
     show ap_hq_fight_3
-    pause 0.75
-    $ voice_line("g","ugh","fea")
+    pause 1.25
     show ap_hq_fight_4
     pause 1
-
-    $ voice_line("m","hmm","dis")
+    window show
+    ""
+    window hide
     show ap_hq_fight_6
     pause 0.75
     
     show ap_hq_fight_7
     pause 1
 
-    $ voice_line("s","heh","hap")
     show ap_hq_fight_8
     pause 1
+    play sound sfx_muffled_gun_shot
     show ap_hq_fight_9
     pause 1
-
     window show
+    ""
     scene bg headquarters
     show Sarah at left
     show Graham at right
     show Morgan_default at right with moveinleft
+    $ voice_line("g","ugh","fea")
     hide Graham with dissolve
 
-    $ voice_line("m","yes","ang")
     Morgan "We did it... oh my God we did it, Sarah! We won!"
     $ voice_line("s","uh","hap")
     Sarah "That's right! We won, my love! The world is ours!"
-    "They heard a voice from behind"
+    "Morgan and Sarah hears a voice from behind them."
     $ voice_line("j","well","bad")
     "{color=#9d00ff} You two did win. A shame I can't say that for myself. {/color}"
 
@@ -214,26 +218,26 @@ label sc_romance_climax:
     show Sarah at center with moveinleft
 
     $ voice_line("j","well","sad")
-    June "It's the burdens of leadership, Sarah. I tried a gamble to get Graham out of hiding, and it let him straight to my headquarters."
+    June "It's the burdens of leadership, Sarah. I took a gamble to get Graham out of hiding, and it let him straight to my headquarters."
     $ voice_line("j", "hmmph", "dis")
     June "You were just a pawn in my plans, so nobody will care what happens to you. But as for me? You'll find that my clients are rather... unforgiving."
-    "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
+    "Suddenly they hears the sound of glass breaking and see that June get shot through the chest."
 
     show June:
         rotate 270
-        yoffset 300
+        yoffset 500
     with dissolve
     show Sarah at center with moveinright
     $ voice_line("s", "no", "ang")
     Sarah "What? No, June, NO!"
-    $ voice_line("j", "ugh", "sad")
+    $ voice_line("j", "no", "fea")
     June "Let this be a lesson to you both. If you play with fire... you're going to get burned."
-    $ voice_line("j", "well", "bad")
+    $ voice_line("j", "oh", "fea")
     June "I made promises I couldn't keep, and this is the result..."
 
     $ voice_line("s", "no", "ang")
     Sarah "I'm sorry, June! I'm sorry I couldn't protect you! I promise I'll make it right!"
-    $ voice_line("j","well","sad")
+    $ voice_line("j","ugh","sad")
     June "(coughing) Don't repeat my mistakes, June... don't make a promise you can't keep..."
     June "I've used you for my ambitions all your life, sweet child... but now you need to live for yourself... Find a new life..."
 
@@ -241,10 +245,11 @@ label sc_romance_climax:
     Morgan "I'll protect her, June. I'll stay with her no matter what. You can rest easy now, okay?"
     $ voice_line("j","thanks","sad")
     June "Thank you, Morgan... please... make Sarah happy..."
+    $ voice_line("j","ugh","sad")
     June "She deserves to be rewarded...for serving me so well... (cough)."
-    $ voice_line("j", "oh", "fea")
+    $ voice_line("j", "hah", "bad")
     June "My precious January...I'm so sorry I can't be with you...even in this timeline..."
-
+    hide June with dissolve
     $ voice_line("m","hmm","bad")
     Morgan "{i}It's heartbreaking to see Sarah's career culminate in such a tragedy. But perhaps things were always going to end this way.{/i}"
     $ voice_line("m","well","bad")
@@ -269,6 +274,8 @@ label sc_assassin_climax:
 
 
     Morgan "You're mine now, Graham. No sudden moves!"
+    scene black
+    ""
     window hide
     pause 0.75
     show ap_hq_fight_1
@@ -279,8 +286,9 @@ label sc_assassin_climax:
     show ap_hq_fight_3
     pause 0.75
     show ap_hq_fight_4
-    pause 1
-    
+    pause 0.5
+    window show
+    ""
 
     scene bg headquarters
     show Graham at right
@@ -293,7 +301,6 @@ label sc_assassin_climax:
         rotate 90
         yoffset 300
         xoffset 200
-    window show
     $ voice_line("g", "well", "hap")
     Graham "You really think you can take me alive? You think those two ladies will let you?!"
 

@@ -15,15 +15,14 @@ label sc_romance_ending:
     $ voice_line("m","yeah","hap")
     Morgan "(kisses Sarah) I couldn't agree with you more, my love. You've truly made me see the light."
     Morgan "{i}And, of course, our vibrant event planning business keeps the coffers full even when assassination work dries up.{/i}"
-    Morgan "{i}I really underestimated the benefits of having a 'legitimate business' as a cover.{/i}"
+    Morgan "{i}I really underestimated the benefits of having a legitimate business as a cover.{/i}"
 
     $ voice_line("s","so","hap")
     Sarah "As much as murder remains my number one passion, I have come to enjoy providing the people a good time every now and then."
     $ voice_line("m","so","hap")
     Morgan "So have I. People deserve to have a chance to let loose every now and then."
     $ voice_line("m","well","hap")
-    Morgan "After all, who knows when a fun vacation" 
-    Morgan "(smirks deviously) might become your last."
+    Morgan "After all, who knows when a fun vacation. (smirks deviously) might become your last." 
     $ voice_line("m","so","bad")
     Morgan "{i}And with that, June Davidson is avenged.{/i}"
     Morgan "{i}It took a great deal of patience for the two of us to discover the identities of the five LambdaCorp executives who ordered her death, but it was all worth it.{/i}"
@@ -42,5 +41,5 @@ label sc_romance_ending:
     $ persistent.story_tree["romance_ending"]["unlocked"] = True
     $ persistent.romance_ending = True
     "Assassin Route Romance Ending achieved ([check_no_endings()]/4)"
-
+    jump finalcredits
     return
