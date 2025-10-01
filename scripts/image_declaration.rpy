@@ -6,13 +6,22 @@ image bg headquarters = "images/bg/headquarters.png"
 image bg shooting_range = "images/bg/shooting_range.png"
 image bg warehouse_interior = "images/bg/warehouse.png"
 image bg hallex_warehouse = "images/bg/warehouse.png"
+image bg office = "images/bg/office.png"
+image bg beach = "images/bg/beach.png"
+image bg japanese_restaurant = "images/bg/jpn_restaurant.png"
+
+
+
+image bg bed_jj = "images/CGs/bed/june_and_gm_bed.png"
+image bg bed_ms = "images/CGs/bed/morgan_and_sarah_bed.png"
+
 
 
 image bg sarah_apartment = "images/bg/sarah_apartment.png"
 image bg sarah_apartment_dark = "images/bg/sarah_apartment_dark.png"
 image bg graham_apartment = "images/bg/graham_apartment.png"
 
-
+image bg poisoned = "images/bg/poisoned.png"
 
 # Morgan images
 image Morgan_default = At("images/morgan/morgan_default.png", sprite_highlight("Morgan"))
@@ -41,14 +50,12 @@ image Agent_X = At("images/others/agent_x.png", sprite_highlight("Agent_X"))
 
 image Crew_member = At("images/others/hotel_staff.png", sprite_highlight("Crew_member"))
 image Staff = At("images/others/hotel_staff.png", sprite_highlight("Staff"))
-image Bartender = At("images/others/hotel_staff.png", sprite_highlight("Bartender"))
+image Bartender = At("images/others/hotel_staff_female.png", sprite_highlight("Bartender"))
 image Bodyguard = "images/others/bodyguard.png"
 
 
 
 
-
-image DrK = "cult.png"
 image splash = "gui/adhg_logo.svg"
 
 # ACTION PANELS:
@@ -61,4 +68,21 @@ image ap_shooting_5 = "images/CGs/shooting_range/shooting_range_cg_frame_5.png"
 image ap_spilled_drink_1 = "images/CGs/hotel_restaurant/restaurant_spilled_drink_1.png"
 image ap_spilled_drink_2 = "images/CGs/hotel_restaurant/restaurant_spilled_drink_2.png"
 
+
+image ap_hq_fight_1 = "images/CGs/headquarters_fight/hq_fight_1.png"
+image ap_hq_fight_2 = "images/CGs/headquarters_fight/hq_fight_2.png"
+image ap_hq_fight_3 = "images/CGs/headquarters_fight/hq_fight_3.png"
+image ap_hq_fight_4 = "images/CGs/headquarters_fight/hq_fight_4.png"
+# no ap_hq_fight_5 because it changes to different screen
+image ap_hq_fight_6 = "images/CGs/headquarters_fight/hq_fight_6.png"
+image ap_hq_fight_7 = "images/CGs/headquarters_fight/hq_fight_7.png"
+image ap_hq_fight_8 = "images/CGs/headquarters_fight/hq_fight_8.png"
+image ap_hq_fight_9 = "images/CGs/headquarters_fight/hq_fight_9.png"
+
+
+image ap_garroting_1 = "images/CGs/hotel_garroting/garroting_1.png"
+image ap_garroting_2 = "images/CGs/hotel_garroting/garroting_2.png"
+image ap_garroting_3 = "images/CGs/hotel_garroting/garroting_3.png"
+image ap_garroting_4 = "images/CGs/hotel_garroting/garroting_4.png"
+image ap_garroting_5 = "images/CGs/hotel_garroting/garroting_5.png"
 

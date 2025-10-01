@@ -393,14 +393,37 @@ label splashscreen:
     hide screen show_title with dissolve
     with Pause(1)
     return
-
 screen start_for_web:
     tag menu
     add Solid("#000")
-    textbutton "Start Game":
+
+    vbox:
+        spacing 40
         xalign 0.5
         yalign 0.5
-        action Return()
+
+        # Always shown content warnings
+        text "CONTENT WARNINGS" size 50 color "#FFAA00" xalign 0.5
+        text "This game includes themes and depictions that may be upsetting to some players:" size 30 xalign 0.5
+        text "Violence, Language, Drugs, Alcohol, Poisoning," size 25 xalign 0.5
+        text "Manipulation, Betrayal, Psychological Themes," size 25 xalign 0.5
+        text "Sexual Themes, Death" size 25 xalign 0.5
+
+        # Web-build specific warning
+        if is_web_build:
+            vbox:
+                spacing 10
+                text "Warning" size 80 color "#FF4444" xalign 0.5
+                text "Due to web limitations, there may be some audio delay on the first playthrough." size 40 xalign 0.5
+                text "We highly recommend downloading the executable for the best experience." size 40 xalign 0.5
+
+        # Start button (always shown)
+        textbutton "Start Game":
+            xalign 0.5
+            text_size 40
+            action Return()
+
+
 
 
 
@@ -409,8 +432,13 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
+        if renpy.get_screen("main_menu"):
+            xoffset 225
+            yalign 0.75
+        else:
+            yalign 0.5
+
         xpos gui.navigation_xpos
-        yalign 0.5
 
         spacing gui.navigation_spacing
 
@@ -433,13 +461,15 @@ screen navigation():
 
             textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+
 
         textbutton _("Preferences") action ShowMenu("preferences")
         if (renpy.get_screen("main_menu")) and (dev_build):
             textbutton _("Unlock all endings") action Function(unlock_endings)
             textbutton _("Reset Datas") action Function(lock_endings)
 
+        textbutton _("Load") action ShowMenu("load")
+        
         if _in_replay:
 
             textbutton _("End Replay") action EndReplay(confirm=True)
@@ -471,7 +501,10 @@ style navigation_button:
     properties gui.button_properties("navigation_button")
 
 style navigation_button_text:
+    xalign 0.5
+
     properties gui.text_properties("navigation_button")
+
 
 
 
@@ -520,7 +553,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -682,35 +715,37 @@ screen about():
 
     tag menu
 
-    use game_menu(_("About"), scroll="viewport"):
-
+    use game_menu(_("About"), scroll=None):    # avoid conflicting 'scroll="viewport"' here
         style_prefix "about"
 
         vbox:
             label "[config.name!t]"
             text _("Version [config.version!t]\n")
 
-
-
-
             text _("Licenses") size 30
 
             frame:
                 xfill True
-                ymaximum 600    # limits the frame height so the viewport inside it scrolls
-                has vbox
+                ymaximum 600
+                has hbox   
+
 
                 viewport:
+                    id "license_viewport" 
                     draggable True
                     mousewheel True
+                    yfill True
+
                     vbox:
                         spacing 8
-                        # show each license block (these are Python variables defined above)
                         text code_license
-                        text ""  # spacer
+                        text ""
                         text cc_by_nc_text
-                        text ""  # spacer
+                        text ""
                         text voice_acting_text
+
+                vbar value YScrollValue("license_viewport") ymaximum 600
+
             text _("Made with {a=https://www.renpy.org/}Ren'Py{/a}[renpy.version_only].")
 
             

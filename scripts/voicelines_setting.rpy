@@ -15,7 +15,7 @@ default character_words = {
         "god", "grr", "haha", "heh", "hmm", "hmmph", "huh", "no", "oh", "right",
         "tch", "thanks", "uhh", "well", "yes"
     ],
-    "r": [
+    "a": [
         "good", "grr", "haha", "hmm", "huh", "no", "tch", "yeah", "yes"
     ],
     "s": [
@@ -33,5 +33,4 @@ init python:
     renpy.music.set_volume(10, channel='channel_VAs')
     def voice_line(char, word, emo):
         filename = f"audio/voices/{char}/{char}_{word}_{emo}.wav"
-        print(filename)
         renpy.play(filename,channel="channel_VAs")

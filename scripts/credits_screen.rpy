@@ -1,18 +1,20 @@
 label finalcredits:
     stop music
+    stop channel_background
     scene black
-
+    play music music_bg_action
     show screen creditscreen(1)
     pause 10
     hide screen creditscreen with dissolve
 
     show screen creditscreen(2)
-    pause 8
+    pause 9
     hide screen creditscreen with dissolve
 
     show screen creditscreen(3)
     pause 8
     hide screen creditscreen with dissolve
+    stop music
     return
 
 transform fade_in_delay(delay=0.0):
@@ -57,8 +59,8 @@ screen creditscreen(sc):
             xalign 0.5
             yalign 0.3
             at fade_in_delay((delay + 1))
-        text "Genisys | Elliot":
-            color "#061cdc"
+        text "Genisys":
+            color "#394ae9"
             size 40
             xalign 0.5
             yalign 0.37
@@ -120,10 +122,10 @@ screen creditscreen(sc):
             yalign 0.6
             at fade_in_delay((delay + 5))
 
-        text "witchhunter666":
+        text "witchhunter6666":
             color "#770ed2"
             size 40
-            xalign 0.77
+            xalign 0.79
             yalign 0.67
             at fade_in_delay((delay + 5))
 
@@ -168,7 +170,7 @@ screen creditscreen(sc):
         text "Graham":
             color "#ffbf00"
             size 50
-            xalign 0.75
+            xalign 0.77
             yalign 0.3
             at fade_in_delay(delay)
 
@@ -202,7 +204,7 @@ screen creditscreen(sc):
             yalign 0.6
             at fade_in_delay((delay + 2))
 
-        text "Ren_Over_Shares":
+        text "Katrina Clairvoyant":
             color "#00bfff"
             size 40
             xalign 0.5

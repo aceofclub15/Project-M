@@ -21,6 +21,9 @@ define config.fast_skipping = dev_build
 
 default preferences.skip_unseen = dev_build
 
+default is_web_build = False
+
+
 
 
 
@@ -242,6 +245,7 @@ label start:
     $ can_click_tree = True
     $ config.all_character_callbacks = [ch_callbacks]
     $ renpy.music.queue(music_bg_normal,channel="channel_background",loop=True)
+    $ renpy.music.set_volume(0.4, channel='channel_background')
     jump sc_computer
     return
 
@@ -253,7 +257,7 @@ label sc_computer:
         $ persistent.all_endings = True
 
     #Remember to add NVL mode to this part or something
-    "Accessing personal info... (choose who is logging in)"
+    "{i}Accessing Ouroborous company's personal info... (choose login option) {/i}"
     #"Please choose your character's gender (choice won't affect gameplay)"
 
 
@@ -265,7 +269,7 @@ label sc_computer:
 
             jump sc_mission_archive
 
-        "Login as Grandmaster (available after getting all endings)" if persistent.all_endings:
+        "Login as the Grandmaster" if persistent.all_endings:
             jump sc_grandmaster_route_start
     return
 
@@ -276,23 +280,24 @@ label sc_mission_archive:
     show hologram_GM:
         xalign 0.5
         yalign 0.5
-
     $ voice_line("gm","ah","sur")
     Grandmaster "How are you feeling now, Enforcer XIII?" 
+
     $ voice_line("m","good","hap")
     Morgan "I'm feeling as ready as I'll ever be."
     $ voice_line("gm","good","hap")
     Grandmaster "Good, because time is of the essence. The assassin from Davidson Solutions should've already infiltrated the hotel."
     $ voice_line("m","hmm","bad")
     Morgan "And I imagine the rogue Federal agent, Graham, is making his move too?"
-    $ voice_line("gm","yes","ang")
+    $ voice_line("gm","yes","sad")
     Grandmaster "Indeed, I have him on radar. It won't take long for him to arrive."
+    $ voice_line("m","hmm","sad")
     Morgan "Are you sure you want to leave everything to me, Grandmaster?"
-    $ voice_line("gm","so","dis")
+    $ voice_line("gm","so","hap")
     Grandmaster "I am. This is your story, Morgan. I only need one thing from you."
     $ voice_line("m","right","hap")
     Morgan "That's right. I just need to make things interesting."
-    $ voice_line("gm","yes","sad")
+    $ voice_line("gm","heh","hap")
     Grandmaster "You catch on well."
     play sound sfx_tire_screech
     "The car slows to a stop."
@@ -301,8 +306,9 @@ label sc_mission_archive:
 
 
 
-    $ voice_line("gm","well","ang")
+    $ voice_line("gm","good","hap")
     Grandmaster "All the best, Morgan. I know you'll make me proud."
+    $ voice_line("m","yeah","sad")
     Morgan "I aim to please, Grandmaster."
     
     jump sc_hotel_entrance
@@ -338,9 +344,12 @@ label sc_emergency:
     $ voice_line("m","hey","ang")
     Morgan "Attention, everyone! This is Officer Morgan of the FBI! I\'m declaring a terroristic threat at the Charleston! I need everyone to please-No wait, wait, don\'t escort me out, NOOOO!"
     scene black
+    $ voice_line("gm","hmmph","bad")
     Grandmaster "You made a terrible judgment call, Morgan."
     Grandmaster "By attracting undue attention to yourself, you\'ve ensured that you\'ll be arrested and charged for impersonating a Federal officer."
+    $ voice_line("gm","well","sad")
     Grandmaster "As for Adam Rourke, he was assassinated, but the assassin did a sloppy enough job to get arrested as well."
+    $ voice_line("gm","hmmph","fea")
     Grandmaster "An incredibly boring and anti-climactic way to end things."
     Grandmaster "I\'m disappointed."
     "GAME OVER"
@@ -355,9 +364,11 @@ label sc_guest_list:
     Morgan "Hi, excuse me! I'm Hendricks, from logistics. I just need to cross-check the guest list and make sure there are no empty tables at the 2nd Conference Hall. You know how the bosses are about wasted money."
     show Morgan_default at left with moveinright
     show Crew_member at right with moveinright
-    Crew_member "Oh, I do, believe me. Here, take this flash drive. It should have everything you need to know about the Extranet conference."
-    $ voice_line("m","thanks","sad")
 
+    Crew_member "Oh, I do, believe me. Here, take this flash drive. It should have everything you need to know about the Extranet conference."
+
+
+    $ voice_line("m","thanks","hap")
     Morgan "Oh thank you, you're a lifesaver!"
     hide Crew_member with fade
     show Morgan_default at center with moveinleft
@@ -365,8 +376,8 @@ label sc_guest_list:
     "60 minutes to assassination."
     $ voice_line("m","hmm","dis")
     Morgan "{i}It's as I suspected. This list has been tampered with. There's at least one person who isn't supposed to be here, but I'll need to do a bit of recon to pinpoint who they are.{/i}" 
+    
     $ voice_line("m","oh","sur")
-
     Morgan "{i}Oh, and it seems as though a lot of the guests are getting warmed up at the lounges before the conference begins. Best head over there.{/i}"
     "30 minutes to assassination."
     $ voice_line("m","hmm","dis")
@@ -378,6 +389,7 @@ label sc_guest_list:
     Morgan "{i}That's him! That's Agent Graham! But what is he doing here?{/i}"
     "He suddenly stops acting drunk. No one is watching him."
     "Graham approaches a locked door at the end of the hallway and pulls out a lockpick."
+    $ voice_line("m","hmm","bad")
     Morgan "{i}Looks like Graham's making his move now, but he hasn't noticed me. The room he's trying to get into must have something to do with the assassination, but what do I do about all this?{/i}"
     
     menu:
@@ -395,6 +407,7 @@ label sc_observation:
     $ voice_line("m","right","bad")
     Morgan "Right, can't go picking fights the first chance I get."
 
+    $ voice_line("m","well","dis")
     Morgan " I'll just activate my thermoptic implant and set my video camera to record everything Graham does. Now, Graham, it's time for you to spill the beans."
     hide Morgan_default with fade
     show Graham at left
@@ -404,11 +417,13 @@ label sc_observation:
         yalign 0.9
         zoom 0.7
     Agent_X "Hey, who the hell are you? This room's closed!"
+    $ voice_line("g", "hah", "hap")
     Graham "Not anymore."
     hide Agent_X with fade
     show Graham at center with moveinleft
-    "Graham fighting and punching out the man. Graham then hacks into the man's laptop" 
-    "From the laptop a female voice can be heard."
+    "Graham fights then punches the man out. Graham then hacks into the man's laptop." 
+    "From the laptop, a female voice can be heard."
+    $ voice_line("s", "ah", "hap")
     "Female voice" "{color=#ff0000} Mission update. I've infiltrated the conference room. Looking for a disguise now. Will finish the job soon. {/color}"
 
     show Graham:
@@ -417,19 +432,23 @@ label sc_observation:
         yalign 0.8
     with dissolve
     show Morgan_default at left with moveinleft
-    Morgan "{i} Wow, I've picked up a lot of invaluable intel. It looks like the assassin's a woman. {/i}"
+    $ voice_line("m","whoa","bad")
+    Morgan "{i} Wow, I have picked up a lot of invaluable intel. It looks like the assassin is a woman.{/i}"
     Morgan "{i} She's pretty close to getting ready for the job, so I need to make my way to the location ASAP!{/i}"
-    Morgan "{i}But first, let me just hack Graham's phone {/i}"
+    $ voice_line("m","hmm","bad")
+    Morgan "{i}But first, let me just hack Graham's phone.{/i}"
     $ voice_line("m","tch","ang")
-    Morgan "{i} The encryption on his phone is real strong{/i}"
+    Morgan "{i} The encryption on his phone is real strong.{/i}"
+    $ voice_line("m","well","hap")
     Morgan "{i} But at least I can still call him if I decide to side with him. {/i}"
 
-    Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here"
+    $ voice_line("g", "sigh", "sad")
+    Graham "Christ, why did it have to be her?! Well, I can't stop the assassination from here."
     Graham "But I'll make Sarah will pay for what she's done!"
-    $ voice_line("m","oh","ang")
-    Morgan "{i}Those are some juicy details, but I really need to go now.The moment of truth will soon be upon me. {/i}"
+    $ voice_line("m","oh","sur")
+    Morgan "{i}Those are some juicy details, but I really need to go now. The moment of truth will soon be upon me. {/i}"
     "Morgan quickly goes to the 2nd Conference room. 10 minutes until the assassination. "
-    $ voice_line("m","hmm","bad")
+    $ voice_line("m","hmm","sad")
     Morgan "{i}If the killer is a woman, how can I narrow things down? How would an assassin infiltrate this place? {/i}"
     menu:
         "She might kill and replace someone":
@@ -462,8 +481,8 @@ label sc_sarah_impersonate:
     scene black
     show bg hotel
     show Morgan_default at center
-    $ voice_line("m","hmm","dis")
-    Morgan "{i}She'll probably wear a disguise that gives her a lot of access, like a service staff member.{/i}"
+    $ voice_line("m","hmm","sad")
+    Morgan "{i}She'll probably wear a disguise that gives her free hotel access, like a service staff member.{/i}"
     Morgan "{i}But where could she get such a disguise?{/i}"
     Morgan "{i}If she...{/i}"
 
@@ -474,38 +493,13 @@ label sc_sarah_impersonate:
     jump sc_sarah_attacking
     return
 
-label sc_sarah_attacking:
-    $ persistent.story_tree["investigate"]["unlocked"] = True
-    scene black
-    show bg hotel
-    "The assassin, Sarah, sadistically garroting a helpless female waiter to death and Morgan watches while hidden."
-    show Staff:
-        xalign 0.7
-    $ renpy.pause(0.5)
-    show Sarah:
-        xalign 0.5
-        zoom 1.3
-    with moveinleft
 
-    
-    Sarah "You're not my target, darling, but you are quite the appetizer."
-    show Staff:
-        rotate 90
-        xalign 0.8
-        yoffset 400
-        zoom 0.5
+#SC_SARAH_ACTTACKING is in AP
 
-    Sarah "Regardless of how the mission goes, I still get to see the light go out of your eyes."
-    Sarah "Thank you for that."
-    hide Staff
-    hide Sarah with fade
-    show Sarah_disguise
-    "Morgan stays put as Sarah finishes her kill and drags the body away."
-    $ voice_line("m","hmm","dis")
-    Morgan "{i}So that's Sarah's disguise.{/i}"
-    Morgan "{i}She's going to play as a waiter, probably deliver some poison straight into Rourke's thirsty mouth.{/i}"
-    jump sc_chef_order
-    return
+
+
+#SC_SARAH_ACTTACKING is in AP
+
 
 label sc_chef_order:
     scene black
@@ -513,17 +507,20 @@ label sc_chef_order:
     #show Chef at left
     #with Pause(0.5)
     #show Sarah at right with moveinright
+
     Head_chef "Order up! We have a gin martini for Mr. Rourke, on the double!"
-    "Sarah emerge in her waitress disguise as she takes Rourke's order and sneakily mixes something into the drink as Morgan notices."
+    "Sarah emerges in a waitress disguise as she takes Rourke's order, Morgan notices Sarah mixing something into the drinks."
+    $ voice_line("s", "yeah", "ang")
     Sarah "Of course, ma'am. Right on it!"
 
     with Pause(0.5)
     hide Chef
     #show Morgan_default at left with moveinleft
-    $ voice_line("m","hmm","bad")
+    $ voice_line("m","so","bad")
     Morgan "{i}This is it, the moment of truth.{/i}"
     Morgan "{i}The Grandmaster told me to make things interesting, but how am I going to do that now?{/i}"
     Morgan "{i}Whatever choice I make, there's no going back.{/i}"
+    $ voice_line("m","hmm","sad")
 
 
     menu:
@@ -546,17 +543,19 @@ label sc_chef_order:
 
 label sc_drink_poison:
 
+    $ voice_line("m","oh","sur")
     Morgan "Don't mind me!"
     $ voice_line("m","uh","bad")
     Morgan "{i}Wait... what the hell was I thinking?{/i}"
     Morgan "{i}Now that I've swallowed this poisoned martini, it'll just... kill... me...{/i}"
-    "Morgan downing the drink, and the screen immediately begins to blur."
+    "Morgan downed the drink, and her vision immediately begins to blur."
     scene black with fade
-    $ voice_line("gm","heh","dis")
+    $ voice_line("gm","heh","hap")
     Grandmaster "Okay, that was kind of funny."
-    Grandmaster "But seriously, you couldn't possibly have expected THAT choice to end well, right?"
-    Grandmaster "...Right?"
-    Grandmaster "Please start over before I think this over any further."
+    $ voice_line("gm","hmmph","bad")
+    Grandmaster "But seriously, you couldn't possibly have expected THAT choice to end well right? Right?"
+    $ voice_line("gm","okay","dis")
+    Grandmaster "Please start over before I think about this any further."
     "GAME OVER"
     jump sc_chef_order
     return
