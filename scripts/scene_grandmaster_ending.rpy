@@ -2,8 +2,8 @@ label sc_grandmaster_route_start:
     scene black
     show bg japanese_restaurant
     $ renpy.music.set_volume(0.3, channel='channel_background')
-    "The Grandmaster waits at a high-class restaurant. A woman arrives and sits at her table. It's June Davidson."
-    Grandmaster "{i}Thanks to agent Morgan's efforts, I was finally able to put all the pieces of this messy story together. And now, with the information I have...{/i}"
+    "June Davidson arrives at a high-class restaurant. The Grandmaster is patiently waiting for her."
+    Grandmaster "{i}Thanks to Agent Morgan's efforts, I was finally able to put all the pieces of this messy story together. And now, with the information I have...{/i}"
 
     menu:
         "I can finally save the woman I love":
@@ -47,7 +47,7 @@ label sc_grandmaster_ending:
     $ voice_line("gm","so","dis")
     January "Well, I'd advise against going after Graham. He's the architect of your downfall in both the timelines I explore."
     $ voice_line("gm","okay","dis")
-    January "Either Graham works with Morgan in the detective timeline to take you down, or he manages to find a way to your headquarters before the assassin timeline's Morgan finally defeats him."
+    January "Either Graham works with Morgan in the detective timeline to take you down, or he manages to find a way to your headquarters before Morgan finally defeats him in the assassin timeline."
     $ voice_line("gm","so","dis")
     January "Which still won't matter because-"
     $ voice_line("j", "oh", "fea")
@@ -71,7 +71,7 @@ label sc_grandmaster_ending:
         June "Don't get too full of yourself now, it's not like I'm jealous. After all, it's only thanks to you that I've lasted as long as I have. Both of us need each other."
     elif relationship_type == "romance":
         $ voice_line("j", "well", "hap")
-        June "Oh, Jan, I'm not jealous of you. After all, it's only thanks to you that I've lasted as long as I have. Both of us need each other."
+        June "Oh, Jan, I'm not jealous of you. After all, it's only thanks to you that I've lasted as long as I have. Both of us needed each other."
     
     $ voice_line("gm","yes","ang")
     January "Yeah. We're both ruling the world together but we'd both fall apart on our own."
@@ -80,12 +80,16 @@ label sc_grandmaster_ending:
         January "But even aside from that, I love you, June. I'd be happy in any timeline where we live long lives together."
         $ voice_line("j", "well", "sad")
         June "So would I."
-        "June and January go to January's home, following which they spend the night together."
+        "They go to January's home, and spend the night together."
         scene bg sarah_apartment_dark
-        January "{i}Growing up, I'd felt so alone. So isolated. I thought nobody would ever understand me, or see the world the same way I did. But June does. And more than that, she appreciates me. A quiet life with her means more than any victory I've ever tasted in the other timelines.{/i}"
+        January "{i}Growing up, I'd felt so alone. So isolated. I thought nobody would ever understand me, or see the world the same way I did.{/i}" 
+        January "{i}But June does. And more than that, she appreciates me. A quiet life with her means more than any victory I've ever tasted in the other timelines.{/i}"
         window hide
         show bg bed_jj with dissolve
-        ""
+        pause 1
+        window show
+        "..."
+        
         
 
     elif relationship_type == "friendship":
@@ -108,7 +112,7 @@ label sc_grandmaster_ending:
     $ voice_line("j", "well", "bad")
     June "But if you're using Campanella, then..."
     $ voice_line("gm","so","dis")
-    January "Yup, he's loyal, so he won't go off and do his own thing. I know it goes against the spirit of what Ouroboros is supposed to be, but if it means saving your life, then..."
+    January "Yup, he's loyal, so he won't go off and do his own thing. I know it goes against the spirit of what Ouroboros is supposed to be, but if it means saving your life, then-"
     
     if relationship_type == "romance":
         "June cuts off January with a kiss."
@@ -117,16 +121,17 @@ label sc_grandmaster_ending:
     elif relationship_type == "friendship":
         $ voice_line("j", "thanks", "hap")
         June "You're really going above and beyond for me, January. I wish I could find a way to make it up to you."
-    "January gives a playful smile."
+    "January gives June a playful smile."
     $ voice_line("gm","ah","hap")
     January "Hmm, maybe you can."
     "June smiles nervously."
     $ voice_line("j", "oh", "fea")
     June "I'm not sure I like where this is going..."
     $ voice_line("gm","well","hap")
-    January "But well, my backlog is piled up so high, June. I just keep jumping from one project to another and never finish anything."
+    January "Well, my backlog is piled up so high, June. I just keep jumping from one project to another and never finish anything."
     $ voice_line("gm","so","hap")
-    January "If you really want to make it up to me, maybe you can take a break from your own work and become my manager for a change. I've seen Sarah's capabilities, she'll do an excellent job managing Davidson Solutions in your absence."
+    January "If you really want to make it up to me, maybe you can take a break from your own work and become my manager for a change." 
+    January "I've seen Sarah's capabilities, she'll do an excellent job managing Davidson Solutions in your absence."
     $ voice_line("j", "well", "sad")
     June "But I like my job as CEO. It's so comfortable with you covering for me."
     $ voice_line("gm","heh","hap")
@@ -143,7 +148,10 @@ label sc_grandmaster_ending:
     
     $ voice_line("gm","heh","hap")
     January "Believe me, with the backlog my ADHD has racked up, I don't want you to."
-    "June and January laugh warmly alongside each other as the scene fades to black. The time skips to next week, where they're both in the Grandmaster's chambers that have an ethereal background, as she begins her next mission."
+    "January and June laugh warmly."
+    "..."
+    scene black
+    "One week later, they plan their next mission."
     $ voice_line("gm","wait","ang")
     January "The Zephyr artifact retrieval? Really? But that's such a simple and boring mission."
     $ voice_line("j", "ugh", "sad")
@@ -151,7 +159,7 @@ label sc_grandmaster_ending:
     January "{i}I guess I shouldn't be surprised at how well June's adjusted to her new role, given the way she's led Davidson Solutions all these years. {/i}"
     January "{i}And despite my grumbling, she and I both know I wouldn't want things any other way.{/i}"
     $ voice_line("gm","well","hap")
-    January "Fiiine, I'll initiate the timeline dive."
+    January "Fine, I'll initiate the timeline dive."
     January "{i}I see June looking at me with a childlike excitement as I power up the timeline generator interface. {/i}"
     January "{i}When the Zephyr artifact mission map loads up, my human vulnerability fades away, and I remember that I'm the Grandmaster of Ouroboros, and of destiny itself.{/i}"
     $ voice_line("gm","hmmph","bad")

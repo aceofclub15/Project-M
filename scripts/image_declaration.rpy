@@ -21,7 +21,7 @@ image bg sarah_apartment = "images/bg/sarah_apartment.png"
 image bg sarah_apartment_dark = "images/bg/sarah_apartment_dark.png"
 image bg graham_apartment = "images/bg/graham_apartment.png"
 
-
+image bg poisoned = "images/bg/poisoned.png"
 
 # Morgan images
 image Morgan_default = At("images/morgan/morgan_default.png", sprite_highlight("Morgan"))

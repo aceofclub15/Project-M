@@ -5,9 +5,17 @@ label sc_obey_voice:
         rotate 270
         xalign 0.4
         yoffset 400
-    show Graham at topright
+
+    show Graham at right
+    show Graham:
+        xoffset 100
+        yoffset 200
+        rotate 60
     show Sarah at right
-    "Morgan drives to the Hallex warehouse. She finds a smug and self-assured June standing over Adam's dead body while Sarah is figthing a grieviously injured Graham."
+    show Sarah:
+        yoffset -100
+        xoffset -100
+    "Morgan drives to the Hallex warehouse. She finds a smug and self-assured June standing over Adam's dead body while Sarah is fighting a grieviously injured Graham."
     play sound sfx_tire_screech volume 1.5 fadeout 0.5
     pause 0.5
     $ voice_line("m","sigh","sad")
@@ -31,7 +39,7 @@ label sc_obey_voice:
     "June points to Adam."
     $ voice_line("j", "well", "sad")
     June "And as for your partner in crime..."
-    "June points to Sarah, who is sadistically smilling while strangling Graham to death."
+    "June points to Sarah, who is sadistically smiling while strangling Graham to death."
     "Morgan rushes to try to defend Graham, but is pinned down by June."
     show Morgan_default at center with moveinleft
     hide June with dissolve
@@ -47,7 +55,11 @@ label sc_obey_voice:
     "Suddenly Graham's slashes Sarah's throat with a switchblade"
     $ voice_line("s", "no", "ang")
     Sarah "Wha- URK!"
-    show Graham at right with dissolve
+    show Graham at right
+    show Graham:
+        xoffset 100
+        yoffset 200
+    with dissolve
     $ voice_line("g","hah","hap")
     Graham "Hahahaha! I knew I was doomed the second you got the jump on me, Sarah. But I can at least take you down with me!"
     "Sarah collapses, bleeding to death. At the same time, Graham dies from his previous grevious injuries."
@@ -71,7 +83,7 @@ label sc_obey_voice:
     Morgan "What are you talking about?"
     $ voice_line("j","grr","ang")
     June "I can't disappoint him, I can't let him know I failed! Even January can't save me now! I'M ENDING THIS!"
-    "June tries slashes at Morgan with a pocket knife. Morgan shoot her dead in self-defense."
+    "June tries to slash at Morgan with a pocket knife. Morgan shoots her dead in self-defense."
     hide June with dissolve
     "After that, Morgan searches the bodies, trying to find whatever clues she can."
     "In Adam's wallet, she finds a mysterious ID belonging to a man named Marcus Simms."
@@ -85,13 +97,15 @@ label sc_obey_voice:
 
 label sc_vigilante_epilogue:
     scene bg office
-    play sound sfx_elevator_ring volume 1.5 fadeout 0.5
+
     "A year passes by. An elevator opens and Marcus Simms enters into his high-rise office."
+    play sound sfx_elevator_ring volume 1.5 fadeout 0.5
+    pause 1
     show Marcus at right with moveinleft
     "As he approaches his swivel chair, he hears Morgan's voice from behind."
     $ voice_line("m","hmm","dis")
     Morgan "I've read such glowing articles about you, Marcus. People respected you as one of the pre-eminent National Security Advisors in the United States."
-    Morgan "A pity they didn't know you were just a double-crosser selling state secrets."
+    Morgan "A pity they didn't know you were just a double-crosser, selling state secrets."
     show Morgan_default at left with moveinleft
     "Marcus slowly tries to open his gun drawer without Morgan noticing."
     Marcus "Well, people can be naive. I just did what anyone else would in my position. Tell me, did you come alone?"
@@ -100,13 +114,13 @@ label sc_vigilante_epilogue:
     "Marcus pulls out his gun and fires at Morgan. The trigger clicks but the chamber is empty."
     $ voice_line("m","hah","ang")
     Morgan "You disappoint me, Marcus. I already took the bullets out of your gun. Surely, you should've foreseen that."
-    Marcus "And what about you? Can you foresee the consequences of that path you're on? If you keep going down this road of vengeance and bloodshed, you may end up in a similar position to me one day."
+    Marcus "And what about you? Can you foresee the consequences of the path you're on? If you keep going down this road of vengeance and bloodshed, you may end up in a similar position to me one day."
     $ voice_line("m","hmm","bad")
     Morgan "I'll take my chances."
-    "Morgan shoots her silent pistol at Marcus, killing him."
     play sound sfx_muffled_gun_shot volume 1.5 fadeout 0.5
-    "Morgan leaves office using the elevator."
+    "Morgan shoots her silent pistol at Marcus, killing him."
     play sound sfx_elevator_ring volume 1.5 fadeout 0.5
+    "Morgan leaves the office using the elevator."
 
     scene black
 

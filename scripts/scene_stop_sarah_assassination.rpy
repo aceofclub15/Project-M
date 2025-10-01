@@ -247,7 +247,7 @@ label sc_nonsense:
     $ voice_line("m","well","bad")
     Morgan "Should I come with you?"
     $ voice_line("g","no","bad")
-    Graham "No, I need to think on this. Alone. Graham out."
+    Graham "No, I need to think on this. Alone."
     hide Graham with dissolve 
     show Morgan_default at center with moveinleft
     "As Graham leaves, Morgan leans back and ponders things."

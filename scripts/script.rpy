@@ -16,10 +16,13 @@ default tutorial_text=""
 
 
 #TESTING STUFF: disable/delete if build for PUBLIC VER
-define dev_build = True
+define dev_build = False
 define config.fast_skipping = dev_build
 
 default preferences.skip_unseen = dev_build
+
+default is_web_build = False
+
 
 
 
@@ -254,7 +257,7 @@ label sc_computer:
         $ persistent.all_endings = True
 
     #Remember to add NVL mode to this part or something
-    "{i}Accessing Ouroborous company's personal info... (choose who is logging in) {/i}"
+    "{i}Accessing Ouroborous company's personal info... (choose login option) {/i}"
     #"Please choose your character's gender (choice won't affect gameplay)"
 
 
@@ -266,7 +269,7 @@ label sc_computer:
 
             jump sc_mission_archive
 
-        "Login as Grandmaster (available after getting all endings)" if persistent.all_endings:
+        "Login as the Grandmaster" if persistent.all_endings:
             jump sc_grandmaster_route_start
     return
 
@@ -545,7 +548,7 @@ label sc_drink_poison:
     $ voice_line("m","uh","bad")
     Morgan "{i}Wait... what the hell was I thinking?{/i}"
     Morgan "{i}Now that I've swallowed this poisoned martini, it'll just... kill... me...{/i}"
-    "Morgan downing the drink, and her vision immediately begins to blur."
+    "Morgan downed the drink, and her vision immediately begins to blur."
     scene black with fade
     $ voice_line("gm","heh","hap")
     Grandmaster "Okay, that was kind of funny."

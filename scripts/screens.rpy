@@ -393,46 +393,36 @@ label splashscreen:
     hide screen show_title with dissolve
     with Pause(1)
     return
-default is_web_build = True
 screen start_for_web:
     tag menu
     add Solid("#000")
-    if is_web_build:
-        vbox:
-            spacing 20
-            xalign 0.5
-            yalign 0.5
 
-            text "Warning" size 80 color "#FF4444" xalign 0.5
+    vbox:
+        spacing 40
+        xalign 0.5
+        yalign 0.5
 
-            text "Due to web limitations, there may be some audio delay on the first playthrough." size 40 xalign 0.5
-            text "We highly recommend downloading the executable for the best experience." size 40 xalign 0.5
+        # Always shown content warnings
+        text "CONTENT WARNINGS" size 50 color "#FFAA00" xalign 0.5
+        text "This game includes themes and depictions that may be upsetting to some players:" size 30 xalign 0.5
+        text "Violence, Language, Drugs, Alcohol, Poisoning," size 25 xalign 0.5
+        text "Manipulation, Betrayal, Psychological Themes," size 25 xalign 0.5
+        text "Sexual Themes, Death" size 25 xalign 0.5
 
-            # Content Warning Section
-            frame:
-                background "#2228"
-                xalign 0.5
-                yalign 0.5
-                padding (20, 20)
-                vbox:
-                    spacing 10
-                    text "CONTENT WARNINGS" size 50 color "#FFAA00" xalign 0.5
-                    text "This game includes themes and depictions that may be upsetting to some players:" size 30 xalign 0.5
-                    text "Violence, Language, Drugs, Alcohol, Poisoning," size 25 xalign 0.5
-                    text "Manipulation, Betrayal, Psychological Themes," size 25 xalign 0.5
-                    text "Sexual Themes, Death" size 25 xalign 0.5
+        # Web-build specific warning
+        if is_web_build:
+            vbox:
+                spacing 10
+                text "Warning" size 80 color "#FF4444" xalign 0.5
+                text "Due to web limitations, there may be some audio delay on the first playthrough." size 40 xalign 0.5
+                text "We highly recommend downloading the executable for the best experience." size 40 xalign 0.5
 
-            textbutton "Start Game":
-                xalign 0.5
-                yalign 0.9
-                text_size 40
-                action Return()
-    else:
+        # Start button (always shown)
         textbutton "Start Game":
-            text_size 50
             xalign 0.5
-            yalign 0.5
+            text_size 40
             action Return()
+
 
 
 
@@ -471,13 +461,15 @@ screen navigation():
 
             textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+
 
         textbutton _("Preferences") action ShowMenu("preferences")
         if (renpy.get_screen("main_menu")) and (dev_build):
             textbutton _("Unlock all endings") action Function(unlock_endings)
             textbutton _("Reset Datas") action Function(lock_endings)
 
+        textbutton _("Load") action ShowMenu("load")
+        
         if _in_replay:
 
             textbutton _("End Replay") action EndReplay(confirm=True)

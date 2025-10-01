@@ -28,7 +28,7 @@ label sc_warehouse_trap:
     Morgan "Then it must be a trap!"
 
     scene bg warehouse_interior with Fade(0.1, 1, 0.5, color="#fff")
-    "A flashbang grenade is exploded. And when the white noise clears, Morgan and Sarah are restrained with zip-ties."
+    "A flashbang grenade explodes. When the white noise clears, Morgan and Sarah are restrained with zip-ties."
     show Morgan_default at left
     show Morgan_default:
         yoffset 300
@@ -105,7 +105,7 @@ label sc_bend_time:
     $ persistent.story_tree["assassin6"]["unlocked"] = True
 
     $ voice_line("m","hmm","bad")
-    Morgan "{i}If only I could bend time to my will, I could get me and Sarah out of this. Just how did I do it the last time?!{/i}"
+    Morgan "{i}If only I could bend time to my will, I could get Sarah and I out of this. Just how did I do it the last time?!{/i}"
     $ voice_line("m","oh","sur")
     Morgan "{i}Oh wait... maybe if I just...{/i}"
     "Morgan shifts to a trance state as she miraculously loosen her zip-tie in seconds. Morgan then helps Sarah with her escape."
@@ -115,7 +115,7 @@ label sc_bend_time:
     show Morgan_default at left
     show Sarah at right
     "Morgan escapes the warehouse with Sarah, just as the cops arrive to find an empty warehouse."
-    "Morgan and Sarah facing each other."
+    "Morgan and Sarah face each other."
     $ voice_line("s", "ah", "hap")
     Sarah "How did you do that? You slipped free like it was nothing!"
     $ voice_line("m","well","hap")
@@ -163,7 +163,8 @@ label sc_june_headquarters:
     Morgan "Looks like my hunch was right."
     Sarah "We need to get to the Davidson Solutions Headquarters, ASAP!"
     "Morgan gets in Sarah's car and they drive to Davidson Solutions Headquarters. Luckily, they manage to catch up to Graham just in time."
-    play sound sfx_car_leaving volume 1.5 fadeout 0.5
+    play sound sfx_car_leaving volume 1.5
+    pause 1
     scene black
     show bg headquarters
     "{i} At Davidson Solutions Headquarters {/i}" #June's HQ
@@ -175,6 +176,7 @@ label sc_june_headquarters:
     #Put Sarah and Morgan at same height
     show Sarah:
         xalign 0.2
+        yoffset 200
 
     with Pause(0.2)
     show Graham at right with moveinleft

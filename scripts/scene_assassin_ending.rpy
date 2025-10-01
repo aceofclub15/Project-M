@@ -6,7 +6,7 @@
 
 label sc_assassin_ending:
 
-    "Time skips forward by six months."
+    "Six months later."
     scene black  # random_warehouse
     show bg warehouse_interior
     Morgan "{i}Life has a way of surprising you.{/i}"

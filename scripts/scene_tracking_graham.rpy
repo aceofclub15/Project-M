@@ -161,7 +161,7 @@ label sc_having_sex:
     Sarah "I love you too. And I share your vow. We will spend the rest of our lives together, no matter what."
     $ voice_line("m","good","hap")
     Morgan "I'm so, so happy to hear that."
-    $ voice_line("s", "so", "bad")
+    $ voice_line("s", "well", "hap")
     Sarah "There's just one more thing I need to do to make this official. One final test for you before I accept you as my lifelong partner."
     $ voice_line("s","so","bad")
     Sarah "This is something I use for my daily meditation. In order to revel in death, I need to know it, understand it."
@@ -175,8 +175,7 @@ label sc_having_sex:
 
 label sc_drink_potion:
     scene black
-    show bg sarah_apartment
-    show Morgan_default at center
+    show bg poisoned with dissolve
     $ voice_line("m","uh","bad")
     Morgan "{i}I feel my senses leave me.{/i}"
     Morgan "{i}It feels no different from being poisoned.{/i}"
@@ -198,7 +197,7 @@ label sc_drink_potion:
     $ voice_line("s","yeah","hap")
     Sarah "Yeah. Yeah, we will be."
 
-    "Morgan and Sarah falls asleep in each other arms."
+    "Morgan and Sarah fall asleep in each other arms."
     jump sc_warehouse_trap
 
     return

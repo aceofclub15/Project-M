@@ -3,8 +3,8 @@ label sc_sarah_attacking:
     scene black
     show bg hotel
     "Morgan watches Sarah - the assassin who is sadistically garroting a helpless female waiter to death."
+    "..."
     scene black
-    ""
     show ap_garroting_1
     pause 0.75
     $ voice_line("s", "uh", "hap")
@@ -42,8 +42,8 @@ label sc_timimg_shot:
     Morgan "{i}First, I'll shoot the metal plate on the left. Then the one on the right. After that, the one above.{/i}"
     $ voice_line("m","hmm","dis")
     Morgan "{i}If I get the angles right, I'll have ricochet my way to a bullseye.{/i}"
+    "..."
     scene black
-    ""
     window hide
     pause 0.5
     show ap_shooting_1
@@ -63,7 +63,7 @@ label sc_timimg_shot:
             renpy.pause(0.25)
     pause 0.5
     window show
-    ""
+    "..."
     scene black
     show bg shooting_range
     show Sarah at center with moveinbottom
@@ -98,7 +98,7 @@ label sc_stop_sarah:
     show Morgan_default at center with moveinbottom
     $ voice_line("m","oh","sur")
     Morgan "Oops! Excuse me..."
-    ""
+    "..."
     show ap_spilled_drink_1
     "Morgan {i}accidentally{/i} knocks the poisoned gin martini off the tray, causing the drink to spill onto the floor."
     pause 0.5
@@ -169,8 +169,8 @@ label sc_romance_climax:
     Morgan "Time to die, Graham! This is for Sarah!"
     $ voice_line("s", "uh", "hap")
     Sarah "Goodbye, you sanctimonious old man. You won't be missed."
+    "..."
     scene black
-    ""
     window hide
     pause 0.75
     show ap_hq_fight_1
@@ -183,7 +183,7 @@ label sc_romance_climax:
     show ap_hq_fight_4
     pause 1
     window show
-    ""
+    "..."
     window hide
     show ap_hq_fight_6
     pause 0.75
@@ -197,7 +197,7 @@ label sc_romance_climax:
     show ap_hq_fight_9
     pause 1
     window show
-    ""
+    "..."
     scene bg headquarters
     show Sarah at left
     show Graham at right
@@ -210,7 +210,7 @@ label sc_romance_climax:
     Sarah "That's right! We won, my love! The world is ours!"
     "Morgan and Sarah hears a voice from behind them."
     $ voice_line("j","well","bad")
-    "{color=#9d00ff} You two did win. A shame I can't say that for myself. {/color}"
+    "Mysterious Female" "{color=#9d00ff} You two did win. A shame I can't say that for myself. {/color}"
 
     $ voice_line("s", "so", "ang")
     Sarah "Huh? What are you talking about, June? Graham's dead, we're in the clear."
@@ -221,7 +221,7 @@ label sc_romance_climax:
     June "It's the burdens of leadership, Sarah. I took a gamble to get Graham out of hiding, and it let him straight to my headquarters."
     $ voice_line("j", "hmmph", "dis")
     June "You were just a pawn in my plans, so nobody will care what happens to you. But as for me? You'll find that my clients are rather... unforgiving."
-    "Suddenly they hears the sound of glass breaking and see that June get shot through the chest."
+    "Suddenly they hear the sound of glass breaking and see that June gets shot through the chest."
 
     show June:
         rotate 270
@@ -274,8 +274,8 @@ label sc_assassin_climax:
 
 
     Morgan "You're mine now, Graham. No sudden moves!"
+    "..."
     scene black
-    ""
     window hide
     pause 0.75
     show ap_hq_fight_1
@@ -288,7 +288,7 @@ label sc_assassin_climax:
     show ap_hq_fight_4
     pause 0.5
     window show
-    ""
+    "..."
 
     scene bg headquarters
     show Graham at right
@@ -298,19 +298,20 @@ label sc_assassin_climax:
         xalign 0.2
 
     show Graham:
-        rotate 90
+        rotate 60
         yoffset 300
         xoffset 200
+    show Morgan_default
     $ voice_line("g", "well", "hap")
     Graham "You really think you can take me alive? You think those two ladies will let you?!"
 
     $ voice_line("m","hah","dis")
     Morgan "You're not a threat anymore. Time to meet the Grandmaster, asshole."
 
-    "There is a shout from behind"
+    "There is a shout from behind."
     
     $ voice_line("j", "well", "bad")
-    June "No, you can't!"
+    "Mysterious Female" "No, you can't!"
 
     $ voice_line("m","what","ang")
     Morgan "What are you doing, June? I'm on your side!"
@@ -320,25 +321,22 @@ label sc_assassin_climax:
     June "If you're on my side, you'll hand over Graham, right now!"
     
     $ voice_line("m","huh","sur")
-    Morgan "Huh? But why? I need to deliver her to my master!"
+    Morgan "Huh? But why? I need to deliver him to my master!"
     
     $ voice_line("s", "so", "ang")
     Sarah "Do what June says, Morgan."
-    "Sarah points the gun at Morgan"
+    "Sarah points her gun at Morgan"
     
     $ voice_line("m","tch","ang")
     Morgan "What the hell?! I can't just betray the Grandmaster-"
 
     $ voice_line("j", "god", "hap")
-    June "You can't be serious, Morgan! You already know that she doesn't care what you do! Taking Graham to her's a waste of time, but if you hand him over to me, I can still fix-"
+    June "You can't be serious, Morgan! You already know that she doesn't care what you do! Taking Graham to her is a waste of time, but if you hand him over to me, I can still fix-"
 
     # Sniper shot kills June
-    "Suddenly Morgan heard the sound of glass breaking and we see that June get shot through the head"
-    "June collapses"
-    show June:   
-        rotate 270
-        yoffset 300
-    with dissolve
+    "Suddenly they hear the sound of glass breaking and see that June gets shot through the chest."
+    "June collapses."
+    hide June with dissolve
     
     $ voice_line("s", "no", "ang")
     Sarah "June?! No! NOOO!"
@@ -367,8 +365,9 @@ label sc_assassin_climax:
     
     $ voice_line("s","so","ang")
     Sarah "And that means I have no reason to keep you alive."
-    "Sarah glares at Graham and shot him"
-    with Pause(0.3)
+    "Sarah glares at Graham then shoots him"
+    $ renpy.sound.queue(sfx_muffled_gun_shot)
+    $ renpy.pause(0.25)
     hide Graham with dissolve
     pause 0.3
     hide June
@@ -394,13 +393,9 @@ label sc_assassin_climax:
     scene black
 
     $ voice_line("m","so","bad")
-    Morgan "{i}And so I listen to her, and run.{/i}"
+    Morgan "{i}And so I listened to her, and ran.{/i}"
     Morgan "{i}My mission is over, and so is my partnership with Sarah.{/i}"
     $ voice_line("m","hmm","dis")
     Morgan "{i}It's time to go back to being an Enforcer, and wait for the Grandmaster's next orders.{/i}"
-    "..."
-    $ voice_line("m","so","bad")
-    Morgan "{i}And so I continue working for Ouroboros.{/i}"
-
     jump sc_assassin_ending
     return

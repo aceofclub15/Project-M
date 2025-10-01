@@ -14,7 +14,7 @@ label sc_graham_paid:
     $ voice_line("m","so","bad")
     Morgan "Then he cut you out, and used the knowledge from the mission to enrich himself at your expense. And it seems like you're not the only person he screwed over."
     $ voice_line("g","so","bad")
-    Graham "So that's why Davidson Solutions put a kill order on him. We need to investigate the Hallex corporation, pronto."
+    Graham "So that's why Davidson Solutions put a kill order on him. We need to investigate the Hallex Corporation, pronto."
     $ voice_line("m","hmm","dis")
     Morgan "Any idea where to start?"
     $ voice_line("g","yes","bad")
@@ -34,11 +34,11 @@ label sc_hallex_warehouse_ambush:
     with dissolve
     show Morgan_default:
         xalign 0.15
-        yalign 0.75
+        yalign 0.8
     with moveinleft
     show Graham:
         xalign 0.06
-        yalign 0.85
+        yalign 0.9
     with moveinleft
 
     play sound sfx_tire_screech volume 1.5 fadeout 0.5
@@ -102,12 +102,10 @@ label sc_ambush:
     June "No, no NO! This can't be happening, you can't beat me so easily, I-"
     $ renpy.sound.queue(sfx_muffled_gun_shot)
     "A gunshot rings out from Adam's gun and June collapses." 
-    show June:
-        rotate 90
-        yoffset 400
+    hide June with dissolve
     $ voice_line("a","haha","hap")
     Adam "Looks like the hunter became the hunted. So long, you bitch! Hahahaha!"
-    hide June with dissolve
+
     show Adam at center with moveinright
     "Graham aims his gun at Adam."
     $ voice_line("g", "well", "hap")
@@ -122,7 +120,7 @@ label sc_ambush:
     People will remember us as heroes of citizen journalism, while you'll spend the rest of your life paying for what you've done."
     $ voice_line("a", "no", "sur")
     Adam "No! NO! I'm not going to prison! I'D RATHER DIE!"
-    "Adam turns his gun on himself before Morgan or Graham have time to react."
+    "Adam turns the gun on himself before Morgan or Graham have time to react."
     hide Adam with dissolve
     $ voice_line("g", "tch", "bad")
     Graham "Shit! The bastard killed himself!"

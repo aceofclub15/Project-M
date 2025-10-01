@@ -1,5 +1,6 @@
 label finalcredits:
     stop music
+    stop channel_background
     scene black
     play music music_bg_action
     show screen creditscreen(1)

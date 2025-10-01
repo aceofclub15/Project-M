@@ -17,7 +17,7 @@ label sc_target_poisoned:
 
     "Adam is gulping down the drink, when Sarah gracefully leaves the dining area." 
     scene black
-    show bg hoteln with dissolve
+    show bg hotel with dissolve
     show Sarah_disguise at right
     show Morgan_default at left
     $ voice_line("m","well","bad")
